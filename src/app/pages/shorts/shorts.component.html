@@ -1,0 +1,152 @@
+<div class="container-xl">
+  <app-loading-spinner *ngIf="loadingState"></app-loading-spinner>
+  <ng-template [ngIf]="!loadingState">
+    <nav class="navbar navbar-light sticky-top px-0 py-2 py-md-3" style="background-color: white; top: 56px !important;">
+      <div class="col-5 px-0">
+        <input id="searchField" class="form-control" placeholder="Търси"  (change)="updateSearch($event.target.value)" autocomplete="off" aria-label="Търсене">
+      </div>
+      <div class="col-2 px-0 text-center">
+        <button class="col-6 px-1 btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#sidebarFilter" aria-controls="sidebarFilter" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-filter"></i>
+        </button>
+      </div>
+      <div class="progress col-5 px-0" style="height: 38px; position: relative;font-size: 1rem;">
+        <div class="progress-info">{{ shortsReadCount }} / {{ shortsTotalCount }}</div>
+        <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width.%': (( shortsReadCount / shortsTotalCount ) * 100).toFixed(2) }" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="navbar-collapse collapse" id="sidebarFilter">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item mt-2">
+            <div class="row">
+              <div class="col-6 col-md-4 col-lg-3">
+                <label><i class="fa fa-sort-amount-asc"></i> Сортиране</label>
+                <select class="form-control" (change)="changeSorting($event.target.value)" [value]="getSorting()">
+                    <option value="first_pub_date">Първа публикация</option>
+                    <option value="title">Заглавие</option>
+                    <option value="collection_title">Сборник</option>
+                    <option value="collection_published">Публикация в сборник</option>
+                </select>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <label class="pt-2"><i class="fa fa-filter"></i> Филтър</label>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" id="filterHideRead" class="custom-control-input" (change)="changeFilter('no_read',$event.target.checked)" [checked]="getFilter('no_read')">
+                    <label class="custom-control-label click" for="filterHideRead">Непрочетени</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" id="filterShowReadCollections" class="custom-control-input" (change)="changeFilter('read_collection',$event.target.checked)" [checked]="getFilter('read_collection')">
+                    <label class="custom-control-label click" for="filterShowReadCollections">Прочетени сборници</label>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <label class="pt-2"><i class="fa fa-book"></i> Включени в сборник</label>
+                <div class="row pl-3">
+                    <div class="col-3 custom-control custom-checkbox">
+                        <input type="checkbox" id="filterWithCollection" class="custom-control-input" (change)="changeFilter('in_collection',$event.target.checked)" [checked]="getFilter('in_collection')">
+                        <label class="custom-control-label click" for="filterWithCollection">Да</label>
+                    </div>
+                    <div class="col-3 custom-control custom-checkbox">
+                        <input type="checkbox" id="filterNoCollection" class="custom-control-input" (change)="changeFilter('no_collection',$event.target.checked)" [checked]="getFilter('no_collection')">
+                        <label class="custom-control-label click" for="filterNoCollection">Не</label>
+                    </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <label class="pt-2"><i class="fa fa-asterisk"></i> Форма</label>
+                <div class="row pl-3">
+                    <!--
+                    145 	short story
+                    37 	novella
+                    15 	poem
+                    2 	play
+                    1 	essay
+                    1 	screenplay
+                    1 	teleplay
+                    1 	притча
+                    -->
+                    <div class="custom-control custom-checkbox col-12">
+                        <input type="checkbox" id="filterShortStory" class="custom-control-input" (change)="changeFilter('short_story', $event.target.checked)" [checked]="getFilter('short_story')">
+                        <label class="custom-control-label click" for="filterShortStory">Разказ</label>
+                    </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <label class="pt-2"><i class="fa fa-language"></i> Българско издание</label>
+                <div class="row pl-3">
+                    <div class="col-3 custom-control custom-checkbox">
+                        <input type="checkbox" id="filterWithEditions" class="custom-control-input" (change)="changeFilter('with_editions',$event.target.checked)" [checked]="getFilter('with_editions')">
+                        <label class="custom-control-label click" for="filterWithEditions">Да</label>
+                    </div>
+                    <div class="col-3 custom-control custom-checkbox">
+                        <input type="checkbox" id="filterNoEditions" class="custom-control-input" (change)="changeFilter('no_editions',$event.target.checked)" [checked]="getFilter('no_editions')">
+                        <label class="custom-control-label click" for="filterNoEditions">Не</label>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <table class="table table-sm table-striped table-hover">
+      <tbody>
+          <tr *ngFor="let short of shorts" [ngClass]="shortClasses(short)">
+              <td style="vertical-align: middle; text-align: center;">
+                  <div class="custom-control custom-checkbox" style="padding-left: 2rem !important">
+                      <input type="checkbox" [ngClass]="{'custom-control-input': true, 'is-valid': isRead(short)}" (change)="shortToggle(short,!isRead(short))" id="short{{ short.short_id }}" [checked]="isRead(short)">
+                      <label class="custom-control-label click" for="short{{ short.short_id }}"></label>
+                  </div>
+              </td>
+              <td>
+                  <span class="text-secondary help" title="{{short.first_pub_in != '' ? short.first_pub_in : (short.collection_title +' ('+ short.first_pub_date + ')') }}">{{short.first_pub_date}}</span>
+              </td>
+              <td>
+                  <span class="short-title" title="{{short.short_id}}">{{ short.title }}</span>
+                  <span class="text-secondary ml-2" *ngIf="short.note != ''"><i class="fa fa-comment-o" title="{{short.note}}"></i></span>
+              </td>
+              <td class="bgEditions" style="vertical-align: middle;">
+                  <ng-template [ngIf]="short.books?.length > 0" [ngIfElse]="noCollection">
+                      <ng-template ngFor let-book [ngForOf]="short.books" let-i="index">
+                          <div class="row edition" [ngClass]="{'edition-hidden': i > 0 ? true : false }">
+                              <div class="col col-12">
+                                  <ng-template [ngIf]="short.books.length > 1 && i == 0">
+                                      <span class="editionSelectionButtons">
+                                          <small class="text-secondary click showBookEditions"><i class="fa fa-eye text-secondary"></i> {{short.books.length}}</small>
+                                      </span>
+                                  </ng-template>
+                                  {{ book.title }}
+                              </div>
+                          </div>
+                      </ng-template>
+                  </ng-template>
+                  <ng-template #noCollection>
+                      <small class="text-secondary"><i>Не е събирано в сборник</i></small>
+                  </ng-template>
+              </td>
+              <td class="bgEditions" style="vertical-align: middle;">
+                  <ng-template [ngIf]="short.editions?.length > 0" [ngIfElse]="noEditions">
+                      <ng-template ngFor let-edition [ngForOf]="short.editions" let-i="index">
+                          <div class="row edition" [ngClass]="{'edition-hidden': i > 0 ? true : false }">
+                              <div class="col col-6">
+                                  <ng-template [ngIf]="short.editions.length > 1 && i == 0">
+                                      <span class="editionSelectionButtons">
+                                          <small class="text-secondary click showBookEditions"><i class="fa fa-eye text-secondary"></i> {{short.editions.length}}</small>
+                                      </span>
+                                  </ng-template>
+                                  <span class="crop-text-1">{{ edition.title }}</span>
+                              </div>
+                              <div class="col col-6">
+                                  {{ edition.edition_title }} <small class="text-secondary">({{ edition.published.split("-")[0] }})</small>
+                              </div>
+                          </div>
+                      </ng-template>
+                  </ng-template>
+                  <ng-template #noEditions>
+                      <small class="text-secondary"><i>Няма българско издание</i></small>
+                  </ng-template>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>

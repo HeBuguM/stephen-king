@@ -1,0 +1,61 @@
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-xl">
+      <a class="navbar-brand" routerLink="/">SK</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="books"><i class="fa fa-book"></i> Книги</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="shorts"><i class="fa fa-file-o"></i> Разкази</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <div *ngIf='auth.user$ | async as user; else login'>
+              <div class="dropdown">
+                <a class="nav-link p-0" href="#" role="button" id="dropdownMenuLink"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="{{ user.photoURL }}" style="width: 32px; border-radius: 50%;">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <div class="text-center">
+                    <img src="{{ user.photoURL }}" style="width: 60px; border-radius: 50%;">
+                  </div>
+                  <div class="text-center text-secondary"><small>{{ user.displayName }}</small></div>
+                  <div class="text-center">
+                    <span class="badge badge-secondary p-1 mx-1"  *ngIf="auth.isReader(user)">Reader</span>
+                    <span class="badge badge-warning p-1 mx-1"  *ngIf="auth.isEditor(user)">Editor</span>
+                    <span class="badge badge-success p-1 mx-1"  *ngIf="auth.isAdmin(user)">Admin</span>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" routerLink="admin"><i class="fa fa-wrench"></i> Администрация</a>
+                  <div class="dropdown-divider"></div>
+                  <div class="text-center">
+                    <button class="btn btn-primary" (click)="auth.signOut()">Изход</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<ng-template #login>
+  <div class="dropdown" *ngIf="auth.loadingAuth == null || auth.loadingAuth == false">
+    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-user"></i> Вход
+    </a>
+    <div class="dropdown-menu dropdown-menu-right">
+      <div class="text-center">
+        <button class="btn btn-primary" (click)="auth.googleSignin()"><i class="fa fa-google"></i> Влез с Google</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

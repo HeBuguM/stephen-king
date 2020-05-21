@@ -1,0 +1,6 @@
+.bgEditions {
+    border-left: 1px solid #dee2e6;
+}
+tr.table-success .bgEditions {
+  border-left: 1px solid #8fd19e;
+}

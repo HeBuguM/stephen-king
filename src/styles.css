@@ -1,0 +1,96 @@
+body {
+  padding-top: 3.5rem;
+}
+.click {
+    cursor: pointer !important;
+}
+.help {
+    cursor: help;
+}
+.button-read-toggle {
+  padding: 4px 5.5px;
+}
+
+.button-read-toggle.btn-outline-secondary:hover {
+  border-color: #28a745;
+  background-color: #28a745;
+}
+.button-read-toggle.btn-outline-success:hover {
+  border-color: #6c757d !important;
+  background-color: #6c757d !important;
+}
+.progress .bg-success {
+    background-color: #8fd19e !important;
+}
+.progress .progress-info {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.infoLink {
+    opacity: 0.3;
+    transition: 200ms;
+}
+tr.book:hover td .infoLink {
+    opacity: 1;
+}
+.edition .cover,
+.book .cover {
+    display: block;
+    height: 24px;
+    width: 50px;
+    float: left;
+    background-position: center;
+    background-size: cover;
+    margin-right: 5px;
+}
+.edition-expanded .cover {
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.row.edition {
+    margin-bottom: 1px;
+}
+.row.edition:last-of-type {
+  margin-bottom: 0px;
+}
+.crop-text-1 {
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.crop-text-2 {
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.edition-expanded .crop-text-1,
+.edition-expanded .crop-text-2 {
+    -webkit-line-clamp: unset;
+}
+#searchField {
+  padding: 4px 4px 4px 32px;
+}
+#searchField + i.fa-search {
+  position: absolute;
+  left: 8px;
+  top: 11px;
+}
+
+
+@media (max-width: 1200px) {
+  .modal-lg, .modal-xl {
+    max-width: 95%;
+  }
+}

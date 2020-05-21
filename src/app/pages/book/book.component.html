@@ -1,0 +1,129 @@
+<main>
+  <div class="container dark-grey-text mt-5" *ngIf="book">
+    <div class="row wow fadeIn">
+      <div class="col-md-4 col-lg-3 mb-4">
+        <div class="col-8 col-md-12 mx-auto px-0 card text-center">
+          <img src="/assets/covers/books/{{book.book_id}}.jpg" class="card-img-top" alt="Корица">
+          <div class="card-body">
+            <a *ngIf="book.official_site != ''" class="btn btn-outline-secondary mr-2" href="https://www.stephenking.com/{{ book.official_site }}" target="_blank" rel="noreferrer"><img src="assets/img/sk_official_small.png" alt="SK" style="vertical-align: baseline;"></a>
+            <a *ngIf="book.wikipedia != ''" class="btn btn-outline-secondary mr-2" href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank" rel="noreferrer"><img src="assets/img/wikipedia_small.png" alt="W" style="vertical-align: baseline;"></a>
+            <a *ngIf="book.goodreads > 0" class="btn btn-outline-secondary mr-2" href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G" style="vertical-align: baseline;"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-lg-9 mb-4">
+        <div class="pb-4">
+          <h1>{{ book.title }}</h1>
+          <p *ngIf="book.series_name" class="text-secondary">({{ book.series_name}} #{{ book.series_no}})</p>
+          <p>
+            <span *ngIf="book.pseudonym == ''; else Pseudonym">от <b>Стивън Кинг</b><span *ngIf="book.co_writers != ''">, {{ book.co_writers}}</span></span>
+          </p>
+          <ng-template #Pseudonym>
+            от <b>{{ book.pseudonym}}</b> <small class="ml-2 text-secondary">(псевдоним)</small><span *ngIf="book.co_writers != ''">, {{ book.co_writers}}</span>
+          </ng-template>
+        </div>
+        <table class="table table-sm">
+          <tr>
+            <th>Форма</th><td>{{ book.type }}</td>
+          </tr>
+          <tr>
+            <th>Страници</th><td>{{ book.pages }}</td>
+          </tr>
+          <tr>
+            <th>Издател</th><td>{{ book.publisher }}</td>
+          </tr>
+          <tr>
+            <th>Публикуван</th><td>{{ book.published }}</td>
+          </tr>
+          <tr *ngIf="book.alterations">
+            <th>Други издания</th><td>{{ book.alterations }}</td>
+          </tr>
+        </table>
+
+        <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="editions-tab" data-toggle="tab" href="#editions" role="tab" aria-controls="editions" aria-selected="true"><i class="fa fa-language"></i> Български издания</a>
+          </li>
+          <li class="nav-item" *ngIf="book.shorts.length > 0 || book.type == 'Сборник'">
+            <a class="nav-link" id="shorts-tab" data-toggle="tab" href="#shorts" role="tab" aria-controls="shorts" aria-selected="false"><i class="fa fa-list"></i> Разкази</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade p-3 show active" id="editions" role="tabpanel" aria-labelledby="editions-tab">
+            <ng-template [ngIf]="book.editions.length > 0" [ngIfElse]="noEditions">
+              <ng-template ngFor let-editions_group [ngForOf]="lib.groupBy(book.editions,'group_id')" let-g="index">
+              <div class="editions_group" *ngIf="g >=0">
+                  <hr *ngIf="g != 0">
+                  <ng-template ngFor let-edition [ngForOf]="editions_group" let-i="index">
+                    <div class="media my-1" style="font-size: 0.8em">
+                      <img src="assets/covers/editions/medium/{{edition.edition_id}}.jpg" style="max-height: 120px;" class="mr-3" alt="Корица">
+                      <div class="media-body">
+                        <h4 class="mt-0">{{ edition.title }}</h4>
+                        <div class="row">
+                          <div class="col-4 col-md-3 col-lg-2 text-secondary">Публикувана</div><div class="col-8 col-md-9 col-lg-10">{{ edition.published }}</div>
+                          <div class="col-4 col-md-3 col-lg-2 text-secondary">Издателство</div><div class="col-8 col-md-9 col-lg-10">{{ edition.publisher }}</div>
+                          <div class="col-4 col-md-3 col-lg-2 text-secondary">Страници</div><div class="col-8 col-md-9 col-lg-10">{{ edition.pages }}</div>
+                          <div class="col-4 col-md-3 col-lg-2 text-secondary">Превод</div><div class="col-8 col-md-9 col-lg-10">{{ edition.translation }}</div>
+                          <div class="col-4 col-md-3 col-lg-2 text-secondary" *ngIf="edition.shorts.length > 0">Разкази</div><div class="col-8 col-md-9 col-lg-10" *ngIf="edition.shorts.length > 0"><a data-toggle="collapse" href="#editionShorts{{edition.edition_id}}" aria-expanded="false" attr.aria-controls="editionShorts{{edition.edition_id}}">{{ edition.shorts.length }}</a></div>
+                          <div class="collapse" id="editionShorts{{edition.edition_id}}">
+                            <table class="table table-bodered table-sm mt-2">
+                              <tr *ngFor="let short of lib.combineShorts(edition.shorts,book.shorts)" [hidden]="short.edition_title == ''">
+                                <td>{{ short.original_position != 0 ? short.original_position : ""}}</td>
+                                <td class="text-secondary">
+                                  {{ short.original_title }}
+                                  <div class="text-secondary" *ngIf="short.original_subtitle != ''"><i>{{ short.original_subtitle }}</i></div>
+                                </td>
+                                <td>
+                                  {{ short.edition_title }}
+                                  <div class="text-secondary" *ngIf="short.edition_subtitle != ''"><i>{{ short.edition_subtitle }}</i></div>
+                                </td>
+                                <td><small class="text-secondary float-right" *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
+                              </tr>
+                            </table>
+                            <div class="mb-4" *ngIf="(book.shorts.length - edition.shorts.length) > 0">
+                              <a data-toggle="collapse" href="#editionShortsUnpublished{{edition.edition_id}}" aria-expanded="false" attr.aria-controls="editionShortsUnpublished{{edition.edition_id}}">Виж липсващите от оригиналния сборник разкази ({{ book.shorts.length - edition.shorts.length }})</a>
+                              <div class="collapse" id="editionShortsUnpublished{{edition.edition_id}}">
+                                <table class="table table-bodered table-sm mt-2">
+                                  <tr *ngFor="let short of lib.combineShorts(edition.shorts,book.shorts)" [hidden]="short.edition_title != ''">
+                                    <td>{{ short.original_position != 0 ? short.original_position : ""}}</td>
+                                    <td class="text-secondary">
+                                      {{ short.original_title }}
+                                      <div class="text-secondary" *ngIf="short.original_subtitle != ''"><i>{{ short.original_subtitle }}</i></div>
+                                    </td>
+                                    <td>
+                                      {{ short.edition_title }}
+                                      <div class="text-secondary" *ngIf="short.edition_subtitle != ''"><i>{{ short.edition_subtitle }}</i></div>
+                                    </td>
+                                    <td><small class="text-secondary float-right" *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+              </div>
+              </ng-template>
+      </ng-template>
+      <ng-template #noEditions>
+          <small class="text-secondary"><i>Няма българско издание</i></small>
+      </ng-template>
+          </div>
+          <div class="tab-pane fade" id="shorts" role="tabpanel" aria-labelledby="shorts-tab">
+            <table class="table table-bodered table-sm">
+              <tr *ngFor="let short of book.shorts">
+                <td>{{ short.position != 0 ? short.position : ""}}</td>
+                <td>
+                  {{ short.title }} <small class="text-secondary float-right" *ngIf="short.type != 'short story'">{{ short.type }}</small>
+                  <div class="text-secondary" *ngIf="short.subtitle != ''">{{ short.subtitle }}</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,572 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-4 bg-light border-right pt-3" style="min-height: calc(100vh - 56px);">
+        <div class="sticky-top" style="top: 72px">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link click" [ngClass]="{'active': showBooks}" (click)="changeSection('books')">Книги</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link click" [ngClass]="{'active': showEditions}" (click)="changeSection('editions')">Издания</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link click" [ngClass]="{'active': showShorts}" (click)="changeSection('shorts')">Разкази</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link click" [ngClass]="{'active': showData}" (click)="changeSection('data')">Данни</a>
+            </li>
+          </ul>
+          <button class="btn btn-warning" (click)="updateCustom()" [hidden]="true">Обнови</button>
+        <!-- #####
+             Форма Книга
+             #####
+          -->
+          <form [formGroup]="bookForm" (ngSubmit)="onBookFormSubmit()" class="mt-3" *ngIf="showBooks">
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Книга</label>
+              <div class="col-2">
+                  <input id="textinput" formControlName="book_id" class="form-control input-md" type="number">
+              </div>
+              <div class="col-8">
+                  <select formControlName="type" class="form-control">
+                      <option value="">Избери тип</option>
+                      <option>Роман</option>
+                      <option>Новела</option>
+                      <option>Сборник</option>
+                      <option>Сценарий</option>
+                      <option>Нехудожествена</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Заглавие</label>
+                <div class="col-10">
+                    <input id="textinput" formControlName="title" class="form-control">
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Поредица</label>
+                <div class="col-8">
+                    <input id="textinput" formControlName="series_name" class="form-control">
+                </div>
+                <div class="col-2">
+                    <input id="textinput" formControlName="series_no" class="form-control" type="number">
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Издание</label>
+                <div class="col-3">
+                    <input id="textinput" formControlName="published" class="form-control" placeholder="Дата" type="text">
+                </div>
+                <div class="col-2">
+                    <input id="textinput" formControlName="pages" placeholder="Стр." class="form-control" type="number">
+                </div>
+                <div class="col-5">
+                    <input id="textinput" formControlName="publisher" placeholder="Издателство" class="form-control">
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Псевдоним</label>
+                <div class="col-10">
+                    <input id="textinput" formControlName="pseudonym" class="form-control">
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Съавтори</label>
+                <div class="col-10">
+                    <input formControlName="co_writers" class="form-control">
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Преработки</label>
+                <div class="col-10">
+                    <textarea formControlName="alterations" cols="40" rows="2" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Бележки</label>
+                <div class="col-10">
+                    <textarea formControlName="note" cols="40" rows="2" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label">Линкове</label>
+                <div class="col-10">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><img src="/assets/img/wikipedia_small.png" style="vertical-align: baseline;"></div>
+                        </div>
+                        <input formControlName="wikipedia" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label"></label>
+                <div class="col-10">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><img src="/assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
+                        </div>
+                        <input formControlName="official_site" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-1 row">
+                <label class="col-2 col-form-label"></label>
+                <div class="col-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><img src="/assets/img/goodreads_small.png" style="vertical-align: baseline;"></div>
+                        </div>
+                        <input formControlName="goodreads" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid"><i class="fa fa-save"></i> Запази</button>
+          </form>
+
+          <!-- #####
+             Форма Издания
+             #####
+          -->
+          <form [formGroup]="editionForm" (ngSubmit)="onEditionFormSubmit()" class="mt-3" *ngIf="showEditions">
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Издание</label>
+              <div class="col-2">
+                <input formControlName="edition_id" class="form-control" type="number">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Оригинал</label>
+              <div class="col-7">
+                <select formControlName="book_id" class="form-control">
+                  <option value="">Избери книга</option>
+                  <option value="0">Не е към книга</option>
+                  <option *ngFor="let book of books$" value="{{ book.book_id }}">{{ book.title }}</option>
+                </select>
+              </div>
+              <div class="col-3">
+                <select formControlName="group_id" class="form-control">
+                    <option value="0">Група 0</option>
+                    <option value="1">Група 1</option>
+                    <option value="2">Група 2</option>
+                    <option value="3">Група 3</option>
+                    <option value="4">Група 4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Заглавие</label>
+              <div class="col-10">
+                <input formControlName="title" class="form-control">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Издание</label>
+              <div class="col-3">
+                <input formControlName="published" class="form-control" placeholder="Дата">
+              </div>
+              <div class="col-5">
+                <input formControlName="publisher" placeholder="Издателство" class="form-control">
+              </div>
+              <div class="col-2">
+                <input formControlName="pages" placeholder="Стр." class="form-control">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Превод</label>
+              <div class="col-10">
+                <input formControlName="translation" class="form-control">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Бележки</label>
+              <div class="col-10">
+                <textarea formControlName="note" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Линкове</label>
+              <div class="col-10">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><img src="/assets/img/goodreads_small.png" style="vertical-align: baseline;"></div>
+                  </div>
+                  <input id="text" formControlName="goodreads" placeholder="" class="form-control">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"  [disabled]="!editionForm.valid"><i class="fa fa-save"></i> Запази</button>
+          </form>
+
+        <!-- #####
+             Форма Разкази
+             #####
+        -->
+          <form [formGroup]="shortForm" (ngSubmit)="onShortFormSubmit()" class="mt-3" *ngIf="showShorts">
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Разказ</label>
+              <div class="col-2">
+                  <input id="textinput" formControlName="short_id" class="form-control input-md" type="number">
+              </div>
+              <div class="col-8">
+                  <select formControlName="type" class="form-control">
+                      <option value="">Избери тип</option>
+                      <option>Разказ</option>
+                      <option>Новела</option>
+                      <option>Притча</option>
+                      <option>Есе</option>
+                      <option>Пиеса</option>
+                      <option>ТВ Пиеса</option>
+                      <option>Поема</option>
+                      <option>Сценарий</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Заглавие</label>
+              <div class="col-10">
+                <input formControlName="title" class="form-control">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Подзаглавие</label>
+              <div class="col-10">
+                <input formControlName="subtitle" class="form-control">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Издаден</label>
+              <div class="col-3">
+                <input formControlName="first_pub_date" class="form-control" placeholder="Дата">
+              </div>
+              <div class="col-7">
+                <input formControlName="first_pub_in" placeholder="Първа публикация (не в сборник)" class="form-control">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Сборник</label>
+              <div class="col-10">
+                <select formControlName="first_collected" class="form-control">
+                  <option value="">Избери</option>
+                  <option value="0">Не е включван в сборник</option>
+                  <option *ngFor="let book of books$" value="{{ book.book_id }}">{{ book.title }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Бележки</label>
+              <div class="col-10">
+                <textarea formControlName="note" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"  [disabled]="!shortForm.valid"><i class="fa fa-save"></i> Запази</button>
+          </form>
+
+          <!-- #####
+             Форма Книги-Разкази
+             #####
+          -->
+          <form [formGroup]="bookShortForm" (ngSubmit)="onBookShortFormSubmit()" class="mt-3" *ngIf="showBooks || showShorts">
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Книга</label>
+              <div class="col-10">
+                <select formControlName="book_id" class="form-control" >
+                  <option value="">Избери книга</option>
+                  <optgroup label="Книги" *ngIf="books$">
+                    <option *ngFor="let book of lib.sortObject(books$,'title')" value="{{ book.book_id }}">{{ book.title }}</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Разказ</label>
+              <div class="col-8">
+                <select formControlName="short_id" class="form-control">
+                  <option value="">Избери разказ</option>
+                  <optgroup label="Разкази" *ngIf="shorts$">
+                    <option *ngFor="let short of lib.sortObject(shorts$,'title')" value="{{ short.short_id }}">{{ short.title }}</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="col-2">
+                <input formControlName="position" class="form-control" type="number">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"  [disabled]="!bookShortForm.valid"><i class="fa fa-save"></i> Запази</button>
+          </form>
+
+          <!-- #####
+             Форма Издания-Разкази
+             #####
+          -->
+          <form [formGroup]="editionShortForm" (ngSubmit)="onEditionShortFormSubmit()" class="mt-3" *ngIf="showEditions || showShorts">
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Книга</label>
+              <div class="col-10">
+                <select formControlName="edition_id" class="form-control" >
+                  <option value="">Избери издание</option>
+                  <optgroup label="Книги" *ngIf="books$">
+                    <option *ngFor="let edition of lib.sortObject(editions$,'title')" value="{{ edition.edition_id }}">{{ edition.title + ' ('+ edition.published.split("-")[0] + ')' }}</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Разказ</label>
+              <div class="col-8">
+                <select formControlName="short_id" class="form-control">
+                  <option value="">Избери разказ</option>
+                  <optgroup label="Разкази" *ngIf="shorts$">
+                    <option *ngFor="let short of lib.sortObject(shorts$,'title')" value="{{ short.short_id }}">{{ short.title }}</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="col-2">
+                <input formControlName="position" class="form-control" type="number">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Заглавие</label>
+              <div class="col-10">
+                <input formControlName="title" class="form-control">
+              </div>
+            </div>
+            <div class="form-group mb-1 row">
+              <label class="col-2 col-form-label">Подзаглавие</label>
+              <div class="col-10">
+                <input formControlName="subtitle" class="form-control">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"  [disabled]="!editionShortForm.valid"><i class="fa fa-save"></i> Запази</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="row sticky-top mb-2 pb-2 mt-2 border-bottom bg-white" style="top: 56px">
+          <div class="col-2"><b>База данни</b> <i class="fa fa-refresh ml-2 click" (click)="loadData()" *ngIf="!books$ || !editions$ || !shorts$ || !book_shorts$ || !edition_shorts$"></i></div>
+          <div class="col-2">Книги: <span *ngIf="books$ ; else loadBooks">{{ books$.length }}</span><ng-template #loadBooks><i class="fa fa-refresh click" (click)="loadData('books')"></i></ng-template></div>
+          <div class="col-2">Издания: <span *ngIf="editions$ ; else loadEditions">{{ editions$.length }}</span><ng-template #loadEditions><i class="fa fa-refresh click" (click)="loadData('editions')"></i></ng-template></div>
+          <div class="col-2">Разкази: <span *ngIf="shorts$ ; else loadShorts">{{ shorts$.length }}</span><ng-template #loadShorts><i class="fa fa-refresh click" (click)="loadData('shorts')"></i></ng-template></div>
+          <div class="col-2">Р-Книги <span *ngIf="book_shorts$  ; else loadBookShorts">{{ book_shorts$.length }}</span><ng-template #loadBookShorts><i class="fa fa-refresh click" (click)="loadData('book-shorts')"></i></ng-template></div>
+          <div class="col-2">Р-Издания <span *ngIf="edition_shorts$  ; else loadEditionShorts">{{ edition_shorts$.length }}</span><ng-template #loadEditionShorts><i class="fa fa-refresh click" (click)="loadData('edition-shorts')"></i></ng-template></div>
+        </div>
+        <!-- ТАБЛИЦА КНИГИ -->
+        <table class="table table-sm table-striped table-hover" *ngIf="showBooks && books$">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Издадена</th>
+              <th>Издателство</th>
+              <th>Заглавие</th>
+              <th>Страници</th>
+              <th style="width: 30%;">Преработки</th>
+              <th>Бележки</th>
+              <th>Линкове</th>
+            </tr>
+          </thead>
+            <tbody>
+                <tr *ngFor="let book of books$">
+                  <td class="text-secondary text-center">
+                    {{book.book_id}}
+                  </td>
+                  <td>
+                    <span class="text-secondary">{{ book.published }}</span>
+                  </td>
+                  <td>
+                    <span class="text-secondary">{{ book.publisher }}</span>
+                  </td>
+                  <td>
+                    <i class="fa fa-wrench click float-right ml-2" (click)="editBook(book)"></i>
+                    <small class="text-secondary ml-2 float-right" *ngIf="book.type != 'Роман'">{{ book.type }}</small>
+                    <div style="display: inline-block">
+                        <span class="book-title" title="{{book.book_id}}">{{ book.title }}</span>
+                        <div class="text-secondary" style="display: flex;" *ngIf="book.pseudonym"><small><i>as {{book.pseudonym}}</i></small></div>
+                        <div class="text-secondary" style="display: flex;" *ngIf="book.co_writers"><small><i>with {{book.co_writers}}</i></small></div>
+                        <div class="text-secondary" style="display: flex;" *ngIf="book.series_name"><small>{{ book.series_name + ' #'+ book.series_no }}</small></div>
+                        <div *ngIf="getBookShorts(book) as shorts">
+                          <small><a class="font-smaller" data-toggle="collapse" href="#bookShorts{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookShorts{{book.book_id}}" *ngIf="shorts.length > 0"> Разкази ({{ shorts.length }})</a></small>
+                          <div class="collapse" id="bookShorts{{book.book_id}}" *ngIf="shorts.length > 0">
+                            <table class="table table-sm mt-2">
+                              <tr *ngFor="let short of shorts">
+                                <td>{{  short.position }}</td>
+                                <td class="text-secondary">
+                                  <i class="fa fa-wrench click float-right ml-2" (click)="editBookShort(short)"></i>
+                                  {{ getShort(short.short_id).title }}
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <span class="text-secondary">{{ book.pages }}</span>
+                  </td>
+                  <td>
+                    <span class="text-secondary">{{ book.alterations }}</span>
+                  </td>
+                  <td>
+                    <span class="text-secondary">{{ book.notes }}</span>
+                  </td>
+                  <td style="vertical-align: middle;">
+                    <span class="infoLink" *ngIf="book.official_site != ''"><a href="https://www.stephenking.com/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
+                    <span class="infoLink" *ngIf="book.wikipedia != ''"><a href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
+                    <span class="infoLink" *ngIf="book.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- ТАБЛИЦА ИЗДАНИЯ -->
+        <table class="table table-sm table-striped table-hover" *ngIf="showEditions && editions$">
+          <thead>
+            <tr>
+              <td>#</td>
+              <td>Книга</td>
+              <td>Група</td>
+              <td>Заглавие</td>
+              <td>Публикувано</td>
+              <td>Издателство</td>
+              <td>Страници</td>
+              <td>Превод</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let edition of lib.sortObject(editions$,'edition_id')">
+                <td class="text-secondary" style="vertical-align: middle; text-align: center;">
+                  {{edition.edition_id}}
+                </td>
+                <td class="text-secondary" style="vertical-align: middle; text-align: center;">
+                  {{edition.book_id}}
+                </td>
+                <td class="text-secondary" style="vertical-align: middle; text-align: center;">
+                  {{edition.group_id}}
+                </td>
+                <td style="vertical-align: middle;">
+                  <i class="fa fa-wrench float-right" (click)="editEdition(edition)"></i>
+                  <span class="book-title" title="{{edition.book_id}}">{{ edition.title }}</span>
+                  <span class="text-secondary ml-2" *ngIf="edition.note != ''"><i class="fa fa-comment-o" title="{{edition.note}}"></i></span>
+                  <div *ngIf="getEditionShorts(edition) as shorts">
+                    <small><a data-toggle="collapse" href="#editionShorts{{edition.edition_id}}" aria-expanded="false" attr.aria-controls="editionShorts{{edition.edition_id}}" *ngIf="shorts.length > 0"> Разкази ({{ shorts.length }})</a></small>
+                    <div class="collapse" id="editionShorts{{edition.edition_id}}" *ngIf="shorts.length > 0">
+                      <table class="table table-sm mt-2">
+                        <tr *ngFor="let short of shorts">
+                          <td>{{  short.position }}</td>
+                          <td class="text-secondary">
+                            <i class="fa fa-wrench click float-right ml-2" (click)="editEditionShort(short)"></i>
+                            {{ short.title }}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+                <td style="text-align: center;vertical-align: middle;">
+                    <span class="text-secondary">{{ edition.published }}</span>
+                </td>
+                <td style="vertical-align: middle;">
+                  {{edition.publisher}}
+                </td>
+                <td style="vertical-align: middle;">
+                  {{edition.pages}}
+                </td>
+                <td style="vertical-align: middle;">
+                  {{edition.translation}}
+                </td>
+                <td style="vertical-align: middle;">
+                  <span class="infoLink" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+                </td>
+              </tr>
+          </tbody>
+      </table>
+      <!-- ТАБЛИЦА РАЗКАЗИ -->
+      <table class="table table-sm table-striped table-hover" *ngIf="showShorts && shorts$">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Заглавие</td>
+            <td>Форма</td>
+            <td>Дата</td>
+            <td style="width: 40%">Първа публикация</td>
+            <td>Сбоник</td>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let short of lib.sortObject(shorts$,'short_id')">
+                <td class="text-secondary" style="vertical-align: middle; text-align: center;">
+                  {{short.short_id}}
+                </td>
+                <td class="text-secondary" style="vertical-align: middle; text-align: center;">
+                  {{short.type}}
+                </td>
+                <td style="vertical-align: middle;">
+                  <i class="fa fa-wrench float-right" (click)="editShort(short)"></i>
+                  {{short.title}}
+                  <div class="text-secondary" *ngIf="short.subtitle">{{short.subtitle}}</div>
+                  <div *ngIf="getBookShorts(short) as shorts">
+                    <small><a class="font-smaller" data-toggle="collapse" href="#bookShorts{{short.short_id}}" aria-expanded="false" attr.aria-controls="bookShorts{{short.short_id}}" *ngIf="shorts.length > 0"> Книги ({{ shorts.length }})</a></small>
+                    <div class="collapse" id="bookShorts{{short.short_id}}" *ngIf="shorts.length > 0">
+                      <table class="table table-sm mt-2">
+                        <tr *ngFor="let book of shorts">
+                          <td>{{ book.position }}</td>
+                          <td class="text-secondary">
+                            <i class="fa fa-wrench click float-right ml-2" (click)="editBookShort(book)"></i>
+                            {{ getBook(book.book_id).title }}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div *ngIf="getEditionShorts(short) as shorts">
+                    <small><a class="font-smaller" data-toggle="collapse" href="#editionShorts{{short.short_id}}" aria-expanded="false" attr.aria-controls="editionShorts{{short.short_id}}" *ngIf="shorts.length > 0"> Издания ({{ shorts.length }})</a></small>
+                    <div class="collapse" id="editionShorts{{short.short_id}}" *ngIf="shorts.length > 0">
+                      <table class="table table-sm mt-2">
+                        <tr *ngFor="let edition of shorts">
+                          <td>{{ edition.position }}</td>
+                          <td class="text-secondary">
+                            <i class="fa fa-wrench click float-right ml-2" (click)="editEditionShort(edition)"></i>
+                            {{ getEdition(edition.edition_id).title }}
+                          </td>
+                          <td>{{ edition.title }}</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+                <td style="text-align: center;vertical-align: middle;">
+                    <span class="text-secondary">{{ short.first_pub_date }}</span>
+                </td>
+                <td>
+                  {{ short.first_pub_in }}
+                  <div class="text-secondary" *ngIf="short.note != ''">{{short.note}}</div>
+                </td>
+                <td>
+                  {{ short.first_collected }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+        <div *ngIf="showData">
+          <button class="btn btn-primary inline-block" (click)="exportFirestoreBooks()">Export</button>
+          <div class="dropdown float-right">
+            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-upload"></i> Import
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item click" (click)="importBooks()">Книги</a>
+              <a class="dropdown-item click" (click)="importEditions()">Издания</a>
+              <a class="dropdown-item click" (click)="importShorts()">Разкази</a>
+              <a class="dropdown-item click" (click)="importCustom()">Custom</a>
+            </div>
+          </div>
+          <div class="text-secondary mt-2">Книги (books.json)</div>
+          <textarea class="form-control mt-3" spellcheck="false" style="height: 30vh;">{{ exportJSONbooks }}</textarea>
+          <div class="text-secondary mt-2">Разкази (shorts.json)</div>
+          <textarea class="form-control mt-3" spellcheck="false" style="height: 30vh;">{{ exportJSONshorts }}</textarea>
+        </div>
+      </div>
+  </div>
+</div>
