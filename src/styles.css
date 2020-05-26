@@ -10,14 +10,9 @@ body {
 .button-read-toggle {
   padding: 4px 5.5px;
 }
-
-.button-read-toggle.btn-outline-secondary:hover {
-  border-color: #28a745;
-  background-color: #28a745;
-}
-.button-read-toggle.btn-outline-success:hover {
-  border-color: #6c757d !important;
-  background-color: #6c757d !important;
+.progress {
+	height: 38px;
+	font-size: 1rem;
 }
 .progress .bg-success {
     background-color: #8fd19e !important;
@@ -37,29 +32,48 @@ body {
     opacity: 0.3;
     transition: 200ms;
 }
-tr.book:hover td .infoLink {
+tr:hover td .infoLink {
     opacity: 1;
 }
-.edition .cover,
-.book .cover {
-    display: block;
-    height: 24px;
+.book .cover,
+.short .cover,
+.edition .cover {
     width: 50px;
-    float: left;
     background-position: center;
     background-size: cover;
-    margin-right: 5px;
+	margin-right: 5px;
+	align-self: stretch;
+	max-height: 72px;
+	border-radius: 3px;
+	-webkit-box-shadow: 1px 1px 1px 1px rgb(119, 119, 119,0.5);
+	-moz-box-shadow: 1px 1px 1px 1px rgb(119, 119, 119,0.5);
+	box-shadow: 1px 1px 1px 1px rgb(119, 119, 119,0.5);
 }
-.edition-expanded .cover {
-    height: 70px;
+.expanded .cover {
+    height: 72px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
 }
-.row.edition {
-    margin-bottom: 1px;
+.cover-full-pop {
+	display: flex;
+	width: 220px;
+	height: 350px;
+	justify-content: center;
+	align-items: center;
 }
-.row.edition:last-of-type {
-  margin-bottom: 0px;
+.cover-full-pop img {
+	max-width: 220px;
+	max-height: 350px;
+}
+.media.book,
+.media.short,
+.media.edition {
+    margin-bottom: 2px;
+}
+.media.book:last-of-type,
+.media.short:last-of-type,
+.media.edition:last-of-type {
+ 	 margin-bottom: 0px;
 }
 .crop-text-1 {
     -webkit-line-clamp: 1;
@@ -87,10 +101,19 @@ tr.book:hover td .infoLink {
   left: 8px;
   top: 11px;
 }
-
-
+.top56 {
+	top: 56px !important;
+}
 @media (max-width: 1200px) {
   .modal-lg, .modal-xl {
     max-width: 95%;
   }
+}
+@media (max-width: 767px) {
+	body {
+		padding-top: 3.0rem;
+	}
+	.top56 {
+		top: 48px !important;
+	}
 }
