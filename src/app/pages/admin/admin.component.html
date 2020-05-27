@@ -286,17 +286,17 @@
 </div>
 
 <ng-template #modalForms let-modal>
-	<div class="modal-header">
+	<div class="modal-header py-2">
 		<h4 class="modal-title" id="modal-basic-title">Добавяне / Редакция</h4>
-		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+		<button type="button" class="close mt-0 px-3 pt-1" aria-label="Close" (click)="modal.dismiss()">
 			<span aria-hidden="true">&times;</span>
 		</button>
 	</div>
-	<div class="modal-body">
-		<!-- #####
+	<div class="modal-body p-2">
+<!-- #####
 	 Форма Книга
 	 #####
-  	-->
+-->
 		<form [formGroup]="bookForm" (ngSubmit)="onBookFormSubmit()" class="mt-3" *ngIf="showBooksForm">
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Книга</label>
@@ -397,10 +397,10 @@
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!bookForm.valid"><i class="fa fa-save"></i> Запази</button>
 		</form>
 
-		<!-- #####
-	 Форма Издания
-	 #####
-  -->
+<!-- #####
+	Форма Издания
+	#####
+-->
 		<form [formGroup]="editionForm" (ngSubmit)="onEditionFormSubmit()" class="mt-3" *ngIf="showEditionsForm">
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Издание</label>
@@ -424,6 +424,8 @@
 						<option value="2">Група 2</option>
 						<option value="3">Група 3</option>
 						<option value="4">Група 4</option>
+						<option value="5">Група 5</option>
+						<option value="6">Група 6</option>
 					</select>
 				</div>
 			</div>
@@ -472,9 +474,9 @@
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!editionForm.valid"><i class="fa fa-save"></i> Запази</button>
 		</form>
 
-		<!-- #####
-	 Форма Разкази
-	 #####
+<!-- #####
+	Форма Разкази
+	#####
 -->
 		<form [formGroup]="shortForm" (ngSubmit)="onShortFormSubmit()" class="mt-3" *ngIf="showShortsForm">
 			<div class="form-group mb-1 row">
@@ -528,10 +530,11 @@
 			</div>
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!shortForm.valid"><i class="fa fa-save"></i> Запази</button>
 		</form>
-		<!-- #####
-	 Форма Книги-Разкази
-	 #####
-  -->
+
+<!-- #####
+	Форма Книги-Разкази
+	#####
+-->
 		<form [formGroup]="bookShortForm" (ngSubmit)="onBookShortFormSubmit()" class="mt-3" *ngIf="showBooksShortsForm">
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Книга</label>
@@ -565,10 +568,10 @@
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!bookShortForm.valid"><i class="fa fa-save"></i> Запази</button>
 		</form>
 
-		<!-- #####
-	 Форма Издания-Разкази
-	 #####
-  -->
+<!-- #####
+	Форма Издания-Разкази
+	#####
+-->
 		<form [formGroup]="editionShortForm" (ngSubmit)="onEditionShortFormSubmit()" class="mt-3" *ngIf="showEditionsShortsForm">
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Книга</label>

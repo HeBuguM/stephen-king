@@ -52,7 +52,7 @@ export class LibraryService {
 	}
 
 	bookReadToggle(book, new_state) {
-		var readBooks = localStorage.getItem("read_books") !== null ? JSON.parse(localStorage.getItem("read_books")) : {};
+		let readBooks = localStorage.getItem("read_books") !== null ? JSON.parse(localStorage.getItem("read_books")) : {};
 		if(new_state == true) {
 			readBooks[book.book_id] = new_state;
 		} else {
@@ -61,48 +61,10 @@ export class LibraryService {
 		localStorage.setItem("read_books", JSON.stringify(readBooks));
 	}
 
-	selectBookEdition(edition) {
-		var selectedEditions = localStorage.getItem("selected_editions") !== null ? JSON.parse(localStorage.getItem("selected_editions")) : {};
-		selectedEditions[edition.book_id] = edition.group_id;
-		localStorage.setItem("selected_editions", JSON.stringify(selectedEditions));
-	}
-
-	unselectBookEdition(edition) {
-		var selectedEditions = localStorage.getItem("selected_editions") !== null ? JSON.parse(localStorage.getItem("selected_editions")) : {};
-		delete selectedEditions[edition.book_id];
-		localStorage.setItem("selected_editions", JSON.stringify(selectedEditions));
-	}
-
 	isBookRead(id) {
 		if (localStorage.getItem("read_books") !== null) {
-			var readBooks = JSON.parse(localStorage.getItem("read_books"));
+			let readBooks = JSON.parse(localStorage.getItem("read_books"));
 			if (readBooks[id] === true) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return false;
-		}
-	}
-
-	hasSelectedEdition(edition) {
-		if (localStorage.getItem("selected_editions") !== null) {
-			var selectedEditions = JSON.parse(localStorage.getItem("selected_editions"));
-			if (selectedEditions[edition.book_id] !== undefined) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return false;
-		}
-	}
-
-	isEditionSelected(edition) {
-		if (localStorage.getItem("selected_editions") !== null) {
-			var selectedEditions = JSON.parse(localStorage.getItem("selected_editions"));
-			if (selectedEditions[edition.book_id] === edition.group_id) {
 				return true;
 			} else {
 				return false;
@@ -116,18 +78,67 @@ export class LibraryService {
 		let booksRead = 0;
 		if (localStorage.getItem("read_books") !== null) {
 			const readBooks = JSON.parse(localStorage.getItem("read_books"));
-			booksRead = Object.values(readBooks).filter(read => read === true).length
+			booksRead = Object.values(readBooks).length
 		} else {
 			booksRead = 0;
 		}
 		return booksRead;
 	}
 
+	// Editions
+
+	public selectBookEditionToggle(edition, new_state) {
+		let selectedEditions = localStorage.getItem("selected_editions") !== null ? JSON.parse(localStorage.getItem("selected_editions")) : {};
+		if(new_state == true) {
+			selectedEditions[edition.book_id] = edition.group_id;
+		} else {
+			delete selectedEditions[edition.book_id];
+		}
+		localStorage.setItem("selected_editions", JSON.stringify(selectedEditions));
+	}
+
+	hasSelectedEdition(edition) {
+		if (localStorage.getItem("selected_editions") !== null) {
+			let selectedEditions = JSON.parse(localStorage.getItem("selected_editions"));
+			if (selectedEditions[edition.book_id] !== undefined) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+
+	isEditionSelected(edition) {
+		if (localStorage.getItem("selected_editions") !== null) {
+			let selectedEditions = JSON.parse(localStorage.getItem("selected_editions"));
+			if (selectedEditions[edition.book_id] === edition.group_id) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+
+	selectedEditionsCount() {
+		let selectedEditions = 0;
+		if (localStorage.getItem("selected_editions") !== null) {
+			const editionsSelected = JSON.parse(localStorage.getItem("selected_editions"));
+			selectedEditions = Object.values(editionsSelected).length
+		} else {
+			selectedEditions = 0;
+		}
+		return selectedEditions;
+	}
+
 	// Shorts
 
 	isShortRead(short) {
 		if (localStorage.getItem("read_shorts") !== null) {
-			var readShorts = JSON.parse(localStorage.getItem("read_shorts"));
+			let readShorts = JSON.parse(localStorage.getItem("read_shorts"));
 			if (readShorts[short.short_id] === true) {
 				return true;
 			} else {
@@ -151,7 +162,7 @@ export class LibraryService {
 
 	isShortCollectionRead(short) {
 		if (short.books.length > 0 && short.editions.length > 0 && localStorage.getItem("read_books") !== null) {
-			var readBooks = JSON.parse(localStorage.getItem("read_books"));
+			let readBooks = JSON.parse(localStorage.getItem("read_books"));
 			for (const book of short.books) {
 				if (readBooks[book.book_id] === true) {
 					return true;
@@ -164,12 +175,10 @@ export class LibraryService {
 	}
 
 	shortsReadCount() {
-		var shortsRead = 0;
+		let shortsRead = 0;
 		if (localStorage.getItem("read_shorts") !== null) {
-			var readShorts = JSON.parse(localStorage.getItem("read_shorts"));
-			shortsRead = Object.values(readShorts).filter(function (read) {
-				return read === true;
-			}).length
+			const readShorts = JSON.parse(localStorage.getItem("read_shorts"));
+			shortsRead = Object.values(readShorts).length
 		} else {
 			shortsRead = 0;
 		}
@@ -177,8 +186,12 @@ export class LibraryService {
 	}
 
 	shortReadToggle(short, new_state) {
-		var readShorts = localStorage.getItem("read_shorts") !== null ? JSON.parse(localStorage.getItem("read_shorts")) : {};
-		readShorts[short.short_id] = new_state;
+		let readShorts = localStorage.getItem("read_shorts") !== null ? JSON.parse(localStorage.getItem("read_shorts")) : {};
+		if(new_state == true) {
+			readShorts[short.short_id] = new_state;
+		} else {
+			delete readShorts[short.short_id];
+		}
 		localStorage.setItem("read_shorts", JSON.stringify(readShorts));
 	}
 

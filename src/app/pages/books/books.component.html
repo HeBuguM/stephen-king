@@ -3,13 +3,13 @@
 	<ng-template [ngIf]="!loadingState">
 
 		<ng-template #bookDetails let-modal>
-			<div class="modal-header">
+			<div class="modal-header py-2">
 				<h4 class="modal-title" id="modal-basic-title">Преглед</h4>
-				<button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+				<button type="button" class="close mt-0 px-3 pt-1" aria-label="Close" (click)="modal.dismiss()">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body p-2">
 				<app-book *ngIf="previewBook" [book$]='previewBook'></app-book>
 			</div>
 		</ng-template>
@@ -155,8 +155,8 @@
 										<span class="edition-title" [ngClass]="{'crop-text-1': !isExpanded(book),'crop-text-2': isExpanded(book)}">{{ edition.title }}</span>
 										<div class="text-secondary" *ngIf="isExpanded(book) && edition.pages > 0">
 											<div class="d-inline float-right">
-												<span class="text-secondary click" *ngIf="lib.isEditionSelected(edition)" (click)="lib.unselectBookEdition(edition)"><i class="fa fa-check-circle text-success"></i></span>
-												<span class="text-secondary click" *ngIf="!lib.isEditionSelected(edition)" (click)="lib.selectBookEdition(edition)"><i class="fa fa-check-circle text-secondary"></i></span>
+												<span class="text-secondary click" *ngIf="lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition,false)"><i class="fa fa-check-circle text-success"></i></span>
+												<span class="text-secondary click" *ngIf="!lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition, true)"><i class="fa fa-check-circle text-secondary"></i></span>
 												<span class="infoLink ml-2 d-none d-sm-inline-block" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
 											</div>
 											<small><i>{{edition.pages}} стр. {{ edition.publisher }} {{ edition.published.split("-")[0] }}</i></small>
