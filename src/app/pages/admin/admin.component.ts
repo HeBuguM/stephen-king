@@ -137,7 +137,7 @@ export class AdminComponent implements OnInit {
 	}
 
 	openModal(content) {
-		this.modalService.open(content, {centered: true }).result.then(
+		this.modalService.open(content, { size: 'lg', centered: true }).result.then(
 			(result) => {},
 			(close) => {
 				this.showBooksForm = false;
