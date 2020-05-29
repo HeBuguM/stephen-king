@@ -462,6 +462,16 @@ export class AdminComponent implements OnInit {
 		}
 	}
 
+	getBookEditions(ref) {
+		if (this.editions$) {
+			if (ref.book_id) {
+				return this.editions$.filter(e => e.book_id == ref.book_id)
+			}
+		} else {
+			return false;
+		}
+	}
+
 	importBooks() {
 		this.lib.getBooks().toPromise().then(books => {
 			for (let book of books) {
