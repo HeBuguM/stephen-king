@@ -64,7 +64,7 @@ export class BooksComponent implements OnInit {
 
 	filterBooks() {
 		return this.filtered_books = this.books.filter(book => !(
-			(this.filter_books.read != 'all' && (this.lib.isBookRead(book.book_id) == !this.filter_books.read))
+			(this.filter_books.read != 'all' && (this.lib.isBookRead(book) == !this.filter_books.read))
 			|| (this.filter_books.pseudonym && book.pseudonym == "")
 			|| (this.filter_books.co_written && book.co_writers == "")
 			|| (this.filter_books.series_name && book.series_name != this.filter_books.series_name)
@@ -109,7 +109,7 @@ export class BooksComponent implements OnInit {
 	bookClasses(book) {
 		let classes = {
 			book: true,
-			'table-success': this.lib.isBookRead(book.book_id),
+			'table-success': this.lib.isBookRead(book),
 			'expanded': book.book_id == this.expandId
 		}
 		return classes;

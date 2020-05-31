@@ -60,7 +60,7 @@ export class ShortsComponent implements OnInit {
 
 	filterShorts() {
 		return this.filtered_shorts = this.shorts.filter(short => !(
-			(this.filter_shorts.read != 'all' && (this.lib.isShortRead(short.short_id) == !this.filter_shorts.read))
+			(this.filter_shorts.read != 'all' && (this.lib.isShortRead(short) == !this.filter_shorts.read))
 			|| (this.filter_shorts.read_collection && !this.lib.isShortCollectionRead(short))
 			|| (this.filter_shorts.bg_editions !== 'all' && !(this.filter_shorts.bg_editions ? short.editions.length > 0 : short.editions.length === 0))
 			|| (this.filter_shorts.collected !== 'all' && !(this.filter_shorts.collected ? short.books.length > 0 : short.books.length === 0))
@@ -88,6 +88,7 @@ export class ShortsComponent implements OnInit {
 	changeFilter(key, value) {
 		this.filter_shorts[key] = value;
 		sessionStorage.setItem('filter_shorts', JSON.stringify(this.filter_shorts));
+		console.log(this.filter_shorts);
 		this.filterShorts();
 	}
 

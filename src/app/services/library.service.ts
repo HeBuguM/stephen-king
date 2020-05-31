@@ -61,10 +61,10 @@ export class LibraryService {
 		localStorage.setItem("read_books", JSON.stringify(readBooks));
 	}
 
-	isBookRead(id) {
+	isBookRead(book) {
 		if (localStorage.getItem("read_books") !== null) {
 			let readBooks = JSON.parse(localStorage.getItem("read_books"));
-			if (readBooks[id] === true) {
+			if (readBooks[book.book_id] === true) {
 				return true;
 			} else {
 				return false;
@@ -142,18 +142,7 @@ export class LibraryService {
 			if (readShorts[short.short_id] === true) {
 				return true;
 			} else {
-				if (readShorts[short.short_id] === false) {
-					return false;
-				} else {
-					// // Auto mark as read if collection is read
-					// if(this.isReadCollection(short) === true) {
-					//   return true;
-					//   this.shortToggle(short,true)
-					// } else {
-					//   return false;
-					// }
-					return false;
-				}
+				return false;
 			}
 		} else {
 			return false;

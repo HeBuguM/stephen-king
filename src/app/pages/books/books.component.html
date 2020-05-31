@@ -102,8 +102,8 @@
 			<tbody>
 				<tr *ngFor="let book of filtered_books" [ngClass]="bookClasses(book)">
 					<td class="text-center align-middle">
-						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isBookRead(book.book_id)" (click)="lib.bookReadToggle(book,true);updateReadCounter()" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i></button>
-						<button class="btn btn-sm btn-outline-success button-read-toggle" *ngIf="lib.isBookRead(book.book_id)" (click)="lib.bookReadToggle(book,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isBookRead(book)" (click)="lib.bookReadToggle(book,true);updateReadCounter()" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-success button-read-toggle" *ngIf="lib.isBookRead(book)" (click)="lib.bookReadToggle(book,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
 					</td>
 					<td class="text-center align-middle px-0">
 						<small class="text-secondary d-none d-sm-inline" *ngIf="sorting_books == 'published'">{{ book.published.split("-")[0] }}</small>
