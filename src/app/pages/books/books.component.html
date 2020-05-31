@@ -118,7 +118,7 @@
 							<div class="media-body">
 								<small class="text-secondary ml-2 float-right d-none d-md-block" *ngIf="book.type != 'Роман'">{{ book.type }}</small>
 								<div class="d-inline-block">
-									<a class="book-title" ngb [routerLink]="[ '/book', book.book_id ]" title="{{book.book_id}}">{{ book.title }}</a>
+									<a class="book-title" ngb [routerLink]="[ '/book', book.book_id ]">{{ book.title }}</a>
 									<div class="text-secondary d-flex" *ngIf="isExpanded(book) && book.series_name != ''"><small>{{book.series_name + ' #'+ book.series_no}}</small></div>
 									<span class="text-secondary ml-2" *ngIf="book.alterations != ''"><i class="fa fa-pencil" title="{{book.alterations}}"></i></span>
 									<span class="text-secondary ml-2" *ngIf="book.note != ''"><i class="fa fa-comment-o" title="{{book.note}}"></i></span>
