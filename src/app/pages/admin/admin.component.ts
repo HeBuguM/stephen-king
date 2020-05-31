@@ -55,6 +55,7 @@ export class AdminComponent implements OnInit {
 		published: [''],
 		publisher: [''],
 		pages: [0],
+		synopsis: [''],
 		note: [''],
 		alterations: [''],
 		series_name: [''],
@@ -88,6 +89,7 @@ export class AdminComponent implements OnInit {
 		first_pub_date: [''],
 		first_pub_in: [''],
 		first_collected: ['', Validators.required],
+		synopsis: [''],
 		note: ['']
 	});
 
@@ -160,6 +162,7 @@ export class AdminComponent implements OnInit {
 				published: '',
 				publisher: '',
 				pages: 0,
+				synopsis: '',
 				note: '',
 				alterations: '',
 				series_name: '',
@@ -184,6 +187,7 @@ export class AdminComponent implements OnInit {
 				first_pub_date: '',
 				first_pub_in: '',
 				first_collected: 0,
+				synopsis: '',
 				note: ''
 			}
 		}
@@ -404,13 +408,20 @@ export class AdminComponent implements OnInit {
 	}
 
 	updateCustom() {
-		const select = this.shorts$.filter(s => s.type == 'screenplay');
-		select.forEach(short => {
+		this.shorts$.forEach(short => {
 			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
 			customRef.update({
-				type: short.type.replace("screenplay", "Сценарий")
+				synopsis: ''
 			});
 			console.log(short.title + ' updated');
+		});
+
+		this.books$.forEach(book => {
+			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);
+			customRef.update({
+				synopsis: ''
+			});
+			console.log(book.title + ' updated');
 		});
 	}
 
@@ -483,6 +494,7 @@ export class AdminComponent implements OnInit {
 					published: book.published,
 					publisher: book.publisher,
 					pages: Number(book.pages),
+					synopsis: book.synopsis,
 					note: book.note,
 					alterations: book.alterations,
 					series_name: book.series_name,
@@ -536,6 +548,7 @@ export class AdminComponent implements OnInit {
 					first_pub_date: short.first_pub_date,
 					first_pub_in: short.first_pub_in,
 					first_collected: Number(short.first_collected),
+					synopsis: short.synopsis,
 					note: short.note,
 				}
 				shortRef.set(data);

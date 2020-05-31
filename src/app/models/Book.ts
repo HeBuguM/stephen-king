@@ -4,7 +4,8 @@ export class Book {
     title:string;
     published:string;
     publisher:string;
-    pages:number;
+	pages:number;
+	synopsis: string;
     note:string;
     alterations: string;
     series_name:string;

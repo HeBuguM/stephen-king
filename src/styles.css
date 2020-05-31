@@ -75,6 +75,9 @@ tr:hover td .infoLink {
 .media.edition:last-of-type {
  	 margin-bottom: 0px;
 }
+.synopsis {
+	white-space: pre-line;
+}
 .crop-text-1 {
     -webkit-line-clamp: 1;
     overflow: hidden;

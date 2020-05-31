@@ -41,6 +41,8 @@
 					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Преработки</div><div class="col-8 col-md-8 col-lg-9">{{ book.alterations }}</div>
 				</div>
 
+				<p class="synopsis text-secondary font-italic mt-3" [innerHTML]='book.synopsis'></p>
+
 				<ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" id="editions-tab" data-toggle="tab" href="#editions" role="tab" aria-controls="editions" aria-selected="true"><i class="fa fa-language"></i> Български издания</a>

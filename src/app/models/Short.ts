@@ -4,7 +4,8 @@ export class Short {
     title:string;
     subtitle: string;
     first_pub_date: string; // YYYY-MM-DD | YYYY-MM | YYYY
-    first_pub_in: string;
+	first_pub_in: string;
+	synopsis: string;
     note:string;
     first_collected: number;
     collection_title: string;

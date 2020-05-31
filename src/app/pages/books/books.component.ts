@@ -76,7 +76,7 @@ export class BooksComponent implements OnInit {
 	}
 
 	openBookModal(content) {
-		this.modalService.open(content, { size: 'xl', centered: true }).result.then(
+		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true }).result.then(
 		() => {},
 		() => {this.updateReadCounter()});
 	}
