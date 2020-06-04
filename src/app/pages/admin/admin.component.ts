@@ -389,6 +389,19 @@ export class AdminComponent implements OnInit {
 		this.exportJSONshorts = JSON.stringify(this.lib.sortObject(this.finalShorts, 'first_pub_date'));
 	}
 
+	downloadJSON(type) {
+		var a = document.createElement('a');
+		if(type === 'books') {
+			var file = new Blob([this.exportJSONbooks], {type: 'application/json'});
+		}
+		if(type === 'shorts') {
+			var file = new Blob([this.exportJSONshorts], {type: 'application/json'});
+		}
+		a.href = URL.createObjectURL(file);
+		a.download = type + '.json';
+		a.click();
+	}
+
 	importCustom() {
 		const data = [
 

@@ -57,10 +57,9 @@
 						<th>Издадена</th>
 						<th>Издателство</th>
 						<th>Заглавие</th>
+						<th></th>
 						<th>Страници</th>
-						<th style="width: 30%;">Преработки</th>
-						<th>Бележки</th>
-						<th>Линкове</th>
+						<th style="width: 35%;"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -75,7 +74,6 @@
 							<span class="text-secondary">{{ book.publisher }}</span>
 						</td>
 						<td>
-							<i class="fa fa-wrench click float-right ml-2" (click)="editBook(book);openModal(modalForms)"></i>
 							<small class="text-secondary ml-2 float-right" *ngIf="book.type != 'Роман'">{{ book.type }}</small>
 							<div style="display: inline-block">
 								<span class="book-title" title="{{book.book_id}}">{{ book.title }}</span>
@@ -100,13 +98,27 @@
 										</table>
 									</div>
 								</div>
+								<div *ngIf="book.synopsis">
+									<small>
+										<a class="font-smaller" data-toggle="collapse" href="#bookSynopsis{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookSynopsis{{book.book_id}}">
+											Синопсис
+										</a>
+									</small>
+									<div class="collapse synopsis text-secondary font-italic" id="bookSynopsis{{book.book_id}}" [innerHTML]='book.synopsis'></div>
+								</div>
 							</div>
+						</td>
+						<td>
+							<i class="fa fa-wrench click float-right ml-2" (click)="editBook(book);openModal(modalForms)"></i>
+							<span class="infoLink" *ngIf="book.official_site"><a href="https://www.stephenking.com/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
+							<span class="infoLink" *ngIf="book.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
+							<span class="infoLink" *ngIf="book.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
 						</td>
 						<td class="text-center">
 							<span class="text-secondary">{{ book.pages }}</span>
 						</td>
 						<td>
-							<span class="text-secondary">{{ book.alterations }}</span>
+							<small class="text-secondary">{{ book.alterations }}</small>
 							<div *ngIf="getBookEditions(book) as editions">
 								<small>
 									<a class="font-smaller" data-toggle="collapse" href="#bookEditions{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookEditions{{book.book_id}}" *ngIf="editions.length > 0">
@@ -119,22 +131,21 @@
 											<td>{{  edition.group_id }}</td>
 											<td>{{  edition.published.split("-")[0] }}</td>
 											<td class="text-secondary">
-												<i class="fa fa-wrench click float-right ml-2" (click)="editEdition(edition);openModal(modalForms)"></i>
+												<i class="fa fa-wrench click float-right mt-2 ml-2" (click)="editEdition(edition);openModal(modalForms)"></i>
 												{{ edition.title }}
 											</td>
-											<td> {{  edition.publisher }}</td>
+											<td>
+												<span class="float-right" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+												<small class="text-secondary">
+													{{ edition.publisher }}
+													<div>{{ edition.translation }}</div>
+												</small>
+											</td>
 										</tr>
 									</table>
 								</div>
 							</div>
-						</td>
-						<td>
-							<span class="text-secondary">{{ book.notes }}</span>
-						</td>
-						<td style="vertical-align: middle;">
-							<span class="infoLink" *ngIf="book.official_site"><a href="https://www.stephenking.com/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
-							<span class="infoLink" *ngIf="book.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
-							<span class="infoLink" *ngIf="book.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+							<div class="text-secondary" *ngIf="book.notes"><i class="fa fa-comments"></i> {{ book.notes }}</div>
 						</td>
 					</tr>
 				</tbody>
@@ -155,7 +166,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor="let edition of lib.sortObject(editions$,'edition_id')">
+					<tr *ngFor="let edition of lib.sortObject(editions$,'book_id')">
 						<td class="text-secondary" style="vertical-align: middle; text-align: center;">
 							{{edition.edition_id}}
 						</td>
@@ -295,10 +306,10 @@
 						<a class="dropdown-item click" (click)="importCustom()">Custom</a>
 					</div>
 				</div>
-				<div class="text-secondary mt-2">Книги (books.json)</div>
-				<textarea class="form-control mt-3 h-25" spellcheck="false">{{ exportJSONbooks }}</textarea>
-				<div class="text-secondary mt-2">Разкази (shorts.json)</div>
-				<textarea class="form-control mt-3 h-25" spellcheck="false">{{ exportJSONshorts }}</textarea>
+				<div class="text-secondary mt-2">Книги <button class="btn btn-primary btn-sm" (click)="downloadJSON('books')" *ngIf="exportJSONbooks"><i class="fa fa-save"></i></button></div>
+				<textarea class="form-control mt-3" spellcheck="false" rows="10">{{ exportJSONbooks }}</textarea>
+				<div class="text-secondary mt-2">Разкази <button class="btn btn-primary btn-sm" (click)="downloadJSON('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-save"></i></button></div>
+				<textarea class="form-control mt-3" spellcheck="false" rows="10">{{ exportJSONshorts }}</textarea>
 			</div>
 		</div>
 	</div>
