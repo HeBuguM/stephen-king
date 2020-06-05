@@ -90,7 +90,7 @@ export class LibraryService {
 	public selectBookEditionToggle(edition, new_state) {
 		let selectedEditions = localStorage.getItem("selected_editions") !== null ? JSON.parse(localStorage.getItem("selected_editions")) : {};
 		if(new_state == true) {
-			selectedEditions[edition.book_id] = edition.group_id;
+			selectedEditions[edition.book_id] = (edition.group_id != 0 ? edition.group_id : edition.edition_id);
 		} else {
 			delete selectedEditions[edition.book_id];
 		}
@@ -113,7 +113,7 @@ export class LibraryService {
 	isEditionSelected(edition) {
 		if (localStorage.getItem("selected_editions") !== null) {
 			let selectedEditions = JSON.parse(localStorage.getItem("selected_editions"));
-			if (selectedEditions[edition.book_id] === edition.group_id) {
+			if (selectedEditions[edition.book_id] === edition.edition_id || (edition.group_id > 0 && selectedEditions[edition.book_id] === edition.group_id)) {
 				return true;
 			} else {
 				return false;

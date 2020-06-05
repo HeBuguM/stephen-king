@@ -421,20 +421,28 @@ export class AdminComponent implements OnInit {
 	}
 
 	updateCustom() {
-		this.shorts$.forEach(short => {
-			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
-			customRef.update({
-				synopsis: ''
-			});
-			console.log(short.title + ' updated');
-		});
+		// this.shorts$.forEach(short => {
+		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
+		// 	customRef.update({
+		// 		synopsis: ''
+		// 	});
+		// 	console.log(short.title + ' updated');
+		// });
 
-		this.books$.forEach(book => {
-			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);
+		// this.books$.forEach(book => {
+		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);
+		// 	customRef.update({
+		// 		synopsis: ''
+		// 	});
+		// 	console.log(book.title + ' updated');
+		// });
+
+		this.editions$.forEach(edition => {
+			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
 			customRef.update({
-				synopsis: ''
+				group_id: Number(0)
 			});
-			console.log(book.title + ' updated');
+			console.log(edition.title + ' updated');
 		});
 	}
 
