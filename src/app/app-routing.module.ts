@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BooksComponent } from './pages/books/books.component';
 import { BookComponent } from './pages/book/book.component';
 import { ShortsComponent } from './pages/shorts/shorts.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 // import { AuthGuard } from './services/auth.guard';
 // import { EditorGuard } from './services/editor.guard';
 import { AdminGuard } from './services/admin.guard';
@@ -16,7 +17,8 @@ const routes: Routes = [
   { 'path': 'books', component: BooksComponent},
   { 'path': 'book/:bookId', component: BookComponent},
   { 'path': 'shorts', component: ShortsComponent},
-  { 'path': 'admin', component: AdminComponent, canActivate: [AdminGuard]}
+  { 'path': 'admin', component: AdminComponent, canActivate: [AdminGuard]},
+  { 'path': '**',component: NotFoundComponent}
 ];
 
 @NgModule({

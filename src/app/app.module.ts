@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HomeComponent } from './pages/home/home.component';
     BooksComponent,
     BookComponent,
     ShortsComponent,
-    AdminComponent
+    AdminComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
