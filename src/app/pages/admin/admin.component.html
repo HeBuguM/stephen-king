@@ -128,16 +128,17 @@
 								<div class="collapse" id="bookEditions{{book.book_id}}" *ngIf="editions.length > 0">
 									<table class="table table-sm mt-2">
 										<tr *ngFor="let edition of editions">
-											<td>{{ edition.group_id }}</td>
-											<td>{{ edition.published.split("-")[0] }}</td>
+											<td>
+												<span title="{{ edition.edition_id }}">{{ edition.title }}</span>
+												<i class="fa fa-paperclip text-secondary ml-2" *ngIf="edition.group_id != 0" title="{{ edition.group_id }}"></i>
+											</td>
 											<td class="text-secondary">
 												<i class="fa fa-wrench click float-right mt-2 ml-2" (click)="editEdition(edition);openModal(modalForms)"></i>
-												{{ edition.title }}
 											</td>
 											<td>
 												<span class="float-right" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
 												<small class="text-secondary">
-													{{ edition.publisher }}
+													{{ edition.published.split("-")[0] }} {{ edition.publisher }} ({{ edition.pages }})
 													<div>{{ edition.translation }}</div>
 												</small>
 											</td>
@@ -465,14 +466,14 @@
 			</div>
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Издание</label>
-				<div class="col-3">
-					<input formControlName="published" class="form-control" placeholder="Дата">
-				</div>
-				<div class="col-5">
+				<div class="col-2">
 					<input formControlName="publisher" placeholder="Издателство" class="form-control">
 				</div>
 				<div class="col-2">
 					<input formControlName="pages" placeholder="Стр." class="form-control" type="number">
+				</div>
+				<div class="col-6">
+					<input formControlName="published" class="form-control" placeholder="Дата">
 				</div>
 			</div>
 			<div class="form-group mb-1 row">
