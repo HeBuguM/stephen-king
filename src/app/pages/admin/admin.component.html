@@ -55,11 +55,10 @@
 					<tr>
 						<th>#</th>
 						<th>Издадена</th>
-						<th>Издателство</th>
 						<th>Заглавие</th>
+						<th>Стр.</th>
 						<th></th>
-						<th>Страници</th>
-						<th style="width: 35%;"></th>
+						<th style="width: 40%;"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -68,54 +67,60 @@
 							{{book.book_id}}
 						</td>
 						<td>
-							<span class="text-secondary">{{ book.published }}</span>
-						</td>
-						<td>
-							<span class="text-secondary">{{ book.publisher }}</span>
+							<div class="text-secondary">{{ book.published }}</div>
+							<small class="text-secondary d-inline-flex">{{ book.publisher }}</small>
 						</td>
 						<td>
 							<small class="text-secondary ml-2 float-right" *ngIf="book.type != 'Роман'">{{ book.type }}</small>
 							<div style="display: inline-block">
-								<span class="book-title" title="{{book.book_id}}">{{ book.title }}</span>
-								<div class="text-secondary" style="display: flex;" *ngIf="book.pseudonym"><small><i>{{book.pseudonym}} (псевдоним)</i></small></div>
-								<div class="text-secondary" style="display: flex;" *ngIf="book.co_writers"><small><i>{{book.co_writers}}</i></small></div>
-								<div class="text-secondary" style="display: flex;" *ngIf="book.series_name"><small>{{ book.series_name + ' #'+ book.series_no }}</small></div>
-								<div *ngIf="getBookShorts(book) as shorts">
-									<small>
-										<a class="font-smaller" data-toggle="collapse" href="#bookShorts{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookShorts{{book.book_id}}" *ngIf="shorts.length > 0">
-											Разкази ({{ shorts.length }})
-										</a>
-									</small>
-									<div class="collapse" id="bookShorts{{book.book_id}}" *ngIf="shorts.length > 0">
-										<table class="table table-sm mt-2">
-											<tr *ngFor="let short of shorts">
-												<td>{{  short.position }}</td>
-												<td class="text-secondary">
-													<i class="fa fa-wrench click float-right ml-2" (click)="editBookShort(short);openModal(modalForms)"></i>
-													{{ getShort(short.short_id).title }}
-												</td>
-											</tr>
-										</table>
+								<div class="media book">
+									<ng-template #popContent>
+										<div style="text-align: center;"><img src="assets/covers/books/large/{{book.book_id}}.jpg" style="max-width: 340px;max-height: 500px"></div>
+									</ng-template>
+									<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/books/small/'+book.book_id+'.jpg)'}" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
+									<div class="media-body">
+										<span class="book-title" title="{{book.book_id}}">{{ book.title }}</span>
+										<div class="text-secondary" style="display: flex;" *ngIf="book.pseudonym"><small><i>{{book.pseudonym}} (псевдоним)</i></small></div>
+										<div class="text-secondary" style="display: flex;" *ngIf="book.co_writers"><small><i>{{book.co_writers}}</i></small></div>
+										<div class="text-secondary" style="display: flex;" *ngIf="book.series_name"><small>{{ book.series_name + ' #'+ book.series_no }}</small></div>
+										<div *ngIf="getBookShorts(book) as shorts">
+											<small>
+												<a class="font-smaller" data-toggle="collapse" href="#bookShorts{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookShorts{{book.book_id}}" *ngIf="shorts.length > 0">
+													Разкази ({{ shorts.length }})
+												</a>
+											</small>
+											<div class="collapse" id="bookShorts{{book.book_id}}" *ngIf="shorts.length > 0">
+												<table class="table table-sm mt-2">
+													<tr *ngFor="let short of shorts">
+														<td>{{  short.position }}</td>
+														<td class="text-secondary">
+															<i class="fa fa-wrench click float-right ml-2" (click)="editBookShort(short);openModal(modalForms)"></i>
+															{{ getShort(short.short_id).title }}
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div *ngIf="book.synopsis">
+											<small>
+												<a class="font-smaller" data-toggle="collapse" href="#bookSynopsis{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookSynopsis{{book.book_id}}">
+													Синопсис
+												</a>
+											</small>
+											<div class="collapse synopsis text-secondary font-italic" id="bookSynopsis{{book.book_id}}" [innerHTML]='book.synopsis'></div>
+										</div>
 									</div>
-								</div>
-								<div *ngIf="book.synopsis">
-									<small>
-										<a class="font-smaller" data-toggle="collapse" href="#bookSynopsis{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookSynopsis{{book.book_id}}">
-											Синопсис
-										</a>
-									</small>
-									<div class="collapse synopsis text-secondary font-italic" id="bookSynopsis{{book.book_id}}" [innerHTML]='book.synopsis'></div>
 								</div>
 							</div>
 						</td>
+						<td class="text-center">
+							<span class="text-secondary">{{ book.pages }}</span>
+						</td>
 						<td>
-							<i class="fa fa-wrench click float-right ml-2" (click)="editBook(book);openModal(modalForms)"></i>
 							<span class="infoLink" *ngIf="book.official_site"><a href="https://www.stephenking.com/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
 							<span class="infoLink" *ngIf="book.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
 							<span class="infoLink" *ngIf="book.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
-						</td>
-						<td class="text-center">
-							<span class="text-secondary">{{ book.pages }}</span>
+							<i class="fa fa-wrench click ml-2" (click)="editBook(book);openModal(modalForms)"></i>
 						</td>
 						<td>
 							<small class="text-secondary">{{ book.alterations }}</small>
@@ -128,6 +133,14 @@
 								<div class="collapse" id="bookEditions{{book.book_id}}" *ngIf="editions.length > 0">
 									<table class="table table-sm mt-2">
 										<tr *ngFor="let edition of editions">
+											<td>
+												<div class="media edition">
+													<ng-template #popContent>
+														<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
+													</ng-template>
+													<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/editions/small/'+edition.edition_id+'.jpg)'}" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
+												</div>
+											</td>
 											<td>
 												<span title="{{ edition.edition_id }}">{{ edition.title }}</span>
 												<i class="fa fa-paperclip text-secondary ml-2" *ngIf="edition.group_id != 0" title="{{ edition.group_id }}"></i>

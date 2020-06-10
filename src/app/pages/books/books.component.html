@@ -112,7 +112,7 @@
 					<td class="align-middle">
 						<div class="media book">
 							<ng-template #popContent>
-								<div style="width: 200px;height: 300px;text-align: center;"><img src="assets/covers/books/large/{{book.book_id}}.jpg" style="max-width: 200px;max-height: 300px"></div>
+								<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg"></div>
 							</ng-template>
 							<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/books/small/'+book.book_id+'.jpg)'}" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
 							<div class="media-body">

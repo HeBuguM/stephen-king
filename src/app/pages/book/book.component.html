@@ -57,7 +57,10 @@
 							<ng-template ngFor let-edition [ngForOf]="book.editions" let-i="index">
 								<hr class="my-2" *ngIf="i != 0 && edition.group_id == 0">
 								<div class="media my-1" style="font-size: 0.9em">
-									<img src="assets/covers/editions/medium/{{edition.edition_id}}.jpg"	style="max-height: 126px;" class="mr-3" alt="Корица">
+									<ng-template #popContent>
+										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
+									</ng-template>
+									<img src="assets/covers/editions/medium/{{edition.edition_id}}.jpg"	style="max-height: 126px;" class="mr-3 click" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 									<div class="media-body">
 										<a class="btn btn-sm btn-outline-secondary float-right" *ngIf="book.goodreads > 0" href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -4px"></a>
 										<h4 class="mt-0">{{ edition.title }}</h4>
