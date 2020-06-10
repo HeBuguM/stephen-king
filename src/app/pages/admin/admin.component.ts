@@ -110,7 +110,7 @@ export class AdminComponent implements OnInit {
 	constructor(public lib: LibraryService, private live: FirestoreService, private afs: AngularFirestore, private browser: Title, private fb: FormBuilder, private modalService: NgbModal) { }
 
 	ngOnInit() {
-		this.browser.setTitle(`Администрация - Stephen King`)
+		this.browser.setTitle(`Администрация - Стивън Кинг`)
 	}
 
 	loadData(data = '') {

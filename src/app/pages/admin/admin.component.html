@@ -131,32 +131,24 @@
 									</a>
 								</small>
 								<div class="collapse" id="bookEditions{{book.book_id}}" *ngIf="editions.length > 0">
-									<table class="table table-sm mt-2">
-										<tr *ngFor="let edition of editions">
-											<td>
-												<div class="media edition">
-													<ng-template #popContent>
-														<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
-													</ng-template>
-													<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/editions/small/'+edition.edition_id+'.jpg)'}" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
-												</div>
-											</td>
-											<td>
-												<span title="{{ edition.edition_id }}">{{ edition.title }}</span>
-												<i class="fa fa-paperclip text-secondary ml-2" *ngIf="edition.group_id != 0" title="{{ edition.group_id }}"></i>
-											</td>
-											<td class="text-secondary">
-												<i class="fa fa-wrench click float-right mt-2 ml-2" (click)="editEdition(edition);openModal(modalForms)"></i>
-											</td>
-											<td>
-												<span class="float-right" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
-												<small class="text-secondary">
-													{{ edition.published.split("-")[0] }} {{ edition.publisher }} ({{ edition.pages }})
-													<div>{{ edition.translation }}</div>
-												</small>
-											</td>
-										</tr>
-									</table>
+									<div class="media edition mt-1" *ngFor="let edition of editions">
+										<ng-template #popContent>
+											<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
+										</ng-template>
+										<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/editions/small/'+edition.edition_id+'.jpg)'}" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
+										<div class="media-body">
+											<div class="float-right">
+												<i class="fa fa-wrench click mr-2" (click)="editEdition(edition);openModal(modalForms)"></i>
+												<span *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+											</div>
+											<span title="{{ edition.edition_id }}">{{ edition.title }}</span>
+											<i class="fa fa-paperclip text-secondary ml-2" *ngIf="edition.group_id != 0" title="{{ edition.group_id }}"></i>
+											<small class="text-secondary">
+												<div>{{ edition.published.split("-")[0] }} {{ edition.publisher }} ({{ edition.pages }})</div>
+												<div>{{ edition.translation }}</div>
+											</small>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="text-secondary" *ngIf="book.notes"><i class="fa fa-comments"></i> {{ book.notes }}</div>
