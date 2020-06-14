@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { Book } from '../models/Book';
 import { Short } from '../models/Short';
+import { formatDate } from '@angular/common';
 
 @Injectable({
 	providedIn: 'root'
@@ -23,6 +24,56 @@ export class LibraryService {
 	public short_types = ['Разказ', 'Новела','Поема','Есе','Пиеса','ТВ Пиеса','Сценарий','Притча']
 
 	constructor(private http: HttpClient) { }
+
+	publishedDate(date, format: string = "first_short") {
+		let months = {
+			'01': 'Януари',
+			'02': 'Февруари',
+			'03': 'Март',
+			'04': 'Април',
+			'05': 'Май',
+			'06': 'Юни',
+			'07': 'Юни',
+			'08': 'Август',
+			'09': 'Септември',
+			'10': 'Октомври',
+			'11': 'Ноември',
+			'12': 'Декември'
+		}
+		let return_date = '';
+		let dates = date.split("|");
+		if(format.indexOf('short') != -1) {
+			return_date = (dates[0].split(".")[0]).split('-')[0].trim();
+		}
+		if(format.indexOf('long') != -1) {
+			let date = (dates[0].split(".")[0]).trim().split('-');
+			if(date.length === 3) {
+				return_date = Number(date[2]) +' '+ months[date[1]] +' '+ date[0];
+			} else if(date.length === 2) {
+				return_date = months[date[1]] +' '+ date[0];
+			} else {
+				return_date = date[0];
+			}
+		}
+		if(dates.length == 1 || format.indexOf('first') != -1) {
+			return return_date;
+		} else {
+			if(format.indexOf('short') != -1) {
+				return_date = return_date + ' — ' + (dates[dates.length-1].split(".")[0]).split('-')[0].trim();
+			}
+			if(format.indexOf('long') != -1) {
+				let date = (dates[dates.length-1].split(".")[0]).trim().split('-');
+				if(date.length === 3) {
+					return_date = return_date + ' — ' + Number(date[2]) +' '+ months[date[1]] +' '+ date[0];
+				} else if(date.length === 2) {
+					return_date = return_date + ' — ' + months[date[1]] +' '+ date[0];
+				} else {
+					return_date = return_date + ' — ' +  date[0];
+				}
+			}
+		}
+		return return_date;
+	}
 
 	getBooks(): Observable<Book[]> {
 		return this.http.get<Book[]>(this.booksUrl);
