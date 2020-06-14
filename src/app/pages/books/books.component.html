@@ -106,7 +106,7 @@
 						<button class="btn btn-sm btn-outline-success button-read-toggle" *ngIf="lib.isBookRead(book)" (click)="lib.bookReadToggle(book,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
 					</td>
 					<td class="text-center align-middle px-0">
-						<small class="text-secondary d-none d-sm-inline" *ngIf="sorting_books == 'published'">{{ book.published.split("-")[0] }}</small>
+						<small class="text-secondary d-none d-sm-inline" *ngIf="sorting_books == 'published'">{{ lib.publishedDate(book.published) }}</small>
 						<small class="text-secondary d-none d-sm-inline" *ngIf="sorting_books == 'pages'">{{ book.pages}}</small>
 					</td>
 					<td class="align-middle">
@@ -127,7 +127,7 @@
 									<div class="text-secondary d-flex" *ngIf="book.co_writers">
 										<small><i>{{book.co_writers}}</i></small></div>
 									<div class="text-secondary" *ngIf="isExpanded(book)">
-										<small><i>{{book.pages}} стр. {{ book.publisher }} {{ book.published.split('-')[0] }}</i></small>
+										<small><i>{{book.pages}} стр. {{ book.publisher }} {{ lib.publishedDate(book.published) }}</i></small>
 									</div>
 								</div>
 							</div>
@@ -154,14 +154,19 @@
 									<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/editions/small/'+edition.edition_id+'.jpg)'}" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
 									<div class="media-body">
 										<span class="edition-title" [ngClass]="{'crop-text-1': !isExpanded(book),'crop-text-2': isExpanded(book)}">{{ edition.title }}</span>
-										<div class="text-secondary" *ngIf="isExpanded(book) && edition.pages > 0">
-											<div class="d-inline float-right">
-												<span class="text-secondary click" *ngIf="lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition,false)"><i class="fa fa-check-circle text-success"></i></span>
-												<span class="text-secondary click" *ngIf="!lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition, true)"><i class="fa fa-check-circle text-secondary"></i></span>
-												<span class="infoLink ml-2 d-none d-sm-inline-block" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
-											</div>
-											<small><i>{{edition.pages}} стр. {{ edition.publisher }} {{ edition.published.split("-")[0] }}</i></small>
-											<small class="text-secondary ml-2" *ngIf="edition.note != ''"><i class="fa fa-comment" title="{{edition.note}}"></i></small>
+										<div class="text-secondary" *ngIf="isExpanded(book)">
+											<ng-container *ngIf="edition.pages; else comingEdition">
+												<div class="d-inline float-right">
+													<span class="click" *ngIf="lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition,false)"><i class="fa fa-check-circle text-success"></i></span>
+													<span class="click" *ngIf="!lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition, true)"><i class="fa fa-check-circle text-secondary"></i></span>
+													<span class="infoLink ml-2 d-none d-sm-inline-block" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+												</div>
+												<small><i>{{edition.pages}} стр. {{ edition.publisher }} {{ lib.publishedDate(edition.published) }}</i></small>
+												<small class=" ml-2" *ngIf="edition.note != ''"><i class="fa fa-comment" title="{{edition.note}}"></i></small>
+											</ng-container>
+											<ng-template #comingEdition>
+												<small class="text-secondary">Предстои от {{ edition.publisher }} през {{ lib.publishedDate(edition.published,'first_long') }}</small>
+											</ng-template>
 										</div>
 										<div class="text-secondary" *ngIf="isExpanded(book) && edition.translation != ''"><small><i>{{edition.translation}}</i></small></div>
 									</div>

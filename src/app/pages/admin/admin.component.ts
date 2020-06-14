@@ -156,7 +156,7 @@ export class AdminComponent implements OnInit {
 			this.bookForm.patchValue(data);
 		} else {
 			this.bookForm.patchValue({
-				book_id: 0,
+				book_id: this.books$.length+1,
 				type: '',
 				title: '',
 				published: '',
@@ -180,7 +180,7 @@ export class AdminComponent implements OnInit {
 	editShort(data) {
 		if(data === null) {
 			data = {
-				short_id: 0,
+				short_id: this.shorts$.length+1,
 				type: '',
 				title: '',
 				subtitle: '',
@@ -198,7 +198,7 @@ export class AdminComponent implements OnInit {
 	editEdition(data) {
 		if(data === null) {
 			data = {
-				edition_id: 0,
+				edition_id: this.editions$.length+1,
 				book_id: 0,
 				language: 'bg',
 				group_id: 0,
