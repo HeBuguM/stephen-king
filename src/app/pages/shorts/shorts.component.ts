@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
-import { Title } from '@angular/platform-browser'
 import { LibraryService } from '../../services/library.service'
 import { Short } from '../../models/Short'
 import { Subscription } from 'rxjs';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
 	selector: 'app-shorts',
@@ -31,10 +31,16 @@ export class ShortsComponent implements OnInit {
 	};
 	private sorting_shorts: string = 'first_pub_date';
 
-	constructor(public lib: LibraryService, private browser: Title) { }
+	constructor(public lib: LibraryService, private seo: SeoService) { }
 
 	ngOnInit() {
-		this.browser.setTitle(`Стивън Кинг - Разкази`)
+		this.seo.generateTags({
+			title: 'Стивън Кинг - Разкази',
+			description: 'Всички кратки произведения на Кинг, включвани или не в сборници, с изключение на новелите публикувани като самостоятелни книги',
+			image: 'https://hebugum.github.io/stephen-king/assets/img/home_shorts.jpg',
+			slug: 'shorts'
+		});
+
 		if (sessionStorage.getItem('filter_shorts') !== null) {
 			this.filter_shorts = JSON.parse(sessionStorage.getItem('filter_shorts'));
 		}

@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LibraryService } from '../../services/library.service'
-import { Title } from '@angular/platform-browser';
 import { Book } from '../../models/Book'
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
 	selector: 'app-books',
@@ -35,10 +35,15 @@ export class BooksComponent implements OnInit {
 
 	public sorting_books: string = 'published';
 
-	constructor(public lib: LibraryService, private browser: Title, private modalService: NgbModal) { }
+	constructor(public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
 	ngOnInit() {
-		this.browser.setTitle(`Стивън Кинг - Книги`);
+		this.seo.generateTags({
+			title: 'Стивън Кинг - Книги',
+			description: 'Основната литература включваща предимно романи и новели побликувани като самостоятелни книги, както и нехудожествената литература на Краля',
+			image: 'https://hebugum.github.io/stephen-king/assets/img/home_books.jpg',
+			slug: 'books'
+		});
 		if (sessionStorage.getItem('filter_books') !== null) {
 			this.filter_books = JSON.parse(sessionStorage.getItem('filter_books'));
 		}
