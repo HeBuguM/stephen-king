@@ -12,7 +12,6 @@ import { AdminComponent } from './pages/admin/admin.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -41,7 +40,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 	HttpClientModule,
 	NgbModule,
     BrowserAnimationsModule,
-    FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
