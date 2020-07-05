@@ -44,9 +44,11 @@ export class AdminComponent implements OnInit {
 	exportEditionShorts = [];
 	exportShorts = [];
 	finalBooks = [];
-	exportJSONbooks: string;
 	finalShorts = [];
+
+	exportJSONbooks: string;
 	exportJSONshorts: string;
+	exportXMLsitemap: string;
 
 	bookForm = this.fb.group({
 		book_id: [0, Validators.required],
@@ -242,27 +244,31 @@ export class AdminComponent implements OnInit {
 	}
 
 	onBookFormSubmit() {
-		this.afs.doc(`books/${this.bookForm.value.book_id}`).set(this.bookForm.value, { merge: true });
+		this.afs.doc(`books/${this.bookForm.value.book_id}`).set({...this.bookForm.value,last_modified: new Date()}, { merge: true });
+		this.modalService.dismissAll();
+	}
+
+	onEditionFormSubmit() {
+		this.afs.doc(`editions/${this.editionForm.value.edition_id}`).set({...this.editionForm.value,last_modified: new Date()}, { merge: true });
+		this.modalService.dismissAll();
+	}
+
+	onShortFormSubmit() {
+		this.afs.doc(`shorts/${this.shortForm.value.short_id}`).set({...this.shortForm.value,last_modified: new Date()}, { merge: true });
 		this.modalService.dismissAll();
 	}
 
 	onBookShortFormSubmit() {
 		this.afs.doc(`book-shorts/${this.bookShortForm.value.book_id}-${this.bookShortForm.value.short_id}`).set(this.bookShortForm.value, { merge: true });
-		this.modalService.dismissAll();
-	}
-
-	onEditionFormSubmit() {
-		this.afs.doc(`editions/${this.editionForm.value.edition_id}`).set(this.editionForm.value, { merge: true });
+		this.afs.doc(`books/${this.bookShortForm.value.book_id}`).set({last_modified: new Date()}, { merge: true });
+		this.afs.doc(`shorts/${this.bookShortForm.value.short_id}`).set({last_modified: new Date()}, { merge: true });
 		this.modalService.dismissAll();
 	}
 
 	onEditionShortFormSubmit() {
 		this.afs.doc(`edition-shorts/${this.editionShortForm.value.edition_id}-${this.editionShortForm.value.short_id}`).set(this.editionShortForm.value, { merge: true });
-		this.modalService.dismissAll();
-	}
-
-	onShortFormSubmit() {
-		this.afs.doc(`shorts/${this.shortForm.value.short_id}`).set(this.shortForm.value, { merge: true });
+		this.afs.doc(`editions/${this.editionShortForm.value.edition_id}`).set({last_modified: new Date()}, { merge: true });
+		this.afs.doc(`shorts/${this.editionShortForm.value.short_id}`).set({last_modified: new Date()}, { merge: true });
 		this.modalService.dismissAll();
 	}
 
@@ -387,6 +393,30 @@ export class AdminComponent implements OnInit {
 			this.finalShorts.push(short);
 		}
 		this.exportJSONshorts = JSON.stringify(this.lib.sortObject(this.finalShorts, 'first_pub_date'));
+
+		this.exportXMLsitemap = '<?xml version="1.0" encoding="UTF-8"?>\n\
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/#/</loc>\n\
+	</url>\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/#/books</loc>\n\
+	</url>\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/#/shorts</loc>\n\
+	</url>';
+
+		this.books$.forEach(book => {
+			let lastmod = book.last_modified.toDate().toISOString().substring(0,10);
+			this.exportXMLsitemap = this.exportXMLsitemap + ('\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/#/book/'+book.book_id+'</loc>\n\
+		<lastmod>'+lastmod+'</lastmod>\n\
+	</url>');
+		});
+
+		this.exportXMLsitemap = this.exportXMLsitemap + '\n\
+</urlset>';
 	}
 
 	downloadJSON(type) {
@@ -399,6 +429,16 @@ export class AdminComponent implements OnInit {
 		}
 		a.href = URL.createObjectURL(file);
 		a.download = type + '.json';
+		a.click();
+	}
+
+	downloadXML(type) {
+		var a = document.createElement('a');
+		if(type === 'sitemap') {
+			var file = new Blob([this.exportXMLsitemap], {type: 'application/xml'});
+		}
+		a.href = URL.createObjectURL(file);
+		a.download = type + '.xml';
 		a.click();
 	}
 
@@ -424,7 +464,7 @@ export class AdminComponent implements OnInit {
 		// this.shorts$.forEach(short => {
 		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
 		// 	customRef.update({
-		// 		synopsis: ''
+		// 		last_modified: new Date()
 		// 	});
 		// 	console.log(short.title + ' updated');
 		// });
@@ -432,18 +472,18 @@ export class AdminComponent implements OnInit {
 		// this.books$.forEach(book => {
 		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);
 		// 	customRef.update({
-		// 		synopsis: ''
+		// 		last_modified: new Date()
 		// 	});
 		// 	console.log(book.title + ' updated');
 		// });
 
-		this.editions$.forEach(edition => {
-			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
-			customRef.update({
-				group_id: Number(0)
-			});
-			console.log(edition.title + ' updated');
-		});
+		// this.editions$.forEach(edition => {
+		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
+		// 	customRef.update({
+		// 		last_modified: new Date()
+		// 	});
+		// 	console.log(edition.title + ' updated');
+		// });
 	}
 
 	getShort(short_id) {

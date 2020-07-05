@@ -9,6 +9,7 @@ import { BooksComponent } from './pages/books/books.component';
 import { ShortsComponent } from './pages/shorts/shorts.component';
 import { BookComponent } from './pages/book/book.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +20,8 @@ import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AboutComponent } from './pages/about/about.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     BookComponent,
     ShortsComponent,
     AdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AboutComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 	NgbModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    ReactiveFormsModule
+	ReactiveFormsModule,
+	FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

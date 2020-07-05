@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 import { HomeComponent } from './pages/home/home.component';
 import { BooksComponent } from './pages/books/books.component';
 import { BookComponent } from './pages/book/book.component';
@@ -10,14 +12,17 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AdminGuard } from './services/admin.guard';
 import { AdminComponent } from './pages/admin/admin.component';
 
-import { environment } from 'src/environments/environment';
+import { AboutComponent } from './pages/about/about.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 const routes: Routes = [
   { 'path': '', component: HomeComponent },
   { 'path': 'books', component: BooksComponent},
   { 'path': 'book/:bookId', component: BookComponent},
   { 'path': 'shorts', component: ShortsComponent},
-  { 'path': 'admin', component: AdminComponent, canActivate: [AdminGuard]},
+  { 'path': 'about', component: AboutComponent},
+  { 'path': 'settings', component: SettingsComponent},
+  { 'path': 'admin', component: AdminComponent},
   { 'path': '**',component: NotFoundComponent}
 ];
 

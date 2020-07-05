@@ -313,9 +313,11 @@
 					</div>
 				</div>
 				<div class="text-secondary mt-2">Книги <button class="btn btn-primary btn-sm" (click)="downloadJSON('books')" *ngIf="exportJSONbooks"><i class="fa fa-save"></i></button></div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="10">{{ exportJSONbooks }}</textarea>
+				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportJSONbooks }}</textarea>
 				<div class="text-secondary mt-2">Разкази <button class="btn btn-primary btn-sm" (click)="downloadJSON('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-save"></i></button></div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="10">{{ exportJSONshorts }}</textarea>
+				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportJSONshorts }}</textarea>
+				<div class="text-secondary mt-2">Sitemap <button class="btn btn-primary btn-sm" (click)="downloadXML('sitemap')" *ngIf="exportXMLsitemap"><i class="fa fa-save"></i></button></div>
+				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportXMLsitemap }}</textarea>
 			</div>
 		</div>
 	</div>

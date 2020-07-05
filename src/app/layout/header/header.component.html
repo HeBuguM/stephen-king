@@ -29,21 +29,19 @@
 								<img src="{{ user.photoURL }}" style="width: 32px; border-radius: 50%;">
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
-								<div class="text-center">
-									<img src="{{ user.photoURL }}" style="width: 60px; border-radius: 50%;">
-								</div>
-								<div class="text-center text-secondary"><small>{{ user.displayName }}</small></div>
-								<div class="text-center">
-									<span class="badge badge-secondary p-1 mx-1" *ngIf="auth.isReader(user)">Reader</span>
-									<span class="badge badge-warning p-1 mx-1" *ngIf="auth.isEditor(user)">Editor</span>
-									<span class="badge badge-success p-1 mx-1" *ngIf="auth.isAdmin(user)">Admin</span>
+								<div class="media px-2" style="min-width: 280px;">
+									<img src="{{ user.photoURL }}" class="mr-3 align-self-center" alt="Профилна снимка" style="width: 60px; max-height: 60px; border-radius: 50%;">
+									<div class="media-body">
+										<h5 class="mt-0 text-nowrap">{{ user.displayName }}</h5>
+										<div class="text-nowrap">
+											<button class="btn btn-primary btn-sm" (click)="auth.signOut()"><i class="fa fa-sign-out" aria-hidden="true"></i> Изход</button>
+										</div>
+									</div>
 								</div>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" routerLink="admin"><i class="fa fa-wrench"></i> Администрация</a>
-								<div class="dropdown-divider"></div>
-								<div class="text-center">
-									<button class="btn btn-primary" (click)="auth.signOut()">Изход</button>
-								</div>
+								<a class="dropdown-item" routerLink="settings"><i class="fa fa-wrench fa-fw mr-1 ml-n2"></i> Настройки</a>
+								<a class="dropdown-item" routerLink="about"><i class="fa fa-question fa-fw mr-1 ml-n2"></i> Информация</a>
+								<a class="dropdown-item" routerLink="admin" *ngIf="auth.isAdmin(user)"><i class="fa fa-wrench fa-fw mr-1 ml-n2"></i> Администрация</a>
 							</div>
 						</div>
 					</div>
@@ -56,12 +54,23 @@
 <ng-template #login>
 	<div class="dropdown" *ngIf="auth.loadingAuth == null || auth.loadingAuth == false">
 		<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<i class="fa fa-user"></i> Вход
+			<i class="fa fa-user"></i>
 		</a>
 		<div class="dropdown-menu dropdown-menu-right">
-			<div class="text-center">
-				<button class="btn btn-primary" (click)="auth.googleSignin()"><i class="fa fa-google"></i> Влез с Google</button>
+			<div class="media px-2" style="min-width: 280px;">
+				<div class="mr-3 align-self-center d-flex align-items-center" style="width: 60px; height: 60px; border-radius: 50%; background-color: darkgray;">
+					<i class="fa fa-user fa-2x mx-auto text-white"></i>
+				</div>
+				<div class="media-body">
+					<h5 class="mt-0 text-nowrap">Гост</h5>
+					<div class="text-nowrap">
+						<button class="btn btn-primary btn-sm" (click)="auth.googleSignin()"><i class="fa fa-google"></i> Влез с Google</button>
+					</div>
+				</div>
 			</div>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item" routerLink="settings"><i class="fa fa-wrench fa-fw mr-1 ml-n2"></i> Настройки</a>
+			<a class="dropdown-item" routerLink="about"><i class="fa fa-question fa-fw mr-1 ml-n2"></i> Информация</a>
 		</div>
 	</div>
 </ng-template>
