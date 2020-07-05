@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 
 import { Book } from '../models/Book';
 import { Short } from '../models/Short';
-import { formatDate } from '@angular/common';
 
 @Injectable({
 	providedIn: 'root'
@@ -109,7 +108,11 @@ export class LibraryService {
 		} else {
 			delete readBooks[book.book_id];
 		}
+		if (localStorage.getItem("data_id") === null) {
+			localStorage.setItem('data_id', new Date().getTime().toString());
+		}
 		localStorage.setItem("read_books", JSON.stringify(readBooks));
+		localStorage.setItem("data_modified", new Date().getTime().toString());
 	}
 
 	isBookRead(book) {
@@ -145,7 +148,11 @@ export class LibraryService {
 		} else {
 			delete selectedEditions[edition.book_id];
 		}
+		if (localStorage.getItem("data_id") === null) {
+			localStorage.setItem('data_id', new Date().getTime().toString());
+		}
 		localStorage.setItem("selected_editions", JSON.stringify(selectedEditions));
+		localStorage.setItem("data_modified", new Date().getTime().toString());
 	}
 
 	hasSelectedEdition(edition) {
@@ -232,7 +239,11 @@ export class LibraryService {
 		} else {
 			delete readShorts[short.short_id];
 		}
+		if (localStorage.getItem("data_id") === null) {
+			localStorage.setItem('data_id', new Date().getTime().toString());
+		}
 		localStorage.setItem("read_shorts", JSON.stringify(readShorts));
+		localStorage.setItem("data_modified", new Date().getTime().toString());
 	}
 
 	// Util
