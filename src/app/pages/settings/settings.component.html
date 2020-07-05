@@ -1,0 +1,66 @@
+<div class="container-xl">
+	<div class="py-3 pt-md-5 pb-md-4 mx-auto">
+		<h1>Важно</h1>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<p>За ползването на сайта не ви е необходима регистрация, поради използването на <b>localStorage</b> технология за съхранение на прочетените книги,
+				разкази и т.н, което означава, че информацията се запазва във вашият браузър за много дълго време и ако не използвате допълнителни програми
+				за почистване на такъв тип данни, или не направите преинсталация на браузъра си, можете да сте спокойни, че прогреса ви ще бъде запазен
+				при следващо посещение на сайта <u>от същото устройство</u>. Въпреки това, за да не се наложи да отбелязвате всичко повторно, ви съветвам периодично да
+				сваляте копие на данните си за да можете да ги възстановите, ако това се случи, или за да ги прехвърлите на друго устройство. Ако си направите регистрация
+				ще имате възможност да запазите данните в акаунта си и да ги заредите от там ако нещо се случи или ако влезете от друго устройство.
+			</p>
+
+			<div class="row mt-4 pt-4">
+				<div class="col-12">
+					<button class="btn btn-primary btn-sm" (click)="downloadData()"><i class="fa fa-save"></i> Свали файл</button>
+					<button class="btn btn-primary btn-sm ml-2" (click)="importFromJSON()" [disabled]="!JSONData"><i class="fa fa-upload"></i> Зареди данните</button>
+					<button type="button" class="btn btn-danger btn-sm float-right" (click)="deleteLocalStorageData()"><i class="fa fa-trash"></i> Изтрий данните</button>
+					<textarea class="form-control mt-3" spellcheck="false" rows="2" [(ngModel)]="JSONData" placeholder="За да възстановите данните си, поставете съдържанието на файла в полето и натиснете бутона."></textarea>
+				</div>
+			</div>
+			<div class="row mt-4 pt-4">
+				<div class="col-12">
+					<h3>Запази в профил</h3>
+					<div *ngIf='auth.user$ | async as user; else login' class="mt-4">
+						<table class="table table-bordered table-sm col-lg-4 col-md-5 col-sm-12">
+							<thead>
+								<th>Вашите данни</th>
+								<th>Локално</th>
+								<th>Профил</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Прочетени книги</td>
+									<td>{{lib.booksReadCount()}}</td>
+									<td>{{auth.booksReadCount()}}</td>
+								</tr>
+								<tr>
+									<td>Прочетени разкази</td>
+									<td>{{lib.shortsReadCount()}}</td>
+									<td>{{auth.shortsReadCount()}}</td>
+								</tr>
+								<tr>
+									<td>Избрани издания</td>
+									<td>{{lib.selectedEditionsCount()}}</td>
+									<td>{{auth.selectedEditionsCount()}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<ng-container *ngIf="auth.isDataSync(); else outOfSync">
+							<button class="btn btn-success" type="button" [disabled]="true"><i class="fa fa-check"></i> Синхронизирано</button>
+						</ng-container>
+						<ng-template #outOfSync>
+							<button class="btn btn-primary" type="button" (click)="auth.syncLocalStorageData()"><i class="fa fa-save"></i> Запази в профила</button>
+							<button class="btn btn-primary ml-3" type="button" (click)="auth.importProfileStorageData()"><i class="fa fa-download"></i> Зареди данните от профила</button>
+						</ng-template>
+					</div>
+					<ng-template #login>
+						Трябва сте логнат за да ползвате тази функционалност <button class="btn btn-primary btn-sm" (click)="auth.googleSignin()"><i class="fa fa-google"></i> Влез с Google</button>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
