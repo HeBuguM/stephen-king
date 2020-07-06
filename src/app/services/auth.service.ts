@@ -97,7 +97,7 @@ export class AuthService {
 			read_shorts: JSON.parse(localStorage.getItem("read_shorts")),
 			selected_editions: JSON.parse(localStorage.getItem("selected_editions"))
 		};
-		userRef.set(data, { merge: true });
+		userRef.update(data);
 		localStorage.setItem("data_sync", data_sync);
 	}
 
