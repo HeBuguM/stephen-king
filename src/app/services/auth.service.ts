@@ -52,7 +52,9 @@ export class AuthService {
         displayName: user.displayName,
         photoURL: user.photoURL,
         roles: {
-          reader: true
+		  reader: true,
+		  admin: false,
+		  editor: false
         }
       }
       return userRef.set(data, { merge: true })
@@ -138,13 +140,13 @@ export class AuthService {
 	}
 
 	public booksReadCount() {
-		return this.user.read_books !== null ? Object.values(this.user.read_books).length : 0;
+		return typeof this.user.read_books !== 'undefined' && this.user.read_books !== null ? Object.values(this.user.read_books).length : 0;
 	}
 	public shortsReadCount() {
-		return this.user.read_shorts !== null ? Object.values(this.user.read_shorts).length : 0;
+		return typeof this.user.read_shorts !== 'undefined' && this.user.read_shorts !== null ? Object.values(this.user.read_shorts).length : 0;
 	}
 	public selectedEditionsCount() {
-		return this.user.selected_editions !== null ? Object.values(this.user.selected_editions).length : 0;
+		return typeof this.user.selected_editions !== 'undefined' && this.user.selected_editions !== null ? Object.values(this.user.selected_editions).length : 0;
 	}
 
     isReader(user: User) {
