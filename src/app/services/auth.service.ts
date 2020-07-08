@@ -50,12 +50,7 @@ export class AuthService {
         uid: user.uid,
         email: user.email,
         displayName: user.displayName,
-        photoURL: user.photoURL,
-        roles: {
-		  reader: true,
-		  admin: false,
-		  editor: false
-        }
+        photoURL: user.photoURL
       }
       return userRef.set(data, { merge: true })
     }
@@ -149,14 +144,11 @@ export class AuthService {
 		return typeof this.user.selected_editions !== 'undefined' && this.user.selected_editions !== null ? Object.values(this.user.selected_editions).length : 0;
 	}
 
-    isReader(user: User) {
-      return user.roles.reader == true ? true : false;
-    }
     isEditor(user: User) {
-      return user.roles.editor == true ? true : false;
+      return typeof user.roles !== 'undefined' && typeof user.roles.editor !== 'undefined' && user.roles.editor == true ? true : false;
     }
     isAdmin(user: User) {
-      return user.roles.admin == true ? true : false;
+      return typeof user.roles !== 'undefined' && typeof user.roles.admin !== 'undefined' && user.roles.admin == true ? true : false;
     }
 
 }
