@@ -168,7 +168,7 @@
 												<small class="text-secondary">Предстои от {{ edition.publisher }} през {{ lib.publishedDate(edition.published,'first_long') }}</small>
 											</ng-template>
 										</div>
-										<div class="text-secondary" *ngIf="isExpanded(book) && edition.translation != ''"><small><i>{{edition.translation}}</i></small></div>
+										<div class="text-secondary d-none d-sm-inline-flex" *ngIf="isExpanded(book) && edition.translation != ''"><small><i>{{edition.translation}}</i></small></div>
 									</div>
 								</div>
 							</ng-template>
