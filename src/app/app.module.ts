@@ -27,8 +27,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-	LoadingSpinnerComponent,
-	HomeComponent,
+    LoadingSpinnerComponent,
+    HomeComponent,
     BooksComponent,
     BookComponent,
     ShortsComponent,
@@ -40,12 +40,12 @@ import { SettingsComponent } from './pages/settings/settings.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-	HttpClientModule,
-	NgbModule,
+    HttpClientModule,
+    NgbModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-	ReactiveFormsModule,
-	FormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
