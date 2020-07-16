@@ -48,6 +48,10 @@
 								</tr>
 							</tbody>
 						</table>
+						<div class="custom-control custom-switch mb-3">
+							<input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+							<label class="custom-control-label" for="customSwitch2">Автоматична синхронизация (скоро)</label>
+						</div>
 						<ng-container *ngIf="auth.isDataSync(); else outOfSync">
 							<button class="btn btn-success" type="button" [disabled]="true"><i class="fa fa-check"></i> Синхронизирано</button>
 						</ng-container>
