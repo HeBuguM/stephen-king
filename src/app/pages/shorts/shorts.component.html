@@ -95,9 +95,11 @@
 						<div class="media short">
 							<ng-container *ngIf="short.first_collected; else noCover">
 								<ng-template #popContent>
-									<div class="cover-full-pop"><img src="assets/covers/books/large/{{short.first_collected}}.jpg"></div>
+									<div class="cover-full-pop"><img src="assets/covers/books/large/{{short.first_collected}}.jpg" loading="lazy"></div>
 								</ng-template>
-								<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/books/small/'+short.first_collected+'.jpg)'}" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
+								<div class="cover click" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+									<img src="assets/covers/books/small/{{short.first_collected}}.jpg" loading="lazy">
+								</div>
 							</ng-container>
 							<ng-template #noCover>
 								<div class="cover"></div>
@@ -115,12 +117,14 @@
 							<ng-template ngFor let-book [ngForOf]="short.books" let-i="index">
 								<div class="media edition" *ngIf="isExpanded(short) && book.book_id != short.first_collected">
 									<ng-template #popContent>
-										<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg"></div>
+										<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg" loading="lazy"></div>
 									</ng-template>
-									<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/books/small/'+book.book_id+'.jpg)'}" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
+									<div class="cover click" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+										<img src="assets/covers/books/small/{{book.book_id}}.jpg" loading="lazy">
+									</div>
 									<div class="media-body align-self-center">
 										<span [ngClass]="{'crop-text-1': !isExpanded(short),'crop-text-2': isExpanded(short)}">{{ book.title }}</span>
-										<div class="text-secondary" *ngIf="isExpanded(short)">{{ book.published.split("-")[0] }}</div>
+										<div class="text-secondary" *ngIf="isExpanded(short)">{{ lib.publishedDate(book.published) }}</div>
 									</div>
 								</div>
 							</ng-template>
@@ -141,7 +145,7 @@
 										<span [ngClass]="{'crop-text-1': !isExpanded(short),'crop-text-2': isExpanded(short)}">{{ edition.title }}</span>
 										<span class="text-secondary" [ngClass]="{'crop-text-1': !isExpanded(short),'crop-text-2': isExpanded(short)}">{{ edition.subtitle }}</span>
 										<div class="text-secondary" *ngIf="isExpanded(short)">
-											<small>{{edition.edition_title}} ({{ edition.published.split("-")[0] }})</small>
+											<small>{{edition.edition_title}} ({{ lib.publishedDate(edition.published) }})</small>
 										</div>
 									</div>
 								</div>

@@ -112,9 +112,11 @@
 					<td class="align-middle">
 						<div class="media book">
 							<ng-template #popContent>
-								<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg"></div>
+								<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg" loading="lazy"></div>
 							</ng-template>
-							<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/books/small/'+book.book_id+'.jpg)'}" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
+							<div class="cover click" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+								<img src="assets/covers/books/small/{{book.book_id}}.jpg" loading="lazy">
+							</div>
 							<div class="media-body">
 								<small class="text-secondary ml-2 float-right d-none d-md-block" *ngIf="book.type != 'Роман'">{{ book.type }}</small>
 								<div class="d-inline-block">
@@ -149,9 +151,11 @@
 								<hr class="my-1" *ngIf="isExpanded(book) && i != 0 && edition.group_id == 0">
 								<div class="media edition" *ngIf="(this.lib.hasSelectedEdition(edition) === true && this.lib.isEditionSelected(edition) === true) || (this.lib.hasSelectedEdition(edition) === false && (i === 0 || edition.group_id == book.editions[0]['edition_id'])) || isExpanded(book)">
 									<ng-template #popContent>
-										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
+										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg" loading="lazy"></div>
 									</ng-template>
-									<div class="cover click" [ngStyle]="{'background-image': 'url(assets/covers/editions/small/'+edition.edition_id+'.jpg)'}" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent"></div>
+									<div class="cover click" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+										<img src="assets/covers/editions/small/{{edition.edition_id}}.jpg" loading="lazy">
+									</div>
 									<div class="media-body">
 										<span class="edition-title" [ngClass]="{'crop-text-1': !isExpanded(book),'crop-text-2': isExpanded(book)}">{{ edition.title }}</span>
 										<div class="text-secondary" *ngIf="isExpanded(book)">
