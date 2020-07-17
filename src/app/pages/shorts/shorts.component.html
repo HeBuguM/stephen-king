@@ -95,10 +95,10 @@
 						<div class="media short">
 							<ng-container *ngIf="short.first_collected; else noCover">
 								<ng-template #popContent>
-									<div class="cover-full-pop"><img src="assets/covers/books/large/{{short.first_collected}}.jpg" loading="Корица" alt="Large"></div>
+									<div class="cover-full-pop"><img src="assets/covers/books/large/{{short.first_collected}}.jpg" loading="" alt="Large"></div>
 								</ng-template>
 								<div class="cover click" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
-									<img src="assets/covers/books/small/{{short.first_collected}}.jpg" loading="lazy" alt="Корица">
+									<img src="assets/covers/books/small/{{short.first_collected}}.jpg" loading="lazy" alt="">
 								</div>
 							</ng-container>
 							<ng-template #noCover>
@@ -117,10 +117,10 @@
 							<ng-template ngFor let-book [ngForOf]="short.books" let-i="index">
 								<div class="media edition" *ngIf="isExpanded(short) && book.book_id != short.first_collected">
 									<ng-template #popContent>
-										<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg" loading="lazy" alt="Корица"></div>
+										<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg" loading="lazy" alt=""></div>
 									</ng-template>
 									<div class="cover click" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent">
-										<img src="assets/covers/books/small/{{book.book_id}}.jpg" loading="lazy" alt="Корица">
+										<img src="assets/covers/books/small/{{book.book_id}}.jpg" loading="lazy" alt="">
 									</div>
 									<div class="media-body align-self-center">
 										<span [ngClass]="{'crop-text-1': !isExpanded(short),'crop-text-2': isExpanded(short)}">{{ book.title }}</span>
@@ -138,10 +138,10 @@
 							<ng-template ngFor let-edition [ngForOf]="short.editions" let-i="index">
 								<div class="media edition" *ngIf="i == 0 || isExpanded(short)">
 									<ng-template #popContent>
-										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg" loading="lazy" alt="Корица"></div>
+										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg" loading="lazy" alt=""></div>
 									</ng-template>
 									<div class="cover click" placement="left auto" [autoClose]="'outside'" [ngbPopover]="popContent">
-										<img src="assets/covers/editions/large/{{edition.edition_id}}.jpg" loading="lazy" alt="Корица">
+										<img src="assets/covers/editions/large/{{edition.edition_id}}.jpg" loading="lazy" alt="">
 									</div>
 									<div class="media-body align-self-center">
 										<span [ngClass]="{'crop-text-1': !isExpanded(short),'crop-text-2': isExpanded(short)}">{{ edition.title }}</span>
