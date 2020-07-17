@@ -422,9 +422,11 @@ export class AdminComponent implements OnInit {
 	downloadJSON(type) {
 		var a = document.createElement('a');
 		if(type === 'books') {
+			this.afs.doc(`data/books`).set({...this.finalBooks});
 			var file = new Blob([this.exportJSONbooks], {type: 'application/json'});
 		}
 		if(type === 'shorts') {
+			this.afs.doc(`data/shorts`).set({...this.finalShorts});
 			var file = new Blob([this.exportJSONshorts], {type: 'application/json'});
 		}
 		a.href = URL.createObjectURL(file);
