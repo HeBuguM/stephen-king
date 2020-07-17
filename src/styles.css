@@ -51,7 +51,7 @@ tr:hover td .infoLink {
 .book .cover img,
 .short .cover img,
 .edition .cover img {
-	height: 72px;
+	min-height: 48px;
 	width: 50px;
 	top: -24px;
 	position: relative;
@@ -60,6 +60,7 @@ tr:hover td .infoLink {
 	height: 72px;
 }
 .expanded .cover img {
+	max-height: 72px;
 	top: 0px;
 }
 
