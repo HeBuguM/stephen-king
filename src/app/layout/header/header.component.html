@@ -25,7 +25,7 @@
 				<li class="nav-item">
 					<div *ngIf='auth.user$ | async as user; else login'>
 						<div class="dropdown">
-							<a class="nav-link p-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link p-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="User Menu">
 								<img src="{{ user.photoURL }}" style="width: 32px; border-radius: 50%;">
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
@@ -53,7 +53,7 @@
 
 <ng-template #login>
 	<div class="dropdown" *ngIf="auth.loadingAuth == null || auth.loadingAuth == false">
-		<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="User Menu">
 			<i class="fa fa-user"></i>
 		</a>
 		<div class="dropdown-menu dropdown-menu-right">

@@ -58,8 +58,11 @@ tr:hover td .infoLink {
 }
 .expanded .cover {
 	height: 72px;
+}
+.expanded .cover img {
 	top: 0px;
 }
+
 .cover-full-pop {
 	display: flex;
 	width: 220px;
