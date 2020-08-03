@@ -28,7 +28,7 @@
 				<div class="row py-1 mx-0 border-top no-gutters">
 					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Форма</div><div class="col-8 col-md-8 col-lg-9">{{ book.type }}</div>
 				</div>
-				<div class="row py-1 mx-0 border-top no-gutters">
+				<div class="row py-1 mx-0 border-top no-gutters" *ngIf="book.pages">
 					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Страници</div><div class="col-8 col-md-8 col-lg-9">{{ book.pages }}</div>
 				</div>
 				<div class="row py-1 mx-0 border-top no-gutters">
@@ -74,7 +74,7 @@
 												<span class="click float-right" *ngIf="!lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition, true)"><i class="fa fa-check-circle text-secondary" style="padding: 4px 11px"></i></span>
 											</div>
 										</div>
-										<div class="row" *ngIf="edition.pages">
+										<div class="row" *ngIf="edition.pages > 0">
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Страници</div><div class="col-8 col-md-8 col-lg-9">{{ edition.pages }}</div>
 										</div>
 										<div class="row" *ngIf="edition.translation">
