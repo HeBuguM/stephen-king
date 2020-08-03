@@ -35,7 +35,7 @@
 					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Издател</div><div class="col-8 col-md-8 col-lg-9">{{ book.publisher }}</div>
 				</div>
 				<div class="row py-1 mx-0 border-top no-gutters">
-					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Публикуван</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(book.published,'first_long') }}</div>
+					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Публикуван</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(book.published,'first_long') }} <span class="text-secondary ml-1" *ngIf="!book.pages">(предстоящо издание)</span></div>
 				</div>
 				<div class="row py-1 mx-0 border-top no-gutters" *ngIf="book.alterations">
 					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Преработки</div><div class="col-8 col-md-8 col-lg-9">{{ book.alterations }}</div>

@@ -129,7 +129,12 @@
 									<div class="text-secondary d-flex" *ngIf="book.co_writers">
 										<small><i>{{book.co_writers}}</i></small></div>
 									<div class="text-secondary" *ngIf="isExpanded(book)">
+									<ng-container *ngIf="book.pages; else comingBook">
 										<small><i>{{book.pages}} стр. {{ book.publisher }} {{ lib.publishedDate(book.published) }}</i></small>
+									</ng-container>
+									<ng-template #comingBook>
+										<small class="text-secondary">Предстои от {{ book.publisher }} - {{ lib.publishedDate(book.published,'first_long') }}</small>
+									</ng-template>
 									</div>
 								</div>
 							</div>
@@ -169,7 +174,7 @@
 												<small class=" ml-2" *ngIf="edition.note != ''"><i class="fa fa-comment" title="{{edition.note}}"></i></small>
 											</ng-container>
 											<ng-template #comingEdition>
-												<small class="text-secondary">Предстои от {{ edition.publisher }} през {{ lib.publishedDate(edition.published,'first_long') }}</small>
+												<small class="text-secondary">Предстои от {{ edition.publisher }} - {{ lib.publishedDate(edition.published,'first_long') }}</small>
 											</ng-template>
 										</div>
 										<div class="text-secondary d-none d-sm-inline-flex" *ngIf="isExpanded(book) && edition.translation != ''"><small><i>{{edition.translation}}</i></small></div>
