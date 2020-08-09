@@ -11,5 +11,5 @@ export const environment = {
   },
   useHash: true,
   appBaseHref: '/stephen-king/',
-  libraryData: 'files'
+  libraryData: 'firestore' // files || firestore
 };
