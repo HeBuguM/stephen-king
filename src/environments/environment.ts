@@ -14,7 +14,8 @@ export const environment = {
     appId: "1:178616645591:web:a634d6a1aa5693c422fd92"
   },
   appBaseHref: '/',
-  useHash: false
+  useHash: false,
+  libraryData: 'firestore' // files || firestore
 };
 
 /*

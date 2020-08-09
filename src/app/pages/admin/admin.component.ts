@@ -1,16 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { LibraryService } from '../../services/library.service'
-import { FirestoreService } from '../../services/firestore.service'
 import { Title } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-
-interface Alert {
-	type: string;
-	message: string;
-}
 
 @Component({
 	selector: 'app-admin',
@@ -109,7 +103,7 @@ export class AdminComponent implements OnInit {
 		position: [0]
 	});
 
-	constructor(public lib: LibraryService, private live: FirestoreService, private afs: AngularFirestore, private browser: Title, private fb: FormBuilder, private modalService: NgbModal) { }
+	constructor(public lib: LibraryService, private afs: AngularFirestore, private browser: Title, private fb: FormBuilder, private modalService: NgbModal) { }
 
 	ngOnInit() {
 		this.browser.setTitle(`Администрация - Стивън Кинг`)
@@ -417,6 +411,17 @@ export class AdminComponent implements OnInit {
 
 		this.exportXMLsitemap = this.exportXMLsitemap + '\n\
 </urlset>';
+	}
+
+	updateFirestoreData(type) {
+		if(type === 'books') {
+			this.afs.doc(`data/books`).set({...this.finalBooks});
+			alert('Live Data updated ['+type+']')
+		}
+		if(type === 'shorts') {
+			this.afs.doc(`data/shorts`).set({...this.finalShorts});
+			alert('Live Data updated ['+type+']')
+		}
 	}
 
 	downloadJSON(type) {

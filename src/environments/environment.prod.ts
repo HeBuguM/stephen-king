@@ -7,8 +7,9 @@ export const environment = {
     projectId: "sk-database",
     storageBucket: "sk-database.appspot.com",
     messagingSenderId: "178616645591",
-    appId: "1:178616645591:web:a634d6a1aa5693c422fd92"
+	appId: "1:178616645591:web:a634d6a1aa5693c422fd92"
   },
   useHash: true,
-  appBaseHref: '/stephen-king/'
+  appBaseHref: '/stephen-king/',
+  libraryData: 'files'
 };

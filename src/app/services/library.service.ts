@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { Book } from '../models/Book';
 import { Short } from '../models/Short';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
 	providedIn: 'root'
@@ -22,7 +23,7 @@ export class LibraryService {
 	public book_types = ['Роман', 'Новела', 'Сборник', 'Сценарий', 'Нехудожествена'];
 	public short_types = ['Разказ', 'Новела','Поема','Есе','Пиеса','ТВ Пиеса','Сценарий','Притча']
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient, private afs: AngularFirestore) { }
 
 	publishedDate(date, format: string = "first_short") {
 		let months = {
@@ -75,11 +76,21 @@ export class LibraryService {
 	}
 
 	getBooks(): Observable<Book[]> {
-		return this.http.get<Book[]>(this.booksUrl);
+		if(environment.libraryData == 'files') {
+			return this.http.get<Book[]>(this.booksUrl);
+		}
+		if(environment.libraryData == 'firestore') {
+			return this.afs.doc<Book[]>(`data/books`).valueChanges();
+		}
 	}
 
 	getShorts(): Observable<Short[]> {
-		return this.http.get<Short[]>(this.shortsUrl);
+		if(environment.libraryData == 'files') {
+			return this.http.get<Short[]>(this.shortsUrl);
+		}
+		if(environment.libraryData == 'firestore') {
+			return this.afs.doc<Short[]>(`data/shorts`).valueChanges();
+		}
 	}
 
 	combineShorts(edition_shorts, book_shorts) {

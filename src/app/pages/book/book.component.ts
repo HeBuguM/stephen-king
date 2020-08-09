@@ -26,7 +26,7 @@ export class BookComponent implements OnInit {
 		}
 		if (this.book$ == null) {
 			this.lib.getBooks().subscribe(books => {
-				this.book = books.filter(book => book.book_id == Number(this.bookId))[0];
+				this.book = Object.values(books).filter(book => book.book_id == Number(this.bookId))[0];
 				this.seo.generateTags({
 					title: `Стивън Кинг - ${this.book.title}`,
 					description: this.book.synopsis,

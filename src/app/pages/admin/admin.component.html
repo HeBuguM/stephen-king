@@ -303,7 +303,7 @@
 				<div class="dropdown float-right">
 					<button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-upload"></i> Import
+						<i class="fa fa-download"></i> Import
 					</button>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item click" (click)="importBooks()">Книги</a>
@@ -312,9 +312,17 @@
 						<a class="dropdown-item click" (click)="importCustom()">Custom</a>
 					</div>
 				</div>
-				<div class="text-secondary mt-2">Книги <button class="btn btn-primary btn-sm" (click)="downloadJSON('books')" *ngIf="exportJSONbooks"><i class="fa fa-save"></i></button></div>
+				<div class="text-secondary mt-2">
+					Книги
+					<button class="btn btn-primary btn-sm" (click)="downloadJSON('books')" *ngIf="exportJSONbooks"><i class="fa fa-save"></i> Свали файл</button>
+					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('books')" *ngIf="exportJSONbooks"><i class="fa fa-upload"></i> Обнови Firestore</button>
+				</div>
 				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportJSONbooks }}</textarea>
-				<div class="text-secondary mt-2">Разкази <button class="btn btn-primary btn-sm" (click)="downloadJSON('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-save"></i></button></div>
+				<div class="text-secondary mt-2">
+					Разкази
+					<button class="btn btn-primary btn-sm" (click)="downloadJSON('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-save"></i> Свали файл</button>
+					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('shorts')" *ngIf="exportJSONbooks"><i class="fa fa-upload"></i> Обнови Firestore</button>
+				</div>
 				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportJSONshorts }}</textarea>
 				<div class="text-secondary mt-2">Sitemap <button class="btn btn-primary btn-sm" (click)="downloadXML('sitemap')" *ngIf="exportXMLsitemap"><i class="fa fa-save"></i></button></div>
 				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportXMLsitemap }}</textarea>

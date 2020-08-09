@@ -49,12 +49,10 @@ export class ShortsComponent implements OnInit {
 		}
 		let shorts$ = this.lib.getShorts();
 		this.subscription = shorts$.subscribe(shorts => {
-			this.shorts = shorts;
-			this.shortsTotalCount = shorts.length;
+			this.shorts = Object.values(shorts);
+			this.shortsTotalCount = this.shorts.length;
 			this.filterShorts();
-			if (this.sorting_shorts != 'first_pub_date') {
-				this.changeSorting(this.sorting_shorts)
-			}
+			this.changeSorting(this.sorting_shorts)
 			this.loadingState = false;
 		});
 		this.shortsReadCount = this.lib.shortsReadCount();

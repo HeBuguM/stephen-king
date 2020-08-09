@@ -52,12 +52,10 @@ export class BooksComponent implements OnInit {
 		}
 		let books$ = this.lib.getBooks();
 		this.subscription = books$.subscribe(books => {
-			this.books = books;
-			this.booksTotalCount = books.length;
+			this.books = Object.values(books);
+			this.booksTotalCount = this.books.length;
 			this.filterBooks();
-			if (this.sorting_books != 'published') {
-				this.changeSorting(this.sorting_books)
-			}
+			this.changeSorting(this.sorting_books)
 			this.loadingState = false
 		});
 		this.updateReadCounter();
@@ -89,6 +87,7 @@ export class BooksComponent implements OnInit {
 	public updateSearch(searchTextValue: string) {
 		this.searchValue = searchTextValue;
 		this.filterBooks();
+		this.changeSorting(this.sorting_books)
 	}
 
 	changeSorting(key) {
@@ -105,6 +104,7 @@ export class BooksComponent implements OnInit {
 		this.filter_books[key] = value;
 		sessionStorage.setItem('filter_books', JSON.stringify(this.filter_books));
 		this.filterBooks();
+		this.changeSorting(this.sorting_books)
 	}
 
 	getFilter(key) {

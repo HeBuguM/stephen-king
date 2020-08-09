@@ -118,24 +118,20 @@
 								<img src="assets/covers/books/small/{{book.book_id}}.jpg" loading="lazy" alt="">
 							</div>
 							<div class="media-body">
+								<a class="book-title" ngb [routerLink]="[ '/book', book.book_id ]">{{ book.title }}</a>
 								<small class="text-secondary ml-2 float-right d-none d-md-block" *ngIf="book.type != 'Роман'">{{ book.type }}</small>
-								<div class="d-inline-block">
-									<a class="book-title" ngb [routerLink]="[ '/book', book.book_id ]">{{ book.title }}</a>
-									<div class="text-secondary d-flex" *ngIf="isExpanded(book) && book.series_name != ''"><small>{{book.series_name + ' #'+ book.series_no}}</small></div>
-									<span class="text-secondary ml-2" *ngIf="book.alterations != ''"><i class="fa fa-pencil" title="{{book.alterations}}"></i></span>
-									<span class="text-secondary ml-2" *ngIf="book.note != ''"><i class="fa fa-comment-o" title="{{book.note}}"></i></span>
-									<div class="text-secondary d-flex" *ngIf="book.pseudonym">
-										<small><i>{{book.pseudonym}} (псевдоним)</i></small></div>
-									<div class="text-secondary d-flex" *ngIf="book.co_writers">
-										<small><i>{{book.co_writers}}</i></small></div>
-									<div class="text-secondary" *ngIf="isExpanded(book)">
-									<ng-container *ngIf="book.pages; else comingBook">
-										<small><i>{{book.pages}} стр. {{ book.publisher }} {{ lib.publishedDate(book.published) }}</i></small>
-									</ng-container>
-									<ng-template #comingBook>
-										<small class="text-secondary">Предстои от {{ book.publisher }} - {{ lib.publishedDate(book.published,'first_long') }}</small>
-									</ng-template>
-									</div>
+								<div class="text-secondary d-flex" *ngIf="isExpanded(book) && book.series_name != ''"><small>{{book.series_name + ' #'+ book.series_no}}</small></div>
+								<div class="text-secondary d-flex" *ngIf="book.pseudonym">
+									<small><i>{{book.pseudonym}} (псевдоним)</i></small></div>
+								<div class="text-secondary d-flex" *ngIf="book.co_writers">
+									<small><i>{{book.co_writers}}</i></small></div>
+								<div class="text-secondary" *ngIf="isExpanded(book)">
+								<ng-container *ngIf="book.pages; else comingBook">
+									<small><i>{{book.pages}} стр. {{ book.publisher }} {{ lib.publishedDate(book.published) }}</i></small>
+								</ng-container>
+								<ng-template #comingBook>
+									<small class="text-secondary">Предстои от {{ book.publisher }} - {{ lib.publishedDate(book.published,'first_long') }}</small>
+								</ng-template>
 								</div>
 							</div>
 						</div>
@@ -171,7 +167,6 @@
 													<span class="infoLink ml-2 d-none d-sm-inline-block" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
 												</div>
 												<small><i>{{edition.pages}} стр. {{ edition.publisher }} {{ lib.publishedDate(edition.published) }}</i></small>
-												<small class=" ml-2" *ngIf="edition.note != ''"><i class="fa fa-comment" title="{{edition.note}}"></i></small>
 											</ng-container>
 											<ng-template #comingEdition>
 												<small class="text-secondary">Предстои от {{ edition.publisher }} - {{ lib.publishedDate(edition.published,'first_long') }}</small>

@@ -85,6 +85,7 @@ tr:hover td .infoLink {
 .media.edition:last-of-type {
  	 margin-bottom: 0px;
 }
+.text-preline,
 .synopsis {
 	white-space: pre-line;
 }
