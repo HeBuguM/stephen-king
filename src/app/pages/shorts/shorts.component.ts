@@ -77,6 +77,7 @@ export class ShortsComponent implements OnInit {
 	public updateSearch(searchTextValue: string) {
 		this.searchValue = searchTextValue;
 		this.filterShorts();
+		this.changeSorting(this.sorting_shorts)
 	}
 
 	changeSorting(key) {
@@ -94,6 +95,7 @@ export class ShortsComponent implements OnInit {
 		sessionStorage.setItem('filter_shorts', JSON.stringify(this.filter_shorts));
 		console.log(this.filter_shorts);
 		this.filterShorts();
+		this.changeSorting(this.sorting_shorts)
 	}
 
 	getFilter(key) {
