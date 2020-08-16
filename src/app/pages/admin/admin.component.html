@@ -229,6 +229,7 @@
 						<td>#</td>
 						<td>Заглавие</td>
 						<td>Форма</td>
+						<td></td>
 						<td>Дата</td>
 						<td style="width: 40%">Първа публикация</td>
 						<td>Сбоник</td>
@@ -243,7 +244,6 @@
 							{{short.type}}
 						</td>
 						<td style="vertical-align: middle;">
-							<i class="fa fa-wrench float-right" (click)="editShort(short);openModal(modalForms)"></i>
 							{{short.title}}
 							<div class="text-secondary" *ngIf="short.subtitle">{{short.subtitle}}</div>
 							<div *ngIf="getBookShorts(short) as shorts">
@@ -283,6 +283,12 @@
 									</table>
 								</div>
 							</div>
+						</td>
+						<td>
+							<span class="infoLink" *ngIf="short.official_site"><a href="https://www.stephenking.com/{{ short.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
+							<span class="infoLink" *ngIf="short.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ short.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
+							<span class="infoLink" *ngIf="short.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ short.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+							<i class="fa fa-wrench float-right" (click)="editShort(short);openModal(modalForms)"></i>
 						</td>
 						<td style="text-align: center;vertical-align: middle;">
 							<span class="text-secondary">{{ short.first_pub_date }}</span>
@@ -431,7 +437,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="official_site" class="form-control">
+						<input formControlName="official_site" class="form-control" placeholder="library/...">
 					</div>
 				</div>
 			</div>
@@ -576,6 +582,39 @@
 				<label class="col-2 col-form-label">Бележки</label>
 				<div class="col-10">
 					<textarea formControlName="note" cols="40" rows="2" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Линкове</label>
+				<div class="col-10">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="assets/img/wikipedia_small.png" style="vertical-align: baseline;"></div>
+						</div>
+						<input formControlName="wikipedia" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label"></label>
+				<div class="col-10">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
+						</div>
+						<input formControlName="official_site" class="form-control" placeholder="library/...">
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label"></label>
+				<div class="col-4">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="assets/img/goodreads_small.png" style="vertical-align: baseline;"></div>
+						</div>
+						<input formControlName="goodreads" class="form-control">
+					</div>
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!shortForm.valid"><i class="fa fa-save"></i> Запази</button>

@@ -86,7 +86,10 @@ export class AdminComponent implements OnInit {
 		first_pub_in: [''],
 		first_collected: ['', Validators.required],
 		synopsis: [''],
-		note: ['']
+		note: [''],
+		wikipedia: [''],
+		official_site: [''],
+		goodreads: [0],
 	});
 
 	bookShortForm = this.fb.group({
@@ -184,7 +187,10 @@ export class AdminComponent implements OnInit {
 				first_pub_in: '',
 				first_collected: 0,
 				synopsis: '',
-				note: ''
+				note: '',
+				wikipedia: '',
+				official_site: '',
+				goodreads: 0
 			}
 		}
 		this.shortForm.patchValue(data);
@@ -313,7 +319,8 @@ export class AdminComponent implements OnInit {
 			const ShortBook = {
 				book_id: Number(book_short.book_id),
 				title: this.exportBooks[book_short.book_id].title,
-				published: this.exportBooks[book_short.book_id].published
+				published: this.exportBooks[book_short.book_id].published,
+				publisher: this.exportBooks[book_short.book_id].publisher
 			}
 			this.exportShorts[book_short.short_id]['books'].push(ShortBook);
 		}
@@ -342,7 +349,9 @@ export class AdminComponent implements OnInit {
 				title: edition_short.title,
 				subtitle: edition_short.subtitle,
 				edition_title: this.exportEditions[edition_short.edition_id].title,
-				published: this.exportEditions[edition_short.edition_id].published
+				published: this.exportEditions[edition_short.edition_id].published,
+				publisher: this.exportEditions[edition_short.edition_id].publisher,
+				translation: this.exportEditions[edition_short.edition_id].translation
 			}
 			this.exportShorts[edition_short.short_id]['editions'].push(ShortEdition);
 		}
@@ -391,6 +400,9 @@ export class AdminComponent implements OnInit {
 		this.exportXMLsitemap = '<?xml version="1.0" encoding="UTF-8"?>\n\
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
 	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/</loc>\n\
+	</url>\n\
+	<url>\n\
 		<loc>https://hebugum.github.io/stephen-king/#/</loc>\n\
 	</url>\n\
 	<url>\n\
@@ -405,6 +417,14 @@ export class AdminComponent implements OnInit {
 			this.exportXMLsitemap = this.exportXMLsitemap + ('\n\
 	<url>\n\
 		<loc>https://hebugum.github.io/stephen-king/#/book/'+book.book_id+'</loc>\n\
+		<lastmod>'+lastmod+'</lastmod>\n\
+	</url>');
+		});
+		this.shorts$.forEach(short => {
+			let lastmod = short.last_modified.toDate().toISOString().substring(0,10);
+			this.exportXMLsitemap = this.exportXMLsitemap + ('\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/#/short/'+short.short_id+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -468,13 +488,15 @@ export class AdminComponent implements OnInit {
 	}
 
 	updateCustom() {
-		// this.shorts$.forEach(short => {
-		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
-		// 	customRef.update({
-		// 		last_modified: new Date()
-		// 	});
-		// 	console.log(short.title + ' updated');
-		// });
+		this.shorts$.forEach(short => {
+			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
+			customRef.update({
+				wikipedia: '',
+				official_site: '',
+				goodreads: 0
+			});
+			console.log(short.title + ' updated');
+		});
 
 		// this.books$.forEach(book => {
 		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);

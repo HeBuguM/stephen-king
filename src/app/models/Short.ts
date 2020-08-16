@@ -6,7 +6,10 @@ export class Short {
     first_pub_date: string; // YYYY-MM-DD | YYYY-MM | YYYY
 	first_pub_in: string;
 	synopsis: string;
-    note:string;
+	note:string;
+	wikipedia:string;
+    official_site: string;
+    goodreads:number;
     first_collected: number;
     collection_title: string;
     collection_published: string;
@@ -17,12 +20,15 @@ export class Short {
 export class ShortBooks {
     book_id: number;
     title: string;
-    published: string;
+	published: string;
+	publisher: string;
 }
 
 export class ShortEditions {
     edition_id: number;
-    title: string;
+	title: string;
+	subtitle: string;
     edition_title: string;
-    published: string; // YYYY-MM-DD | YYYY-MM | YYYY
+	published: string; // YYYY-MM-DD | YYYY-MM | YYYY,
+	publisher: string;
 }

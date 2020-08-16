@@ -22,6 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutComponent } from './pages/about/about.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { ShortComponent } from './pages/short/short.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
     AdminComponent,
     NotFoundComponent,
     AboutComponent,
-    SettingsComponent
+    SettingsComponent,
+    ShortComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { LibraryService } from '../../services/library.service'
 import { Short } from '../../models/Short'
 import { Subscription } from 'rxjs';
 import { SeoService } from 'src/app/services/seo.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
 	selector: 'app-shorts',
@@ -19,6 +20,7 @@ export class ShortsComponent implements OnInit {
 	public shortsPublishedBGCount;
 
 	subscription: Subscription;
+	previewShort;
 	searchValue: string = '';
 	loadingState = true;
 
@@ -31,7 +33,7 @@ export class ShortsComponent implements OnInit {
 	};
 	private sorting_shorts: string = 'first_pub_date';
 
-	constructor(public lib: LibraryService, private seo: SeoService) { }
+	constructor(public lib: LibraryService, private seo: SeoService,private modalService: NgbModal) { }
 
 	ngOnInit() {
 		this.seo.generateTags({
@@ -117,6 +119,12 @@ export class ShortsComponent implements OnInit {
 
 	updateReadCounter() {
 		this.shortsReadCount = this.lib.shortsReadCount();
+	}
+
+	openShortModal(content) {
+		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true }).result.then(
+		() => {},
+		() => {this.updateReadCounter()});
 	}
 
 }

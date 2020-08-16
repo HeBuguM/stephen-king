@@ -5,8 +5,8 @@
 				<div class="col-8 col-md-12 mx-auto px-0 card text-center">
 					<img src="assets/covers/books/large/{{book.book_id}}.jpg" class="card-img-top" alt="Корица">
 					<div class="card-body">
-						<button class="btn btn-outline-secondary" *ngIf="!lib.isBookRead(book)" (click)="lib.bookReadToggle(book,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Непрочетена</button>
-						<button class="btn btn-success" *ngIf="lib.isBookRead(book)" (click)="lib.bookReadToggle(book,false)" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i> Прочетена</button>
+						<button class="btn btn-outline-secondary" *ngIf="!lib.isBookRead(book)" (click)="lib.bookReadToggle(book,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Непрочетенo</button>
+						<button class="btn btn-success" *ngIf="lib.isBookRead(book)" (click)="lib.bookReadToggle(book,false)" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i> Прочетенo</button>
 					</div>
 				</div>
 			</div>

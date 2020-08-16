@@ -1,0 +1,115 @@
+<main>
+	<div class="container-xl mt-4" *ngIf="short">
+		<div class="row">
+			<div class="col-md-4 col-lg-3 mb-4">
+				<div class="col-8 col-md-12 mx-auto px-0 card text-center">
+					<img *ngIf="short.first_collected" src="assets/covers/books/large/{{short.first_collected}}.jpg" class="card-img-top" alt="Корица">
+					<div class="card-body">
+						<button class="btn btn-outline-secondary" *ngIf="!lib.isShortRead(short)" (click)="lib.shortReadToggle(short,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Непрочетено</button>
+						<button class="btn btn-success" *ngIf="lib.isShortRead(short)" (click)="lib.shortReadToggle(short,false)" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i> Прочетено</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 col-lg-9 mb-4">
+				<div class="pb-4">
+					<a *ngIf="short.goodreads > 0" class="btn btn-outline-secondary float-right m-1" href="https://www.goodreads.com/book/show/{{ short.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -6px"></a>
+					<a *ngIf="short.wikipedia != ''" class="btn btn-outline-secondary float-right m-1" href="https://en.wikipedia.org/wiki/{{ short.wikipedia }}" target="_blank" rel="noreferrer"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
+					<a *ngIf="short.official_site != ''" class="btn btn-outline-secondary float-right m-1" href="https://www.stephenking.com/{{ short.official_site }}" target="_blank" rel="noreferrer"><img src="assets/img/sk_official_small.png" alt="SK" style="margin-top: -6px"></a>
+					<h1>{{ short.title }}</h1>
+					<h2 class="text-secondary">{{ short.subtitle }}</h2>
+					<p>
+						<span>от <b>Стивън Кинг</b></span>
+					</p>
+				</div>
+
+				<div class="row py-1 mx-0 border-top no-gutters">
+					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Форма</div>
+					<div class="col-8 col-md-8 col-lg-9">{{ short.type }}</div>
+				</div>
+				<div class="row py-1 mx-0 border-top no-gutters">
+					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Първа публикация</div>
+					<div class="col-8 col-md-8 col-lg-9">
+						{{ lib.publishedDate(short.first_pub_date,'first_long') }}
+						<span *ngIf="short.first_pub_in">&bull; {{ short.first_pub_in }}</span>
+						<span *ngIf="!short.first_pub_in" class="text-secondary">&bull; Не е издавано самостоятелно</span>
+					</div>
+				</div>
+				<div class="row py-1 mx-0 border-top no-gutters">
+					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Първи сборник</div>
+					<div class="col-8 col-md-8 col-lg-9" *ngIf="short.first_collected">{{short.collection_title}} &bull; {{ lib.publishedDate(short.collection_published,'first_short') }}</div>
+					<div class="col-8 col-md-8 col-lg-9 text-secondary" *ngIf="!short.first_collected">Не е събирано в сборник</div>
+				</div>
+				<div class="row py-1 mx-0 border-top no-gutters" *ngIf="short.note">
+					<div class="col-4 col-md-4 col-lg-3 text-secondary font-weight-bold">Допълнителна информация</div>
+					<div class="col-8 col-md-8 col-lg-9 text-preline">{{ short.note }}</div>
+				</div>
+
+				<p class="synopsis text-secondary font-italic mt-3" [innerHTML]='short.synopsis'></p>
+
+				<ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="editions-tab" data-toggle="tab" href="#editions" role="tab" aria-controls="editions" aria-selected="true"><i class="fa fa-language"></i> Български издания</a>
+					</li>
+					<li class="nav-item" *ngIf="short.books.length > 0">
+						<a class="nav-link" id="books-tab" data-toggle="tab" href="#books" role="tab"	aria-controls="books" aria-selected="false"><i class="fa fa-list"></i> Сборници</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade p-2 show active" id="editions" role="tabpanel" aria-labelledby="editions-tab">
+						<ng-template [ngIf]="short.editions.length > 0" [ngIfElse]="noEditions">
+							<ng-template ngFor let-edition [ngForOf]="short.editions" let-i="index">
+								<hr class="my-2" *ngIf="i != 0 && edition.group_id == 0">
+								<div class="media my-1" style="font-size: 0.9em">
+									<ng-template #popContent>
+										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
+									</ng-template>
+									<img src="assets/covers/editions/medium/{{edition.edition_id}}.jpg"	style="max-height: 126px;" class="mr-3 click" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+									<div class="media-body">
+										<a class="btn btn-sm btn-outline-secondary float-right" *ngIf="edition.goodreads > 0" href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -4px"></a>
+										<h4 class="mt-0">
+											{{ edition.title }}
+											<h5 class="text-secondary mt-0 mb-0">{{ edition.subtitle }}</h5>
+										</h4>
+										<div class="row">
+											<div class="col-4 col-md-4 col-lg-3 text-secondary">Включено в</div><div class="col-8 col-md-8 col-lg-9">{{ edition.edition_title }}</div>
+										</div>
+										<div class="row">
+											<div class="col-4 col-md-4 col-lg-3 text-secondary">Издание</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(edition.published,'first_long') }} <span *ngIf="edition.publisher">&bull; {{ edition.publisher }}</span></div>
+										</div>
+										<div class="row" *ngIf="edition.translation">
+											<div class="col-4 col-md-4 col-lg-3 text-secondary">Превод</div><div class="col-8 col-md-8 col-lg-9">{{ edition.translation }}</div>
+										</div>
+									</div>
+								</div>
+							</ng-template>
+						</ng-template>
+						<ng-template #noEditions>
+							<small class="text-secondary"><i>Няма българско издание</i></small>
+						</ng-template>
+					</div>
+					<div class="tab-pane fade p-2" id="books" role="tabpanel" aria-labelledby="books-tab">
+						<ng-template ngFor let-book [ngForOf]="short.books" let-i="index">
+							<div class="media my-1" style="font-size: 0.9em">
+								<ng-template #popContent>
+									<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg"></div>
+								</ng-template>
+								<img src="assets/covers/books/medium/{{book.book_id}}.jpg"	style="max-height: 126px;" class="mr-3 click" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+								<div class="media-body align-self-center">
+									<h4 class="mt-0">
+										{{ book.title }}
+									</h4>
+									<div class="row">
+										<div class="col-4 col-md-4 col-lg-3 text-secondary">Публикуван</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(book.published,'first_long') }}</div>
+									</div>
+									<div class="row">
+										<div class="col-4 col-md-4 col-lg-3 text-secondary">Издателство</div><div class="col-8 col-md-8 col-lg-9">{{ book.publisher }}</div>
+									</div>
+								</div>
+							</div>
+						</ng-template>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
