@@ -222,6 +222,7 @@
 					</tr>
 				</tbody>
 			</table>
+
 			<!-- ТАБЛИЦА РАЗКАЗИ -->
 			<table class="table table-sm table-striped table-hover" *ngIf="showShorts && shorts$">
 				<thead>
@@ -231,8 +232,7 @@
 						<td>Форма</td>
 						<td></td>
 						<td>Дата</td>
-						<td style="width: 40%">Първа публикация</td>
-						<td>Сбоник</td>
+						<td style="width: 40%">Първа публикация / Инфо</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -284,11 +284,11 @@
 								</div>
 							</div>
 						</td>
-						<td>
+						<td style="text-align: center;vertical-align: middle;">
 							<span class="infoLink" *ngIf="short.official_site"><a href="https://www.stephenking.com/{{ short.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
 							<span class="infoLink" *ngIf="short.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ short.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
 							<span class="infoLink" *ngIf="short.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ short.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
-							<i class="fa fa-wrench float-right" (click)="editShort(short);openModal(modalForms)"></i>
+							<i class="fa fa-wrench infoLink ml-1" (click)="editShort(short);openModal(modalForms)"></i>
 						</td>
 						<td style="text-align: center;vertical-align: middle;">
 							<span class="text-secondary">{{ short.first_pub_date }}</span>
@@ -296,9 +296,6 @@
 						<td>
 							{{ short.first_pub_in }}
 							<div class="text-secondary" *ngIf="short.note != ''">{{short.note}}</div>
-						</td>
-						<td>
-							{{ short.first_collected }}
 						</td>
 					</tr>
 				</tbody>
