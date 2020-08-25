@@ -646,4 +646,12 @@ export class AdminComponent implements OnInit {
 		});
 	}
 
+	trimDomainNames(Form) {
+		var data = {
+			wikipedia: Form.value.wikipedia.replace('https://en.wikipedia.org/wiki/',''),
+			official_site: Form.value.official_site.replace('https://stephenking.com/','')
+		}
+		Form.patchValue(data);
+	}
+
 }

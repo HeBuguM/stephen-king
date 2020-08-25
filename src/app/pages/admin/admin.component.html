@@ -423,7 +423,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/wikipedia_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="wikipedia" class="form-control">
+						<input formControlName="wikipedia" class="form-control" (change)="trimDomainNames(bookForm)">
 					</div>
 				</div>
 			</div>
@@ -434,7 +434,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="official_site" class="form-control" placeholder="library/...">
+						<input formControlName="official_site" class="form-control" placeholder="library/..." (change)="trimDomainNames(bookForm)">
 					</div>
 				</div>
 			</div>
@@ -588,7 +588,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/wikipedia_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="wikipedia" class="form-control">
+						<input formControlName="wikipedia" class="form-control" (change)="trimDomainNames(shortForm)">
 					</div>
 				</div>
 			</div>
@@ -599,7 +599,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="official_site" class="form-control" placeholder="library/...">
+						<input formControlName="official_site" class="form-control" placeholder="library/..." (change)="trimDomainNames(shortForm)">
 					</div>
 				</div>
 			</div>
