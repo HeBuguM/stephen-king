@@ -41,6 +41,13 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" routerLink="settings"><i class="fa fa-cog fa-fw mr-1 ml-n2"></i> Настройки</a>
 								<a class="dropdown-item" routerLink="about"><i class="fa fa-question-circle fa-fw mr-1 ml-n2"></i> Информация</a>
+								<a class="dropdown-item click" (click)="darkModeSwitch(!darkModeSelected)">
+									<i class="fa fa-lightbulb-o fa-fw mr-1 ml-n2"></i> Тъмен режим
+									<div class="custom-control custom-switch float-right">
+										<input type="checkbox" class="custom-control-input" id="darkSwitch" [checked]="this.darkModeSelected" (click)="darkModeSwitch(!darkModeSelected)">
+										<label class="custom-control-label click" for="darkSwitch"></label>
+									</div>
+								</a>
 								<a class="dropdown-item" routerLink="admin" *ngIf="auth.isAdmin(user)"><i class="fa fa-database fa-fw mr-1 ml-n2"></i> Администрация</a>
 							</div>
 						</div>
@@ -71,6 +78,13 @@
 			<div class="dropdown-divider"></div>
 			<a class="dropdown-item" routerLink="settings"><i class="fa fa-cog fa-fw mr-1 ml-n2"></i> Настройки</a>
 			<a class="dropdown-item" routerLink="about"><i class="fa fa-question-circle fa-fw mr-1 ml-n2"></i> Информация</a>
+			<a class="dropdown-item click" (click)="darkModeSwitch(!darkModeSelected)">
+				<i class="fa fa-lightbulb-o fa-fw mr-1 ml-n2"></i> Тъмен режим
+				<div class="custom-control custom-switch float-right">
+					<input type="checkbox" class="custom-control-input" id="darkSwitch" [checked]="this.darkModeSelected" (click)="darkModeSwitch(!darkModeSelected)">
+					<label class="custom-control-label click" for="darkSwitch"></label>
+				</div>
+			</a>
 		</div>
 	</div>
 </ng-template>
