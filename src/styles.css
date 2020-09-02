@@ -13,6 +13,20 @@ a:hover {
 .button-read-toggle {
   padding: 4px 5.5px;
 }
+.custom-control-label::before {
+    border: #6c757d solid 1px;
+}
+.form-control {
+	border: 1px solid #6c757d;
+ }
+.table-success, .table-success > td,
+.table-success > th {
+	background-color: #d3f2daa8;
+}
+.table-hover .table-success:hover > td,
+.table-hover .table-success:hover > th {
+	background-color: #baeac5;
+}
 .progress {
 	height: 38px;
 	font-size: 1rem;

@@ -16,21 +16,28 @@
 [data-theme="dark"] .table-hover tbody tr:hover {
 	color: #eee;
 }
+[data-theme="dark"] .custom-control-label::before {
+	background-color: #0a1016;
+	border: #6c757d solid 1px;
+}
 [data-theme="dark"] .table-success,
 [data-theme="dark"] .table-success > td,
 [data-theme="dark"] .table-success > th {
-	background-color: #00f7380d;
+	background-color: #00f73808;
 }
 [data-theme="dark"] .table-success tbody + tbody,
 [data-theme="dark"] .table-success td,
 [data-theme="dark"] .table-success th,
 [data-theme="dark"] .table-success thead th {
-	border-color: #1e8636;
+	border-top-color: #254f2e !important;
 }
 [data-theme="dark"] .table-hover .table-success:hover,
 [data-theme="dark"] .table-hover .table-success:hover > td,
 [data-theme="dark"] .table-hover .table-success:hover > th {
-	background-color: #0848166e;
+	background-color: #00f7380d;
+}
+[data-theme="dark"] .table-hover tbody tr:hover {
+    background-color: rgba(55, 54, 54, 0.15);
 }
 [data-theme="dark"] .table td,
 [data-theme="dark"] .table th {
@@ -95,4 +102,12 @@
 }
 [data-theme="dark"] .dropdown-item:hover {
 	color: #212529;
+}
+
+[data-theme="dark"] .book .cover,
+[data-theme="dark"] .short .cover,
+[data-theme="dark"] .edition .cover {
+	-webkit-box-shadow: 1px 1px 1px 1px rgb(119, 119, 119,0.3);
+	-moz-box-shadow: 1px 1px 1px 1px rgb(119, 119, 119,0.3);
+	box-shadow: 1px 1px 1px 1px rgb(119, 119, 119,0.3);
 }
