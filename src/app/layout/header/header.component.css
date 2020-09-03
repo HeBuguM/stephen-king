@@ -11,6 +11,9 @@
 [data-theme="dark"] .bg-black {
 	background-color: #eee !important;
 }
+[data-theme="dark"] .text-secondary {
+	color: #878e95 !important;
+}
 [data-theme="dark"] h1,
 [data-theme="dark"] .table,
 [data-theme="dark"] .table-hover tbody tr:hover {
