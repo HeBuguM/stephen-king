@@ -1,7 +1,7 @@
 <div class="container-xl">
 	<div class="row">
 		<div class="col-12">
-			<div class="row sticky-top py-2 px-3 bg-white top56">
+			<div class="row sticky-top py-2 px-3 bg-light top56">
 				<ul class="nav nav-pills">
 					<li class="nav-item">
 						<a class="nav-link click" [ngClass]="{'active': showBooks}" (click)="changeSection('books')">Книги</a>
@@ -12,12 +12,16 @@
 					<li class="nav-item">
 						<a class="nav-link click" [ngClass]="{'active': showShorts}" (click)="changeSection('shorts')">Разкази</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link click" [ngClass]="{'active': showScreens}" (click)="changeSection('screens')">Екранизации</a>
+					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle click" data-toggle="dropdown"role="button" aria-haspopup="true" aria-expanded="false">Добави</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item click" *ngIf="books$" (click)="editBook(null);openModal(modalForms)">Книга</a>
 							<a class="dropdown-item click" *ngIf="editions$" (click)="editEdition(null);openModal(modalForms)">Издание</a>
 							<a class="dropdown-item click" *ngIf="shorts$" (click)="editShort(null);openModal(modalForms)">Разказ</a>
+							<a class="dropdown-item click" (click)="editScreen(null);openModal(modalForms)">Екранизация</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item click" *ngIf="books$ && shorts$" (click)="editBookShort(null);openModal(modalForms)">Книга-Разказ</a>
 							<a class="dropdown-item click" *ngIf="editions$ && shorts$" (click)="editEditionShort(null);openModal(modalForms)">Издание-Разказ</a>
@@ -40,6 +44,9 @@
 					</span>
 					<span class="mr-3">
 						<i class="fa fa-file-o mr-2"></i> <span class="text-secondary" *ngIf="shorts$ ; else loadShorts">{{ shorts$.length }}</span><ng-template #loadShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('shorts')"></i></ng-template>
+					</span>
+					<span class="mr-3">
+						<i class="fa fa-film mr-2"></i> <span class="text-secondary" *ngIf="screens$ ; else loadScreens">{{ screens$.length }}</span><ng-template #loadScreens><i class="fa fa-refresh text-secondary click" (click)="loadData('screens')"></i></ng-template>
 					</span>
 					<span class="mr-3">
 						<i class="fa fa-link"></i><i class="fa fa-book mr-2"></i> <span class="text-secondary" *ngIf="book_shorts$  ; else loadBookShorts">{{ book_shorts$.length }}</span><ng-template #loadBookShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('book-shorts')"></i></ng-template>
@@ -288,7 +295,7 @@
 							<span class="infoLink" *ngIf="short.official_site"><a href="https://www.stephenking.com/{{ short.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
 							<span class="infoLink" *ngIf="short.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ short.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
 							<span class="infoLink" *ngIf="short.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ short.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
-							<i class="fa fa-wrench infoLink ml-1" (click)="editShort(short);openModal(modalForms)"></i>
+							<i class="fa fa-wrench click infoLink ml-1" (click)="editShort(short);openModal(modalForms)"></i>
 						</td>
 						<td style="text-align: center;vertical-align: middle;">
 							<span class="text-secondary">{{ short.first_pub_date }}</span>
@@ -297,6 +304,60 @@
 							{{ short.first_pub_in }}
 							<div class="text-secondary" *ngIf="short.note != ''">{{short.note}}</div>
 						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- ТАБЛИЦА Екранизации -->
+			<table class="table table-sm table-striped table-hover" *ngIf="showScreens && screens$">
+				<thead>
+					<tr>
+						<td>#</td>
+						<td>Заглавие</td>
+						<td>Дата</td>
+						<td>Тип</td>
+						<td>Продукция</td>
+						<td>Рейтинг</td>
+						<td><i class="fa fa-clock-o"></i></td>
+						<td>S</td>
+						<td>E</td>
+						<td><img src="/assets/img/imdb.png" height="16"></td>
+						<td><img src="/assets/img/metacritics.png" height="16"></td>
+						<td><img src="/assets/img/rottentomatoes.png" height="16"></td>
+						<td><i class="fa fa-money"></i></td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let screen of lib.sortObject(screens$,'onscreen')">
+						<td class="text-secondary">
+							{{screen.onscreen_id}}
+						</td>
+						<td>
+							{{screen.title}}
+						</td>
+						<td>
+							<span class="text-secondary">{{ screen.year }}</span>
+						</td>
+						<td class="text-secondary">
+							{{screen.type}}
+						</td>
+						<td class="text-secondary">
+							{{screen.production}}
+						</td>
+						<td class="text-secondary">
+							{{screen.rated}}
+						</td>
+						<td>{{screen.runtime}}</td>
+						<td>{{screen.seasons}}</td>
+						<td>{{screen.episodes}}</td>
+						<td><a href="https://www.imdb.com/title/{{screen.imdb_id }}/" *ngIf="screen.imdb_id" target="_blank">{{screen.imdb_rating}}</a><small class="text-secondary" *ngIf="screen.imdb_votes > 0"> / {{screen.imdb_votes}}</small></td>
+						<td>{{screen.rotten_tomatoes}}</td>
+						<td>{{screen.metascore}}</td>
+						<td><i class="fa fa-check text-secondary" *ngIf="screen.budget > 0"></i></td>
+						<td style="text-align: center;vertical-align: middle;">
+							<i class="fa fa-wrench click infoLink ml-1" (click)="editScreen(screen);openModal(modalForms)"></i>
+						</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>
@@ -615,6 +676,158 @@
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!shortForm.valid"><i class="fa fa-save"></i> Запази</button>
+		</form>
+
+	<!-- #####
+		Форма Екранизации
+		#####
+	-->
+		<form [formGroup]="screenForm" (ngSubmit)="onScreenFormSubmit()" class="mt-3" *ngIf="showScreensForm">
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Екранизация</label>
+				<div class="col-2">
+					<input id="textinput" formControlName="onscreen_id" class="form-control input-md" type="number">
+				</div>
+				<div class="col-3">
+					<select formControlName="type" class="form-control">
+						<option value="">Избери тип</option>
+						<option *ngFor="let option of lib.onscreen_types" value="{{option}}">{{option}}</option>
+					</select>
+				</div>
+				<div class="col-5 pl-0">
+					<label class="col-2 col-form-label">IMDb</label>
+					<div class="col-9 btn-group">
+						<input id="textinput" formControlName="imdb_id" placeholder="Full URL or ID e.g.: tt6548228" class="form-control input-md" (change)="trimIMDbId(screenForm)">
+						<span class="btn btn-primary" (click)="parseIMDb(screenForm)"><i class="fa fa-cog"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Заглавие</label>
+				<div class="col-7">
+					<input id="textinput" formControlName="title" class="form-control" type="text">
+				</div>
+				<div class="col-3 pl-0">
+					<select formControlName="status" class="form-control">
+						<option value="">Статус</option>
+						<option *ngFor="let option of ['Обявен','Завършен','Прекратен']" value="{{option}}">{{option}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Премиера</label>
+				<div class="col-2">
+					<input id="textinput" formControlName="year" placeholder="Year" class="form-control" type="text">
+				</div>
+				<label class="col-1 pl-1 pr-0 col-form-label">Дата</label>
+				<div class="col-2 pr-1 pl-0">
+					<input id="textinput" formControlName="released" class="form-control px-1" type="text">
+				</div>
+				<label class="col-2 pr-0 col-form-label">Рейтинг</label>
+				<div class="col-3 pl-0">
+					<input id="textinput" formControlName="rated" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Времетраене</label>
+				<div class="col-2 pr-1">
+					<input id="textinput" formControlName="runtime" class="form-control" type="number">
+				</div>
+				<label class="col-2 pr-0 col-form-label">Сезони</label>
+				<div class="col-2 pl-0">
+					<input id="textinput" formControlName="seasons" class="form-control" type="number">
+				</div>
+				<label class="col-2 pr-0 col-form-label">Епизоди</label>
+				<div class="col-2 pl-0">
+					<input id="textinput" formControlName="episodes" class="form-control" type="number">
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Режисьор</label>
+				<div class="col-10">
+					<input id="textinput" formControlName="directors" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Сценарист</label>
+				<div class="col-10">
+					<input id="textinput" formControlName="writers" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Жанр</label>
+				<div class="col-10">
+					<input id="textinput" formControlName="genres" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Постер</label>
+				<div class="col-10">
+					<input id="textinput" formControlName="poster" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Продукция</label>
+				<div class="col-6">
+					<input id="textinput" formControlName="production" class="form-control" type="text">
+				</div>
+				<div class="col-4 pl-0">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><i class="fa fa-money"></i></div>
+						</div>
+						<input id="text" formControlName="budget" placeholder="" type="number" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Държава</label>
+				<div class="col-5">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><i class="fa fa-globe"></i></div>
+						</div>
+						<input id="text" formControlName="country" placeholder="" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-5 pl-0">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><i class="fa fa-volume-up"></i></div>
+						</div>
+						<input id="text" formControlName="language" placeholder="" type="text" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Оценки</label>
+				<div class="col-6">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970" height="16px"></div>
+						</div>
+						<input id="text" formControlName="imdb_rating" placeholder="" type="number" class="form-control col-3">
+						<input id="text" formControlName="imdb_votes" placeholder="" type="number" class="form-control col-9">
+					</div>
+				</div>
+				<div class="col-2 pl-0">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="https://m.media-amazon.com/images/G/01/imdb/images/metacritic/metacritic_16x-3529960177._CB470042368_.png" height="16px"></div>
+						</div>
+						<input id="text" formControlName="metascore" placeholder="" type="number" class="form-control pl-1 pr-0">
+					</div>
+				</div>
+				<div class="col-2 pl-0">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/global/new-fresh.587bf3a5e47.png" height="16px"></div>
+						</div>
+						<input id="text" formControlName="rotten_tomatoes" placeholder="" type="number" class="form-control pl-1 pr-0">
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary float-right" [disabled]="!screenForm.valid"><i class="fa fa-save"></i> Запази</button>
 		</form>
 
 <!-- #####

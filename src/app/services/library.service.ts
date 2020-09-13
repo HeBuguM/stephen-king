@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { Book } from '../models/Book';
 import { Short } from '../models/Short';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
 	providedIn: 'root'
@@ -21,7 +21,8 @@ export class LibraryService {
 		{ 'en': 'The Dark Tower', 'bg': 'Тъмната Кула' }
 	];
 	public book_types = ['Роман', 'Новела', 'Сборник', 'Сценарий', 'Нехудожествена'];
-	public short_types = ['Разказ', 'Новела','Поема','Есе','Пиеса','ТВ Пиеса','Сценарий','Притча']
+	public short_types = ['Разказ', 'Новела','Поема','Есе','Пиеса','ТВ Пиеса','Сценарий','Притча'];
+	public onscreen_types = ['Филм', 'ТВ Филм', 'Сериал', 'Мини-сериал', 'Епизод'];
 
 	constructor(private http: HttpClient, private afs: AngularFirestore) { }
 

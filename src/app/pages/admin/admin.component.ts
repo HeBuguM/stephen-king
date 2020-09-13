@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { LibraryService } from '../../services/library.service'
+import { IMDbService } from '../../services/imdb.service'
 import { Title } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -18,18 +19,21 @@ export class AdminComponent implements OnInit {
 	showBooks = true;
 	showEditions = false;
 	showShorts = false;
+	showScreens = false;
 	showData = false;
 
 	// Forms
 	showBooksForm = false;
 	showEditionsForm = false;
 	showShortsForm = false;
+	showScreensForm = false;
 	showBooksShortsForm = false;
 	showEditionsShortsForm = false;
 
 	books$;
 	editions$;
 	shorts$;
+	screens$;
 	book_shorts$;
 	edition_shorts$;
 
@@ -37,11 +41,14 @@ export class AdminComponent implements OnInit {
 	exportEditions = [];
 	exportEditionShorts = [];
 	exportShorts = [];
+	exportScreens = [];
 	finalBooks = [];
 	finalShorts = [];
+	finalScreens = [];
 
 	exportJSONbooks: string;
 	exportJSONshorts: string;
+	exportJSONscreens: string;
 	exportXMLsitemap: string;
 
 	bookForm = this.fb.group({
@@ -92,6 +99,32 @@ export class AdminComponent implements OnInit {
 		goodreads: [0],
 	});
 
+	screenForm = this.fb.group({
+		onscreen_id: ['', Validators.required],
+		title: ['', Validators.required],
+		type: [''],
+		status: [''],
+		imdb_id: [''],
+		imdb_rating: [0],
+		imdb_votes: [0],
+		year: [''],
+		released: [''],
+		rated: [''],
+		runtime: [0],
+		seasons: [0],
+		episodes: [0],
+		genres: [''],
+		poster: [''],
+		directors: [''],
+		writers: [''],
+		rotten_tomatoes: [0],
+		metascore: [0],
+		production: [''],
+		language: [''],
+		country: [''],
+		budget: [0]
+	});
+
 	bookShortForm = this.fb.group({
 		book_id: ['', Validators.required],
 		short_id: ['', Validators.required],
@@ -106,7 +139,7 @@ export class AdminComponent implements OnInit {
 		position: [0]
 	});
 
-	constructor(public lib: LibraryService, private afs: AngularFirestore, private browser: Title, private fb: FormBuilder, private modalService: NgbModal) { }
+	constructor(public lib: LibraryService, private afs: AngularFirestore, private browser: Title, public imdb: IMDbService,private fb: FormBuilder, private modalService: NgbModal) { }
 
 	ngOnInit() {
 		this.browser.setTitle(`Администрация - Стивън Кинг`)
@@ -122,6 +155,9 @@ export class AdminComponent implements OnInit {
 		if (!this.shorts$ && (data == 'shorts' || !data)) {
 			this.afs.collection('shorts', ref => { return ref.orderBy('first_pub_date') }).valueChanges().subscribe((data) => { this.shorts$ = data; });
 		}
+		if (!this.screens$ && (data == 'screens' || !data)) {
+			this.afs.collection('onscreen', ref => { return ref.orderBy('year') }).valueChanges().subscribe((data) => { this.screens$ = data; });
+		}
 		if (!this.book_shorts$ && (data == 'book-shorts' || !data)) {
 			this.afs.collection('book-shorts', ref => { return ref.orderBy('position') }).valueChanges().subscribe((data) => { this.book_shorts$ = data; });
 		}
@@ -134,6 +170,7 @@ export class AdminComponent implements OnInit {
 		this.showBooks = section == 'books' ? true : false;
 		this.showEditions = section == 'editions' ? true : false;
 		this.showShorts = section == 'shorts' ? true : false;
+		this.showScreens = section == 'screens' ? true : false;
 		this.showData = section == 'data' ? true : false;
 	}
 
@@ -144,6 +181,7 @@ export class AdminComponent implements OnInit {
 				this.showBooksForm = false;
 				this.showEditionsForm = false;
 				this.showShortsForm = false;
+				this.showScreensForm = false;
 				this.showBooksShortsForm = false;
 				this.showEditionsShortsForm = false;
 			}
@@ -195,6 +233,38 @@ export class AdminComponent implements OnInit {
 		}
 		this.shortForm.patchValue(data);
 		this.showShortsForm = true;
+	}
+
+	editScreen(data) {
+		if(data === null) {
+			data = {
+				onscreen_id: this.screens$?.length+1,
+				title: '',
+				type: '',
+				status: '',
+				imdb_id: '',
+				year: '',
+				released: '',
+				rated: '',
+				runtime: 0,
+				seasons: 0,
+				episodes: 0,
+				genres: '',
+				poster: '',
+				directors: '',
+				writers: '',
+				imdb_rating: 0,
+				imdb_votes: 0,
+				rotten_tomatoes: 0,
+				metascore: 0,
+				production: '',
+				language: '',
+				country: '',
+				budget: 0
+			}
+		}
+		this.screenForm.patchValue(data);
+		this.showScreensForm = true;
 	}
 
 	editEdition(data) {
@@ -255,6 +325,11 @@ export class AdminComponent implements OnInit {
 
 	onShortFormSubmit() {
 		this.afs.doc(`shorts/${this.shortForm.value.short_id}`).set({...this.shortForm.value,last_modified: new Date()}, { merge: true });
+		this.modalService.dismissAll();
+	}
+
+	onScreenFormSubmit() {
+		this.afs.doc(`onscreen/${this.screenForm.value.onscreen_id}`).set({...this.screenForm.value,last_modified: new Date()}, { merge: true });
 		this.modalService.dismissAll();
 	}
 
@@ -646,10 +721,70 @@ export class AdminComponent implements OnInit {
 		});
 	}
 
+	async parseIMDb(Form) {
+		if(Form.value.imdb_id.match(/(tt\d{4,})/)?.length > 1) {
+			let data:any = await this.imdb.getTitleData(Form.value.imdb_id);
+			let imdb_type = '';
+			switch (data.Type) {
+				case 'series':
+					imdb_type = 'Сериал';
+					break;
+				case 'movie':
+					imdb_type = 'Филм';
+					break;
+			}
+			let rotten_tomatoes = 0;
+			let metascore = 0;
+			let imdb_rating = 0;
+			data.Ratings.forEach(rate => {
+				if(rate.Source == 'Rotten Tomatoes') {
+					rotten_tomatoes = Number(rate.Value.replace("%",""))
+				}
+				if(rate.Source == 'Metacritic') {
+					metascore = Number(rate.Value.replace("/100",""))
+				}
+				if(rate.Source == 'Internet Movie Database') {
+					imdb_rating = Number(rate.Value.replace("/10",""))
+				}
+			});
+			let parsed_data = {
+				title: data.Title ? data.Title : Form.value.title,
+				year: data.Year ? data.Year : Form.value.year,
+				type: imdb_type && !Form.value.type ? imdb_type : Form.value.type,
+				released: data.Released && data.Released != 'N/A' ? new Date(data.Released).toISOString().substring(0,10): Form.value.released,
+				rated: data.Rated ? data.Rated : Form.value.rated,
+				runtime: data.Runtime && data.Runtime != 'N/A' ? Number(data.Runtime.replace(" min","")) : Form.value.runtime,
+				seasons: data.totalSeasons ? Number(data.totalSeasons) : Form.value.seasons,
+				genres: data.Genre ? data.Genre : Form.value.genres,
+				poster: data.Poster && data.Poster != 'N/A' ? data.Poster : Form.value.poster,
+				directors: !Form.value.directors ? data.Director.replace("N/A","") : Form.value.directors, // .replace(/ \(.*?\)/g,"")
+				writers: !Form.value.writers ? data.Writer.replace("N/A","") : Form.value.writers, // .replace(/ \(.*?\)/g,"")
+				imdb_rating: imdb_rating ? imdb_rating : Form.value.imdb_rating,
+				imdb_votes: data.imdbVotes && data.imdbVotes != 'N/A' ? Number(data.imdbVotes.replace(",","")) : 0,
+				rotten_tomatoes: rotten_tomatoes ? rotten_tomatoes : Form.value.rotten_tomatoes,
+				metascore: metascore ? metascore : Form.value.metascore,
+				production: !Form.value.production && data.Production ? data.Production : Form.value.production,
+				language: data.Language ? data.Language : Form.value.language,
+				country: data.Country ? data.Country : Form.value.country,
+			}
+			console.log(parsed_data);
+			Form.patchValue(parsed_data);
+		} else {
+			alert('Невалидно IMDb ID');
+		}
+	}
+
 	trimDomainNames(Form) {
 		var data = {
 			wikipedia: Form.value.wikipedia.replace('https://en.wikipedia.org/wiki/',''),
 			official_site: Form.value.official_site.replace('https://stephenking.com/','')
+		}
+		Form.patchValue(data);
+	}
+
+	trimIMDbId(Form) {
+		var data = {
+			imdb_id: Form.value.imdb_id.match(/(tt\d{4,})/)?.length > 1 ? Form.value.imdb_id.match(/(tt\d{4,})/)[1] : Form.value.imdb_id
 		}
 		Form.patchValue(data);
 	}
