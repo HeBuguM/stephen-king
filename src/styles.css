@@ -13,10 +13,7 @@ a:hover {
 .button-read-toggle {
   padding: 4px 5.5px;
 }
-.custom-control-label::before {
-    border: #6c757d solid 1px;
-}
-.form-control {
+input#searchField {
 	border: 1px solid #6c757d;
  }
 .table-success, .table-success > td,
@@ -26,6 +23,14 @@ a:hover {
 .table-hover .table-success:hover > td,
 .table-hover .table-success:hover > th {
 	background-color: #baeac5;
+}
+.modal-content {
+	background-color: #f8f9fa;
+}
+.tab-content {
+	background: white;
+	border: 1px solid #dee2e6;
+	border-top: 0px;
 }
 .progress {
 	height: 38px;
