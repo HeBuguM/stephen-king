@@ -2,7 +2,7 @@
 	<div class="container-xl mt-4" *ngIf="book">
 		<div class="row">
 			<div class="col-md-4 col-lg-3 mb-4">
-				<div class="col-8 col-md-12 mx-auto px-0 card text-center">
+				<div class="card shadow-sm text-center col-8 col-md-12 mx-auto px-0 ">
 					<img src="assets/covers/books/large/{{book.book_id}}.jpg" class="card-img-top" alt="Корица">
 					<div class="card-body">
 						<button class="btn btn-outline-secondary" *ngIf="!lib.isBookRead(book)" (click)="lib.bookReadToggle(book,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Непрочетенo</button>
@@ -54,7 +54,7 @@
 						<a class="nav-link" id="shorts-tab" data-toggle="tab" href="#shorts" role="tab"	aria-controls="shorts" aria-selected="false"><i class="fa fa-list"></i> Разкази</a>
 					</li>
 				</ul>
-				<div class="tab-content" id="myTabContent">
+				<div class="tab-content shadow-sm" id="myTabContent">
 					<div class="tab-pane fade p-2 show active" id="editions" role="tabpanel" aria-labelledby="editions-tab">
 						<ng-template [ngIf]="book.editions.length > 0" [ngIfElse]="noEditions">
 							<ng-template ngFor let-edition [ngForOf]="book.editions" let-i="index">
