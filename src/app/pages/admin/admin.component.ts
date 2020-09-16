@@ -120,6 +120,7 @@ export class AdminComponent implements OnInit {
 		rotten_tomatoes: [0],
 		metascore: [0],
 		production: [''],
+		network: [''],
 		language: [''],
 		country: [''],
 		budget: [0]
@@ -258,6 +259,7 @@ export class AdminComponent implements OnInit {
 				rotten_tomatoes: 0,
 				metascore: 0,
 				production: '',
+				network: '',
 				language: '',
 				country: '',
 				budget: 0
@@ -363,6 +365,11 @@ export class AdminComponent implements OnInit {
 				}
 			}
 			this.exportShorts[short.short_id] = Short;
+		}
+
+		// Building Books Array
+		for (let screen of this.screens$) {
+			this.exportScreens[screen.onscreen_id] = screen;
 		}
 
 		// Building Editions Array
@@ -472,6 +479,18 @@ export class AdminComponent implements OnInit {
 		}
 		this.exportJSONshorts = JSON.stringify(this.lib.sortObject(this.finalShorts, 'first_pub_date'));
 
+		// Build Final Array (Screens)
+		for (let screen of Object.values(this.exportScreens)) {
+			if (!screen['books']) {
+				screen['books'] = [];
+			}
+			if (!screen['shorts']) {
+				screen['shorts'] = []
+			}
+			this.finalScreens.push(screen);
+		}
+		this.exportJSONscreens = JSON.stringify(this.lib.sortObject(this.finalScreens, 'year'));
+
 		this.exportXMLsitemap = '<?xml version="1.0" encoding="UTF-8"?>\n\
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
 	<url>\n\
@@ -517,17 +536,22 @@ export class AdminComponent implements OnInit {
 			this.afs.doc(`data/shorts`).set({...this.finalShorts});
 			alert('Live Data updated ['+type+']')
 		}
+		if(type === 'onscreen') {
+			this.afs.doc(`data/onscreen`).set({...this.finalScreens});
+			alert('Live Data updated ['+type+']')
+		}
 	}
 
 	downloadJSON(type) {
 		var a = document.createElement('a');
 		if(type === 'books') {
-			this.afs.doc(`data/books`).set({...this.finalBooks});
 			var file = new Blob([this.exportJSONbooks], {type: 'application/json'});
 		}
 		if(type === 'shorts') {
-			this.afs.doc(`data/shorts`).set({...this.finalShorts});
 			var file = new Blob([this.exportJSONshorts], {type: 'application/json'});
+		}
+		if(type === 'onscreen') {
+			var file = new Blob([this.exportJSONscreens], {type: 'application/json'});
 		}
 		a.href = URL.createObjectURL(file);
 		a.download = type + '.json';
@@ -767,7 +791,6 @@ export class AdminComponent implements OnInit {
 				language: data.Language ? data.Language : Form.value.language,
 				country: data.Country ? data.Country : Form.value.country,
 			}
-			console.log(parsed_data);
 			Form.patchValue(parsed_data);
 		} else {
 			alert('Невалидно IMDb ID');

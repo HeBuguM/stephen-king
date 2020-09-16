@@ -343,6 +343,7 @@
 						</td>
 						<td class="text-secondary">
 							{{screen.production}}
+							{{screen.network}}
 						</td>
 						<td class="text-secondary">
 							{{screen.rated}}
@@ -381,13 +382,19 @@
 					<button class="btn btn-primary btn-sm" (click)="downloadJSON('books')" *ngIf="exportJSONbooks"><i class="fa fa-save"></i> Свали файл</button>
 					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('books')" *ngIf="exportJSONbooks"><i class="fa fa-upload"></i> Обнови Firestore</button>
 				</div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportJSONbooks }}</textarea>
+				<textarea class="form-control mt-3" spellcheck="false" rows="4">{{ exportJSONbooks }}</textarea>
 				<div class="text-secondary mt-2">
 					Разкази
 					<button class="btn btn-primary btn-sm" (click)="downloadJSON('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-save"></i> Свали файл</button>
-					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('shorts')" *ngIf="exportJSONbooks"><i class="fa fa-upload"></i> Обнови Firestore</button>
+					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-upload"></i> Обнови Firestore</button>
 				</div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportJSONshorts }}</textarea>
+				<textarea class="form-control mt-3" spellcheck="false" rows="4">{{ exportJSONshorts }}</textarea>
+				<div class="text-secondary mt-2">
+					Екранизации
+					<button class="btn btn-primary btn-sm" (click)="downloadJSON('onscreen')" *ngIf="exportJSONscreens"><i class="fa fa-save"></i> Свали файл</button>
+					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('onscreen')" *ngIf="exportJSONscreens"><i class="fa fa-upload"></i> Обнови Firestore</button>
+				</div>
+				<textarea class="form-control mt-3" spellcheck="false" rows="4">{{ exportJSONscreens }}</textarea>
 				<div class="text-secondary mt-2">Sitemap <button class="btn btn-primary btn-sm" (click)="downloadXML('sitemap')" *ngIf="exportXMLsitemap"><i class="fa fa-save"></i></button></div>
 				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportXMLsitemap }}</textarea>
 			</div>
@@ -768,10 +775,13 @@
 			</div>
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Продукция</label>
-				<div class="col-6">
+				<div class="col-4">
 					<input id="textinput" formControlName="production" class="form-control" type="text">
 				</div>
-				<div class="col-4 pl-0">
+				<div class="col-3">
+					<input id="textinput" formControlName="network" class="form-control" placeholder="Канал" type="text">
+				</div>
+				<div class="col-3 pl-0">
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<div class="input-group-text"><i class="fa fa-money"></i></div>
