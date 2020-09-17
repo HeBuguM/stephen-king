@@ -7,6 +7,7 @@ import { BooksComponent } from './pages/books/books.component';
 import { BookComponent } from './pages/book/book.component';
 import { ShortsComponent } from './pages/shorts/shorts.component';
 import { ShortComponent } from './pages/short/short.component';
+import { OnscreenComponent } from './pages/onscreen/onscreen.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 // import { AuthGuard } from './services/auth.guard';
 // import { EditorGuard } from './services/editor.guard';
@@ -22,9 +23,10 @@ const routes: Routes = [
   { 'path': 'book/:bookId', component: BookComponent},
   { 'path': 'shorts', component: ShortsComponent},
   { 'path': 'short/:shortId', component: ShortComponent},
+  { 'path': 'onscreen', component: OnscreenComponent},
   { 'path': 'about', component: AboutComponent},
   { 'path': 'settings', component: SettingsComponent},
-  { 'path': 'admin', component: AdminComponent},
+  { 'path': 'admin', component: AdminComponent, canActivate: [AdminGuard]},
   { 'path': '**',component: NotFoundComponent}
 ];
 

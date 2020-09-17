@@ -1,0 +1,134 @@
+<div class="container-xl">
+	<app-loading-spinner *ngIf="loadingState"></app-loading-spinner>
+	<ng-template [ngIf]="!loadingState">
+
+	<nav class="navbar navbar-light sticky-top px-0 py-1 py-md-2 bg-light top56">
+		<div class="col-6 col-sm-5 px-0">
+			<input id="searchField" class="form-control" placeholder="Търси" (change)="updateSearch($event.target.value)" autocomplete="off" aria-label="Търсене">
+			<i class="fa fa-search fa-fw text-secondary"></i>
+		</div>
+		<div class="col-2 px-0 text-center">
+			<div class="btn-group">
+				<button class="btn btn-outline-secondary col-9 col-sm-8 col-md-6 px-1" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fa fa-filter"></i> {{filtered_screens.length}}
+				</button>
+				<button class="btn" [ngClass]="{'btn-secondary': onscreen_layout == 'list', 'btn-outline-secondary': onscreen_layout != 'list'}" aria-label="List View" (click)="changeLayout('list')"><i class="fa fa-th-list"></i></button>
+				<button class="btn" [ngClass]="{'btn-secondary': onscreen_layout == 'grid', 'btn-outline-secondary': onscreen_layout != 'grid'}" aria-label="Grid View" (click)="changeLayout('grid')"><i class="fa fa-th"></i></button>
+			</div>
+		</div>
+		<div class="progress col-4 col-sm-5 px-0 position-relative">
+			<div class="progress-info" *ngIf="screensTotalCount">{{ screensWatchedCount }} / {{ screensTotalCount }}</div>
+			<div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width.%': (( screensWatchedCount / screensTotalCount ) * 100).toFixed(2) }" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+		<div class="navbar-collapse collapse" id="Filter">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item mt-2">
+					<div class="row">
+						<div class="col-6 col-md-4 col-lg-3">
+							<label for="sorting"><i class="fa fa-sort-amount-asc"></i> Сортиране</label>
+							<select id="sorting" class="form-control" (change)="changeSorting($event.target.value)" [value]="getSorting()">
+								<option value='year'>Година</option>
+								<option value='title'>Заглавие</option>
+							</select>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<label class="pt-2"><i class="fa fa-filter"></i> Филтър</label>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" id="filterSeen" class="custom-control-input" (change)="changeFilter('seen',$event.target.checked ? true : 'all')" [checked]="getFilter('seen') === true">
+								<label class="custom-control-label click" for="filterSeen">Гледани</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" id="filterUnseen" class="custom-control-input" (change)="changeFilter('seen',$event.target.checked ? false : 'all')" [checked]="getFilter('seen') === false">
+								<label class="custom-control-label click" for="filterUnseen">Негледани</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" id="filterRead" class="custom-control-input" (change)="changeFilter('read',$event.target.checked ? true : 'all')" [checked]="getFilter('read') === true">
+								<label class="custom-control-label click" for="filterRead">Прочетени</label>
+							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" id="filterUnread" class="custom-control-input" (change)="changeFilter('read',$event.target.checked ? false : 'all')" [checked]="getFilter('read') === false">
+								<label class="custom-control-label click" for="filterUnread">Непрочетени</label>
+							</div>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<label class="pt-2"><i class="fa fa-asterisk"></i> Форма</label>
+							<div class="row pl-3">
+								<div class="custom-control custom-checkbox col-12" *ngFor="let type of lib.onscreen_types">
+									<input type="checkbox" class="custom-control-input" id="{{type}}" (change)="changeFilter('type', $event.target.checked ? type : false)" [checked]="getFilter('type') == type">
+									<label class="custom-control-label click" for="{{type}}">{{ type }}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- GRID -->
+	<div class="onscreen-grid mt-2" *ngIf="onscreen_layout  == 'grid'">
+		<div class="d-inline-block align-top mr-4" *ngFor="let screen of filtered_screens" style="width: 160px; height: 310px;position: relative;">
+			<img class="rounded shadow-sm" src="{{screen.poster}}" alt="" style="width: 160px;height: 240px;">
+			<span>{{ screen.title }}</span>
+			<div class="d-none">
+			<div class="seen" style="position: absolute;top: 4px;left: 4px;">
+				<span class="btn btn-sm btn-outline-secondary button-read-toggle"><i class="fa fa-fw fa-check"></i></span>
+			</div>
+			<span class="tv" *ngIf="screen.type == 'Сериал' || screen.type == 'Мини-сериал'" style="position: absolute;
+				top: 4px;
+				right: 4px;
+				margin: 0;
+				width: 42px;
+				height: 16px;
+				color: rgba(255,255,255,0.8);
+				font-size: 10px;
+				font-weight: bold;
+				line-height: 16px;
+				text-align: center;
+				background-color: rgba(0,0,0,0.6);">Сериал</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- LIST -->
+	<div class="onscreen-list mt-2" *ngIf="onscreen_layout  == 'list'">
+		<table class="table">
+			<thead>
+				<th></th>
+				<th colspan="2">Заглавие</th>
+				<th>Година</th>
+				<th>Рейтинг</th>
+				<th><img class="rounded" src="assets/img/imdb.png" height="24"></th>
+				<th><img src="assets/img/metacritics.png" height="24"></th>
+				<th><img src="assets/img/rottentomatoes.png" height="24"></th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr *ngFor="let screen of filtered_screens">
+					<td><img class="rounded shadow-sm" src="{{screen.poster}}" alt="" style="height: 76px;"></td>
+					<td class="align-middle">{{ screen.title }}</td>
+					<td class="align-middle"><span *ngIf="!isMovie(screen)">{{ screen.type.split("-")[0] }}</span></td>
+					<td class="align-middle">{{ screen.year }}</td>
+					<td class="align-middle">{{ screen.rated }}</td>
+					<td class="align-middle"><span *ngIf="screen.imdb_rating"><i class="fa fa-star mr-1" style="color: #f5c518"></i>{{ screen.imdb_rating }}<small class="text-secondary">/10</small></span></td>
+					<td class="align-middle">
+						<span *ngIf="screen.metascore >= 70" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #6c3;">
+							{{screen.metascore}}
+						</span>
+						<span *ngIf="screen.metascore >= 50 && screen.metascore < 70" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #fc3;">
+							{{screen.metascore}}
+						</span>
+						<span *ngIf="screen.metascore > 0 && screen.metascore < 40" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #f00;">
+							{{screen.metascore}}
+						</span>
+					</td>
+					<td class="align-middle"><span *ngIf="screen.rotten_tomatoes">{{ screen.rotten_tomatoes }}<small class="text-secondary">%</small></span></td>
+					<td class="align-middle text-center">{{ screen.network }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	</ng-template>
+</div>

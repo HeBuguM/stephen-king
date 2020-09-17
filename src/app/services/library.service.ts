@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { Book } from '../models/Book';
 import { Short } from '../models/Short';
+import { Onscreen } from '../models/Onscreen';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -13,6 +14,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class LibraryService {
 	private booksUrl: string = environment.appBaseHref + 'assets/data/books.json';
 	private shortsUrl: string = environment.appBaseHref + 'assets/data/shorts.json';
+	private onscreenUrl: string = environment.appBaseHref + 'assets/data/onscreen.json';
 
 	public book_series = [
 		{ 'en': 'Bill Hodges', 'bg': 'Бил Ходжис' },
@@ -91,6 +93,15 @@ export class LibraryService {
 		}
 		if(environment.libraryData == 'firestore') {
 			return this.afs.doc<Short[]>(`data/shorts`).valueChanges();
+		}
+	}
+
+	getOnscreens(): Observable<Onscreen[]> {
+		if(environment.libraryData == 'files') {
+			return this.http.get<Onscreen[]>(this.onscreenUrl);
+		}
+		if(environment.libraryData == 'firestore') {
+			return this.afs.doc<Array<Onscreen>>(`data/onscreen`).valueChanges();
 		}
 	}
 

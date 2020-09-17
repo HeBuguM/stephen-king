@@ -23,6 +23,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutComponent } from './pages/about/about.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { ShortComponent } from './pages/short/short.component';
+import { OnscreenComponent } from './pages/onscreen/onscreen.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ShortComponent } from './pages/short/short.component';
     NotFoundComponent,
     AboutComponent,
     SettingsComponent,
-    ShortComponent
+    ShortComponent,
+    OnscreenComponent
   ],
   imports: [
     BrowserModule,
