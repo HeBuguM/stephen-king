@@ -29,7 +29,7 @@ export class OnscreenComponent implements OnInit {
 		type: false,
 	};
 
-	public sorting_screens: string = 'published';
+	public sorting_screens: string = 'year';
 	public onscreen_layout: string = 'grid';
 
 	constructor(public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
@@ -66,8 +66,10 @@ export class OnscreenComponent implements OnInit {
 	}
 
 	filterScreens() {
+		console.log(this.filter_screens);
 		return this.filtered_screens = this.screens.filter(screen => !(
-			(this.filter_screens.type && screen.type != this.filter_screens.type)
+			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && this.isSeries(screen))
+			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && this.isMovie(screen))
 			|| (this.searchValue != '' && (JSON.stringify(screen).toLowerCase().indexOf(this.searchValue.trim().toLowerCase()) <= -1))
 			)
 		);
@@ -126,6 +128,10 @@ export class OnscreenComponent implements OnInit {
 
 	isMovie(screen) {
 		return screen.type == 'Филм' || screen.type == 'ТВ Филм';
+	}
+
+	isSeries(screen) {
+		return screen.type == 'Сериал' || screen.type == 'Мини-сериал';
 	}
 
 	updateWatchedCounter() {
