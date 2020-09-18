@@ -66,7 +66,6 @@ export class OnscreenComponent implements OnInit {
 	}
 
 	filterScreens() {
-		console.log(this.filter_screens);
 		return this.filtered_screens = this.screens.filter(screen => !(
 			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && this.isSeries(screen))
 			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && this.isMovie(screen))
