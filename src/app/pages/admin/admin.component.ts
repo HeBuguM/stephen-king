@@ -29,6 +29,7 @@ export class AdminComponent implements OnInit {
 	showScreensForm = false;
 	showBooksShortsForm = false;
 	showEditionsShortsForm = false;
+	showScreenConnectionForm = false;
 
 	books$;
 	editions$;
@@ -36,6 +37,7 @@ export class AdminComponent implements OnInit {
 	screens$;
 	book_shorts$;
 	edition_shorts$;
+	screen_connections$;
 
 	exportBooks = {};
 	exportEditions = [];
@@ -140,6 +142,14 @@ export class AdminComponent implements OnInit {
 		position: [0]
 	});
 
+	screenConnectionForm = this.fb.group({
+		onscreen_id: ['', Validators.required],
+		book_id: ['', Validators.required],
+		short_id: ['', Validators.required],
+		type: [''],
+		info: ['']
+	});
+
 	constructor(public lib: LibraryService, private afs: AngularFirestore, private browser: Title, public imdb: IMDbService,private fb: FormBuilder, private modalService: NgbModal) { }
 
 	ngOnInit() {
@@ -164,6 +174,9 @@ export class AdminComponent implements OnInit {
 		}
 		if (!this.edition_shorts$ && (data == 'edition-shorts' || !data)) {
 			this.afs.collection('edition-shorts', ref => { return ref.orderBy('position') }).valueChanges().subscribe((data) => { this.edition_shorts$ = data; });
+		}
+		if (!this.screen_connections$ && (data == 'screen-connections' || !data)) {
+			this.afs.collection('onscreen-connections', ref => { return ref.orderBy('type') }).valueChanges().subscribe((data) => { this.screen_connections$ = data; });
 		}
 	}
 
@@ -315,6 +328,20 @@ export class AdminComponent implements OnInit {
 		this.showEditionsShortsForm = true;
 	}
 
+	editScreenConnection(data) {
+		if(data === null) {
+			data = {
+				onscreen_id: 0,
+				book_id: 0,
+				short_id: 0,
+				connection_type: '',
+				connection_invo: ''
+			}
+		}
+		this.screenConnectionForm.patchValue(data);
+		this.showScreenConnectionForm = true;
+	}
+
 	onBookFormSubmit() {
 		this.afs.doc(`books/${this.bookForm.value.book_id}`).set({...this.bookForm.value,last_modified: new Date()}, { merge: true });
 		this.modalService.dismissAll();
@@ -346,6 +373,18 @@ export class AdminComponent implements OnInit {
 		this.afs.doc(`edition-shorts/${this.editionShortForm.value.edition_id}-${this.editionShortForm.value.short_id}`).set(this.editionShortForm.value, { merge: true });
 		this.afs.doc(`editions/${this.editionShortForm.value.edition_id}`).set({last_modified: new Date()}, { merge: true });
 		this.afs.doc(`shorts/${this.editionShortForm.value.short_id}`).set({last_modified: new Date()}, { merge: true });
+		this.modalService.dismissAll();
+	}
+
+	onScreenConnectionFormSubmit() {
+		if(this.screenConnectionForm.value.book_id > 0) {
+			this.afs.doc(`onscreen-connections/${this.screenConnectionForm.value.onscreen_id}-book-${this.screenConnectionForm.value.book_id}`).set(this.screenConnectionForm.value, { merge: true });
+			this.afs.doc(`books/${this.screenConnectionForm.value.book_id}`).set({last_modified: new Date()}, { merge: true });
+		}
+		if(this.screenConnectionForm.value.short_id > 0) {
+			this.afs.doc(`onscreen-connections/${this.screenConnectionForm.value.onscreen_id}-short-${this.screenConnectionForm.value.short_id}`).set(this.screenConnectionForm.value, { merge: true });
+			this.afs.doc(`shorts/${this.screenConnectionForm.value.short_id}`).set({last_modified: new Date()}, { merge: true });
+		}
 		this.modalService.dismissAll();
 	}
 
@@ -666,6 +705,16 @@ export class AdminComponent implements OnInit {
 		if (this.editions$) {
 			if (ref.book_id) {
 				return this.editions$.filter(e => e.book_id == ref.book_id)
+			}
+		} else {
+			return false;
+		}
+	}
+
+	getScreenConnections(ref) {
+		if (this.screen_connections$) {
+			if (ref.onscreen_id) {
+				return this.screen_connections$.filter(s => s.onscreen_id == ref.onscreen_id)
 			}
 		} else {
 			return false;
