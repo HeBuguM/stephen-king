@@ -116,15 +116,6 @@ export class OnscreenComponent implements OnInit {
 		return this.filter_screens !== null && this.filter_screens[key] !== null ? this.filter_screens[key] : false;
 	}
 
-	bookClasses(book) {
-		let classes = {
-			book: true,
-			'table-success': this.lib.isBookRead(book),
-			'expanded': book.book_id == this.expandId
-		}
-		return classes;
-	}
-
 	isMovie(screen) {
 		return screen.type == 'Филм' || screen.type == 'ТВ Филм';
 	}

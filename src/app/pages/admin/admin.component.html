@@ -25,7 +25,7 @@
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item click" *ngIf="books$ && shorts$" (click)="editBookShort(null);openModal(modalForms)">Книга-Разказ</a>
 							<a class="dropdown-item click" *ngIf="editions$ && shorts$" (click)="editEditionShort(null);openModal(modalForms)">Издание-Разказ</a>
-							<a class="dropdown-item click" *ngIf="editions$ && shorts$ && screens$" (click)="editScreenConnection(null);openModal(modalForms)">Екранизация-Връзка</a>
+							<a class="dropdown-item click" *ngIf="books$ && shorts$ && screens$" (click)="editScreenConnection(null);openModal(modalForms)">Екранизация-Връзка</a>
 						</div>
 					</li>
 					<li class="nav-item">
@@ -339,8 +339,8 @@
 						<td>
 							{{screen.title}}
 							<div *ngIf="getScreenConnections(screen) as connections">
-								<small>
-									<a data-toggle="collapse" href="#screenConnections{{screen.onscreen_id}}" aria-expanded="false" attr.aria-controls="screenConnections{{screen.onscreen_id}}" *ngIf="connections.length > 0">
+								<small *ngIf="connections.length > 0 ;else noConnections">
+									<a data-toggle="collapse" href="#screenConnections{{screen.onscreen_id}}" aria-expanded="false" attr.aria-controls="screenConnections{{screen.onscreen_id}}">
 										Връзки ({{ connections.length }})
 									</a>
 								</small>
@@ -353,7 +353,11 @@
 											</td>
 										</tr>
 									</table>
+									<small class="text-secondary click" (click)="editScreenConnection({onscreen_id: screen.onscreen_id,book_id: '',short_id: '', type: 'Базиран',info: 'Базиран на романа'});openModal(modalForms)"><i class="fa fa-plus"></i> Добави връзка</small>
 								</div>
+								<ng-template #noConnections>
+									<small class="text-secondary click" (click)="editScreenConnection({onscreen_id: screen.onscreen_id,book_id: '',short_id: '', type: 'Базиран',info: 'Базиран на романа'});openModal(modalForms)"><i class="fa fa-plus"></i> Добави връзка</small>
+								</ng-template>
 							</div>
 						</td>
 						<td>
@@ -967,7 +971,7 @@
 				<label class="col-2 col-form-label">Книга</label>
 				<div class="col-10">
 					<select formControlName="book_id" class="form-control">
-						<option value="0">Избери книга</option>
+						<option value="" selected>Избери книга</option>
 						<optgroup label="Книги" *ngIf="books$">
 							<option *ngFor="let book of lib.sortObject(books$,'title')" value="{{ book.book_id }}">
 								{{ book.title + ' ('+ book.published.split("-")[0] + ')' }}
@@ -978,9 +982,9 @@
 			</div>
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Разказ</label>
-				<div class="col-8">
+				<div class="col-10">
 					<select formControlName="short_id" class="form-control">
-						<option value="0">Избери разказ</option>
+						<option value="">Избери разказ</option>
 						<optgroup label="Разкази" *ngIf="shorts$">
 							<option *ngFor="let short of lib.sortObject(shorts$,'title')" value="{{ short.short_id }}">{{ short.title }}</option>
 						</optgroup>

@@ -144,8 +144,8 @@ export class AdminComponent implements OnInit {
 
 	screenConnectionForm = this.fb.group({
 		onscreen_id: ['', Validators.required],
-		book_id: ['', Validators.required],
-		short_id: ['', Validators.required],
+		book_id: [''],
+		short_id: [''],
 		type: [''],
 		info: ['']
 	});
@@ -331,11 +331,11 @@ export class AdminComponent implements OnInit {
 	editScreenConnection(data) {
 		if(data === null) {
 			data = {
-				onscreen_id: 0,
-				book_id: 0,
-				short_id: 0,
-				connection_type: '',
-				connection_invo: ''
+				onscreen_id: '',
+				book_id: '',
+				short_id: '',
+				type: '',
+				info: ''
 			}
 		}
 		this.screenConnectionForm.patchValue(data);
