@@ -106,6 +106,7 @@ export class AdminComponent implements OnInit {
 		title: ['', Validators.required],
 		type: [''],
 		status: [''],
+		tmdb_id: [''],
 		imdb_id: [''],
 		imdb_rating: [0],
 		imdb_votes: [0],
@@ -125,7 +126,9 @@ export class AdminComponent implements OnInit {
 		network: [''],
 		language: [''],
 		country: [''],
-		budget: [0]
+		budget: [0],
+		wikipedia: [''],
+		official_site: [''],
 	});
 
 	bookShortForm = this.fb.group({
@@ -167,7 +170,7 @@ export class AdminComponent implements OnInit {
 			this.afs.collection('shorts', ref => { return ref.orderBy('first_pub_date') }).valueChanges().subscribe((data) => { this.shorts$ = data; });
 		}
 		if (!this.screens$ && (data == 'screens' || !data)) {
-			this.afs.collection('onscreen', ref => { return ref.orderBy('year') }).valueChanges().subscribe((data) => { this.screens$ = data; });
+			this.afs.collection('onscreen', ref => { return ref.orderBy('title') }).valueChanges().subscribe((data) => { this.screens$ = data; });
 		}
 		if (!this.book_shorts$ && (data == 'book-shorts' || !data)) {
 			this.afs.collection('book-shorts', ref => { return ref.orderBy('position') }).valueChanges().subscribe((data) => { this.book_shorts$ = data; });
@@ -275,7 +278,9 @@ export class AdminComponent implements OnInit {
 				network: '',
 				language: '',
 				country: '',
-				budget: 0
+				budget: 0,
+				wikipedia: '',
+				official_site: ''
 			}
 		}
 		this.screenForm.patchValue(data);
@@ -833,7 +838,7 @@ export class AdminComponent implements OnInit {
 				directors: !Form.value.directors ? data.Director.replace("N/A","") : Form.value.directors, // .replace(/ \(.*?\)/g,"")
 				writers: !Form.value.writers ? data.Writer.replace("N/A","") : Form.value.writers, // .replace(/ \(.*?\)/g,"")
 				imdb_rating: imdb_rating ? imdb_rating : Form.value.imdb_rating,
-				imdb_votes: data.imdbVotes && data.imdbVotes != 'N/A' ? Number(data.imdbVotes.replace(",","")) : 0,
+				imdb_votes: data.imdbVotes && data.imdbVotes != 'N/A' ? Number(data.imdbVotes.replace(/,/g,"")) : 0,
 				rotten_tomatoes: rotten_tomatoes ? rotten_tomatoes : Form.value.rotten_tomatoes,
 				metascore: metascore ? metascore : Form.value.metascore,
 				production: !Form.value.production && data.Production ? data.Production : Form.value.production,
@@ -846,15 +851,21 @@ export class AdminComponent implements OnInit {
 		}
 	}
 
-	trimDomainNames(Form) {
+	trimDomainWiki(Form) {
 		var data = {
-			wikipedia: Form.value.wikipedia.replace('https://en.wikipedia.org/wiki/',''),
-			official_site: Form.value.official_site.replace('https://stephenking.com/','')
+			wikipedia: Form.value.wikipedia.replace('https://en.wikipedia.org/wiki/','')
 		}
 		Form.patchValue(data);
 	}
 
-	trimIMDbId(Form) {
+	trimDomainSK(Form) {
+		var data = {
+			official_site: Form.value.official_site.replace('https://stephenking.com/works/','')
+		}
+		Form.patchValue(data);
+	}
+
+	trimDomainIMDb(Form) {
 		var data = {
 			imdb_id: Form.value.imdb_id.match(/(tt\d{4,})/)?.length > 1 ? Form.value.imdb_id.match(/(tt\d{4,})/)[1] : Form.value.imdb_id
 		}

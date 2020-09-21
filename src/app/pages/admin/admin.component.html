@@ -1,6 +1,60 @@
-<div class="container-xl">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-12">
+		<div class="col-2 bg-light-gray border-right">
+			<table class="table">
+				<thead>
+					<tr>
+						<th><i class="fa fa-database mr-2"></i> База данни</th>
+						<th><i class="fa fa-refresh text-secondary click" (click)="loadData()" *ngIf="!books$ || !editions$ || !shorts$ || !book_shorts$ || !edition_shorts$"></i></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><i class="fa fa-book mr-2"></i> Книги</td>
+						<td>
+							<span class="text-secondary" *ngIf="books$ ; else loadBooks">{{ books$.length }}</span><ng-template #loadBooks><i class="fa fa-refresh text-secondary click" (click)="loadData('books')"></i></ng-template>
+						</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-language mr-2"></i> Издания</td>
+						<td>
+							<span class="text-secondary" *ngIf="editions$ ; else loadEditions">{{ editions$.length }}</span><ng-template #loadEditions><i class="fa fa-refresh text-secondary click" (click)="loadData('editions')"></i></ng-template>
+						</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-file-o mr-2"></i> Разкази</td>
+						<td>
+							<span class="text-secondary" *ngIf="shorts$ ; else loadShorts">{{ shorts$.length }}</span><ng-template #loadShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('shorts')"></i></ng-template>
+						</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-film mr-2"></i> Екранизации</td>
+						<td>
+							<span class="text-secondary" *ngIf="screens$ ; else loadScreens">{{ screens$.length }}</span><ng-template #loadScreens><i class="fa fa-refresh text-secondary click" (click)="loadData('screens')"></i></ng-template>
+						</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-link"></i><i class="fa fa-book mr-2"></i> Книги - Разкази</td>
+						<td>
+							<span class="text-secondary" *ngIf="book_shorts$  ; else loadBookShorts">{{ book_shorts$.length }}</span><ng-template #loadBookShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('book-shorts')"></i></ng-template>
+						</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-link"></i><i class="fa fa-language mr-2"></i> Издания - Разкази</td>
+						<td>
+							<span class="text-secondary" *ngIf="edition_shorts$  ; else loadEditionShorts">{{ edition_shorts$.length }}</span><ng-template #loadEditionShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('edition-shorts')"></i></ng-template>
+						</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-link"></i><i class="fa fa-film mr-2"></i> Връзки екранизации</td>
+						<td>
+							<span class="text-secondary" *ngIf="screen_connections$  ; else loadScreenConnections">{{ screen_connections$.length }}</span><ng-template #loadScreenConnections><i class="fa fa-refresh text-secondary click" (click)="loadData('screen-connections')"></i></ng-template>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-10">
 			<div class="row sticky-top py-2 px-3 bg-light top56">
 				<ul class="nav nav-pills">
 					<li class="nav-item">
@@ -33,32 +87,6 @@
 					</li>
 				</ul>
 				<button class="btn btn-warning" (click)="updateCustom()" [hidden]="true">Обнови (custom)</button>
-				<div class="ml-auto py-2">
-					<span class="mr-3">
-						<i class="fa fa-database mr-2"></i> <i class="fa fa-refresh text-secondary click" (click)="loadData()" *ngIf="!books$ || !editions$ || !shorts$ || !book_shorts$ || !edition_shorts$"></i>
-					</span>
-					<span class="mr-3">
-						<i class="fa fa-book mr-2"></i> <span class="text-secondary" *ngIf="books$ ; else loadBooks">{{ books$.length }}</span><ng-template #loadBooks><i class="fa fa-refresh text-secondary click" (click)="loadData('books')"></i></ng-template>
-					</span>
-					<span class="mr-3">
-						<i class="fa fa-language mr-2"></i> <span class="text-secondary" *ngIf="editions$ ; else loadEditions">{{ editions$.length }}</span><ng-template #loadEditions><i class="fa fa-refresh text-secondary click" (click)="loadData('editions')"></i></ng-template>
-					</span>
-					<span class="mr-3">
-						<i class="fa fa-file-o mr-2"></i> <span class="text-secondary" *ngIf="shorts$ ; else loadShorts">{{ shorts$.length }}</span><ng-template #loadShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('shorts')"></i></ng-template>
-					</span>
-					<span class="mr-3">
-						<i class="fa fa-film mr-2"></i> <span class="text-secondary" *ngIf="screens$ ; else loadScreens">{{ screens$.length }}</span><ng-template #loadScreens><i class="fa fa-refresh text-secondary click" (click)="loadData('screens')"></i></ng-template>
-					</span>
-					<span class="mr-3">
-						<i class="fa fa-link"></i><i class="fa fa-book mr-2"></i> <span class="text-secondary" *ngIf="book_shorts$  ; else loadBookShorts">{{ book_shorts$.length }}</span><ng-template #loadBookShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('book-shorts')"></i></ng-template>
-					</span>
-					<span class="mr-3">
-						<i class="fa fa-link"></i><i class="fa fa-language mr-2"></i> <span class="text-secondary" *ngIf="edition_shorts$  ; else loadEditionShorts">{{ edition_shorts$.length }}</span><ng-template #loadEditionShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('edition-shorts')"></i></ng-template>
-					</span>
-					<span class="mr-3">
-						<i class="fa fa-link"></i><i class="fa fa-film mr-2"></i> <span class="text-secondary" *ngIf="screen_connections$  ; else loadScreenConnections">{{ screen_connections$.length }}</span><ng-template #loadScreenConnections><i class="fa fa-refresh text-secondary click" (click)="loadData('screen-connections')"></i></ng-template>
-					</span>
-				</div>
 			</div>
 			<!-- ТАБЛИЦА КНИГИ -->
 			<table class="table table-sm table-striped table-hover" *ngIf="showBooks && books$">
@@ -328,6 +356,7 @@
 						<td><img src="assets/img/metacritics.png" height="16"></td>
 						<td><img src="assets/img/rottentomatoes.png" height="16"></td>
 						<td><i class="fa fa-money"></i></td>
+						<td>Линкове</td>
 						<td></td>
 					</tr>
 				</thead>
@@ -337,7 +366,7 @@
 							{{screen.onscreen_id}}
 						</td>
 						<td>
-							{{screen.title}}
+							<span class="user-select-all">{{screen.title}}</span>
 							<div *ngIf="getScreenConnections(screen) as connections">
 								<small *ngIf="connections.length > 0 ;else noConnections">
 									<a data-toggle="collapse" href="#screenConnections{{screen.onscreen_id}}" aria-expanded="false" attr.aria-controls="screenConnections{{screen.onscreen_id}}">
@@ -380,10 +409,13 @@
 						<td>{{screen.rotten_tomatoes}}</td>
 						<td>{{screen.metascore}}</td>
 						<td><i class="fa fa-check text-secondary" *ngIf="screen.budget > 0"></i></td>
+						<td>
+							<span class="infoLink mr-1" *ngIf="screen.official_site"><a href="https://www.stephenking.com/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_small.png" alt="SK"></a></span>
+							<span class="infoLink mr-1" *ngIf="screen.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
+						</td>
 						<td style="text-align: center;vertical-align: middle;">
 							<i class="fa fa-wrench click infoLink ml-1" (click)="editScreen(screen);openModal(modalForms)"></i>
 						</td>
-						<td></td>
 					</tr>
 				</tbody>
 			</table>
@@ -516,7 +548,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/wikipedia_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="wikipedia" class="form-control" (change)="trimDomainNames(bookForm)">
+						<input formControlName="wikipedia" class="form-control" (change)="trimDomainWiki(bookForm)">
 					</div>
 				</div>
 			</div>
@@ -527,7 +559,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="official_site" class="form-control" placeholder="library/..." (change)="trimDomainNames(bookForm)">
+						<input formControlName="official_site" class="form-control" (change)="trimDomainSK(bookForm)">
 					</div>
 				</div>
 			</div>
@@ -681,7 +713,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/wikipedia_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="wikipedia" class="form-control" (change)="trimDomainNames(shortForm)">
+						<input formControlName="wikipedia" class="form-control" (change)="trimDomainWiki(shortForm)">
 					</div>
 				</div>
 			</div>
@@ -692,7 +724,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text"><img src="assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
 						</div>
-						<input formControlName="official_site" class="form-control" placeholder="library/..." (change)="trimDomainNames(shortForm)">
+						<input formControlName="official_site" class="form-control" (change)="trimDomainSK(shortForm)">
 					</div>
 				</div>
 			</div>
@@ -726,11 +758,14 @@
 						<option *ngFor="let option of lib.onscreen_types" value="{{option}}">{{option}}</option>
 					</select>
 				</div>
-				<div class="col-5 pl-0">
-					<label class="col-2 col-form-label">IMDb</label>
-					<div class="col-9 btn-group">
-						<input id="textinput" formControlName="imdb_id" placeholder="Full URL or ID e.g.: tt6548228" class="form-control input-md" (change)="trimIMDbId(screenForm)">
+				<div class="col-5 px-0">
+					<div class="col-5 mr-3 btn-group">
+						<input id="textinput" formControlName="imdb_id" placeholder="IMDb" class="form-control input-md" (change)="trimDomainIMDb(screenForm)">
 						<span class="btn btn-primary" (click)="parseIMDb(screenForm)"><i class="fa fa-cog"></i></span>
+					</div>
+					<div class="col-5 btn-group">
+						<input id="textinput" formControlName="tmdb_id" placeholder="TMDb" class="form-control input-md">
+						<span class="btn btn-primary"><i class="fa fa-cog"></i></span>
 					</div>
 				</div>
 			</div>
@@ -859,6 +894,28 @@
 							<div class="input-group-text"><img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/global/new-fresh.587bf3a5e47.png" height="16px"></div>
 						</div>
 						<input id="text" formControlName="rotten_tomatoes" placeholder="" type="number" class="form-control pl-1 pr-0">
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Линкове</label>
+				<div class="col-10">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="assets/img/wikipedia_small.png" style="vertical-align: baseline;"></div>
+						</div>
+						<input formControlName="wikipedia" class="form-control" (change)="trimDomainWiki(screenForm)">
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label"></label>
+				<div class="col-10">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><img src="assets/img/sk_official_small.png" style="vertical-align: baseline;"></div>
+						</div>
+						<input formControlName="official_site" class="form-control" (change)="trimDomainSK(screenForm)">
 					</div>
 				</div>
 			</div>
