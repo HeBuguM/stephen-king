@@ -1,1166 +1,1171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
+		<loc>https://hebugum.github.io/stephen-king/</loc>
+		<lastmod>2020-06-01</lastmod>
+	</url>
+	<url>
 		<loc>https://hebugum.github.io/stephen-king</loc>
+		<lastmod>2020-06-01</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/</loc>
+		<loc>https://hebugum.github.io/stephen-king/about</loc>
+		<lastmod>2020-10-09</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/about</loc>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/books</loc>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/shorts</loc>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/1</loc>
-		<lastmod>2020-09-18</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/2</loc>
-		<lastmod>2020-09-18</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/3</loc>
-		<lastmod>2020-09-18</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/4</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/5</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/6</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/7</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/8</loc>
+		<loc>https://hebugum.github.io/stephen-king/books</loc>
 		<lastmod>2020-09-19</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/9</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/10</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/11</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/12</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/13</loc>
+		<loc>https://hebugum.github.io/stephen-king/shorts</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/14</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/15</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/16</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/17</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/18</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/19</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/20</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/21</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/1</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/22</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/23</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/2</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/24</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/25</loc>
-		<lastmod>2020-07-04</lastmod>
-	</url>
-	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/26</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/3</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/27</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/4</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/5</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/6</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/7</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/8</loc>
+		<lastmod>2020-09-19</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/9</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/10</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/11</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/12</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/13</loc>
+		<lastmod>2020-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/14</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/15</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/16</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/17</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/18</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/19</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/20</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/21</loc>
+		<lastmod>2020-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/22</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/23</loc>
+		<lastmod>2020-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/24</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/25</loc>
+		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/26</loc>
+		<lastmod>2020-09-18</lastmod>
+	</url>
+	<url>
+		<loc>https://hebugum.github.io/stephen-king/book/27</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/28</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/28</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/29</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/29</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/30</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/30</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/31</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/31</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/32</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/32</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/33</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/33</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/34</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/34</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/35</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/35</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/36</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/36</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/37</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/37</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/38</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/38</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/39</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/39</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/40</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/40</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/41</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/41</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/42</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/42</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/43</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/43</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/44</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/44</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/45</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/45</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/46</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/46</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/47</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/47</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/48</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/48</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/49</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/49</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/50</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/50</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/51</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/51</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/52</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/52</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/53</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/53</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/54</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/54</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/55</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/55</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/56</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/56</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/57</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/57</loc>
 		<lastmod>2020-09-19</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/58</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/58</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/59</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/59</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/60</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/60</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/61</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/61</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/62</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/62</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/63</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/63</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/64</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/64</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/65</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/65</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/66</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/66</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/67</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/67</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/68</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/68</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/69</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/69</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/70</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/70</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/71</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/71</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/72</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/72</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/73</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/73</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/74</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/74</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/75</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/75</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/76</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/76</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/77</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/77</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/book/78</loc>
+		<loc>https://hebugum.github.io/stephen-king/book/78</loc>
 		<lastmod>2020-08-06</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/134</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/134</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/135</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/135</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/136</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/136</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/137</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/137</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/138</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/138</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/139</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/139</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/140</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/140</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/141</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/141</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/142</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/142</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/143</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/143</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/144</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/144</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/209</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/209</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/145</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/145</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/146</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/146</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/147</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/147</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/148</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/148</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/150</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/150</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/149</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/149</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/151</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/151</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/152</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/152</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/153</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/153</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/19</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/19</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/26</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/26</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/28</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/28</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/154</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/154</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/155</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/155</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/37</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/37</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/20</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/20</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/157</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/157</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/158</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/158</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/156</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/156</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/4</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/4</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/159</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/159</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/160</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/160</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/161</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/161</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/162</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/162</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/163</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/163</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/73</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/73</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/2</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/2</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/53</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/53</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/69</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/69</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/5</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/5</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/11</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/11</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/56</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/56</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/3</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/3</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/1</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/1</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/14</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/14</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/12</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/12</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/13</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/13</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/164</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/164</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/165</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/165</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/10</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/10</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/15</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/15</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/18</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/18</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/7</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/7</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/102</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/102</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/6</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/6</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/166</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/166</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/16</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/16</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/167</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/167</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/17</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/17</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/8</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/8</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/9</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/9</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/38</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/38</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/200</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/200</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/168</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/168</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/169</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/169</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/67</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/67</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/25</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/25</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/201</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/201</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/43</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/43</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/27</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/27</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/31</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/31</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/202</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/202</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/30</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/30</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/203</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/203</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/170</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/170</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/35</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/35</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/171</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/171</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/204</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/204</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/46</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/46</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/173</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/173</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/40</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/40</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/172</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/172</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/21</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/21</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/22</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/22</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/23</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/23</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/24</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/24</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/33</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/33</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/34</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/34</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/174</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/174</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/41</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/41</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/36</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/36</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/44</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/44</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/29</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/29</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/45</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/45</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/175</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/175</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/51</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/51</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/32</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/32</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/39</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/39</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/42</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/42</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/176</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/176</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/52</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/52</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/55</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/55</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/70</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/70</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/54</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/54</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/177</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/177</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/58</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/58</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/60</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/60</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/63</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/63</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/62</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/62</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/64</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/64</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/72</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/72</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/178</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/178</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/47</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/47</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/48</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/48</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/49</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/49</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/50</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/50</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/179</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/179</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/59</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/59</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/57</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/57</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/61</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/61</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/65</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/65</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/66</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/66</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/68</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/68</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/71</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/71</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/74</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/74</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/180</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/180</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/181</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/181</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/182</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/182</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/77</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/77</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/81</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/81</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/89</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/89</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/93</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/93</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/80</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/80</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/87</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/87</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/183</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/183</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/86</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/86</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/85</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/85</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/90</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/90</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/184</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/184</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/88</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/88</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/75</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/75</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/76</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/76</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/78</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/78</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/79</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/79</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/84</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/84</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/91</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/91</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/92</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/92</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/185</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/185</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/186</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/186</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/82</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/82</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/83</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/83</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/187</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/187</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/96</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/96</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/98</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/98</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/97</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/97</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/188</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/188</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/99</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/99</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/189</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/189</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/190</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/190</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/94</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/94</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/105</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/105</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/100</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/100</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/95</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/95</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/104</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/104</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/106</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/106</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/103</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/103</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/101</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/101</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/191</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/191</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/121</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/121</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/119</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/119</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/192</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/192</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/118</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/118</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/113</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/113</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/126</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/126</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/124</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/124</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/107</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/107</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/108</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/108</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/109</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/109</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/110</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/110</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/115</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/115</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/122</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/122</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/111</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/111</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/112</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/112</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/127</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/127</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/193</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/193</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/194</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/194</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/114</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/114</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/120</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/120</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/195</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/195</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/132</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/132</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/116</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/116</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/129</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/129</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/117</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/117</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/131</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/131</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/125</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/125</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/130</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/130</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/128</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/128</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/197</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/197</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/198</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/198</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/196</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/196</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/133</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/133</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/199</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/199</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/123</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/123</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/205</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/205</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/206</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/206</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/207</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/207</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://hebugum.github.io/stephen-king/#/short/208</loc>
+		<loc>https://hebugum.github.io/stephen-king/short/208</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 </urlset>
