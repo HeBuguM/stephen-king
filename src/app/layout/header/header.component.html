@@ -15,13 +15,13 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" routerLinkActive="active" routerLink="books" (click)="onMenuRouteClick()"><i class="fa fa-book"></i> Книги</a>
+					<a class="nav-link" routerLinkActive="active" routerLink="books" (click)="collapseMainMenuToggle()"><i class="fa fa-book"></i> Книги</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLinkActive="active" routerLink="shorts" (click)="onMenuRouteClick()"><i class="fa fa-file-o"></i> Разкази</a>
+					<a class="nav-link" routerLinkActive="active" routerLink="shorts" (click)="collapseMainMenuToggle()"><i class="fa fa-file-o"></i> Разкази</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLinkActive="active" routerLink="onscreen" (click)="onMenuRouteClick()"><i class="fa fa-film"></i> Екранизации</a>
+					<a class="nav-link" routerLinkActive="active" routerLink="onscreen" (click)="collapseMainMenuToggle()"><i class="fa fa-film"></i> Екранизации</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
@@ -42,16 +42,16 @@
 									</div>
 								</div>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" routerLink="settings" (click)="onMenuRouteClick()"><i class="fa fa-cog fa-fw mr-1 ml-n2"></i> Настройки</a>
-								<a class="dropdown-item" routerLink="about" (click)="onMenuRouteClick()"><i class="fa fa-question-circle fa-fw mr-1 ml-n2"></i> Информация</a>
+								<a class="dropdown-item" routerLink="settings" (click)="collapseMainMenuToggle()"><i class="fa fa-cog fa-fw mr-1 ml-n2"></i> Настройки</a>
+								<a class="dropdown-item" routerLink="about" (click)="collapseMainMenuToggle()"><i class="fa fa-question-circle fa-fw mr-1 ml-n2"></i> Информация</a>
 								<a class="dropdown-item click" (click)="darkModeSwitch(!darkModeSelected)">
 									<i class="fa fa-lightbulb-o fa-fw mr-1 ml-n2"></i> Тъмен режим
 									<div class="custom-control custom-switch float-right">
-										<input type="checkbox" class="custom-control-input" id="darkSwitch" [checked]="this.darkModeSelected" (click)="darkModeSwitch(!darkModeSelected);onMenuRouteClick()">
+										<input type="checkbox" class="custom-control-input" id="darkSwitch" [checked]="this.darkModeSelected" (click)="darkModeSwitch(!darkModeSelected);collapseMainMenuToggle()">
 										<label class="custom-control-label click" for="darkSwitch"></label>
 									</div>
 								</a>
-								<a class="dropdown-item" routerLink="admin" (click)="onMenuRouteClick()" *ngIf="auth.isAdmin(user)"><i class="fa fa-database fa-fw mr-1 ml-n2"></i> Администрация</a>
+								<a class="dropdown-item" routerLink="admin" (click)="collapseMainMenuToggle()" *ngIf="auth.isAdmin(user)"><i class="fa fa-database fa-fw mr-1 ml-n2"></i> Администрация</a>
 							</div>
 						</div>
 					</div>

@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
 		}
 	}
 
-	onMenuRouteClick() {
+	collapseMainMenuToggle() {
 		const collapse_button = document.getElementById("mainMenuToggler");
 		const collapsed_menu = document.getElementById("navbarSupportedContent");
 		if(collapsed_menu.classList.contains("show")) {
