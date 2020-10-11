@@ -24,8 +24,9 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
-            ],
+			  "src/assets",
+			  "src/sitemap.xml"
+			],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.min.css",
