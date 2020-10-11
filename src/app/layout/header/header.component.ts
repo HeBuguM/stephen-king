@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ElementRef, Renderer2 } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
 	darkModeSelected = localStorage.getItem("darkSwitch") !== null && localStorage.getItem("darkSwitch") === "dark";
 
-	constructor(public auth: AuthService) { }
+	constructor(public auth: AuthService,private el: ElementRef, private renderer: Renderer2) { }
 
 	ngOnInit() {
 		this.initDarkMode();
@@ -34,5 +34,15 @@ export class HeaderComponent implements OnInit {
 			document.body.removeAttribute("data-theme");
 		}
 	}
+
+	onMenuRouteClick() {
+		const collapse_button = document.getElementById("mainMenuToggler");
+		const collapsed_menu = document.getElementById("navbarSupportedContent");
+		if(collapsed_menu.classList.contains("show")) {
+			collapsed_menu.classList.remove("show");
+			collapse_button.classList.add("collapsed");
+			collapse_button.setAttribute("aria-expanded","false");
+		}
+    }
 
 }
