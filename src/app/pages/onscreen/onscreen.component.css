@@ -1,0 +1,15 @@
+.onscreen-card {
+	position: relative;
+	width: 180px;
+	margin: 0 .5rem;
+	margin-bottom: 2rem;
+}
+
+.onscreen-cover img {
+	width: 180px;
+	height: 265px;
+}
+
+.onscreen-title {
+	line-height: 1.2;
+}
