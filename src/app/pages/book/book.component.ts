@@ -12,26 +12,26 @@ import { SeoService } from 'src/app/services/seo.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class BookComponent implements OnInit {
-	@Input() bookId: string;
+	@Input() slug: string;
 	@Input() book$: Book;
 	book: Book;
 
 	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService) { }
 
 	ngOnInit() {
-		if (this.bookId == null) {
+		if (this.slug == null) {
 			this.route.paramMap.subscribe(params => {
-				this.bookId = params.get('bookId');
+				this.slug = params.get('slug');
 			});
 		}
 		if (this.book$ == null) {
 			this.lib.getBooks().subscribe(books => {
-				this.book = Object.values(books).filter(book => book.book_id == Number(this.bookId))[0];
+				this.book = Object.values(books).filter(book => this.lib.seoUrl(book.title) == this.slug)[0];
 				this.seo.generateTags({
 					title: `Стивън Кинг - ${this.book.title}`,
 					description: this.book.synopsis,
 					image: `https://hebugum.github.io/stephen-king/assets/covers/books/large/${this.book.book_id}.jpg`,
-					slug: 'book'
+					slug: this.slug
 				});
 			})
 		} else {

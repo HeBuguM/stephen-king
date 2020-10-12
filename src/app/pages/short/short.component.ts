@@ -12,7 +12,8 @@ import { SeoService } from 'src/app/services/seo.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class ShortComponent implements OnInit {
-	@Input() shortId: string;
+	@Input() slug: string;
+
 	@Input() short$: Short;
 	short: Short;
 
@@ -20,19 +21,20 @@ export class ShortComponent implements OnInit {
 
 	ngOnInit() {
 
-		if (this.shortId == null) {
+		if (this.slug == null) {
 			this.route.paramMap.subscribe(params => {
-				this.shortId = params.get('shortId');
+				// this.type = params.get('type');
+				this.slug = params.get('slug');
 			});
 		}
 		if (this.short$ == null) {
 			this.lib.getShorts().subscribe(shorts => {
-				this.short = Object.values(shorts).filter(short => short.short_id == Number(this.shortId))[0];
+				this.short = Object.values(shorts).filter(short => this.lib.seoUrl(short.title) == this.slug)[0];
 				this.seo.generateTags({
 					title: `Стивън Кинг - ${this.short.title}`,
 					description: this.short.synopsis,
 					image: this.short.first_collected ? `https://hebugum.github.io/stephen-king/assets/covers/shorts/large/${this.short.short_id}.jpg` : ``,
-					slug: 'short'
+					slug: this.slug
 				});
 			})
 		} else {

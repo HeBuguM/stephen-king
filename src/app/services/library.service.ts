@@ -25,6 +25,18 @@ export class LibraryService {
 	public book_types = ['Роман', 'Новела', 'Сборник', 'Сценарий', 'Нехудожествена'];
 	public short_types = ['Разказ', 'Новела','Поема','Есе','Пиеса','ТВ Пиеса','Сценарий','Притча'];
 	public onscreen_types = ['Филм', 'ТВ Филм', 'Сериал', 'Мини-сериал', 'Епизод'];
+	public url_types = {
+		'Роман': 'novel',
+		'Новела': 'novella',
+		'Разказ': 'short-story',
+		'Сборник' : 'colletion',
+		'Нехудожествена': 'non-fiction',
+		'Поема': 'poem',
+		'Есе': 'essay',
+		'Пиеса': 'play',
+		'Сценарий': 'screenplay',
+		'Притча': 'parable'
+	}
 
 	constructor(private http: HttpClient, private afs: AngularFirestore) { }
 
@@ -270,6 +282,19 @@ export class LibraryService {
 	}
 
 	// Util
+
+	seoUrl(string) {
+		let seo_url = string.trim().toLowerCase().replace(/[&\\#,+()$~%\.\'":*?<>{}]/g,'').replace(/[^a-zA-Z0-9]/g,"-").replace(/-{2,}/g,"-");
+		return seo_url;
+	}
+
+	urlType (type) {
+		if(this.url_types[type]) {
+			return this.url_types[type];
+		} else {
+			return 't';
+		}
+	}
 
 	groupBy(OurArray, property) {
 		return OurArray.reduce(function (accumulator, object) {

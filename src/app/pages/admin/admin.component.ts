@@ -546,7 +546,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/book/'+book.book_id+'</loc>\n\
+		<loc>https://hebugum.github.io/stephen-king/books/'+this.lib.urlType(book.type)+'/'+this.lib.seoUrl(book.title)+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -557,7 +557,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/short/'+short.short_id+'</loc>\n\
+		<loc>https://hebugum.github.io/stephen-king/stories/'+this.lib.urlType(short.type)+'/'+this.lib.seoUrl(short.title)+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -581,7 +581,7 @@ export class AdminComponent implements OnInit {
 		<lastmod>'+last_books+'</lastmod>\n\
 	</url>\n\
 	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/shorts</loc>\n\
+		<loc>https://hebugum.github.io/stephen-king/stories</loc>\n\
 		<lastmod>'+last_shorts+'</lastmod>\n\
 	</url>';
 
