@@ -52,6 +52,8 @@ export class AdminComponent implements OnInit {
 	exportJSONshorts: string;
 	exportJSONscreens: string;
 	exportXMLsitemap: string;
+	exportXMLsitemap_main: string;
+	exportXMLsitemap_additional: string = '';
 
 	bookForm = this.fb.group({
 		book_id: [0, Validators.required],
@@ -535,39 +537,55 @@ export class AdminComponent implements OnInit {
 		}
 		this.exportJSONscreens = JSON.stringify(this.lib.sortObject(this.finalScreens, 'year'));
 
-		this.exportXMLsitemap = '<?xml version="1.0" encoding="UTF-8"?>\n\
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
-	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/</loc>\n\
-	</url>\n\
-	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/#/</loc>\n\
-	</url>\n\
-	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/#/books</loc>\n\
-	</url>\n\
-	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/#/shorts</loc>\n\
-	</url>';
-
+		let last_books = '2020-07-01';
+		let last_shorts = '2020-07-01';
 		this.books$.forEach(book => {
 			let lastmod = book.last_modified.toDate().toISOString().substring(0,10);
-			this.exportXMLsitemap = this.exportXMLsitemap + ('\n\
+			if(last_books < lastmod){
+				last_books = lastmod;
+			}
+			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/#/book/'+book.book_id+'</loc>\n\
+		<loc>https://hebugum.github.io/stephen-king/book/'+book.book_id+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
 		this.shorts$.forEach(short => {
 			let lastmod = short.last_modified.toDate().toISOString().substring(0,10);
-			this.exportXMLsitemap = this.exportXMLsitemap + ('\n\
+			if(last_shorts < lastmod){
+				last_shorts = lastmod;
+			}
+			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://hebugum.github.io/stephen-king/#/short/'+short.short_id+'</loc>\n\
+		<loc>https://hebugum.github.io/stephen-king/short/'+short.short_id+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
 
-		this.exportXMLsitemap = this.exportXMLsitemap + '\n\
+		this.exportXMLsitemap_main = '<?xml version="1.0" encoding="UTF-8"?>\n\
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/</loc>\n\
+		<lastmod>2020-06-01</lastmod>\n\
+	</url>\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king</loc>\n\
+		<lastmod>2020-06-01</lastmod>\n\
+	</url>\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/about</loc>\n\
+		<lastmod>2020-10-09</lastmod>\n\
+	</url>\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/books</loc>\n\
+		<lastmod>'+last_books+'</lastmod>\n\
+	</url>\n\
+	<url>\n\
+		<loc>https://hebugum.github.io/stephen-king/shorts</loc>\n\
+		<lastmod>'+last_shorts+'</lastmod>\n\
+	</url>';
+
+		this.exportXMLsitemap = this.exportXMLsitemap_main + this.exportXMLsitemap_additional + '\n\
 </urlset>';
 	}
 
