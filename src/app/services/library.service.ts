@@ -29,7 +29,7 @@ export class LibraryService {
 		'Роман': 'novel',
 		'Новела': 'novella',
 		'Разказ': 'short-story',
-		'Сборник' : 'colletion',
+		'Сборник' : 'collection',
 		'Нехудожествена': 'non-fiction',
 		'Поема': 'poem',
 		'Есе': 'essay',
