@@ -33,7 +33,7 @@ export class ShortComponent implements OnInit {
 				this.seo.generateTags({
 					title: `Стивън Кинг - ${this.short.title}`,
 					description: this.short.synopsis,
-					image: this.short.first_collected ? `https://hebugum.github.io/stephen-king/assets/covers/shorts/large/${this.short.short_id}.jpg` : ``,
+					image: this.short.first_collected ? `https://stephen-king.info/assets/covers/shorts/large/${this.short.short_id}.jpg` : ``,
 					slug: this.slug
 				});
 			})

@@ -30,7 +30,7 @@ export class BookComponent implements OnInit {
 				this.seo.generateTags({
 					title: `Стивън Кинг - ${this.book.title}`,
 					description: this.book.synopsis,
-					image: `https://hebugum.github.io/stephen-king/assets/covers/books/large/${this.book.book_id}.jpg`,
+					image: `https://stephen-king.info/assets/covers/books/large/${this.book.book_id}.jpg`,
 					slug: this.slug
 				});
 			})

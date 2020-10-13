@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 	this.seo.generateTags({
 		title: 'Стивън Кинг',
 		description: 'Информация за произведенията на Краля и публикуваните такива в България.',
-		image: 'https://hebugum.github.io/stephen-king/assets/img/shorts_books.jpg',
+		image: 'https://stephen-king.info/assets/img/shorts_books.jpg',
 		slug: ''
 	});
   }

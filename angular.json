@@ -136,7 +136,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-			"baseHref": "https://hebugum.github.io/stephen-king/"
+			"baseHref": "https://stephen-king.info/"
 		  }
         }
       }

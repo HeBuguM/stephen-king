@@ -38,7 +38,7 @@ export class OnscreenComponent implements OnInit {
 		this.seo.generateTags({
 			title: 'Стивън Кинг - Книги',
 			description: 'Основната литература включваща предимно романи и новели побликувани като самостоятелни книги, както и нехудожествената литература на Краля',
-			image: 'https://hebugum.github.io/stephen-king/assets/img/home_screens.jpg',
+			image: 'https://stephen-king.info/assets/img/home_screens.jpg',
 			slug: 'screens'
 		});
 		if (sessionStorage.getItem('filter_screens') !== null) {

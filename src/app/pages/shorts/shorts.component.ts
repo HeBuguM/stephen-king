@@ -39,7 +39,7 @@ export class ShortsComponent implements OnInit {
 		this.seo.generateTags({
 			title: 'Стивън Кинг - Разкази',
 			description: 'Всички кратки произведения на Кинг, включвани или не в сборници, с изключение на новелите публикувани като самостоятелни книги',
-			image: 'https://hebugum.github.io/stephen-king/assets/img/home_shorts.jpg',
+			image: 'https://stephen-king.info/assets/img/home_shorts.jpg',
 			slug: 'shorts'
 		});
 
