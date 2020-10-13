@@ -10,6 +10,6 @@ export const environment = {
 	appId: "1:178616645591:web:a634d6a1aa5693c422fd92"
   },
   useHash: false,
-  appBaseHref: '/stephen-king/',
+  appBaseHref: '/',
   libraryData: 'files' // files || firestore
 };
