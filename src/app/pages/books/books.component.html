@@ -161,7 +161,7 @@
 												<div class="d-inline float-right">
 													<span class="click" *ngIf="lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition,false)"><i class="fa fa-check-circle text-success"></i></span>
 													<span class="click" *ngIf="!lib.isEditionSelected(edition)" (click)="lib.selectBookEditionToggle(edition, true)"><i class="fa fa-check-circle text-secondary"></i></span>
-													<span class="infoLink ml-2 d-none d-sm-inline-block" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank" rel="noreferrer"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
+													<span class="infoLink ml-2 d-none d-sm-inline-block" *ngIf="edition.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
 												</div>
 												<small><i>{{edition.pages}} стр. {{ edition.publisher }} {{ lib.publishedDate(edition.published) }}</i></small>
 											</ng-container>
