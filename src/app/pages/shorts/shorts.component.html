@@ -116,7 +116,7 @@
 								<div class="cover"></div>
 							</ng-template>
 							<div class="media-body">
-								<a class="short-title" ngb [routerLink]="[ '/stories/'+lib.urlType(short.type)+'/', lib.seoUrl(short.title) ]">{{ short.title }}</a>
+								<a class="short-title" [routerLink]="[lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
 								<small class="float-right text-secondary" *ngIf="short.type != 'Разказ'">{{ short.type }}</small>
 								<div class="text-secondary">{{ short.subtitle }}</div>
 								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && short.first_pub_in" >{{ short.first_pub_in }} ({{short.first_pub_date.split("-")[0] }})</small>
