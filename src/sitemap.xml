@@ -1,1167 +1,1163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://stephen-king.info</loc>
-		<lastmod>2020-06-01</lastmod>
+		<loc>https://stephen-king.info/#/about</loc>
+		<lastmod>2020-10-17</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/about</loc>
-		<lastmod>2020-10-09</lastmod>
+		<loc>https://stephen-king.info/#/books</loc>
+		<lastmod>2020-10-17</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books</loc>
-		<lastmod>2020-10-12</lastmod>
+		<loc>https://stephen-king.info/#/stories</loc>
+		<lastmod>2020-09-17</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories</loc>
+		<loc>https://stephen-king.info/#/books/novel/carrie</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/carrie</loc>
+		<loc>https://stephen-king.info/#/books/novel/salems-lot</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/salems-lot</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-shining</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-shining</loc>
-		<lastmod>2020-09-18</lastmod>
-	</url>
-	<url>
-		<loc>https://stephen-king.info/books/novel/rage</loc>
+		<loc>https://stephen-king.info/#/books/novel/rage</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/night-shift</loc>
+		<loc>https://stephen-king.info/#/books/collection/night-shift</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-stand</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-stand</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-long-walk</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-long-walk</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-dead-zone</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-dead-zone</loc>
 		<lastmod>2020-09-19</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/firestarter</loc>
+		<loc>https://stephen-king.info/#/books/novel/firestarter</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/roadwork</loc>
+		<loc>https://stephen-king.info/#/books/novel/roadwork</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/cujo</loc>
+		<loc>https://stephen-king.info/#/books/novel/cujo</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-running-man</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-running-man</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-gunslinger</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-gunslinger</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/different-seasons</loc>
+		<loc>https://stephen-king.info/#/books/collection/different-seasons</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/christine</loc>
+		<loc>https://stephen-king.info/#/books/novel/christine</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/cycle-of-the-werewolf</loc>
+		<loc>https://stephen-king.info/#/books/novel/cycle-of-the-werewolf</loc>
 		<lastmod>2020-10-12</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/pet-sematary</loc>
+		<loc>https://stephen-king.info/#/books/novel/pet-sematary</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-talisman</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-talisman</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/thinner</loc>
+		<loc>https://stephen-king.info/#/books/novel/thinner</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/skeleton-crew</loc>
+		<loc>https://stephen-king.info/#/books/collection/skeleton-crew</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/it</loc>
+		<loc>https://stephen-king.info/#/books/novel/it</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-eyes-of-the-dragon</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-eyes-of-the-dragon</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-drawing-of-the-three</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-drawing-of-the-three</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/misery</loc>
+		<loc>https://stephen-king.info/#/books/novel/misery</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-tommyknockers</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-tommyknockers</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-dark-half</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-dark-half</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/four-past-midnight</loc>
+		<loc>https://stephen-king.info/#/books/collection/four-past-midnight</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-waste-lands</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-waste-lands</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/needful-things</loc>
+		<loc>https://stephen-king.info/#/books/novel/needful-things</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/geralds-game</loc>
+		<loc>https://stephen-king.info/#/books/novel/geralds-game</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/dolores-claiborne</loc>
+		<loc>https://stephen-king.info/#/books/novel/dolores-claiborne</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/nightmares-dreamscapes</loc>
+		<loc>https://stephen-king.info/#/books/collection/nightmares-dreamscapes</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/insomnia</loc>
+		<loc>https://stephen-king.info/#/books/novel/insomnia</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/rose-madder</loc>
+		<loc>https://stephen-king.info/#/books/novel/rose-madder</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-green-mile</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-green-mile</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/desperation</loc>
+		<loc>https://stephen-king.info/#/books/novel/desperation</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-regulators</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-regulators</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/wizard-and-glass</loc>
+		<loc>https://stephen-king.info/#/books/novel/wizard-and-glass</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/bag-of-bones</loc>
+		<loc>https://stephen-king.info/#/books/novel/bag-of-bones</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/screenplay/storm-of-the-century</loc>
+		<loc>https://stephen-king.info/#/books/screenplay/storm-of-the-century</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-girl-who-loved-tom-gordon</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-girl-who-loved-tom-gordon</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/hearts-in-atlantis</loc>
+		<loc>https://stephen-king.info/#/books/collection/hearts-in-atlantis</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/non-fiction/on-writing-a-memoir-of-the-craft</loc>
+		<loc>https://stephen-king.info/#/books/non-fiction/on-writing-a-memoir-of-the-craft</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/dreamcatcher</loc>
+		<loc>https://stephen-king.info/#/books/novel/dreamcatcher</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/black-house</loc>
+		<loc>https://stephen-king.info/#/books/novel/black-house</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/everythings-eventual-14-dark-tales</loc>
+		<loc>https://stephen-king.info/#/books/collection/everythings-eventual-14-dark-tales</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/from-a-buick-8</loc>
+		<loc>https://stephen-king.info/#/books/novel/from-a-buick-8</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/wolves-of-the-calla</loc>
+		<loc>https://stephen-king.info/#/books/novel/wolves-of-the-calla</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/song-of-susannah</loc>
+		<loc>https://stephen-king.info/#/books/novel/song-of-susannah</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-dark-tower</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-dark-tower</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-colorado-kid</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-colorado-kid</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/cell</loc>
+		<loc>https://stephen-king.info/#/books/novel/cell</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/liseys-story</loc>
+		<loc>https://stephen-king.info/#/books/novel/liseys-story</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/blaze</loc>
+		<loc>https://stephen-king.info/#/books/novel/blaze</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/duma-key</loc>
+		<loc>https://stephen-king.info/#/books/novel/duma-key</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/just-after-sunset</loc>
+		<loc>https://stephen-king.info/#/books/collection/just-after-sunset</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/under-the-dome</loc>
+		<loc>https://stephen-king.info/#/books/novel/under-the-dome</loc>
 		<lastmod>2020-09-19</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/full-dark-no-stars</loc>
+		<loc>https://stephen-king.info/#/books/collection/full-dark-no-stars</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/11-22-63</loc>
+		<loc>https://stephen-king.info/#/books/novel/11-22-63</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-wind-through-the-keyhole</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-wind-through-the-keyhole</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/joyland</loc>
+		<loc>https://stephen-king.info/#/books/novel/joyland</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/doctor-sleep</loc>
+		<loc>https://stephen-king.info/#/books/novel/doctor-sleep</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/mr-mercedes</loc>
+		<loc>https://stephen-king.info/#/books/novel/mr-mercedes</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/revival</loc>
+		<loc>https://stephen-king.info/#/books/novel/revival</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/finders-keepers</loc>
+		<loc>https://stephen-king.info/#/books/novel/finders-keepers</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/the-bazaar-of-bad-dreams</loc>
+		<loc>https://stephen-king.info/#/books/collection/the-bazaar-of-bad-dreams</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/end-of-watch</loc>
+		<loc>https://stephen-king.info/#/books/novel/end-of-watch</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novella/gwendys-button-box</loc>
+		<loc>https://stephen-king.info/#/books/novella/gwendys-button-box</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/sleeping-beauties</loc>
+		<loc>https://stephen-king.info/#/books/novel/sleeping-beauties</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-outsider</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-outsider</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novella/elevation</loc>
+		<loc>https://stephen-king.info/#/books/novella/elevation</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/the-institute</loc>
+		<loc>https://stephen-king.info/#/books/novel/the-institute</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/non-fiction/danse-macabre</loc>
+		<loc>https://stephen-king.info/#/books/non-fiction/danse-macabre</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/non-fiction/nightmares-in-the-sky-gargoyles-and-grotesques</loc>
+		<loc>https://stephen-king.info/#/books/non-fiction/nightmares-in-the-sky-gargoyles-and-grotesques</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/non-fiction/secret-windows-essays-and-fiction-on-the-craft-of-writing</loc>
+		<loc>https://stephen-king.info/#/books/non-fiction/secret-windows-essays-and-fiction-on-the-craft-of-writing</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/non-fiction/faithful</loc>
+		<loc>https://stephen-king.info/#/books/non-fiction/faithful</loc>
 		<lastmod>2020-08-09</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/collection/if-it-bleeds</loc>
+		<loc>https://stephen-king.info/#/books/collection/if-it-bleeds</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/books/novel/later</loc>
+		<loc>https://stephen-king.info/#/books/novel/later</loc>
 		<lastmod>2020-08-06</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/land-of-1000000-years-ago</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/land-of-1000000-years-ago</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/thirty-one-of-the-classics</loc>
+		<loc>https://stephen-king.info/#/stories/novella/thirty-one-of-the-classics</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/jumper</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/jumper</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/rush-call</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/rush-call</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-cursed-expedition</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-cursed-expedition</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/ive-got-to-get-away-</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/ive-got-to-get-away-</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/hotel-at-the-end-of-the-road</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/hotel-at-the-end-of-the-road</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/never-look-behind-you</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/never-look-behind-you</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-other-side-of-the-fog</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-other-side-of-the-fog</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-stranger</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-stranger</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-thing-at-the-bottom-of-the-well</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-thing-at-the-bottom-of-the-well</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-dimension-warp</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-dimension-warp</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-pit-and-the-pendulum</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-pit-and-the-pendulum</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-undead</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-undead</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/trigger-finger</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/trigger-finger</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-star-invaders</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-star-invaders</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/i-was-a-teenage-grave-robber</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/i-was-a-teenage-grave-robber</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/codename-mousetrap</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/codename-mousetrap</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-43rd-dream</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-43rd-dream</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-glass-floor</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-glass-floor</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/harrison-state-park-68</loc>
+		<loc>https://stephen-king.info/#/stories/poem/harrison-state-park-68</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/strawberry-spring</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/strawberry-spring</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/here-there-be-tygers</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/here-there-be-tygers</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/cain-rose-up</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/cain-rose-up</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/the-dark-man</loc>
+		<loc>https://stephen-king.info/#/stories/poem/the-dark-man</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/stud-city</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/stud-city</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-reapers-image</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-reapers-image</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/night-surf</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/night-surf</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/donovans-brain</loc>
+		<loc>https://stephen-king.info/#/stories/poem/donovans-brain</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/silence</loc>
+		<loc>https://stephen-king.info/#/stories/poem/silence</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/slade</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/slade</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/graveyard-shift</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/graveyard-shift</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-blue-air-compressor</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-blue-air-compressor</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/in-the-key-chords-of-dawn</loc>
+		<loc>https://stephen-king.info/#/stories/poem/in-the-key-chords-of-dawn</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/she-has-gone-to-sleep-while</loc>
+		<loc>https://stephen-king.info/#/stories/poem/she-has-gone-to-sleep-while</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/woman-with-child</loc>
+		<loc>https://stephen-king.info/#/stories/poem/woman-with-child</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/the-hardcase-speaks</loc>
+		<loc>https://stephen-king.info/#/stories/poem/the-hardcase-speaks</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/brooklyn-august</loc>
+		<loc>https://stephen-king.info/#/stories/poem/brooklyn-august</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/i-am-the-doorway</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/i-am-the-doorway</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/suffer-the-little-children</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/suffer-the-little-children</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-fifth-quarter</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-fifth-quarter</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/battleground</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/battleground</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-mangler</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-mangler</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/it-grows-on-you</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/it-grows-on-you</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-boogeyman</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-boogeyman</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/trucks</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/trucks</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/gray-matter</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/gray-matter</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/sometimes-they-come-back</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/sometimes-they-come-back</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-lawnmower-man</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-lawnmower-man</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-revenge-of-lard-ass-hogan</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-revenge-of-lard-ass-hogan</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/weeds</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/weeds</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-ledge</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-ledge</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/i-know-what-you-need</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/i-know-what-you-need</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/children-of-the-corn</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/children-of-the-corn</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/one-for-the-road</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/one-for-the-road</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-cat-from-hell</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-cat-from-hell</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-man-who-loved-flowers</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-man-who-loved-flowers</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-king-family-and-the-wicked-witch</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-king-family-and-the-wicked-witch</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/jerusalems-lot</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/jerusalems-lot</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-night-of-the-tiger</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-night-of-the-tiger</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-woman-in-the-room</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-woman-in-the-room</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-last-rung-on-the-ladder</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-last-rung-on-the-ladder</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/quitters-inc</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/quitters-inc</loc>
 		<lastmod>2020-08-23</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/nona</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/nona</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-gunslinger</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-gunslinger</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/man-with-a-belly</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/man-with-a-belly</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-crate</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-crate</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/crouch-end</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/crouch-end</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-mist</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-mist</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-way-station</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-way-station</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/big-wheels-a-tale-of-the-laundry-game</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/big-wheels-a-tale-of-the-laundry-game</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-monkey</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-monkey</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-wedding-gig</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-wedding-gig</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-oracle-and-the-mountains</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-oracle-and-the-mountains</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-jaunt</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-jaunt</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-slow-mutants</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-slow-mutants</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-monster-in-the-closet</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-monster-in-the-closet</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-man-who-would-not-shake-hands</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-man-who-would-not-shake-hands</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-bird-and-the-album</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-bird-and-the-album</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-gunslinger-and-the-dark-man</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-gunslinger-and-the-dark-man</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-reach</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-reach</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/skybar</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/skybar</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/survivor-type</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/survivor-type</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/before-the-play</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/before-the-play</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/rita-hayworth-and-shawshank-redemption</loc>
+		<loc>https://stephen-king.info/#/stories/novella/rita-hayworth-and-shawshank-redemption</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/apt-pupil</loc>
+		<loc>https://stephen-king.info/#/stories/novella/apt-pupil</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-body</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-body</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-breathing-method</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-breathing-method</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-raft</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-raft</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/word-processor-of-the-gods</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/word-processor-of-the-gods</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-return-of-timmy-baterman</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-return-of-timmy-baterman</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/uncle-ottos-truck</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/uncle-ottos-truck</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/beachworld</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/beachworld</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/gramma</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/gramma</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/mrs-todds-shortcut</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/mrs-todds-shortcut</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-ballad-of-the-flexible-bullet</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-ballad-of-the-flexible-bullet</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-revelations-of-becka-paulson</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-revelations-of-becka-paulson</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/dolans-cadillac</loc>
+		<loc>https://stephen-king.info/#/stories/novella/dolans-cadillac</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/paranoid-a-chant</loc>
+		<loc>https://stephen-king.info/#/stories/poem/paranoid-a-chant</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/for-owen</loc>
+		<loc>https://stephen-king.info/#/stories/poem/for-owen</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/morning-deliveries</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/morning-deliveries</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/for-the-birds</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/for-the-birds</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-end-of-the-whole-mess</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-end-of-the-whole-mess</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/popsy</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/popsy</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-doctors-case</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-doctors-case</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-night-flier</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-night-flier</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-reploids</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-reploids</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/dedication</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/dedication</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/sneakers</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/sneakers</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/rainy-season</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/rainy-season</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/home-delivery</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/home-delivery</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/my-pretty-pony</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/my-pretty-pony</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/essay/head-down</loc>
+		<loc>https://stephen-king.info/#/stories/essay/head-down</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/play/an-evening-at-gods</loc>
+		<loc>https://stephen-king.info/#/stories/play/an-evening-at-gods</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-langoliers</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-langoliers</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/secret-window-secret-garden</loc>
+		<loc>https://stephen-king.info/#/stories/novella/secret-window-secret-garden</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-library-policeman</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-library-policeman</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-sun-dog</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-sun-dog</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-bear</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-bear</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-moving-finger</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-moving-finger</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/chattery-teeth</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/chattery-teeth</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/you-know-they-got-a-hell-of-a-band</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/you-know-they-got-a-hell-of-a-band</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/t/sorry-right-number</loc>
+		<loc>https://stephen-king.info/#/stories/t/sorry-right-number</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-ten-oclock-people</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-ten-oclock-people</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-house-on-maple-street</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-house-on-maple-street</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/umneys-last-case</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/umneys-last-case</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/parable/the-beggar-and-the-diamond</loc>
+		<loc>https://stephen-king.info/#/stories/parable/the-beggar-and-the-diamond</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/jhonathan-and-the-witches</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/jhonathan-and-the-witches</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-killer</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-killer</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/dino</loc>
+		<loc>https://stephen-king.info/#/stories/poem/dino</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/blind-willie</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/blind-willie</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-man-in-the-black-suit</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-man-in-the-black-suit</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/lunch-at-the-gotham-caf-</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/lunch-at-the-gotham-caf-</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/luckey-quarter</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/luckey-quarter</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/autopsy-room-four</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/autopsy-room-four</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/l-ts-theory-of-pets</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/l-ts-theory-of-pets</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/screenplay/general</loc>
+		<loc>https://stephen-king.info/#/stories/screenplay/general</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/everythings-eventual</loc>
+		<loc>https://stephen-king.info/#/stories/novella/everythings-eventual</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-little-sisters-of-eluria</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-little-sisters-of-eluria</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/that-feeling-you-can-only-say-what-it-is-in-french</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/that-feeling-you-can-only-say-what-it-is-in-french</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-new-lieutenants-rap</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-new-lieutenants-rap</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-road-virus-heads-north</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-road-virus-heads-north</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/low-men-in-yellow-coats</loc>
+		<loc>https://stephen-king.info/#/stories/novella/low-men-in-yellow-coats</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/hearts-in-atlantis</loc>
+		<loc>https://stephen-king.info/#/stories/novella/hearts-in-atlantis</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/why-were-in-vietnam</loc>
+		<loc>https://stephen-king.info/#/stories/novella/why-were-in-vietnam</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/heavenly-shades-of-night-are-falling</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/heavenly-shades-of-night-are-falling</loc>
 		<lastmod>2020-08-25</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/in-the-deathroom</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/in-the-deathroom</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/1408</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/1408</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/riding-the-bullet</loc>
+		<loc>https://stephen-king.info/#/stories/novella/riding-the-bullet</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-old-dudes-ticker</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-old-dudes-ticker</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/calla-bryn-sturgis</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/calla-bryn-sturgis</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/all-that-you-love-will-be-carried-away</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/all-that-you-love-will-be-carried-away</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-death-of-jack-hamilton</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-death-of-jack-hamilton</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-tale-of-gray-dick</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-tale-of-gray-dick</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/harveys-dream</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/harveys-dream</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/stationary-bike</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/stationary-bike</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/rest-stop</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/rest-stop</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/lisey-and-the-madman</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/lisey-and-the-madman</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-things-they-left-behind</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-things-they-left-behind</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-furnace</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-furnace</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/memory</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/memory</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/willa</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/willa</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/ayana</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/ayana</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/graduation-afternoon</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/graduation-afternoon</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-gingerbread-girl</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-gingerbread-girl</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/mute</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/mute</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/a-very-tight-place</loc>
+		<loc>https://stephen-king.info/#/stories/novella/a-very-tight-place</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-new-york-times-at-special-bargain-rates</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-new-york-times-at-special-bargain-rates</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/n</loc>
+		<loc>https://stephen-king.info/#/stories/novella/n</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/throttle</loc>
+		<loc>https://stephen-king.info/#/stories/novella/throttle</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/ur</loc>
+		<loc>https://stephen-king.info/#/stories/novella/ur</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/morality</loc>
+		<loc>https://stephen-king.info/#/stories/novella/morality</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/mostly-old-men</loc>
+		<loc>https://stephen-king.info/#/stories/poem/mostly-old-men</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/the-bone-church</loc>
+		<loc>https://stephen-king.info/#/stories/poem/the-bone-church</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/premium-harmony</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/premium-harmony</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/poem/tommy</loc>
+		<loc>https://stephen-king.info/#/stories/poem/tommy</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/blockade-billy</loc>
+		<loc>https://stephen-king.info/#/stories/novella/blockade-billy</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/1922</loc>
+		<loc>https://stephen-king.info/#/stories/novella/1922</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/big-driver</loc>
+		<loc>https://stephen-king.info/#/stories/novella/big-driver</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/fair-extension</loc>
+		<loc>https://stephen-king.info/#/stories/novella/fair-extension</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/a-good-marriage</loc>
+		<loc>https://stephen-king.info/#/stories/novella/a-good-marriage</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-dune</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-dune</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/herman-wouk-is-still-alive</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/herman-wouk-is-still-alive</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/under-the-weather</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/under-the-weather</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/mile-81</loc>
+		<loc>https://stephen-king.info/#/stories/novella/mile-81</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-little-green-god-of-agony</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-little-green-god-of-agony</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/in-the-tall-grass</loc>
+		<loc>https://stephen-king.info/#/stories/novella/in-the-tall-grass</loc>
 		<lastmod>2020-09-18</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/a-face-in-the-crowd</loc>
+		<loc>https://stephen-king.info/#/stories/novella/a-face-in-the-crowd</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/batman-and-robin-have-an-altercation</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/batman-and-robin-have-an-altercation</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/afterlife</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/afterlife</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-rock-and-roll-dead-zone</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-rock-and-roll-dead-zone</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/summer-thunder</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/summer-thunder</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/bad-little-kid</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/bad-little-kid</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/that-bus-is-another-world</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/that-bus-is-another-world</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/a-death</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/a-death</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/drunken-fireworks</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/drunken-fireworks</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/mister-yummy</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/mister-yummy</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/obits</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/obits</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/cookie-jar</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/cookie-jar</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-music-room</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-music-room</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/play/thin-scenery</loc>
+		<loc>https://stephen-king.info/#/stories/play/thin-scenery</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/laurie</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/laurie</loc>
 		<lastmod>2020-08-30</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-turbulence-expert</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-turbulence-expert</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/squad-d</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/squad-d</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/short-story/the-fifth-step</loc>
+		<loc>https://stephen-king.info/#/stories/short-story/the-fifth-step</loc>
 		<lastmod>2020-08-26</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/mr-harrigans-phone</loc>
+		<loc>https://stephen-king.info/#/stories/novella/mr-harrigans-phone</loc>
 		<lastmod>2020-08-27</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/the-life-of-chuck</loc>
+		<loc>https://stephen-king.info/#/stories/novella/the-life-of-chuck</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/if-it-bleeds</loc>
+		<loc>https://stephen-king.info/#/stories/novella/if-it-bleeds</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/stories/novella/rat</loc>
+		<loc>https://stephen-king.info/#/stories/novella/rat</loc>
 		<lastmod>2020-07-04</lastmod>
 	</url>
 </urlset>

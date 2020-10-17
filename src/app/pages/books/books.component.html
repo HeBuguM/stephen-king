@@ -115,7 +115,7 @@
 								<img src="assets/covers/books/small/{{book.book_id}}.jpg" loading="lazy" alt="">
 							</div>
 							<div class="media-body">
-								<a class="book-title" [routerLink]="[lib.urlType(book.type),lib.seoUrl(book.title)]" href="{{ '/books/'+lib.urlType(book.type)+'/'+lib.seoUrl(book.title) }}">{{ book.title }}</a>
+								<a class="book-title" [routerLink]="[lib.urlType(book.type),lib.seoUrl(book.title)]" href="{{ '/#/books/'+lib.urlType(book.type)+'/'+lib.seoUrl(book.title) }}">{{ book.title }}</a>
 								<small class="text-secondary ml-2 float-right d-none d-md-block" *ngIf="book.type != 'Роман'">{{ book.type }}</small>
 								<div class="text-secondary d-flex" *ngIf="isExpanded(book) && book.series_name != ''"><small>{{book.series_name + ' #'+ book.series_no}}</small></div>
 								<div class="text-secondary d-flex" *ngIf="book.pseudonym">
