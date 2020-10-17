@@ -1,0 +1,1689 @@
+[
+	{
+	  "short_id": 197,
+	  "subtitle": "",
+	  "position": 0,
+	  "title": "Музикалната стая",
+	  "edition_id": 187
+	},
+	{
+	  "position": 0,
+	  "edition_id": 188,
+	  "short_id": 159,
+	  "subtitle": "",
+	  "title": "Синият Компресор"
+	},
+	{
+	  "short_id": 1,
+	  "edition_id": 19,
+	  "title": "Камионите",
+	  "position": 0,
+	  "subtitle": ""
+	},
+	{
+	  "edition_id": 19,
+	  "short_id": 10,
+	  "position": 0,
+	  "subtitle": "",
+	  "title": "По перваза"
+	},
+	{
+	  "position": 0,
+	  "title": "Аз съм вратата",
+	  "short_id": 2,
+	  "edition_id": 19,
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 19,
+	  "title": "Вампирът",
+	  "short_id": 3,
+	  "position": 0
+	},
+	{
+	  "position": 0,
+	  "edition_id": 19,
+	  "short_id": 4,
+	  "subtitle": "",
+	  "title": "Нощна смяна"
+	},
+	{
+	  "title": "Полесражение",
+	  "edition_id": 19,
+	  "position": 0,
+	  "short_id": 5,
+	  "subtitle": ""
+	},
+	{
+	  "position": 0,
+	  "short_id": 6,
+	  "subtitle": "",
+	  "edition_id": 19,
+	  "title": "Човекът, който обичаше цветята"
+	},
+	{
+	  "edition_id": 19,
+	  "subtitle": "",
+	  "title": "По едно за из път",
+	  "short_id": 7,
+	  "position": 0
+	},
+	{
+	  "short_id": 8,
+	  "edition_id": 19,
+	  "title": "Последното стъпало",
+	  "subtitle": "",
+	  "position": 0
+	},
+	{
+	  "short_id": 9,
+	  "position": 0,
+	  "title": "Дружество \"Отказване с гаранция\"",
+	  "subtitle": "",
+	  "edition_id": 19
+	},
+	{
+	  "position": 0,
+	  "subtitle": "",
+	  "short_id": 205,
+	  "title": "Телефонът на господин Хариган",
+	  "edition_id": 191
+	},
+	{
+	  "title": "Животът на Чък",
+	  "short_id": 206,
+	  "position": 0,
+	  "subtitle": "",
+	  "edition_id": 191
+	},
+	{
+	  "subtitle": "",
+	  "position": 0,
+	  "short_id": 207,
+	  "title": "Ако има кръв",
+	  "edition_id": 191
+	},
+	{
+	  "edition_id": 191,
+	  "subtitle": "",
+	  "short_id": 208,
+	  "position": 0,
+	  "title": "Плъх"
+	},
+	{
+	  "subtitle": "Зимна приказка",
+	  "edition_id": 45,
+	  "short_id": 24,
+	  "title": "Начин на дишане",
+	  "position": 0
+	},
+	{
+	  "subtitle": "",
+	  "title": "Крауч енд",
+	  "edition_id": 59,
+	  "short_id": 67,
+	  "position": 0
+	},
+	{
+	  "title": "Рита Хейуърт и бягството от Шошанк",
+	  "short_id": 21,
+	  "position": 0,
+	  "subtitle": "Вечната пролет на надеждата",
+	  "edition_id": 60
+	},
+	{
+	  "subtitle": "Лятото на разложението",
+	  "position": 0,
+	  "edition_id": 61,
+	  "short_id": 22,
+	  "title": "Ученик за пример"
+	},
+	{
+	  "edition_id": 62,
+	  "title": "Трупът",
+	  "short_id": 23,
+	  "position": 0,
+	  "subtitle": "Есента на грехопадението"
+	},
+	{
+	  "edition_id": 63,
+	  "subtitle": "Зимна приказка",
+	  "position": 0,
+	  "short_id": 24,
+	  "title": "Дихателни упражнения"
+	},
+	{
+	  "title": "Денят на дипломирането",
+	  "position": 0,
+	  "subtitle": "",
+	  "edition_id": 67,
+	  "short_id": 100
+	},
+	{
+	  "title": "Н.",
+	  "position": 0,
+	  "subtitle": "",
+	  "edition_id": 67,
+	  "short_id": 101
+	},
+	{
+	  "edition_id": 67,
+	  "subtitle": "",
+	  "short_id": 102,
+	  "title": "Дяволската котка",
+	  "position": 0
+	},
+	{
+	  "position": 0,
+	  "edition_id": 67,
+	  "subtitle": "",
+	  "title": "\"Ню Йорк Таймс\" със специално намаление",
+	  "short_id": 103
+	},
+	{
+	  "edition_id": 67,
+	  "position": 0,
+	  "title": "Немият",
+	  "short_id": 104,
+	  "subtitle": ""
+	},
+	{
+	  "title": "Аяна",
+	  "subtitle": "",
+	  "short_id": 105,
+	  "position": 0,
+	  "edition_id": 67
+	},
+	{
+	  "subtitle": "",
+	  "title": "Натясно",
+	  "edition_id": 67,
+	  "position": 0,
+	  "short_id": 106
+	},
+	{
+	  "title": "Уила",
+	  "subtitle": "",
+	  "short_id": 94,
+	  "position": 0,
+	  "edition_id": 67
+	},
+	{
+	  "edition_id": 67,
+	  "short_id": 95,
+	  "subtitle": "",
+	  "title": "Бягащото момиче",
+	  "position": 0
+	},
+	{
+	  "position": 0,
+	  "title": "Сънят на Харви",
+	  "edition_id": 67,
+	  "short_id": 96,
+	  "subtitle": ""
+	},
+	{
+	  "title": "Пиш-стоп",
+	  "edition_id": 67,
+	  "subtitle": "",
+	  "short_id": 97,
+	  "position": 0
+	},
+	{
+	  "position": 0,
+	  "subtitle": "",
+	  "title": "Велотренажор",
+	  "edition_id": 67,
+	  "short_id": 98
+	},
+	{
+	  "subtitle": "",
+	  "title": "Техните неща",
+	  "edition_id": 67,
+	  "short_id": 99,
+	  "position": 0
+	},
+	{
+	  "title": "1922",
+	  "subtitle": "",
+	  "position": 0,
+	  "edition_id": 68,
+	  "short_id": 107
+	},
+	{
+	  "short_id": 108,
+	  "title": "Големия шофьор",
+	  "position": 0,
+	  "edition_id": 68,
+	  "subtitle": ""
+	},
+	{
+	  "edition_id": 68,
+	  "position": 0,
+	  "subtitle": "",
+	  "title": "Изгодна сделка",
+	  "short_id": 109
+	},
+	{
+	  "short_id": 110,
+	  "subtitle": "",
+	  "edition_id": 68,
+	  "position": 0,
+	  "title": "Щастлив брак"
+	},
+	{
+	  "short_id": 111,
+	  "subtitle": "",
+	  "title": "Болната",
+	  "position": 0,
+	  "edition_id": 69
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 69,
+	  "position": 0,
+	  "short_id": 112,
+	  "title": "Миля 81"
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 69,
+	  "position": 0,
+	  "short_id": 113,
+	  "title": "Превъзходна хармония"
+	},
+	{
+	  "edition_id": 69,
+	  "short_id": 114,
+	  "subtitle": "",
+	  "position": 0,
+	  "title": "Батман и Робин влизат в свада"
+	},
+	{
+	  "title": "Дюната",
+	  "position": 0,
+	  "edition_id": 69,
+	  "short_id": 115,
+	  "subtitle": ""
+	},
+	{
+	  "title": "Лошото момченце",
+	  "short_id": 116,
+	  "edition_id": 69,
+	  "position": 0,
+	  "subtitle": ""
+	},
+	{
+	  "edition_id": 69,
+	  "position": 0,
+	  "short_id": 117,
+	  "title": "Смърт",
+	  "subtitle": ""
+	},
+	{
+	  "edition_id": 69,
+	  "subtitle": "",
+	  "position": 0,
+	  "short_id": 118,
+	  "title": "Църквата от кости"
+	},
+	{
+	  "short_id": 119,
+	  "edition_id": 69,
+	  "title": "Морал",
+	  "subtitle": "",
+	  "position": 0
+	},
+	{
+	  "short_id": 120,
+	  "edition_id": 69,
+	  "position": 0,
+	  "subtitle": "",
+	  "title": "Живот след смъртта"
+	},
+	{
+	  "edition_id": 69,
+	  "position": 0,
+	  "title": "Херман Уок още е жив",
+	  "short_id": 122,
+	  "subtitle": ""
+	},
+	{
+	  "position": 0,
+	  "title": "Томи",
+	  "edition_id": 69,
+	  "short_id": 126,
+	  "subtitle": ""
+	},
+	{
+	  "short_id": 121,
+	  "position": 0,
+	  "subtitle": "",
+	  "edition_id": 70,
+	  "title": "Ур"
+	},
+	{
+	  "edition_id": 70,
+	  "subtitle": "",
+	  "title": "Били Блокадата",
+	  "short_id": 124,
+	  "position": 0
+	},
+	{
+	  "edition_id": 70,
+	  "short_id": 125,
+	  "position": 0,
+	  "subtitle": "",
+	  "title": "Господин Съблазън"
+	},
+	{
+	  "position": 0,
+	  "title": "Малкият зелен бог на жестоката болка",
+	  "short_id": 127,
+	  "subtitle": "",
+	  "edition_id": 70
+	},
+	{
+	  "edition_id": 70,
+	  "short_id": 129,
+	  "subtitle": "",
+	  "title": "Онзи автобус е друг свят",
+	  "position": 0
+	},
+	{
+	  "title": "Некролози",
+	  "position": 0,
+	  "subtitle": "",
+	  "edition_id": 70,
+	  "short_id": 130
+	},
+	{
+	  "short_id": 131,
+	  "subtitle": "",
+	  "title": "Пияни фойерверки",
+	  "edition_id": 70,
+	  "position": 0
+	},
+	{
+	  "short_id": 132,
+	  "edition_id": 70,
+	  "subtitle": "",
+	  "position": 0,
+	  "title": "Летен гръм"
+	},
+	{
+	  "short_id": 21,
+	  "title": "Изкуплението Шоушенк",
+	  "position": 0,
+	  "edition_id": 71,
+	  "subtitle": ""
+	},
+	{
+	  "position": 0,
+	  "short_id": 21,
+	  "subtitle": "Вечната пролет на надеждата",
+	  "edition_id": 72,
+	  "title": "Рита Хейуърт и бягството от Шошанк"
+	},
+	{
+	  "title": "Ученик за пример",
+	  "edition_id": 72,
+	  "position": 0,
+	  "subtitle": "Лятото на разложението",
+	  "short_id": 22
+	},
+	{
+	  "position": 0,
+	  "edition_id": 72,
+	  "title": "Трупът",
+	  "short_id": 23,
+	  "subtitle": "Есента на грехопадението"
+	},
+	{
+	  "position": 0,
+	  "title": "Дихателни упражнения",
+	  "subtitle": "Зимна приказка",
+	  "edition_id": 72,
+	  "short_id": 24
+	},
+	{
+	  "title": "Малкият зелен бог на агонията",
+	  "short_id": 127,
+	  "edition_id": 73,
+	  "position": 0,
+	  "subtitle": ""
+	},
+	{
+	  "position": 0,
+	  "edition_id": 74,
+	  "short_id": 115,
+	  "subtitle": "",
+	  "title": "Дюната"
+	},
+	{
+	  "edition_id": 75,
+	  "position": 0,
+	  "short_id": 133,
+	  "title": "Експерт по турбулентност",
+	  "subtitle": ""
+	},
+	{
+	  "short_id": 16,
+	  "title": "Джирусълъмс лот",
+	  "position": 1,
+	  "subtitle": "",
+	  "edition_id": 20
+	},
+	{
+	  "position": 1,
+	  "subtitle": "",
+	  "edition_id": 21,
+	  "short_id": 3,
+	  "title": "Вампирът"
+	},
+	{
+	  "subtitle": "Надежда за вечна пролет",
+	  "short_id": 21,
+	  "title": "Рита Хейуърт и изкуплението в Шоушенк",
+	  "edition_id": 44,
+	  "position": 1
+	},
+	{
+	  "short_id": 21,
+	  "title": "Рита Хейуърт и изкуплението в Шоушенк",
+	  "position": 1,
+	  "subtitle": "Надежда за вечна пролет",
+	  "edition_id": 45
+	},
+	{
+	  "edition_id": 46,
+	  "title": "Тук там има тигри",
+	  "position": 1,
+	  "subtitle": "",
+	  "short_id": 26
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 47,
+	  "title": "Мъглата",
+	  "short_id": 25,
+	  "position": 1
+	},
+	{
+	  "position": 1,
+	  "short_id": 25,
+	  "subtitle": "",
+	  "title": "Мъглата",
+	  "edition_id": 48
+	},
+	{
+	  "short_id": 47,
+	  "subtitle": "",
+	  "title": "Ланголиерите",
+	  "edition_id": 49,
+	  "position": 1
+	},
+	{
+	  "short_id": 49,
+	  "position": 1,
+	  "edition_id": 50,
+	  "subtitle": "",
+	  "title": "Библиотечна полиция"
+	},
+	{
+	  "position": 1,
+	  "subtitle": "",
+	  "edition_id": 51,
+	  "short_id": 47,
+	  "title": "Ланголиерите"
+	},
+	{
+	  "position": 1,
+	  "edition_id": 52,
+	  "subtitle": "",
+	  "short_id": 49,
+	  "title": "Библиотечна полиция"
+	},
+	{
+	  "short_id": 47,
+	  "position": 1,
+	  "subtitle": "",
+	  "edition_id": 53,
+	  "title": "Ланголиерите"
+	},
+	{
+	  "edition_id": 54,
+	  "short_id": 49,
+	  "title": "Библиотечна полиция",
+	  "subtitle": "",
+	  "position": 1
+	},
+	{
+	  "edition_id": 55,
+	  "short_id": 64,
+	  "subtitle": "",
+	  "position": 1,
+	  "title": "Моето хубаво пони"
+	},
+	{
+	  "subtitle": "",
+	  "short_id": 51,
+	  "title": "Кадилакът на Долан",
+	  "position": 1,
+	  "edition_id": 56
+	},
+	{
+	  "subtitle": "",
+	  "position": 1,
+	  "title": "Нощния авиатор",
+	  "short_id": 54,
+	  "edition_id": 57
+	},
+	{
+	  "short_id": 51,
+	  "position": 1,
+	  "edition_id": 58,
+	  "subtitle": "",
+	  "title": "Кадилакът на Долан"
+	},
+	{
+	  "position": 1,
+	  "title": "Нощния авиатор",
+	  "edition_id": 58,
+	  "subtitle": "",
+	  "short_id": 54
+	},
+	{
+	  "title": "Моето хубаво пони",
+	  "position": 1,
+	  "subtitle": "",
+	  "short_id": 64,
+	  "edition_id": 58
+	},
+	{
+	  "position": 1,
+	  "subtitle": "",
+	  "edition_id": 64,
+	  "short_id": 75,
+	  "title": "Отрепки с жълти палта"
+	},
+	{
+	  "subtitle": "",
+	  "title": "Отрепки с жълти палта",
+	  "short_id": 75,
+	  "position": 1,
+	  "edition_id": 65
+	},
+	{
+	  "subtitle": "",
+	  "short_id": 80,
+	  "title": "Зала за аутопсии номер четири",
+	  "edition_id": 66,
+	  "position": 1
+	},
+	{
+	  "edition_id": 76,
+	  "subtitle": "",
+	  "position": 1,
+	  "title": "Тракащата челюст",
+	  "short_id": 57
+	},
+	{
+	  "title": "По едно за из път",
+	  "edition_id": 20,
+	  "subtitle": "",
+	  "position": 2,
+	  "short_id": 7
+	},
+	{
+	  "short_id": 6,
+	  "position": 2,
+	  "subtitle": "",
+	  "title": "Човекът, който обичаше цветята",
+	  "edition_id": 21
+	},
+	{
+	  "short_id": 22,
+	  "position": 2,
+	  "title": "Способен ученик",
+	  "subtitle": "Лятото на покварата",
+	  "edition_id": 44
+	},
+	{
+	  "title": "Способен ученик",
+	  "edition_id": 45,
+	  "short_id": 22,
+	  "subtitle": "Лятото на покварата",
+	  "position": 2
+	},
+	{
+	  "short_id": 27,
+	  "edition_id": 46,
+	  "title": "Маймуната",
+	  "subtitle": "",
+	  "position": 2
+	},
+	{
+	  "subtitle": "",
+	  "position": 2,
+	  "short_id": 30,
+	  "edition_id": 47,
+	  "title": "Разходката"
+	},
+	{
+	  "position": 2,
+	  "short_id": 26,
+	  "title": "Тук сигурно има тигри",
+	  "edition_id": 48,
+	  "subtitle": ""
+	},
+	{
+	  "title": "Таен прозорец, тайна градина",
+	  "short_id": 48,
+	  "subtitle": "",
+	  "position": 2,
+	  "edition_id": 49
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 50,
+	  "short_id": 50,
+	  "position": 2,
+	  "title": "Слънчевото куче"
+	},
+	{
+	  "edition_id": 51,
+	  "title": "Таен прозорец, тайна градина",
+	  "position": 2,
+	  "subtitle": "",
+	  "short_id": 48
+	},
+	{
+	  "title": "Слънчевото куче",
+	  "subtitle": "",
+	  "edition_id": 52,
+	  "position": 2,
+	  "short_id": 50
+	},
+	{
+	  "short_id": 48,
+	  "edition_id": 53,
+	  "subtitle": "",
+	  "title": "Таен прозорец, тайна градина",
+	  "position": 2
+	},
+	{
+	  "position": 2,
+	  "subtitle": "",
+	  "short_id": 50,
+	  "edition_id": 54,
+	  "title": "Слънчевото куче"
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 55,
+	  "title": "Раждане вкъщи",
+	  "position": 2,
+	  "short_id": 62
+	},
+	{
+	  "title": "Краят на цялата бъркотия",
+	  "position": 2,
+	  "short_id": 52,
+	  "edition_id": 56,
+	  "subtitle": ""
+	},
+	{
+	  "position": 2,
+	  "short_id": 55,
+	  "subtitle": "",
+	  "title": "Татик",
+	  "edition_id": 57
+	},
+	{
+	  "subtitle": "",
+	  "position": 2,
+	  "title": "Краят на цялата бъркотия",
+	  "short_id": 52,
+	  "edition_id": 58
+	},
+	{
+	  "subtitle": "",
+	  "title": "Татик",
+	  "position": 2,
+	  "short_id": 55,
+	  "edition_id": 58
+	},
+	{
+	  "edition_id": 58,
+	  "short_id": 62,
+	  "title": "Раждане вкъщи",
+	  "subtitle": "",
+	  "position": 2
+	},
+	{
+	  "position": 2,
+	  "short_id": 76,
+	  "edition_id": 64,
+	  "title": "Сърца в Атлантида",
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 65,
+	  "title": "Сърца в Атлантида",
+	  "position": 2,
+	  "short_id": 76
+	},
+	{
+	  "subtitle": "",
+	  "short_id": 81,
+	  "position": 2,
+	  "title": "Човекът с черния костюм",
+	  "edition_id": 66
+	},
+	{
+	  "edition_id": 76,
+	  "subtitle": "",
+	  "position": 2,
+	  "short_id": 69,
+	  "title": "Петата четвъртина"
+	},
+	{
+	  "short_id": 12,
+	  "subtitle": "",
+	  "position": 3,
+	  "edition_id": 20,
+	  "title": "Понякога те се завръщат"
+	},
+	{
+	  "position": 3,
+	  "short_id": 2,
+	  "subtitle": "",
+	  "title": "Аз съм вратата",
+	  "edition_id": 21
+	},
+	{
+	  "edition_id": 44,
+	  "short_id": 23,
+	  "title": "Тялото",
+	  "position": 3,
+	  "subtitle": "Есен над детството"
+	},
+	{
+	  "title": "Тялото",
+	  "edition_id": 45,
+	  "position": 3,
+	  "subtitle": "Есен над детството",
+	  "short_id": 23
+	},
+	{
+	  "position": 3,
+	  "short_id": 28,
+	  "subtitle": "",
+	  "title": "И се надигна Каин",
+	  "edition_id": 46
+	},
+	{
+	  "subtitle": "",
+	  "short_id": 34,
+	  "position": 3,
+	  "edition_id": 47,
+	  "title": "Компютърът на боговете"
+	},
+	{
+	  "position": 3,
+	  "short_id": 27,
+	  "subtitle": "",
+	  "edition_id": 48,
+	  "title": "Маймуната"
+	},
+	{
+	  "subtitle": "",
+	  "position": 3,
+	  "short_id": 68,
+	  "edition_id": 55,
+	  "title": "Къщата на улица \"Мейпъл\""
+	},
+	{
+	  "subtitle": "",
+	  "title": "Да страдат дечицата",
+	  "edition_id": 56,
+	  "position": 3,
+	  "short_id": 53
+	},
+	{
+	  "position": 3,
+	  "edition_id": 57,
+	  "subtitle": "",
+	  "short_id": 56,
+	  "title": "Постепенно ти влиза под кожата"
+	},
+	{
+	  "edition_id": 58,
+	  "short_id": 53,
+	  "position": 3,
+	  "subtitle": "",
+	  "title": "Да страдат дечицата"
+	},
+	{
+	  "position": 3,
+	  "edition_id": 58,
+	  "subtitle": "",
+	  "title": "Постепенно ти влиза под кожата",
+	  "short_id": 56
+	},
+	{
+	  "subtitle": "",
+	  "title": "Къщата на улица \"Мейпъл\"",
+	  "edition_id": 58,
+	  "short_id": 68,
+	  "position": 3
+	},
+	{
+	  "edition_id": 64,
+	  "subtitle": "",
+	  "position": 3,
+	  "title": "Слепият Уили",
+	  "short_id": 77
+	},
+	{
+	  "short_id": 77,
+	  "subtitle": "",
+	  "edition_id": 65,
+	  "position": 3,
+	  "title": "Слепият Уили"
+	},
+	{
+	  "short_id": 82,
+	  "title": "Всичко, което обичаш, ще ти бъде отнето",
+	  "edition_id": 66,
+	  "subtitle": "",
+	  "position": 3
+	},
+	{
+	  "title": "Разходката",
+	  "edition_id": 76,
+	  "position": 3,
+	  "subtitle": "",
+	  "short_id": 30
+	},
+	{
+	  "title": "Пресата",
+	  "edition_id": 20,
+	  "short_id": 11,
+	  "subtitle": "",
+	  "position": 4
+	},
+	{
+	  "position": 4,
+	  "edition_id": 21,
+	  "short_id": 8,
+	  "title": "Последното стъпало",
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "Зимна приказка",
+	  "title": "Начин на дишане",
+	  "position": 4,
+	  "edition_id": 44,
+	  "short_id": 24
+	},
+	{
+	  "position": 4,
+	  "subtitle": "",
+	  "short_id": 29,
+	  "edition_id": 46,
+	  "title": "Прекият път на госпожа Тод"
+	},
+	{
+	  "title": "Плажен свят",
+	  "position": 4,
+	  "short_id": 36,
+	  "subtitle": "",
+	  "edition_id": 47
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 48,
+	  "title": "И се надигна Каин",
+	  "short_id": 28,
+	  "position": 4
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 55,
+	  "short_id": 61,
+	  "position": 4,
+	  "title": "Дяволският оркестър"
+	},
+	{
+	  "short_id": 57,
+	  "subtitle": "",
+	  "position": 4,
+	  "edition_id": 56,
+	  "title": "Тракащата челюст"
+	},
+	{
+	  "title": "Дъждовен сезон",
+	  "subtitle": "",
+	  "position": 4,
+	  "short_id": 63,
+	  "edition_id": 57
+	},
+	{
+	  "title": "Тракащата челюст",
+	  "edition_id": 58,
+	  "position": 4,
+	  "subtitle": "",
+	  "short_id": 57
+	},
+	{
+	  "short_id": 61,
+	  "subtitle": "",
+	  "edition_id": 58,
+	  "position": 4,
+	  "title": "Дяволският оркестър"
+	},
+	{
+	  "short_id": 63,
+	  "position": 4,
+	  "edition_id": 58,
+	  "title": "Дъждовен сезон",
+	  "subtitle": ""
+	},
+	{
+	  "short_id": 78,
+	  "subtitle": "",
+	  "position": 4,
+	  "title": "Защо сме във Виетнам",
+	  "edition_id": 64
+	},
+	{
+	  "short_id": 78,
+	  "edition_id": 65,
+	  "subtitle": "",
+	  "position": 4,
+	  "title": "Защо сме във Виетнам"
+	},
+	{
+	  "title": "Смъртта на Джак Хамилтън",
+	  "position": 4,
+	  "edition_id": 66,
+	  "subtitle": "",
+	  "short_id": 83
+	},
+	{
+	  "position": 4,
+	  "subtitle": "",
+	  "short_id": 27,
+	  "edition_id": 76,
+	  "title": "Маймуната"
+	},
+	{
+	  "short_id": 18,
+	  "subtitle": "",
+	  "title": "Децата на царевицата",
+	  "position": 5,
+	  "edition_id": 20
+	},
+	{
+	  "position": 5,
+	  "edition_id": 21,
+	  "subtitle": "",
+	  "short_id": 4,
+	  "title": "Нощна смяна"
+	},
+	{
+	  "title": "Сватбата",
+	  "position": 5,
+	  "subtitle": "",
+	  "edition_id": 46,
+	  "short_id": 31
+	},
+	{
+	  "position": 5,
+	  "title": "Балада за гъвкавият куршум",
+	  "edition_id": 47,
+	  "subtitle": "",
+	  "short_id": 45
+	},
+	{
+	  "edition_id": 48,
+	  "subtitle": "",
+	  "short_id": 29,
+	  "title": "Прекият път на госпожа Тод",
+	  "position": 5
+	},
+	{
+	  "edition_id": 55,
+	  "position": 5,
+	  "short_id": 58,
+	  "title": "Посвещение",
+	  "subtitle": ""
+	},
+	{
+	  "title": "Движещият се пръст",
+	  "short_id": 59,
+	  "edition_id": 56,
+	  "subtitle": "",
+	  "position": 5
+	},
+	{
+	  "title": "Петата четвъртина",
+	  "subtitle": "",
+	  "short_id": 69,
+	  "position": 5,
+	  "edition_id": 57
+	},
+	{
+	  "title": "Посвещение",
+	  "short_id": 58,
+	  "position": 5,
+	  "edition_id": 58,
+	  "subtitle": ""
+	},
+	{
+	  "edition_id": 58,
+	  "short_id": 59,
+	  "title": "Движещият се пръст",
+	  "position": 5,
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "position": 5,
+	  "edition_id": 58,
+	  "short_id": 69,
+	  "title": "Петата четвъртина"
+	},
+	{
+	  "title": "И се спускат божествените сенки на нощта",
+	  "subtitle": "",
+	  "short_id": 79,
+	  "edition_id": 64,
+	  "position": 5
+	},
+	{
+	  "position": 5,
+	  "edition_id": 65,
+	  "short_id": 79,
+	  "subtitle": "",
+	  "title": "И се спускат божествените сенки на нощта"
+	},
+	{
+	  "edition_id": 66,
+	  "position": 5,
+	  "short_id": 84,
+	  "title": "Стаята на смъртта",
+	  "subtitle": ""
+	},
+	{
+	  "short_id": 71,
+	  "subtitle": "",
+	  "position": 5,
+	  "edition_id": 76,
+	  "title": "Последният случай на Ъмни"
+	},
+	{
+	  "edition_id": 20,
+	  "position": 6,
+	  "title": "Камионите",
+	  "short_id": 1,
+	  "subtitle": ""
+	},
+	{
+	  "short_id": 1,
+	  "title": "Камионите",
+	  "edition_id": 21,
+	  "position": 6,
+	  "subtitle": ""
+	},
+	{
+	  "position": 6,
+	  "edition_id": 46,
+	  "title": "Параноично: Песен",
+	  "subtitle": "",
+	  "short_id": 32
+	},
+	{
+	  "position": 6,
+	  "short_id": 30,
+	  "edition_id": 48,
+	  "title": "Пътуването",
+	  "subtitle": ""
+	},
+	{
+	  "position": 6,
+	  "short_id": 71,
+	  "title": "Последният случай на Ъмни",
+	  "edition_id": 55,
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "title": "Гуменки",
+	  "edition_id": 56,
+	  "position": 6,
+	  "short_id": 60
+	},
+	{
+	  "edition_id": 57,
+	  "subtitle": "",
+	  "position": 6,
+	  "title": "Хората от 10 часа",
+	  "short_id": 66
+	},
+	{
+	  "edition_id": 58,
+	  "title": "Гуменки",
+	  "position": 6,
+	  "subtitle": "",
+	  "short_id": 60
+	},
+	{
+	  "short_id": 66,
+	  "edition_id": 58,
+	  "subtitle": "",
+	  "position": 6,
+	  "title": "Хората от 10 часа"
+	},
+	{
+	  "edition_id": 58,
+	  "subtitle": "",
+	  "position": 6,
+	  "short_id": 71,
+	  "title": "Последният случай на Ъмни"
+	},
+	{
+	  "short_id": 85,
+	  "edition_id": 66,
+	  "title": "Сестричките от Елурия",
+	  "position": 6,
+	  "subtitle": ""
+	},
+	{
+	  "position": 6,
+	  "subtitle": "",
+	  "edition_id": 76,
+	  "short_id": 53,
+	  "title": "Да страдат дечицата"
+	},
+	{
+	  "position": 7,
+	  "edition_id": 20,
+	  "title": "Нощен прибой",
+	  "subtitle": "",
+	  "short_id": 20
+	},
+	{
+	  "edition_id": 21,
+	  "subtitle": "",
+	  "short_id": 9,
+	  "title": "Дружество \"Отказване с гаранция\"",
+	  "position": 7
+	},
+	{
+	  "subtitle": "",
+	  "short_id": 33,
+	  "position": 7,
+	  "edition_id": 46,
+	  "title": "Салът"
+	},
+	{
+	  "edition_id": 48,
+	  "short_id": 31,
+	  "title": "Сватбата",
+	  "subtitle": "",
+	  "position": 7
+	},
+	{
+	  "edition_id": 55,
+	  "position": 7,
+	  "subtitle": "",
+	  "short_id": 70,
+	  "title": "Случаят, разкрит от доктора"
+	},
+	{
+	  "position": 7,
+	  "short_id": 65,
+	  "edition_id": 56,
+	  "title": "Извинете, но не е грешка",
+	  "subtitle": ""
+	},
+	{
+	  "position": 7,
+	  "subtitle": "",
+	  "title": "Извинете, но не е грешка",
+	  "short_id": 65,
+	  "edition_id": 58
+	},
+	{
+	  "position": 7,
+	  "short_id": 70,
+	  "title": "Случаят, разкрит от доктора",
+	  "edition_id": 58,
+	  "subtitle": ""
+	},
+	{
+	  "position": 7,
+	  "short_id": 86,
+	  "subtitle": "",
+	  "title": "Всичко е съдбовно",
+	  "edition_id": 66
+	},
+	{
+	  "position": 7,
+	  "title": "Баба",
+	  "edition_id": 76,
+	  "subtitle": "",
+	  "short_id": 44
+	},
+	{
+	  "position": 8,
+	  "subtitle": "",
+	  "title": "Последното стъпало",
+	  "edition_id": 20,
+	  "short_id": 8
+	},
+	{
+	  "edition_id": 21,
+	  "position": 8,
+	  "title": "По перваза",
+	  "short_id": 10,
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "title": "Човекът, който не се ръкуваше",
+	  "short_id": 35,
+	  "edition_id": 46,
+	  "position": 8
+	},
+	{
+	  "title": "Параноично: Песен",
+	  "position": 8,
+	  "short_id": 32,
+	  "edition_id": 48,
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "position": 8,
+	  "short_id": 74,
+	  "title": "Просякът и диамантът",
+	  "edition_id": 55
+	},
+	{
+	  "edition_id": 66,
+	  "title": "Теорията на Ел Ти за домашните любимци",
+	  "short_id": 87,
+	  "position": 8,
+	  "subtitle": ""
+	},
+	{
+	  "title": "Татик",
+	  "edition_id": 76,
+	  "subtitle": "",
+	  "short_id": 55,
+	  "position": 8
+	},
+	{
+	  "position": 9,
+	  "short_id": 14,
+	  "title": "Сиво вещество",
+	  "subtitle": "",
+	  "edition_id": 20
+	},
+	{
+	  "edition_id": 21,
+	  "title": "По едно за из път",
+	  "short_id": 7,
+	  "subtitle": "",
+	  "position": 9
+	},
+	{
+	  "edition_id": 46,
+	  "position": 9,
+	  "short_id": 37,
+	  "subtitle": "",
+	  "title": "Онази с косата"
+	},
+	{
+	  "short_id": 33,
+	  "title": "Салът",
+	  "edition_id": 48,
+	  "subtitle": "",
+	  "position": 9
+	},
+	{
+	  "short_id": 88,
+	  "position": 9,
+	  "edition_id": 66,
+	  "subtitle": "",
+	  "title": "Пътуващото зло се отправя на север"
+	},
+	{
+	  "short_id": 34,
+	  "subtitle": "",
+	  "edition_id": 76,
+	  "position": 9,
+	  "title": "Компютърът на боговете"
+	},
+	{
+	  "short_id": 3,
+	  "edition_id": 20,
+	  "title": "Вампирът",
+	  "subtitle": "",
+	  "position": 10
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 21,
+	  "position": 10,
+	  "short_id": 5,
+	  "title": "Полесражение"
+	},
+	{
+	  "position": 10,
+	  "edition_id": 46,
+	  "title": "Нона",
+	  "subtitle": "",
+	  "short_id": 38
+	},
+	{
+	  "edition_id": 48,
+	  "title": "Компютърът на боговете",
+	  "subtitle": "",
+	  "position": 10,
+	  "short_id": 34
+	},
+	{
+	  "position": 10,
+	  "title": "Обяд в ресторант „Готам\"",
+	  "edition_id": 66,
+	  "short_id": 89,
+	  "subtitle": ""
+	},
+	{
+	  "title": "Салът",
+	  "subtitle": "",
+	  "short_id": 33,
+	  "position": 10,
+	  "edition_id": 76
+	},
+	{
+	  "edition_id": 20,
+	  "title": "Знам какво искаш",
+	  "subtitle": "",
+	  "position": 11,
+	  "short_id": 15
+	},
+	{
+	  "title": "Ти си следващият",
+	  "edition_id": 21,
+	  "position": 11,
+	  "subtitle": "",
+	  "short_id": 12
+	},
+	{
+	  "position": 11,
+	  "short_id": 39,
+	  "title": "На Оуън",
+	  "subtitle": "",
+	  "edition_id": 46
+	},
+	{
+	  "short_id": 35,
+	  "position": 11,
+	  "edition_id": 48,
+	  "subtitle": "",
+	  "title": "Човекът, който не се ръкуваше"
+	},
+	{
+	  "edition_id": 66,
+	  "position": 11,
+	  "title": "Онова чувство, което се изразява само на френски",
+	  "subtitle": "",
+	  "short_id": 90
+	},
+	{
+	  "short_id": 29,
+	  "subtitle": "",
+	  "edition_id": 76,
+	  "title": "Прекият път на госпожа Тод",
+	  "position": 11
+	},
+	{
+	  "short_id": 13,
+	  "position": 12,
+	  "edition_id": 20,
+	  "title": "Човекът с косачката",
+	  "subtitle": ""
+	},
+	{
+	  "position": 12,
+	  "subtitle": "",
+	  "edition_id": 21,
+	  "title": "Пресата",
+	  "short_id": 11
+	},
+	{
+	  "edition_id": 46,
+	  "title": "Начин за оцеляване",
+	  "position": 12,
+	  "short_id": 40,
+	  "subtitle": ""
+	},
+	{
+	  "edition_id": 48,
+	  "short_id": 36,
+	  "position": 12,
+	  "subtitle": "",
+	  "title": "Плажен свят"
+	},
+	{
+	  "subtitle": "",
+	  "short_id": 91,
+	  "position": 12,
+	  "title": "1408",
+	  "edition_id": 66
+	},
+	{
+	  "edition_id": 76,
+	  "position": 12,
+	  "title": "Дяволски оркестър",
+	  "subtitle": "",
+	  "short_id": 61
+	},
+	{
+	  "edition_id": 20,
+	  "title": "Жената в стаята",
+	  "subtitle": "",
+	  "position": 13,
+	  "short_id": 17
+	},
+	{
+	  "title": "Децата на царевицата",
+	  "edition_id": 21,
+	  "position": 13,
+	  "short_id": 18,
+	  "subtitle": ""
+	},
+	{
+	  "edition_id": 46,
+	  "position": 13,
+	  "title": "Камионът на чичо Ото",
+	  "short_id": 41,
+	  "subtitle": ""
+	},
+	{
+	  "title": "Онази с косата",
+	  "position": 13,
+	  "subtitle": "",
+	  "short_id": 37,
+	  "edition_id": 48
+	},
+	{
+	  "position": 13,
+	  "title": "Да се возиш с вагончето на смъртта",
+	  "subtitle": "",
+	  "short_id": 92,
+	  "edition_id": 66
+	},
+	{
+	  "title": "Човекът, който не се ръкуваше",
+	  "position": 13,
+	  "edition_id": 76,
+	  "short_id": 35,
+	  "subtitle": ""
+	},
+	{
+	  "short_id": 19,
+	  "position": 14,
+	  "title": "Ягодова пролет",
+	  "edition_id": 20,
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 21,
+	  "position": 14,
+	  "short_id": 20,
+	  "title": "Нощен прибой"
+	},
+	{
+	  "subtitle": "Млекар №1",
+	  "title": "Утринни доставки",
+	  "edition_id": 46,
+	  "short_id": 42,
+	  "position": 14
+	},
+	{
+	  "subtitle": "",
+	  "title": "Нона",
+	  "edition_id": 48,
+	  "short_id": 38,
+	  "position": 14
+	},
+	{
+	  "short_id": 93,
+	  "title": "Петачето, което носи късмет",
+	  "subtitle": "",
+	  "edition_id": 66,
+	  "position": 14
+	},
+	{
+	  "edition_id": 21,
+	  "subtitle": "",
+	  "short_id": 14,
+	  "position": 15,
+	  "title": "Плесен"
+	},
+	{
+	  "position": 15,
+	  "edition_id": 46,
+	  "title": "Големите колела",
+	  "short_id": 43,
+	  "subtitle": "Млекар №2"
+	},
+	{
+	  "position": 15,
+	  "edition_id": 48,
+	  "short_id": 39,
+	  "subtitle": "",
+	  "title": "На Оуен"
+	},
+	{
+	  "short_id": 15,
+	  "edition_id": 21,
+	  "subtitle": "",
+	  "position": 16,
+	  "title": "Знам какво искаш"
+	},
+	{
+	  "edition_id": 46,
+	  "position": 16,
+	  "subtitle": "",
+	  "title": "Баба",
+	  "short_id": 44
+	},
+	{
+	  "subtitle": "",
+	  "edition_id": 48,
+	  "short_id": 40,
+	  "title": "Начин за оцеляване",
+	  "position": 16
+	},
+	{
+	  "title": "Човекът с косачката",
+	  "edition_id": 21,
+	  "subtitle": "",
+	  "short_id": 13,
+	  "position": 17
+	},
+	{
+	  "edition_id": 46,
+	  "position": 17,
+	  "title": "Протокът",
+	  "subtitle": "",
+	  "short_id": 46
+	},
+	{
+	  "edition_id": 48,
+	  "title": "Пикапът на чичо Ото",
+	  "subtitle": "",
+	  "short_id": 41,
+	  "position": 17
+	},
+	{
+	  "title": "Жената в стаята",
+	  "edition_id": 21,
+	  "short_id": 17,
+	  "position": 18,
+	  "subtitle": ""
+	},
+	{
+	  "position": 18,
+	  "subtitle": "Млекар №1",
+	  "edition_id": 48,
+	  "title": "Утринни доставки",
+	  "short_id": 42
+	},
+	{
+	  "position": 19,
+	  "edition_id": 21,
+	  "subtitle": "",
+	  "title": "Ягодова пролет",
+	  "short_id": 19
+	},
+	{
+	  "edition_id": 48,
+	  "position": 19,
+	  "subtitle": "Млекар №2",
+	  "short_id": 43,
+	  "title": "Зверска кола"
+	},
+	{
+	  "short_id": 44,
+	  "subtitle": "",
+	  "edition_id": 48,
+	  "title": "Баба",
+	  "position": 20
+	},
+	{
+	  "short_id": 45,
+	  "title": "Балада за гъвкавият куршум",
+	  "position": 21,
+	  "edition_id": 48,
+	  "subtitle": ""
+	},
+	{
+	  "subtitle": "",
+	  "title": "Протокът",
+	  "short_id": 46,
+	  "edition_id": 48,
+	  "position": 22
+	}
+  ]
