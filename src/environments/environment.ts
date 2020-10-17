@@ -3,19 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  firebase: {
-    apiKey: "AIzaSyBLTJJHVCnzNlE162i_CeS3wfJvzm1JACo",
-    authDomain: "sk-database.firebaseapp.com",
-    databaseURL: "https://sk-database.firebaseio.com",
-    projectId: "sk-database",
-    storageBucket: "sk-database.appspot.com",
-    messagingSenderId: "178616645591",
-    appId: "1:178616645591:web:a634d6a1aa5693c422fd92"
-  },
-  appBaseHref: '/',
-  useHash: false,
-  libraryData: 'firestore' // files || firestore
+	production: false,
+	firebase: {
+		apiKey: "AIzaSyBIDXtQIVaViLg21FBRcB6MbGmg3ozmBYU",
+		authDomain: "stephen-king-info.firebaseapp.com",
+		databaseURL: "https://stephen-king-info.firebaseio.com",
+		projectId: "stephen-king-info",
+		storageBucket: "stephen-king-info.appspot.com",
+		messagingSenderId: "565526373313",
+		appId: "1:565526373313:web:4705dc6d41da71d9488540"
+	},
+	appBaseHref: '/',
+	useHash: false,
+	libraryData: 'firestore' // files || firestore
 };
 
 /*
