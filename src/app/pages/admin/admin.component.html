@@ -156,7 +156,7 @@
 							<span class="text-secondary">{{ book.pages }}</span>
 						</td>
 						<td>
-							<span class="infoLink" *ngIf="book.official_site"><a href="https://www.stephenking.com/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
+							<span class="infoLink" *ngIf="book.official_site"><a href="https://stephenking.com/works/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
 							<span class="infoLink" *ngIf="book.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
 							<span class="infoLink" *ngIf="book.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
 							<i class="fa fa-wrench click ml-2" (click)="editBook(book);openModal(modalForms)"></i>
@@ -324,7 +324,7 @@
 							</div>
 						</td>
 						<td style="text-align: center;vertical-align: middle;">
-							<span class="infoLink" *ngIf="short.official_site"><a href="https://www.stephenking.com/{{ short.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
+							<span class="infoLink" *ngIf="short.official_site"><a href="https://stephenking.com/works/{{ short.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
 							<span class="infoLink" *ngIf="short.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ short.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
 							<span class="infoLink" *ngIf="short.goodreads > 0"><a href="https://www.goodreads.com/book/show/{{ short.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G"></a></span>
 							<i class="fa fa-wrench click infoLink ml-1" (click)="editShort(short);openModal(modalForms)"></i>
@@ -410,7 +410,7 @@
 						<td>{{screen.metascore}}</td>
 						<td><i class="fa fa-check text-secondary" *ngIf="screen.budget > 0"></i></td>
 						<td>
-							<span class="infoLink mr-1" *ngIf="screen.official_site"><a href="https://www.stephenking.com/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
+							<span class="infoLink mr-1" *ngIf="screen.official_site"><a href="https://stephenking.com/works/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
 							<span class="infoLink mr-1" *ngIf="screen.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
 						</td>
 						<td style="text-align: center;vertical-align: middle;">

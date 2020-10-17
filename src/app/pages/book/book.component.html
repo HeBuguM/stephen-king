@@ -14,7 +14,7 @@
 				<div class="pb-4">
 					<a *ngIf="book.goodreads > 0" class="btn btn-outline-secondary float-right m-1" href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -6px"></a>
 					<a *ngIf="book.wikipedia != ''" class="btn btn-outline-secondary float-right m-1" href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
-					<a *ngIf="book.official_site != ''" class="btn btn-outline-secondary float-right m-1" href="https://www.stephenking.com/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
+					<a *ngIf="book.official_site != ''" class="btn btn-outline-secondary float-right m-1" href="https://stephenking.com/works/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
 					<h1>{{ book.title }}</h1>
 					<p *ngIf="book.series_name" class="text-secondary">({{ book.series_name}} #{{ book.series_no}})</p>
 					<p>
