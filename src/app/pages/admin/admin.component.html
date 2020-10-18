@@ -140,14 +140,6 @@
 												</table>
 											</div>
 										</div>
-										<div *ngIf="book.synopsis">
-											<small>
-												<a class="font-smaller" data-toggle="collapse" href="#bookSynopsis{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookSynopsis{{book.book_id}}">
-													Синопсис
-												</a>
-											</small>
-											<div class="collapse synopsis text-secondary font-italic" id="bookSynopsis{{book.book_id}}" [innerHTML]='book.synopsis'></div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -191,6 +183,14 @@
 								</div>
 							</div>
 							<div class="text-secondary" *ngIf="book.notes"><i class="fa fa-comments"></i> {{ book.notes }}</div>
+							<div *ngIf="book.synopsis">
+								<small>
+									<a class="font-smaller" data-toggle="collapse" href="#bookSynopsis{{book.book_id}}" aria-expanded="false" attr.aria-controls="bookSynopsis{{book.book_id}}">
+										Синопсис
+									</a>
+								</small>
+								<div class="collapse synopsis text-secondary font-italic" id="bookSynopsis{{book.book_id}}" [innerHTML]='book.synopsis'></div>
+							</div>
 						</td>
 					</tr>
 				</tbody>
@@ -422,18 +422,6 @@
 
 			<div *ngIf="showData">
 				<button class="btn btn-primary inline-block" (click)="exportFirestoreBooks()">Export</button>
-				<div class="dropdown float-right">
-					<button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-download"></i> Import
-					</button>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item click" (click)="importBooks()">Книги</a>
-						<a class="dropdown-item click" (click)="importEditions()">Издания</a>
-						<a class="dropdown-item click" (click)="importShorts()">Разкази</a>
-						<a class="dropdown-item click" (click)="importCustom()">Custom</a>
-					</div>
-				</div>
 				<div class="text-secondary mt-2">
 					Книги
 					<button class="btn btn-primary btn-sm" (click)="downloadJSON('books')" *ngIf="exportJSONbooks"><i class="fa fa-save"></i> Свали файл</button>
@@ -574,6 +562,19 @@
 					</div>
 				</div>
 			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Предстоящо</label>
+				<div class="col-10 mt-2">
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<label class="form-check-label" for="Yes">Да</label>
+					  </div>
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<label class="form-check-label" for="No">Не</label>
+					  </div>
+				</div>
+			</div>
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!bookForm.valid"><i class="fa fa-save"></i> Запази</button>
 		</form>
 
@@ -641,6 +642,19 @@
 						</div>
 						<input id="text" formControlName="goodreads" placeholder="" class="form-control">
 					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Предстоящо</label>
+				<div class="col-10 mt-2">
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<label class="form-check-label" for="Yes">Да</label>
+					  </div>
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<label class="form-check-label" for="No">Не</label>
+					  </div>
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!editionForm.valid"><i class="fa fa-save"></i> Запази</button>
@@ -737,6 +751,19 @@
 						</div>
 						<input formControlName="goodreads" class="form-control">
 					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Предстоящо</label>
+				<div class="col-10 mt-2">
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<label class="form-check-label" for="Yes">Да</label>
+					  </div>
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<label class="form-check-label" for="No">Не</label>
+					  </div>
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!shortForm.valid"><i class="fa fa-save"></i> Запази</button>
@@ -917,6 +944,19 @@
 						</div>
 						<input formControlName="official_site" class="form-control" (change)="trimDomainSK(screenForm)">
 					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Предстоящо</label>
+				<div class="col-10 mt-2">
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<label class="form-check-label" for="Yes">Да</label>
+					  </div>
+					  <div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<label class="form-check-label" for="No">Не</label>
+					  </div>
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary float-right" [disabled]="!screenForm.valid"><i class="fa fa-save"></i> Запази</button>

@@ -72,6 +72,7 @@ export class AdminComponent implements OnInit {
 		wikipedia: [''],
 		official_site: [''],
 		goodreads: [0],
+		upcoming: [0]
 	});
 
 	editionForm = this.fb.group({
@@ -86,6 +87,7 @@ export class AdminComponent implements OnInit {
 		translation: [''],
 		note: [''],
 		goodreads: [0],
+		upcoming: [0]
 	});
 
 	shortForm = this.fb.group({
@@ -101,6 +103,7 @@ export class AdminComponent implements OnInit {
 		wikipedia: [''],
 		official_site: [''],
 		goodreads: [0],
+		upcoming: [0]
 	});
 
 	screenForm = this.fb.group({
@@ -131,6 +134,7 @@ export class AdminComponent implements OnInit {
 		budget: [0],
 		wikipedia: [''],
 		official_site: [''],
+		upcoming: [0]
 	});
 
 	bookShortForm = this.fb.group({
@@ -203,6 +207,7 @@ export class AdminComponent implements OnInit {
 				this.showScreensForm = false;
 				this.showBooksShortsForm = false;
 				this.showEditionsShortsForm = false;
+				this.showScreenConnectionForm = false;
 			}
 		);
 	}
@@ -227,7 +232,8 @@ export class AdminComponent implements OnInit {
 				co_writers: '',
 				wikipedia: '',
 				official_site: '',
-				goodreads: 0
+				goodreads: 0,
+				upcoming: 0
 			})
 		}
 		this.showBooksForm = true;
@@ -247,7 +253,8 @@ export class AdminComponent implements OnInit {
 				note: '',
 				wikipedia: '',
 				official_site: '',
-				goodreads: 0
+				goodreads: 0,
+				upcoming: 0
 			}
 		}
 		this.shortForm.patchValue(data);
@@ -282,7 +289,8 @@ export class AdminComponent implements OnInit {
 				country: '',
 				budget: 0,
 				wikipedia: '',
-				official_site: ''
+				official_site: '',
+				upcoming: 0
 			}
 		}
 		this.screenForm.patchValue(data);
@@ -302,7 +310,8 @@ export class AdminComponent implements OnInit {
 				pages: 0,
 				translation: '',
 				note: '',
-				goodreads: 0
+				goodreads: 0,
+				upcoming: 0
 			}
 		}
 		this.editionForm.patchValue(data);
@@ -622,49 +631,37 @@ export class AdminComponent implements OnInit {
 		a.click();
 	}
 
-	importCustom() {
-		const data = [
-
-		]
-
-		for (let row of data) {
-			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`edition-shorts/${row.edition_id}-${row.short_id}`);
-			const data = {
-				edition_id: Number(row.edition_id),
-				short_id: Number(row.short_id),
-				title: row.title,
-				subtitle: row.subtitle,
-				position: Number(row.position)
-			}
-			customRef.set(data)
-		}
-	}
-
 	updateCustom() {
-		this.shorts$.forEach(short => {
-			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
-			customRef.update({
-				wikipedia: '',
-				official_site: '',
-				goodreads: 0
-			});
-			console.log(short.title + ' updated');
-		});
-
 		// this.books$.forEach(book => {
 		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);
 		// 	customRef.update({
-		// 		last_modified: new Date()
+		// 		upcoming: 0
 		// 	});
-		// 	console.log(book.title + ' updated');
+		// 	console.info(book.title + ' updated');
 		// });
 
 		// this.editions$.forEach(edition => {
 		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
 		// 	customRef.update({
-		// 		last_modified: new Date()
+		// 		upcoming: 0
 		// 	});
-		// 	console.log(edition.title + ' updated');
+		// 	console.info(edition.title + ' updated');
+		// });
+
+		// this.shorts$.forEach(short => {
+		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
+		// 	customRef.update({
+		// 		upcoming: 0
+		// 	});
+		// 	console.info(short.title + ' updated');
+		// });
+
+		// this.screens$.forEach(screen => {
+		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
+		// 	customRef.update({
+		// 		upcoming: 0
+		// 	});
+		// 	console.info(screen.title + ' updated');
 		// });
 	}
 
@@ -734,79 +731,6 @@ export class AdminComponent implements OnInit {
 		} else {
 			return false;
 		}
-	}
-
-	importBooks() {
-		this.lib.getBooks().toPromise().then(books => {
-			for (let book of books) {
-				const bookRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);
-				const data = {
-					book_id: Number(book.book_id),
-					type: book.type,
-					title: book.title,
-					published: book.published,
-					publisher: book.publisher,
-					pages: Number(book.pages),
-					synopsis: book.synopsis,
-					note: book.note,
-					alterations: book.alterations,
-					series_name: book.series_name,
-					series_no: Number(book.series_no),
-					pseudonym: book.pseudonym,
-					co_writers: book.co_writers,
-					wikipedia: book.wikipedia,
-					official_site: book.official_site,
-					goodreads: book.goodreads
-				}
-				bookRef.set(data, { merge: true })
-			}
-		});
-	}
-
-	importEditions() {
-		this.lib.getBooks().toPromise().then(books => {
-			for (let book of books) {
-				for (let group of book.editions) {
-					for (let edition of group) {
-						const editionRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
-						const data = {
-							edition_id: Number(edition.edition_id),
-							book_id: Number(edition.book_id),
-							language: 'bg',
-							group_id: Number(edition.group_id),
-							title: edition.title,
-							published: edition.published,
-							publisher: edition.publisher,
-							pages: Number(edition.pages),
-							translation: edition.translation,
-							note: edition.note,
-							goodreads: edition.goodreads
-						}
-						editionRef.set(data, { merge: true });
-					}
-				}
-			}
-		});
-	}
-
-	importShorts() {
-		this.lib.getShorts().toPromise().then(shorts => {
-			for (let short of shorts) {
-				const shortRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
-				const data = {
-					short_id: Number(short.short_id),
-					type: short.type,
-					title: short.title,
-					subtitle: short.subtitle,
-					first_pub_date: short.first_pub_date,
-					first_pub_in: short.first_pub_in,
-					first_collected: Number(short.first_collected),
-					synopsis: short.synopsis,
-					note: short.note,
-				}
-				shortRef.set(data);
-			}
-		});
 	}
 
 	async parseIMDb(Form) {
