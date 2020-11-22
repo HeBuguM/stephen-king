@@ -10,6 +10,11 @@ a:hover {
 .help {
     cursor: help;
 }
+.separator {
+	color:#6c757d !important;
+	opacity: 0.3;
+	margin: 0px .5rem;
+}
 .button-read-toggle {
   padding: 4px 5.5px;
 }
@@ -213,8 +218,9 @@ tr:hover td .infoLink {
 	background-color: #080808;
 	border: 1px solid #6c757d;
 }
+[data-theme="dark"] hr,
 [data-theme="dark"] .border-top {
-    border-top: 1px solid #6c757d !important;
+    border-top: 1px solid #2e3133 !important
 }
 [data-theme="dark"] .tab-content {
 	background-color: #080808;
