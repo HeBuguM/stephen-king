@@ -14,7 +14,8 @@ export class Short {
     collection_title: string;
     collection_published: string;
     books: Array<ShortBooks>;
-    editions:Array<ShortEditions>;
+	editions:Array<ShortEditions>;
+	onscreen: Array<ShortScreens>;
 }
 
 export class ShortBooks {
@@ -32,3 +33,23 @@ export class ShortEditions {
 	published: string; // YYYY-MM-DD | YYYY-MM | YYYY,
 	publisher: string;
 }
+
+export class ShortScreens {
+	onscreen_id: number;
+	connection_type: string;
+	info: string;
+	title: string;
+	year: string;
+	poster: string;
+	type: string;
+	network: string;
+	rated: string;
+	runtime: number;
+	seasons: number;
+	episodes: number;
+	imdb_id: string;
+	imdb_rating: string;
+	imdb_votes: string;
+	connections: Array<any>;
+}
+

@@ -47,23 +47,26 @@
 				<p class="synopsis text-secondary font-italic mt-3" [innerHTML]='short.synopsis'></p>
 
 				<ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+					<li class="nav-item" *ngIf="short.books.length > 0">
+						<a class="nav-link" id="books-tab" data-toggle="tab" href="#books" role="tab"	aria-controls="books" aria-selected="false"><i class="fa fa-list"></i> Сборници</a>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link active" id="editions-tab" data-toggle="tab" href="#editions" role="tab" aria-controls="editions" aria-selected="true"><i class="fa fa-language"></i> Български издания</a>
 					</li>
-					<li class="nav-item" *ngIf="short.books.length > 0">
-						<a class="nav-link" id="books-tab" data-toggle="tab" href="#books" role="tab"	aria-controls="books" aria-selected="false"><i class="fa fa-list"></i> Сборници</a>
+					<li class="nav-item" *ngIf="short.onscreen.length > 0">
+						<a class="nav-link" id="screens-tab" data-toggle="tab" href="#screens" role="tab"	aria-controls="screens" aria-selected="false"><i class="fa fa-film"></i> Екранизации</a>
 					</li>
 				</ul>
 				<div class="tab-content shadow-sm" id="myTabContent">
 					<div class="tab-pane fade p-2 show active" id="editions" role="tabpanel" aria-labelledby="editions-tab">
 						<ng-template [ngIf]="short.editions.length > 0" [ngIfElse]="noEditions">
 							<ng-template ngFor let-edition [ngForOf]="short.editions" let-i="index">
-								<hr class="my-2" *ngIf="i != 0 && edition.group_id == 0">
-								<div class="media my-1" style="font-size: 0.9em">
+								<hr class="my-3" *ngIf="i != 0 && edition.group_id == 0">
+								<div class="media my-3" style="font-size: 0.9em">
 									<ng-template #popContent>
 										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
 									</ng-template>
-									<img src="assets/covers/editions/medium/{{edition.edition_id}}.jpg"	style="max-height: 126px;" class="mr-3 click" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+									<img class="mr-3 click rounded shadow-sm" src="assets/covers/editions/medium/{{edition.edition_id}}.jpg" style="height: 126px;width:86px" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 									<div class="media-body">
 										<a class="btn btn-sm btn-outline-secondary float-right" *ngIf="edition.goodreads > 0" href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -4px"></a>
 										<h4 class="mt-0">
@@ -89,11 +92,11 @@
 					</div>
 					<div class="tab-pane fade p-2" id="books" role="tabpanel" aria-labelledby="books-tab">
 						<ng-template ngFor let-book [ngForOf]="short.books" let-i="index">
-							<div class="media my-1" style="font-size: 0.9em">
+							<div class="media my-3" style="font-size: 0.9em">
 								<ng-template #popContent>
 									<div class="cover-full-pop"><img src="assets/covers/books/large/{{book.book_id}}.jpg"></div>
 								</ng-template>
-								<img src="assets/covers/books/medium/{{book.book_id}}.jpg"	style="max-height: 126px;" class="mr-3 click" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+								<img class="mr-3 click rounded shadow-sm" src="assets/covers/books/medium/{{book.book_id}}.jpg" style="height: 126px;width:86px" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 								<div class="media-body align-self-center">
 									<h4 class="mt-0">
 										{{ book.title }}
@@ -104,6 +107,41 @@
 									<div class="row">
 										<div class="col-4 col-md-4 col-lg-3 text-secondary">Издателство</div><div class="col-8 col-md-8 col-lg-9">{{ book.publisher }}</div>
 									</div>
+								</div>
+							</div>
+						</ng-template>
+					</div>
+					<div class="tab-pane fade p-2" id="screens" role="tabpanel" aria-labelledby="screens-tab">
+						<ng-template ngFor let-screen [ngForOf]="short.onscreen" let-i="index">
+							<hr class="my-3" *ngIf="i != 0">
+							<div class="media my-3" style="font-size: 0.9em">
+								<ng-template #popContent>
+									<div class="cover-full-pop"><img src="{{screen.poster}}"></div>
+								</ng-template>
+								<img class="mr-3 click rounded shadow-sm" src="{{screen.poster}}" style="height: 126px; width: 86px;" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+								<div class="media-body">
+									<div class="float-right mt-1" *ngIf="screen.imdb_id">
+										<div class="d-inline-block" style="line-height: 11px;text-align: right;" *ngIf="screen.imdb_rating > 0">
+											<span class="font-weight-bold" style="font-size: 1.3em;">{{screen.imdb_rating}}</span><small class="text-secondary">/10</small>
+											<br><small class="text-secondary">{{screen.imdb_votes.toLocaleString()}}</small>
+										</div>
+										<a href="https://www.imdb.com/title/{{ screen.imdb_id }}" target="_blank"><img class="ml-2 float-right rounded-sm" src="assets/img/imdb.png" height="28" alt="IMDb"></a>
+									</div>
+									<h4 class="mt-0">{{ screen.title }} <small class="text-secondary">({{ screen.year }})</small></h4>
+									<div class="mt-n2 mb-2">
+										<span class="text-secondary">{{ screen.type}}</span>
+										<span class="text-secondary" *ngIf="screen.rated"><span class="separator">|</span>{{ screen.rated }}</span>
+										<span class="text-secondary" *ngIf="screen.runtime"><span class="separator">|</span> <i class="fa fa-clock-o"></i> {{ screen.runtime}} м</span>
+										<span class="text-secondary" *ngIf="screen.network"><span class="separator">|</span>{{ screen.network}}</span>
+									</div>
+									<div class="row" *ngIf="screen.seasons > 0">
+										<div class="col-2 col-md-2 col-lg-1 text-secondary">Сезони</div><div class="col-1">{{ screen.seasons }}</div>
+										<div class="col-3 col-md-2 col-lg-1 text-secondary">Епизоди</div><div class="col-1">{{ screen.episodes }}</div>
+									</div>
+										<div class="row pt-1" *ngFor="let connection of screen.connections">
+											<div class="col-12" *ngIf="connection.type != 'Няма'"><i class="fa fa-link"></i> {{ connection.info }}</div>
+											<div class="col-12 text-secondary" *ngIf="connection.type == 'Няма'"><i class="fa fa-asterisk"></i> {{ connection.info }}</div>
+										</div>
 								</div>
 							</div>
 						</ng-template>
