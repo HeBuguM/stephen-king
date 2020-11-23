@@ -551,18 +551,43 @@ export class AdminComponent implements OnInit {
 						this.exportShorts[connection.short_id]['onscreen'][connection.onscreen_id] = Screen;
 					}
 					this.exportShorts[connection.short_id]['onscreen'][connection.onscreen_id].connections[unique_id] = Connection;
+				}
+			}
+		}
 
-					// Add connections Short Story Collections
-					if(this.exportShorts[connection.short_id]['books'] !== undefined) {
-						for (let collection of this.exportShorts[connection.short_id]['books']) {
-							if (this.exportBooks[collection.book_id]['onscreen'] === undefined) {
-								this.exportBooks[collection.book_id]['onscreen'] = [];
-							}
-							if(this.exportBooks[collection.book_id]['onscreen'][connection.onscreen_id] === undefined){
-								this.exportBooks[collection.book_id]['onscreen'][connection.onscreen_id] = Screen;
-							}
-							this.exportBooks[collection.book_id]['onscreen'][connection.onscreen_id].connections[unique_id] = Connection;
+		// Add Short Story Collection connections
+		for (let connection_coll of this.screen_connections$) {
+			const Screen = {
+				onscreen_id: Number(connection_coll.onscreen_id),
+				title: this.exportScreens[connection_coll.onscreen_id].title,
+				year: this.exportScreens[connection_coll.onscreen_id].year,
+				poster: this.exportScreens[connection_coll.onscreen_id].poster,
+				type: this.exportScreens[connection_coll.onscreen_id].type,
+				network: this.exportScreens[connection_coll.onscreen_id].network,
+				rated: this.exportScreens[connection_coll.onscreen_id].rated,
+				runtime: this.exportScreens[connection_coll.onscreen_id].runtime,
+				seasons: this.exportScreens[connection_coll.onscreen_id].seasons,
+				episodes: this.exportScreens[connection_coll.onscreen_id].episodes,
+				imdb_id: this.exportScreens[connection_coll.onscreen_id].imdb_id,
+				imdb_rating: this.exportScreens[connection_coll.onscreen_id].imdb_rating,
+				imdb_votes: this.exportScreens[connection_coll.onscreen_id].imdb_votes,
+				connections: {}
+			};
+			const Connection = {
+				type: connection_coll.type,
+				info: connection_coll.info
+			}
+			const unique_id = connection_coll.onscreen_id + '-' + (connection_coll.book_id > 0 ? connection_coll.book_id : 0) + '-' + (connection_coll.short_id > 0 ? connection_coll.short_id : 0);
+			if(connection_coll.short_id > 0) {
+				if(this.exportShorts[connection_coll.short_id]['books'] !== undefined) {
+					for (let collection of this.exportShorts[connection_coll.short_id]['books']) {
+						if (this.exportBooks[collection.book_id]['onscreen'] === undefined) {
+							this.exportBooks[collection.book_id]['onscreen'] = [];
 						}
+						if(this.exportBooks[collection.book_id]['onscreen'][connection_coll.onscreen_id] === undefined){
+							this.exportBooks[collection.book_id]['onscreen'][connection_coll.onscreen_id] = Screen;
+						}
+						this.exportBooks[collection.book_id]['onscreen'][connection_coll.onscreen_id].connections[unique_id] = Connection;
 					}
 				}
 			}
