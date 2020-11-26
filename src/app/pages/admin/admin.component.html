@@ -1071,7 +1071,7 @@
 						<option value="" selected>Избери книга</option>
 						<optgroup label="Книги" *ngIf="books$">
 							<option *ngFor="let book of lib.sortObject(books$,'title')" value="{{ book.book_id }}">
-								{{ book.title + ' ('+ book.published.split("-")[0] + ')' }}
+								{{ book.title + ' (' + book.type+')' }}
 							</option>
 						</optgroup>
 					</select>
@@ -1083,7 +1083,9 @@
 					<select formControlName="short_id" class="form-control">
 						<option value="">Избери разказ</option>
 						<optgroup label="Разкази" *ngIf="shorts$">
-							<option *ngFor="let short of lib.sortObject(shorts$,'title')" value="{{ short.short_id }}">{{ short.title }}</option>
+							<option *ngFor="let short of lib.sortObject(shorts$,'title')" value="{{ short.short_id }}">
+								{{ short.title + ' (' +short.type+')' }}
+							</option>
 						</optgroup>
 					</select>
 				</div>
