@@ -347,7 +347,7 @@
 						<td>Заглавие</td>
 						<td>Дата</td>
 						<td>Тип</td>
-						<td>Продукция</td>
+						<td style="width: 350px">Продукция</td>
 						<td>Рейтинг</td>
 						<td><i class="fa fa-clock-o"></i></td>
 						<td>S</td>
@@ -394,6 +394,7 @@
 						</td>
 						<td class="text-secondary">
 							{{screen.type}}
+							<div><small>{{screen.status}}</small></div>
 						</td>
 						<td class="text-secondary">
 							{{screen.production}}
@@ -804,7 +805,7 @@
 				<div class="col-3 pl-0">
 					<select formControlName="status" class="form-control">
 						<option value="">Статус</option>
-						<option *ngFor="let option of ['Обявен','Завършен','Прекратен']" value="{{option}}">{{option}}</option>
+						<option *ngFor="let option of ['Обявен проект','Разработва се','Снима се','Замразен проект','Предстояща премиера','Завършен','Прекратен']" value="{{option}}">{{option}}</option>
 					</select>
 				</div>
 			</div>

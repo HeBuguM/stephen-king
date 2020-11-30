@@ -127,7 +127,10 @@
 										</div>
 										<a href="https://www.imdb.com/title/{{ screen.imdb_id }}" target="_blank"><img class="ml-2 float-right rounded-sm" src="assets/img/imdb.png" height="28" alt="IMDb"></a>
 									</div>
-									<h4 class="mt-0">{{ screen.title }} <small class="text-secondary">({{ screen.year }})</small></h4>
+									<h4 class="mt-0">{{ screen.title }}
+										<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
+										<small class="text-secondary" *ngIf="screen.status != ''"><span class="separator">|</span>{{ screen.status }}</small>
+									</h4>
 									<div class="mt-n2 mb-2">
 										<span class="text-secondary">{{ screen.type}}</span>
 										<span class="text-secondary" *ngIf="screen.rated"><span class="separator">|</span>{{ screen.rated }}</span>

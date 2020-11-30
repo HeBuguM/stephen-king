@@ -514,6 +514,7 @@ export class AdminComponent implements OnInit {
 				onscreen_id: Number(connection.onscreen_id),
 				title: this.exportScreens[connection.onscreen_id].title,
 				year: this.exportScreens[connection.onscreen_id].year,
+				status: this.exportScreens[connection.onscreen_id].status,
 				poster: this.exportScreens[connection.onscreen_id].poster,
 				type: this.exportScreens[connection.onscreen_id].type,
 				network: this.exportScreens[connection.onscreen_id].network,
