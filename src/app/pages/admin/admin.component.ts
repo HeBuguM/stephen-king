@@ -844,6 +844,7 @@ export class AdminComponent implements OnInit {
 	async parseIMDb(Form) {
 		if(Form.value.imdb_id.match(/(tt\d{4,})/)?.length > 1) {
 			let data:any = await this.imdb.getTitleData(Form.value.imdb_id);
+			console.log(data);
 			let imdb_type = '';
 			switch (data.Type) {
 				case 'series':
@@ -856,15 +857,15 @@ export class AdminComponent implements OnInit {
 			let rotten_tomatoes = 0;
 			let metascore = 0;
 			let imdb_rating = 0;
-			data.Ratings.forEach(rate => {
+			data.Ratings?.forEach(rate => {
 				if(rate.Source == 'Rotten Tomatoes') {
-					rotten_tomatoes = Number(rate.Value.replace("%",""))
+					rotten_tomatoes = Number(rate.Value.replace("%","").replace("N/A",""))
 				}
 				if(rate.Source == 'Metacritic') {
-					metascore = Number(rate.Value.replace("/100",""))
+					metascore = Number(rate.Value.replace("/100","").replace("N/A",""))
 				}
 				if(rate.Source == 'Internet Movie Database') {
-					imdb_rating = Number(rate.Value.replace("/10",""))
+					imdb_rating = Number(rate.Value.replace("/10","").replace("N/A",""))
 				}
 			});
 			let parsed_data = {
@@ -877,8 +878,8 @@ export class AdminComponent implements OnInit {
 				seasons: data.totalSeasons ? Number(data.totalSeasons) : Form.value.seasons,
 				genres: data.Genre ? data.Genre : Form.value.genres,
 				poster: data.Poster && data.Poster != 'N/A' ? data.Poster : Form.value.poster,
-				directors: !Form.value.directors ? data.Director.replace("N/A","") : Form.value.directors, // .replace(/ \(.*?\)/g,"")
-				writers: !Form.value.writers ? data.Writer.replace("N/A","") : Form.value.writers, // .replace(/ \(.*?\)/g,"")
+				directors: !Form.value.directors ? data.Director?.replace("N/A","") : Form.value.directors, // .replace(/ \(.*?\)/g,"")
+				writers: !Form.value.writers ? data.Writer?.replace("N/A","") : Form.value.writers, // .replace(/ \(.*?\)/g,"")
 				imdb_rating: imdb_rating ? imdb_rating : Form.value.imdb_rating,
 				imdb_votes: data.imdbVotes && data.imdbVotes != 'N/A' ? Number(data.imdbVotes.replace(/,/g,"")) : 0,
 				rotten_tomatoes: rotten_tomatoes ? rotten_tomatoes : Form.value.rotten_tomatoes,
