@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LibraryService } from '../../services/library.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Book } from '../../models/Book';
 import { SeoService } from 'src/app/services/seo.service';
@@ -15,8 +16,9 @@ export class BookComponent implements OnInit {
 	@Input() slug: string;
 	@Input() book$: Book;
 	book: Book;
+	youtubeId:string = '';
 
-	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService) { }
+	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
 	ngOnInit() {
 		if (this.slug == null) {
@@ -37,6 +39,10 @@ export class BookComponent implements OnInit {
 		} else {
 			this.book = this.book$;
 		}
+	}
 
+	openPlayerModal(content) {
+		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true , windowClass: 'videoModal'}).result.then(
+		() => {});
 	}
 }

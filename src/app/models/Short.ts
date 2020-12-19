@@ -50,6 +50,7 @@ export class ShortScreens {
 	imdb_id: string;
 	imdb_rating: string;
 	imdb_votes: string;
+	trailer: string;
 	connections: Array<any>;
 }
 

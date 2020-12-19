@@ -1,0 +1,43 @@
+.modal-backdrop.show + .videoModal  {
+	opacity: 1 !important;
+	background-color: #000000c2 !important;
+}
+.videoModal .modal-title {
+	color: white;
+}
+.videoModal .modal-header {
+	border-bottom: none !important;
+}
+.videoModal .modal-content {
+    background-color: #000;
+}
+.videoModal .close {
+	color: white;
+	opacity: 0.8;
+	text-shadow: none;
+	font-size: 1.6rem;
+	border:none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    -ms-appearance: none !important;
+}
+.videoModal button.close:focus {
+	outline: none !important;
+}
+.videoModal .close:hover {
+	color: white;
+	opacity: 1 !important;
+}
+
+.video_gallery .video {
+	border-bottom: 2px solid black;
+}
+
+.video_gallery .video.selected {
+	border-bottom: 2px solid white;
+}
+
+.video_gallery .video:hover {
+	border-bottom: 2px solid gray;
+}

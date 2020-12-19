@@ -23,6 +23,7 @@ export class Onscreen {
 	language: string;
 	country: string;
 	budget: number
+	trailer: string;
 	books: Array<any>
 	shorts: Array<any>
 }

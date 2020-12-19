@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { LibraryService } from '../../services/library.service'
 import { IMDbService } from '../../services/imdb.service'
+import { TMDbService } from '../../services/tmdb.service'
 import { Title } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -14,6 +15,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 	encapsulation: ViewEncapsulation.None
 })
 export class AdminComponent implements OnInit {
+	youtubeId:string = '';
 
 	// Pages
 	showBooks = true;
@@ -132,6 +134,7 @@ export class AdminComponent implements OnInit {
 		language: [''],
 		country: [''],
 		budget: [0],
+		trailer: [0],
 		wikipedia: [''],
 		official_site: [''],
 		upcoming: [0]
@@ -159,7 +162,15 @@ export class AdminComponent implements OnInit {
 		info: ['']
 	});
 
-	constructor(public lib: LibraryService, private afs: AngularFirestore, private browser: Title, public imdb: IMDbService,private fb: FormBuilder, private modalService: NgbModal) { }
+	constructor(
+		public lib: LibraryService,
+		private afs: AngularFirestore,
+		private browser: Title,
+		public imdb: IMDbService,
+		public tmdb: TMDbService,
+		private fb: FormBuilder,
+		private modalService: NgbModal
+	) { }
 
 	ngOnInit() {
 		this.browser.setTitle(`Администрация - Стивън Кинг`)
@@ -288,6 +299,7 @@ export class AdminComponent implements OnInit {
 				language: '',
 				country: '',
 				budget: 0,
+				trailer: '',
 				wikipedia: '',
 				official_site: '',
 				upcoming: 0
@@ -525,6 +537,7 @@ export class AdminComponent implements OnInit {
 				imdb_id: this.exportScreens[connection.onscreen_id].imdb_id,
 				imdb_rating: this.exportScreens[connection.onscreen_id].imdb_rating,
 				imdb_votes: this.exportScreens[connection.onscreen_id].imdb_votes,
+				trailer: this.exportScreens[connection.onscreen_id].trailer,
 				connections: {}
 			};
 			const Connection = {
@@ -572,6 +585,7 @@ export class AdminComponent implements OnInit {
 				imdb_id: this.exportScreens[connection_coll.onscreen_id].imdb_id,
 				imdb_rating: this.exportScreens[connection_coll.onscreen_id].imdb_rating,
 				imdb_votes: this.exportScreens[connection_coll.onscreen_id].imdb_votes,
+				trailer: this.exportScreens[connection_coll.onscreen_id].trailer,
 				connections: {}
 			};
 			const Connection = {
@@ -764,13 +778,13 @@ export class AdminComponent implements OnInit {
 		// 	console.info(short.title + ' updated');
 		// });
 
-		// this.screens$.forEach(screen => {
-		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
-		// 	customRef.update({
-		// 		upcoming: 0
-		// 	});
-		// 	console.info(screen.title + ' updated');
-		// });
+		this.screens$.forEach(screen => {
+			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
+			customRef.update({
+				trailer: ''
+			});
+			console.info(screen.title + ' updated');
+		});
 	}
 
 	getShort(short_id) {
@@ -893,6 +907,25 @@ export class AdminComponent implements OnInit {
 			alert('Невалидно IMDb ID');
 		}
 	}
+	async parseTMDb(Form) {
+		if(Form.value.tmdb_id.match(/((tv|movie)\/\d{1,})/)?.length > 1) {
+			let data:any = await this.tmdb.getTitleData(Form.value.tmdb_id);
+			console.log(data);
+			let trailers = [];
+			data.results?.forEach(video => {
+				if(video.type == 'Trailer' && video.site == 'YouTube') {
+					trailers.push(video.key)
+				}
+
+			});
+			let parsed_data = {
+				trailer: !Form.value.trailer && trailers.length > 0 ? trailers.join("|") : Form.value.trailer
+			}
+			Form.patchValue(parsed_data);
+		} else {
+			alert('Невалидно The Movie Database ID');
+		}
+	}
 
 	trimDomainWiki(Form) {
 		var data = {
@@ -913,6 +946,23 @@ export class AdminComponent implements OnInit {
 			imdb_id: Form.value.imdb_id.match(/(tt\d{4,})/)?.length > 1 ? Form.value.imdb_id.match(/(tt\d{4,})/)[1] : Form.value.imdb_id
 		}
 		Form.patchValue(data);
+	}
+	trimDomainTMDb(Form) {
+		var data = {
+			tmdb_id: Form.value.tmdb_id.match(/((tv|movie)\/\d{1,})/)?.length > 1 ? Form.value.tmdb_id.match(/((tv|movie)\/\d{1,})/)[1] : Form.value.tmdb_id
+		}
+		Form.patchValue(data);
+	}
+	trimDomainYouTube(Form) {
+		var data = {
+			trailer: Form.value.trailer.match(/([A-Za-z0-9_\-]{11})/)?.length > 1 ? Form.value.trailer.match(/([A-Za-z0-9_\-]{11})/)[1] : Form.value.trailer
+		}
+		Form.patchValue(data);
+	}
+
+	openPlayerModal(content) {
+		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true, windowClass: 'videoModal'}).result.then(
+		() => {});
 	}
 
 }

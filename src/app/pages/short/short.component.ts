@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LibraryService } from '../../services/library.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Short } from '../../models/Short';
 import { SeoService } from 'src/app/services/seo.service';
@@ -13,11 +14,11 @@ import { SeoService } from 'src/app/services/seo.service';
 })
 export class ShortComponent implements OnInit {
 	@Input() slug: string;
-
 	@Input() short$: Short;
 	short: Short;
+	youtubeId:string = '';
 
-	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService) { }
+	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
 	ngOnInit() {
 
@@ -41,5 +42,10 @@ export class ShortComponent implements OnInit {
 			this.short = this.short$;
 		}
 
+	}
+
+	openPlayerModal(content) {
+		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true , windowClass: 'videoModal'}).result.then(
+		() => {});
 	}
 }

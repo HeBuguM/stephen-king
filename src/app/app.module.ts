@@ -24,6 +24,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { ShortComponent } from './pages/short/short.component';
 import { OnscreenComponent } from './pages/onscreen/onscreen.component';
+import { PlayerComponent } from './templates/youtube/player/player.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { OnscreenComponent } from './pages/onscreen/onscreen.component';
     AboutComponent,
     SettingsComponent,
     ShortComponent,
-    OnscreenComponent
+    OnscreenComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

@@ -161,31 +161,39 @@
 								</ng-template>
 								<img class="mr-3 click rounded shadow-sm" src="{{screen.poster}}" style="height: 126px; width: 86px;" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 								<div class="media-body">
-									<div class="float-right mt-1" *ngIf="screen.imdb_id">
-										<div class="d-inline-block" style="line-height: 11px;text-align: right;" *ngIf="screen.imdb_rating > 0">
-											<span class="font-weight-bold" style="font-size: 1.3em;">{{screen.imdb_rating}}</span><small class="text-secondary">/10</small>
-											<br><small class="text-secondary">{{screen.imdb_votes.toLocaleString()}}</small>
+									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
+										<h4 class="mt-0">{{ screen.title }}
+											<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
+											<small class="text-secondary" *ngIf="screen.status != ''"><span class="separator">|</span>{{ screen.status }}</small>
+										</h4>
+										<div class="mt-n2 mb-2">
+											<span class="text-secondary">{{ screen.type}}</span>
+											<span class="text-secondary" *ngIf="screen.rated"><span class="separator">|</span>{{ screen.rated }}</span>
+											<span class="text-secondary" *ngIf="screen.runtime"><span class="separator">|</span> <i class="fa fa-clock-o"></i> {{ screen.runtime}} м</span>
+											<span class="text-secondary" *ngIf="screen.network"><span class="separator">|</span>{{ screen.network}}</span>
 										</div>
-										<a href="https://www.imdb.com/title/{{ screen.imdb_id }}" target="_blank"><img class="ml-2 float-right rounded-sm" src="assets/img/imdb.png" height="28" alt="IMDb"></a>
-									</div>
-									<h4 class="mt-0">{{ screen.title }}
-										<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
-										<small class="text-secondary" *ngIf="screen.status != ''"><span class="separator">|</span>{{ screen.status }}</small>
-									</h4>
-									<div class="mt-n2 mb-2">
-										<span class="text-secondary">{{ screen.type}}</span>
-										<span class="text-secondary" *ngIf="screen.rated"><span class="separator">|</span>{{ screen.rated }}</span>
-										<span class="text-secondary" *ngIf="screen.runtime"><span class="separator">|</span> <i class="fa fa-clock-o"></i> {{ screen.runtime}} м</span>
-										<span class="text-secondary" *ngIf="screen.network"><span class="separator">|</span>{{ screen.network}}</span>
-									</div>
-									<div class="row" *ngIf="screen.seasons > 0">
-										<div class="col-2 col-md-2 col-lg-1 text-secondary">Сезони</div><div class="col-1">{{ screen.seasons }}</div>
-										<div class="col-3 col-md-2 col-lg-1 text-secondary">Епизоди</div><div class="col-1">{{ screen.episodes }}</div>
-									</div>
+										<div class="row" *ngIf="screen.seasons > 0">
+											<div class="col-2 col-md-2 col-lg-1 text-secondary">Сезони</div><div class="col-1">{{ screen.seasons }}</div>
+											<div class="col-3 col-md-2 col-lg-1 text-secondary">Епизоди</div><div class="col-1">{{ screen.episodes }}</div>
+										</div>
 										<div class="row pt-1" *ngFor="let connection of screen.connections">
 											<div class="col-12" *ngIf="connection.type != 'Няма'"><i class="fa fa-link"></i> {{ connection.info }}</div>
 											<div class="col-12 text-secondary" *ngIf="connection.type == 'Няма'"><i class="fa fa-asterisk"></i> {{ connection.info }}</div>
 										</div>
+									</div>
+									<div class="d-inline-block" style="width: 120px;">
+										<div class="text-right mt-1" *ngIf="screen.imdb_id">
+											<div class="d-inline-block" style="line-height: 11px;text-align: right;" *ngIf="screen.imdb_rating > 0">
+												<span class="font-weight-bold" style="font-size: 1.3em;">{{screen.imdb_rating}}</span><small class="text-secondary">/10</small>
+												<br><small class="text-secondary">{{screen.imdb_votes.toLocaleString()}}</small>
+											</div>
+											<a href="https://www.imdb.com/title/{{ screen.imdb_id }}" target="_blank"><img class="ml-2 float-right rounded-sm" src="assets/img/imdb.png" height="28" alt="IMDb"></a>
+										</div>
+										<div class="clearfix"></div>
+										<div class="d-flex align-items-center justify-content-center mt-3 click" *ngIf="screen.trailer" (click)="youtubeId = screen.trailer;openPlayerModal(playerModal)">
+											<i class="fa fa-play-circle fa-2x mr-2"></i> <span>Трейлър</span>
+										</div>
+									</div>
 								</div>
 							</div>
 						</ng-template>
@@ -195,3 +203,15 @@
 		</div>
 	</div>
 </main>
+
+<ng-template #playerModal let-modal>
+	<div class="modal-header py-2">
+		<h4 class="modal-title" id="modal-basic-title">Трейлър</h4>
+		<button type="button" class="close mt-0 mr-n2 px-3 py-1" aria-label="Close" (click)="modal.dismiss()">
+			<span class="align-text-top" aria-hidden="true"><i class="fa fa-close"></i></span>
+		</button>
+	</div>
+	<div class="modal-body p-2">
+		<app-player *ngIf="youtubeId" [youtubeId]="youtubeId"></app-player>
+	</div>
+</ng-template>
