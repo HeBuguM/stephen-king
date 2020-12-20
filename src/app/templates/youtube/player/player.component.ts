@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-player',
@@ -20,7 +20,9 @@ export class PlayerComponent implements OnInit {
 	}
 
 	initVideoUrl() {
-		return this.sanitizer.bypassSecurityTrustResourceUrl(this.main_url+this.selected_video+'?autoplay=1');
+		let url = this.sanitizer.bypassSecurityTrustResourceUrl(this.main_url+this.selected_video+'?autoplay=1');
+		document.getElementById("YouTubePlayer").getAttribute("src");
+		return url;
 	}
 
 	changeVideo(video) {

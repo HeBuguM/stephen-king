@@ -955,7 +955,7 @@ export class AdminComponent implements OnInit {
 	}
 	trimDomainYouTube(Form) {
 		var data = {
-			trailer: Form.value.trailer.match(/([A-Za-z0-9_\-]{11})/)?.length > 1 ? Form.value.trailer.match(/([A-Za-z0-9_\-]{11})/)[1] : Form.value.trailer
+			trailer: Form.value.trailer.match(/v\=([A-Za-z0-9_\-]{11})/)?.length > 1 ? Form.value.trailer.match(/v\=([A-Za-z0-9_\-]{11})/)[1] : Form.value.trailer
 		}
 		Form.patchValue(data);
 	}
