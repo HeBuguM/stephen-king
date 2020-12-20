@@ -357,7 +357,7 @@
 						<td><img src="assets/img/metacritics.png" height="16"></td>
 						<td><img src="assets/img/rottentomatoes.png" height="16"></td>
 						<td><i class="fa fa-money"></i></td>
-						<td>Линкове</td>
+						<td colspan="3">Линкове</td>
 						<td></td>
 					</tr>
 				</thead>
@@ -414,10 +414,14 @@
 						<td>{{screen.rotten_tomatoes}}</td>
 						<td>{{screen.metascore}}</td>
 						<td><i class="fa fa-check text-secondary" *ngIf="screen.budget > 0"></i></td>
-						<td>
-							<span class="infoLink mr-1" *ngIf="screen.official_site"><a href="https://stephenking.com/works/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
-							<span class="infoLink mr-1" *ngIf="screen.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
-							<span class="infoLink mr-1" *ngIf="screen.tmdb_id"><a href="https://www.themoviedb.org/{{ screen.tmdb_id }}" target="_blank"><img src="assets/img/themoviedb_32.png" width="16" alt="TMDb"></a></span>
+						<td style="text-align: center;vertical-align: middle;">
+							<span class="infoLink" *ngIf="screen.official_site"><a href="https://stephenking.com/works/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK"></a></span>
+						</td>
+						<td style="text-align: center;vertical-align: middle;">
+							<span class="infoLink" *ngIf="screen.wikipedia"><a href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W"></a></span>
+						</td>
+						<td style="text-align: center;vertical-align: middle;">
+							<span class="infoLink" *ngIf="screen.tmdb_id"><a href="https://www.themoviedb.org/{{ screen.tmdb_id }}" target="_blank"><img src="assets/img/themoviedb_32.png" width="16" alt="TMDb"></a></span>
 						</td>
 						<td style="text-align: center;vertical-align: middle;">
 							<i class="fa fa-wrench click infoLink ml-1" (click)="editScreen(screen);openModal(modalForms)"></i>
