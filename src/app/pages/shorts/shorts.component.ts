@@ -37,7 +37,7 @@ export class ShortsComponent implements OnInit {
 
 	ngOnInit() {
 		this.seo.generateTags({
-			title: 'Стивън Кинг - Разкази',
+			title: 'Разкази | Стивън Кинг',
 			description: 'Всички кратки произведения на Кинг, включвани или не в сборници, с изключение на новелите публикувани като самостоятелни книги',
 			image: 'https://stephen-king.info/assets/img/home_shorts.jpg',
 			slug: 'shorts'

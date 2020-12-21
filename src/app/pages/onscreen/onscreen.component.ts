@@ -36,7 +36,7 @@ export class OnscreenComponent implements OnInit {
 
 	ngOnInit() {
 		this.seo.generateTags({
-			title: 'Стивън Кинг - Книги',
+			title: 'Екранизации | Стивън Кинг',
 			description: 'Основната литература включваща предимно романи и новели побликувани като самостоятелни книги, както и нехудожествената литература на Краля',
 			image: 'https://stephen-king.info/assets/img/home_screens.jpg',
 			slug: 'screens'

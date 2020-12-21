@@ -39,7 +39,7 @@ export class BooksComponent implements OnInit {
 
 	ngOnInit() {
 		this.seo.generateTags({
-			title: 'Стивън Кинг - Книги',
+			title: 'Книги | Стивън Кинг',
 			description: 'Основната литература включваща предимно романи и новели побликувани като самостоятелни книги, както и нехудожествената литература на Краля',
 			image: 'https://stephen-king.info/assets/img/home_books.jpg',
 			slug: 'books'

@@ -30,7 +30,7 @@ export class BookComponent implements OnInit {
 			this.lib.getBooks().subscribe(books => {
 				this.book = Object.values(books).filter(book => this.lib.seoUrl(book.title) == this.slug)[0];
 				this.seo.generateTags({
-					title: `Стивън Кинг - ${this.book.title}`,
+					title: `${this.book.title} | Стивън Кинг`,
 					description: this.book.synopsis,
 					image: `https://stephen-king.info/assets/covers/books/large/${this.book.book_id}.jpg`,
 					slug: this.slug

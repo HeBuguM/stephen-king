@@ -32,7 +32,7 @@ export class ShortComponent implements OnInit {
 			this.lib.getShorts().subscribe(shorts => {
 				this.short = Object.values(shorts).filter(short => this.lib.seoUrl(short.title) == this.slug)[0];
 				this.seo.generateTags({
-					title: `Стивън Кинг - ${this.short.title}`,
+					title: `${this.short.title} | Стивън Кинг`,
 					description: this.short.synopsis,
 					image: this.short.first_collected ? `https://stephen-king.info/assets/covers/shorts/large/${this.short.short_id}.jpg` : ``,
 					slug: this.slug
