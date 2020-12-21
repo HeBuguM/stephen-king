@@ -124,7 +124,7 @@ export class ShortsComponent implements OnInit {
 	openShortModal(content) {
 		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true }).result.then(
 		() => {},
-		() => {this.updateReadCounter()});
+		(onClose) => {this.updateReadCounter()});
 	}
 
 }

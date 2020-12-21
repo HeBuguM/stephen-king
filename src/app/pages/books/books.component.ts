@@ -81,7 +81,7 @@ export class BooksComponent implements OnInit {
 	openBookModal(content) {
 		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true }).result.then(
 		() => {},
-		() => {this.updateReadCounter()});
+		(onClose) => {this.updateReadCounter()});
 	}
 
 	public updateSearch(searchTextValue: string) {

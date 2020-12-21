@@ -77,7 +77,7 @@ export class OnscreenComponent implements OnInit {
 	openBookModal(content) {
 		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true }).result.then(
 		() => {},
-		() => {this.updateWatchedCounter()});
+		(onClose) => {this.updateWatchedCounter()});
 	}
 
 	public updateSearch(searchTextValue: string) {

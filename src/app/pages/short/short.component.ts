@@ -45,7 +45,6 @@ export class ShortComponent implements OnInit {
 	}
 
 	openPlayerModal(content) {
-		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true , windowClass: 'videoModal'}).result.then(
-		() => {});
+		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true , windowClass: 'videoModal'});
 	}
 }

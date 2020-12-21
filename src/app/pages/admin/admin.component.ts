@@ -211,7 +211,7 @@ export class AdminComponent implements OnInit {
 	openModal(content) {
 		this.modalService.open(content, { size: 'lg', centered: true }).result.then(
 			(result) => {},
-			(close) => {
+			(onClose) => {
 				this.showBooksForm = false;
 				this.showEditionsForm = false;
 				this.showShortsForm = false;
@@ -961,8 +961,7 @@ export class AdminComponent implements OnInit {
 	}
 
 	openPlayerModal(content) {
-		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true, windowClass: 'videoModal'}).result.then(
-		() => {});
+		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true, windowClass: 'videoModal'});
 	}
 
 }
