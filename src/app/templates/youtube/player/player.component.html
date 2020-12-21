@@ -1,10 +1,11 @@
-<iframe *ngIf="selected_video"
-	id="YouTubePlayer"
-	[attr.src]="initVideoUrl()"
-	style="width: 100%; height: 66vh"
-	frameborder="0"
-	allowfullscreen
-></iframe>
+<div class="aspectratio" data-ratio="16:9">
+    <iframe *ngIf="selected_video"
+		id="YouTubePlayer"
+		[attr.src]="initVideoUrl()"
+		frameborder="0"
+		allowfullscreen
+	></iframe>
+</div>
 
 <div class="video_gallery" *ngIf="countVideos() > 1">
 	<div [ngClass]="{'video': true, 'd-inline-flex' : true, 'mr-2': true,'click': true, 'selected': video == this.selected_video}" *ngFor="let video of this.videos">
