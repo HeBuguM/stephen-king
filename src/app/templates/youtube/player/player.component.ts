@@ -21,7 +21,6 @@ export class PlayerComponent implements OnInit {
 
 	initVideoUrl() {
 		let url = this.sanitizer.bypassSecurityTrustResourceUrl(this.main_url+this.selected_video+'?autoplay=1');
-		document.getElementById("YouTubePlayer").getAttribute("src");
 		return url;
 	}
 
