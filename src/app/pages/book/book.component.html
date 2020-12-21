@@ -164,7 +164,7 @@
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
 										<h4 class="mt-0">{{ screen.title }}
 											<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
-											<small class="text-secondary" *ngIf="screen.status != ''"><span class="separator">|</span>{{ screen.status }}</small>
+											<small class="text-secondary" *ngIf="screen.status"><span class="separator">|</span>{{ screen.status }}</small>
 										</h4>
 										<div class="mt-n2 mb-2">
 											<span class="text-secondary">{{ screen.type}}</span>
@@ -173,8 +173,10 @@
 											<span class="text-secondary" *ngIf="screen.network"><span class="separator">|</span>{{ screen.network}}</span>
 										</div>
 										<div class="row" *ngIf="screen.seasons > 0">
-											<div class="col-2 col-md-2 col-lg-1 text-secondary">Сезони</div><div class="col-1">{{ screen.seasons }}</div>
-											<div class="col-3 col-md-2 col-lg-1 text-secondary">Епизоди</div><div class="col-1">{{ screen.episodes }}</div>
+											<div class="col-12">
+												<span class="text-secondary">Сезони</span> <span class="ml-2">{{ screen.seasons }}</span>
+												<span class="text-secondary">Епизоди</span> <span class="ml-2">{{ screen.episodes }}</span>
+											</div>
 										</div>
 										<div class="row pt-1" *ngFor="let connection of screen.connections">
 											<div class="col-12" *ngIf="connection.type != 'Няма'"><i class="fa fa-link"></i> {{ connection.info }}</div>
