@@ -20,7 +20,10 @@
 					<div class="mb-2" >
 						<span *ngIf="screen.seasons"><span class="text-secondary">Сезони</span> <span class="ml-2 mr-3">{{ screen.seasons }}</span></span>
 						<span *ngIf="screen.episodes"><span class="text-secondary">Епизоди</span> <span class="ml-2">{{ screen.episodes }}</span></span>
-						<span class="text-secondary" *ngIf="screen.network"><span class="separator mx-3">|</span>{{ screen.network}}</span>
+						<span class="text-secondary" *ngIf="screen.network">
+							<span class="separator mx-3">|</span>
+							<img class="filter-black-white" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 21px;max-width: 90px;">
+						</span>
 						<span class="text-secondary" *ngIf="screen.status"><span class="separator mx-3">|</span>{{ screen.status}}</span>
 					</div>
 					<div class="row mt-4">
