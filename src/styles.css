@@ -14,6 +14,7 @@ a:hover {
 	color:#6c757d !important;
 	opacity: 0.3;
 	margin: 0px .5rem;
+	font-weight: lighter;
 }
 .button-read-toggle {
   padding: 4px 5.5px;
@@ -146,7 +147,15 @@ tr:hover td .infoLink {
 	top: 56px !important;
 }
 
+img.filter-black-white {
+	filter: brightness(0);
+}
+
 /* DARK THEME */
+
+[data-theme="dark"] img.filter-black-white {
+	filter: brightness(0) invert(1);
+}
 
 [data-theme="dark"] {
 	background-color: #0a1016 !important;

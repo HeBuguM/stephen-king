@@ -1,9 +1,11 @@
 export class Onscreen {
     onscreen_id: number;
 	title: string;
+	slug: string;
 	type: string;
 	status: string;
 	imdb_id: string;
+	tmdb_id: string;
 	year: string;
 	released: string;
 	rated: string;
@@ -24,6 +26,30 @@ export class Onscreen {
 	country: string;
 	budget: number
 	trailer: string;
-	books: Array<any>
+	wikipedia: string;
+	official_site: string;
+	books: Array<BookConnection>
 	shorts: Array<any>
+}
+
+export class BookConnection {
+	book_id: number;
+	type: string;
+	title: string;
+	published: string;
+	connection_type: string;
+	connection_info: string
+}
+
+export class ShortConnection {
+	book_id: number;
+	title: string;
+	subtitle: string;
+	type: string;
+	first_pub_date: string;
+	first_collected: number;
+	collection_title: string;
+	collection_published: string;
+	connection_type: string;
+	connection_info: string
 }

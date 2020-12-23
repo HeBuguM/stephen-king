@@ -67,8 +67,9 @@ export class OnscreenComponent implements OnInit {
 
 	filterScreens() {
 		return this.filtered_screens = this.screens.filter(screen => !(
-			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && this.isSeries(screen))
-			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && this.isMovie(screen))
+			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && !this.isMovie(screen))
+			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && !this.isSeries(screen))
+			|| (this.filter_screens.type &&  this.filter_screens.type == 'episodes' && !this.isEpisode(screen))
 			|| (this.searchValue != '' && (JSON.stringify(screen).toLowerCase().indexOf(this.searchValue.trim().toLowerCase()) <= -1))
 			)
 		);
@@ -122,6 +123,10 @@ export class OnscreenComponent implements OnInit {
 
 	isSeries(screen) {
 		return screen.type == 'Сериал' || screen.type == 'Мини-сериал';
+	}
+
+	isEpisode(screen) {
+		return screen.type == 'Епизод'
 	}
 
 	updateWatchedCounter() {

@@ -35,7 +35,12 @@ export class LibraryService {
 		'Есе': 'essay',
 		'Пиеса': 'play',
 		'Сценарий': 'screenplay',
-		'Притча': 'parable'
+		'Притча': 'parable',
+		'Филм': 'movie',
+		'ТВ Филм': 'movie',
+		'Сериал': 'tv',
+		'Мини-сериал': 'tv',
+		'Епизод': 'tv'
 	}
 
 	constructor(private http: HttpClient, private afs: AngularFirestore) { }
@@ -292,7 +297,7 @@ export class LibraryService {
 		if(this.url_types[type]) {
 			return this.url_types[type];
 		} else {
-			return 't';
+			return type;
 		}
 	}
 

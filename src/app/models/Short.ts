@@ -36,9 +36,8 @@ export class ShortEditions {
 
 export class ShortScreens {
 	onscreen_id: number;
-	connection_type: string;
-	info: string;
 	title: string;
+	slug: string;
 	year: string;
 	poster: string;
 	type: string;

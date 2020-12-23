@@ -207,12 +207,6 @@
 </main>
 
 <ng-template #playerModal let-modal>
-	<div class="modal-header py-2">
-		<h4 class="modal-title" id="modal-basic-title">Трейлър</h4>
-		<button type="button" class="close mt-0 mr-n2 px-3 py-1" aria-label="Close" (click)="modal.dismiss()">
-			<span class="align-text-top" aria-hidden="true"><i class="fa fa-close"></i></span>
-		</button>
-	</div>
 	<div class="modal-body p-2">
 		<app-player *ngIf="youtubeId" [youtubeId]="youtubeId"></app-player>
 	</div>

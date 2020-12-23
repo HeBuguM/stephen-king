@@ -10,6 +10,10 @@ export class TMDbService {
 
 	constructor(private http: HttpClient) { }
 
+	requestData(endpoint, options = []) {
+		return this.http.get<any[]>(this.tmdb_url + '/' + endpoint + '?api_key=' + this.tmdb_key + (options.length > 0 ? '&' + options.join('&') : ""));
+	}
+
 	async getTitleData(tmdb_id) {
 		let resp = [];
 		await this.http.get<any[]>(this.tmdb_url + '/' + tmdb_id + '/videos?api_key=' + this.tmdb_key).toPromise().then(response => {

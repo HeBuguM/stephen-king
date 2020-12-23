@@ -111,6 +111,7 @@ export class AdminComponent implements OnInit {
 	screenForm = this.fb.group({
 		onscreen_id: ['', Validators.required],
 		title: ['', Validators.required],
+		slug: ['', Validators.required],
 		type: [''],
 		status: [''],
 		tmdb_id: [''],
@@ -187,7 +188,7 @@ export class AdminComponent implements OnInit {
 			this.afs.collection('shorts', ref => { return ref.orderBy('first_pub_date') }).valueChanges().subscribe((data) => { this.shorts$ = data; });
 		}
 		if (!this.screens$ && (data == 'screens' || !data)) {
-			this.afs.collection('onscreen', ref => { return ref.orderBy('year') }).valueChanges().subscribe((data) => { this.screens$ = data; });
+			this.afs.collection('onscreen', ref => { return ref.orderBy('title') }).valueChanges().subscribe((data) => { this.screens$ = data; });
 		}
 		if (!this.book_shorts$ && (data == 'book-shorts' || !data)) {
 			this.afs.collection('book-shorts', ref => { return ref.orderBy('position') }).valueChanges().subscribe((data) => { this.book_shorts$ = data; });
@@ -277,6 +278,7 @@ export class AdminComponent implements OnInit {
 			data = {
 				onscreen_id: this.screens$?.length+1,
 				title: '',
+				slug:'',
 				type: '',
 				status: '',
 				imdb_id: '',
@@ -434,9 +436,9 @@ export class AdminComponent implements OnInit {
 			this.exportShorts[short.short_id] = Short;
 		}
 
-		// Building Books Array
+		// Building Screens Array
 		for (let screen of this.screens$) {
-			this.exportScreens[screen.onscreen_id] = screen;
+			this.exportScreens[screen.onscreen_id] = {...screen,books:[], shorts:[]};
 		}
 
 		// Building Editions Array
@@ -520,11 +522,12 @@ export class AdminComponent implements OnInit {
 			}
 		}
 
-		// Add Screens
+		// Add Screen Connections
 		for (let connection of this.screen_connections$) {
 			const Screen = {
 				onscreen_id: Number(connection.onscreen_id),
 				title: this.exportScreens[connection.onscreen_id].title,
+				slug: this.exportScreens[connection.onscreen_id].slug,
 				year: this.exportScreens[connection.onscreen_id].year,
 				status: this.exportScreens[connection.onscreen_id].status,
 				poster: this.exportScreens[connection.onscreen_id].poster,
@@ -546,6 +549,20 @@ export class AdminComponent implements OnInit {
 			}
 			const unique_id = connection.onscreen_id + '-' + (connection.book_id > 0 ? connection.book_id : 0) + '-' + (connection.short_id > 0 ? connection.short_id : 0);
 			if(connection.book_id > 0) {
+				// To Screen
+				const BookConnection = {
+					book_id: connection.book_id,
+					title: this.exportBooks[connection.book_id].title,
+					type: this.exportBooks[connection.book_id].type,
+					published: this.exportBooks[connection.book_id].published,
+					publisher: this.exportBooks[connection.book_id].publisher,
+					year: this.exportBooks[connection.book_id].year,
+					connection_type: connection.type,
+				    connection_info: connection.info
+				}
+				this.exportScreens[connection.onscreen_id]['books'].push(BookConnection);
+
+				// To Book
 				if (this.exportBooks[connection.book_id] !== undefined) {
 					if (this.exportBooks[connection.book_id]['onscreen'] === undefined) {
 						this.exportBooks[connection.book_id]['onscreen'] = [];
@@ -557,6 +574,22 @@ export class AdminComponent implements OnInit {
 				}
 			}
 			if(connection.short_id > 0) {
+				// To Screen
+				const ShortConnection = {
+					short_id: connection.short_id,
+					title: this.exportShorts[connection.short_id].title,
+					subtitle: this.exportShorts[connection.short_id].subtitle,
+					type: this.exportShorts[connection.short_id].type,
+					first_pub_date: this.exportShorts[connection.short_id].first_pub_date,
+					first_collected: this.exportShorts[connection.short_id].first_collected,
+					collection_title: this.exportShorts[connection.short_id].collection_title,
+					collection_published: this.exportShorts[connection.short_id].collection_published,
+					connection_type: connection.type,
+				    connection_info: connection.info
+				}
+				this.exportScreens[connection.onscreen_id]['shorts'].push(ShortConnection);
+
+				// To Short
 				if (this.exportShorts[connection.short_id] !== undefined) {
 					if (this.exportShorts[connection.short_id]['onscreen'] === undefined) {
 						this.exportShorts[connection.short_id]['onscreen'] = [];
@@ -574,6 +607,7 @@ export class AdminComponent implements OnInit {
 			const Screen = {
 				onscreen_id: Number(connection_coll.onscreen_id),
 				title: this.exportScreens[connection_coll.onscreen_id].title,
+				slug: this.exportScreens[connection_coll.onscreen_id].slug,
 				year: this.exportScreens[connection_coll.onscreen_id].year,
 				poster: this.exportScreens[connection_coll.onscreen_id].poster,
 				type: this.exportScreens[connection_coll.onscreen_id].type,
@@ -781,7 +815,7 @@ export class AdminComponent implements OnInit {
 		this.screens$.forEach(screen => {
 			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
 			customRef.update({
-				trailer: ''
+				slug: this.lib.seoUrl(screen.title)
 			});
 			console.info(screen.title + ' updated');
 		});
@@ -925,6 +959,13 @@ export class AdminComponent implements OnInit {
 		} else {
 			alert('Невалидно The Movie Database ID');
 		}
+	}
+
+	seoTransform (Form) {
+		let parsed_data = {
+			slug: !Form.value.slug && Form.value.title ? this.lib.seoUrl(Form.value.title) : Form.value.slug
+		}
+		Form.patchValue(parsed_data);
 	}
 
 	trimDomainWiki(Form) {

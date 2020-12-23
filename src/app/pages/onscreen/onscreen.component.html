@@ -65,6 +65,10 @@
 								<input type="checkbox" id="filterSeries" class="custom-control-input" (change)="changeFilter('type',$event.target.checked ? 'series' : false)" [checked]="getFilter('type') === 'series'">
 								<label class="custom-control-label click" for="filterSeries">Сериали</label>
 							</div>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" id="filterEpisodes" class="custom-control-input" (change)="changeFilter('type',$event.target.checked ? 'episodes' : false)" [checked]="getFilter('type') === 'episodes'">
+								<label class="custom-control-label click" for="filterEpisodes">Епизоди</label>
+							</div>
 						</div>
 					</div>
 				</li>
@@ -80,7 +84,7 @@
 			<div class="onscreen-cover">
 				<img class="rounded shadow-sm" src="{{screen.poster}}" alt="">
 			</div>
-			<div class="onscreen-title mt-2">{{ screen.title }} <small class="text-secondary">({{ screen.year.substring(0,4) }})</small></div>
+			<div class="onscreen-title mt-2"><a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">{{ screen.title }}</a>&nbsp;<small class="text-secondary" *ngIf="screen.year">({{ screen.year.substring(0,4) }})</small></div>
 			<div class="d-none">
 			<div class="seen" style="position: absolute;top: 4px;left: 4px;">
 				<span class="btn btn-sm btn-outline-secondary button-read-toggle"><i class="fa fa-fw fa-check"></i></span>
@@ -106,7 +110,7 @@
 		<table class="table table-sm table-hover">
 			<thead>
 				<th></th>
-				<th colspan="2">Заглавие</th>
+				<th>Заглавие</th>
 				<th>Рейтинг</th>
 				<th><img class="rounded" src="assets/img/imdb.png" height="24"></th>
 				<th><img src="assets/img/metacritics.png" height="24"></th>
@@ -116,28 +120,39 @@
 			<tbody>
 				<tr *ngFor="let screen of filtered_screens">
 					<td><img class="rounded shadow-sm" src="{{screen.poster}}" alt="" style="height: 76px;width: 51px"></td>
-					<td class="align-middle"><a href="https://www.imdb.com/title/{{screen.imdb_id}}/">{{ screen.title }}</a>&nbsp;<small class="text-secondary">({{ screen.year.substring(0,4) }})</small></td>
-					<td class="align-middle"><span *ngIf="!isMovie(screen)">{{ screen.type.split("-")[0] }}</span></td>
-					<td class="align-middle">{{ screen.rated }}</td>
-					<td class="align-middle"><span *ngIf="screen.imdb_rating"><i class="fa fa-star mr-1" style="color: #f5c518"></i>{{ screen.imdb_rating }}<small class="text-secondary">/10</small></span></td>
-					<td class="align-middle">
-						<span *ngIf="screen.metascore >= 70" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #6c3;">
+					<td class="align-middle position-relative">
+						<div class="d-flex justify-content-between align-items-center">
+							<div>
+								<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">{{ screen.title }}</a>&nbsp;<small class="text-secondary" *ngIf="screen.year">({{ screen.year.substring(0,4) }})</small>
+								<div class="font-smaller text-secondary" *ngIf="screen.type != 'Филм'"><small>{{ screen.type }}</small></div>
+								<div class="font-smaller text-secondary" *ngIf="screen.status"><small>{{screen.status}}</small></div>
+							</div>
+							<img class="filter-black-white" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 24px;max-width: 100px;">
+						</div>
+					</td>
+					<td class="align-middle text-center"><small class="d-inline-block border border-secondary text-secondary px-1" *ngIf="screen.rated">{{ screen.rated }}</small></td>
+					<td class="align-middle text-center"><span *ngIf="screen.imdb_rating"><i class="fa fa-star mr-1" style="color: #f5c518"></i>{{ screen.imdb_rating }}<small class="text-secondary">/10</small></span></td>
+					<td class="align-middle text-center">
+						<span *ngIf="screen.metascore > 60" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #6c3;">
 							{{screen.metascore}}
 						</span>
-						<span *ngIf="screen.metascore >= 50 && screen.metascore < 70" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #eeb200">
+						<span *ngIf="screen.metascore >= 40 && screen.metascore <= 60" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #eeb200">
 							{{screen.metascore}}
 						</span>
 						<span *ngIf="screen.metascore > 0 && screen.metascore < 40" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #f00;">
 							{{screen.metascore}}
 						</span>
 					</td>
-					<td class="align-middle"><span *ngIf="screen.rotten_tomatoes">{{ screen.rotten_tomatoes }}<small class="text-secondary">%</small></span></td>
-					<td class="align-middle text-center">{{ screen.network }}</td>
+					<td class="align-middle text-center">
+						<div class="metascore d-flex align-items-center">
+							<img src="assets/img/tomatometer_fresh.png" alt="Fresh" width="24" *ngIf="screen.rotten_tomatoes >= 60 && screen.rotten_tomatoes">
+							<img src="assets/img/tomatometer_rotten.png" alt="Fresh" width="24" *ngIf="screen.rotten_tomatoes > 0 && screen.rotten_tomatoes < 60">
+							<span class="ml-1" *ngIf="screen.rotten_tomatoes">{{ screen.rotten_tomatoes }}<small class="text-secondary">%</small></span>
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-
-
 	</ng-template>
 </div>

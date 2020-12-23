@@ -1,0 +1,132 @@
+<main>
+	<div class="container-xl mt-4" *ngIf="screen">
+		<div class="row">
+			<div class="col-md-4 col-lg-3 mb-4">
+				<div class="card shadow-sm text-center col-8 col-md-12 mx-auto px-0 ">
+					<img src="{{screen.poster}}" class="card-img-top rounded" alt="Корица">
+				</div>
+			</div>
+			<div class="col-md-8 col-lg-9 mb-4">
+				<div class="pb-4">
+					<h2 class="font-weight-bold">{{ screen.title }} <small *ngIf="screen.year" class="text-secondary">({{ screen.year}})</small></h2>
+					<div class="mb-2">
+						<a *ngIf="screen.tmdb_id" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://www.themoviedb.org/{{ screen.tmdb_id }}" target="_blank"><img src="assets/img/themoviedb_32.png" alt="G" width="16" style="margin-top: -6px"></a>
+						<a *ngIf="screen.wikipedia != ''" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
+						<a *ngIf="screen.official_site != ''" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://stephenking.com/works/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
+						<span class="text-secondary">{{ screen.type }}</span>
+						<span class="text-secondary" *ngIf="screen.rated"><span class="separator">|</span>{{ screen.rated }}</span>
+						<span class="text-secondary" *ngIf="screen.runtime"><span class="separator">|</span> <i class="fa fa-clock-o"></i> {{ screen.runtime}}m</span>
+					</div>
+					<div class="mb-2" >
+						<span *ngIf="screen.seasons"><span class="text-secondary">Сезони</span> <span class="ml-2 mr-3">{{ screen.seasons }}</span></span>
+						<span *ngIf="screen.episodes"><span class="text-secondary">Епизоди</span> <span class="ml-2">{{ screen.episodes }}</span></span>
+						<span class="text-secondary" *ngIf="screen.network"><span class="separator mx-3">|</span>{{ screen.network}}</span>
+						<span class="text-secondary" *ngIf="screen.status"><span class="separator mx-3">|</span>{{ screen.status}}</span>
+					</div>
+					<div class="row mt-4">
+						<div class="col-7 col-md-6">
+							<div class="col-12 py-4">
+								<div class="d-flex align-items-center" *ngIf="screen.imdb_id">
+									<div class="d-inline-block " style="line-height: 11px;text-align: right;" *ngIf="screen.imdb_rating > 0">
+										<span class="font-weight-bold" style="font-size: 1.8em;">{{screen.imdb_rating}}</span><small class="text-secondary">/10</small>
+										<br><small class="text-secondary">{{screen.imdb_votes.toLocaleString()}}</small>
+									</div>
+									<span class=" font-weight-bold" style="font-size: 1.8em; line-height: 36px;" *ngIf="screen.imdb_rating <= 0">—</span>
+									<a class="ml-3" href="https://www.imdb.com/title/{{ screen.imdb_id }}" target="_blank"><img class="rounded-sm" src="assets/img/imdb.png" alt="IMDb"></a>
+								</div>
+							</div>
+							<div class="col-12 py-4">
+								<div class="tomatometer d-flex align-items-center">
+									<!-- <img src="assets/img/tomatometer_certified_fresh.png" alt="Certified" width="36" *ngIf="screen.metascore >= 70"> -->
+									<!-- <img src="assets/img/tomatometer_fresh.png" alt="Fresh" width="36" *ngIf="screen.metascore >= 60 && screen.metascore">
+									<img src="assets/img/tomatometer_rotten.png" alt="Fresh" width="36" *ngIf="screen.metascore > 0 && screen.metascore < 60"> -->
+									<span class=" font-weight-bold" style="font-size: 1.8em; line-height: 36px;">{{screen.rotten_tomatoes ? screen.rotten_tomatoes + "%" : "—"}}</span>
+									<span class="ml-3"><img src="assets/img/rotten_tomatoes_logo.png" alt="Rotten Tomatoes" height="36"></span>
+								</div>
+							</div>
+							<div class="col-12 py-4">
+								<div class="metascore d-flex align-items-center">
+									<span *ngIf="screen.metascore > 60" class="rounded font-weight-bold" style="padding: 6px 9px; width: 36px; color: #fff;background-color: #6c3;">
+										{{screen.metascore}}
+									</span>
+									<span *ngIf="screen.metascore >= 40 && screen.metascore <= 60" class="rounded font-weight-bold" style="padding: 6px 9px; width: 36px; color: #fff;background-color: #eeb200">
+										{{screen.metascore}}
+									</span>
+									<span *ngIf="screen.metascore > 0 && screen.metascore < 40" class="rounded font-weight-bold" style="padding: 6px 9px; width: 36px; color: #fff;background-color: #f00;">
+										{{screen.metascore}}
+									</span>
+									<span class="font-weight-bold" style="font-size: 1.8em; line-height: 36px;" *ngIf="!screen.metascore">—</span>
+									<span class="ml-3 font-weight-bold"><img class="mr-1" src="assets/img/metacritics.png" alt="Metacritics" height="36"> Metacritic</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-5 col-md-6 d-flex align-items-center justify-content-center">
+							<div class="click mt-2" *ngIf="screen.trailer" (click)="youtubeId = screen.trailer;openPlayerModal(playerModal)">
+								<i class="fa fa-play-circle fa-5x"></i>
+								<div class="player_thumbnail" [attr.style]="returnStyle()"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-12 mb-4">
+			<div class="card p-2" *ngIf="cast_crew">
+				<h3 class="font-weight-bold px-2">
+					Актьори
+					<small class="text-secondary float-right mt-2 click" style="font-size: 14px;" *ngIf="cast_crew.cast.length > cast_limit" (click)="showAllCast()">
+						{{cast_limit}} от {{ cast_crew.cast.length }} <i class="fa fa-eye-slash"></i>
+					</small>
+				</h3>
+				<div class="card-body actors d-inline-flex flex-wrap p-0">
+					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" style="width: 300px;" *ngFor="let cast of cast_crew.cast | slice:0:cast_limit">
+						<div class="profile mr-3">
+							<img *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}">
+							<i class="fa fa-user-circle" *ngIf="!cast.profile_path"></i>
+						</div>
+						<div class="media-body">
+							<h5 class="mt-0">{{cast.name}}</h5>
+							<div class="role" *ngIf="cast.character"><small class="text-secondary">{{cast.character}}</small></div>
+							<div class="role" *ngFor="let role of cast.roles"><small class="text-secondary">{{role.character}}</small></div>
+							<div class="episodes" *ngIf="cast.total_episode_count"><small class="text-secondary">{{cast.total_episode_count  + (cast.total_episode_count > 1 ? " Епизодa" : " Епизод")}} </small></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 mb-4">
+			<div class="card p-2" *ngIf="cast_crew?.crew">
+				<h3 class="font-weight-bold px-2">
+					Екип
+					<small class="text-secondary float-right mt-2 click" style="font-size: 14px;" *ngIf="cast_crew.crew.length > crew_limit" (click)="showAllCrew()">
+						{{crew_limit}} от {{ cast_crew.crew.length }} <i class="fa fa-eye-slash"></i>
+					</small>
+				</h3>
+				<div class="card-body actors d-inline-flex flex-wrap p-0">
+					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" style="width: 300px;" *ngFor="let cast of cast_crew.crew | slice:0:crew_limit">
+						<div class="profile mr-3">
+							<img *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}">
+							<i class="fa fa-user-circle" *ngIf="!cast.profile_path"></i>
+						</div>
+						<div class="media-body">
+							<h5 class="mt-0">{{cast.name}}</h5>
+							<div class="role" *ngIf="cast.job"><small class="text-secondary">{{cast.job}}</small></div>
+							<div class="role" *ngFor="let job of cast.jobs"><small class="text-secondary">{{job.job}}</small></div>
+							<div class="episodes" *ngIf="cast.total_episode_count"><small class="text-secondary">{{cast.total_episode_count  + (cast.total_episode_count > 1 ? " Епизодa" : " Епизод")}} </small></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</main>
+
+<ng-template #playerModal let-modal>
+	<div class="modal-body p-2">
+		<app-player *ngIf="youtubeId" [youtubeId]="youtubeId"></app-player>
+	</div>
+</ng-template>

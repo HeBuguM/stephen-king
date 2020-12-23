@@ -15,7 +15,7 @@ export const environment = {
 	},
 	appBaseHref: '/',
 	useHash: false,
-	libraryData: 'firestore' // files || firestore
+	libraryData: 'files' // files || firestore
 };
 
 /*
