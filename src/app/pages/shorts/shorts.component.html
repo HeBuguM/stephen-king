@@ -119,8 +119,8 @@
 								<a class="short-title" [routerLink]="[lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
 								<small class="float-right text-secondary" *ngIf="short.type != 'Разказ'">{{ short.type }}</small>
 								<div class="text-secondary">{{ short.subtitle }}</div>
-								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && short.first_pub_in" >{{ short.first_pub_in }} ({{short.first_pub_date.split("-")[0] }})</small>
-								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && short.first_collected">{{ short.collection_title }} <span class="ml-1" *ngIf="!short.first_pub_in">({{short.first_pub_date.split("-")[0] }})</span></small>
+								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && short.first_pub_in" >{{ short.first_pub_in }} ({{ lib.publishedDate(short.first_pub_date,'first_short') }})</small>
+								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && short.first_collected">{{ short.collection_title }} <span class="ml-1" *ngIf="!short.first_pub_in">({{ lib.publishedDate(short.first_pub_date,'first_short') }})</span></small>
 								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && !short.first_collected">Не е събирано в сборник</small>
 							</div>
 						</div>

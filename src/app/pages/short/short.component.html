@@ -16,7 +16,7 @@
 					<a *ngIf="short.wikipedia != ''" class="btn btn-outline-secondary float-right m-1" href="https://en.wikipedia.org/wiki/{{ short.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
 					<a *ngIf="short.official_site != ''" class="btn btn-outline-secondary float-right m-1" href="https://stephenking.com/works/{{ short.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
 					<h1>{{ short.title }}</h1>
-					<h2 class="text-secondary">{{ short.subtitle }}</h2>
+					<h2 class="text-secondary font-italic">{{ short.subtitle }}</h2>
 					<p>
 						<span>от <b>Стивън Кинг</b></span>
 					</p>
@@ -71,7 +71,7 @@
 										<a class="btn btn-sm btn-outline-secondary float-right" *ngIf="edition.goodreads > 0" href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -4px"></a>
 										<h4 class="mt-0">
 											{{ edition.title }}
-											<h5 class="text-secondary mt-0 mb-0">{{ edition.subtitle }}</h5>
+											<h5 class="text-secondary mt-0 mb-0 font-italic">{{ edition.subtitle }}</h5>
 										</h4>
 										<div class="row">
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Включено в</div><div class="col-8 col-md-8 col-lg-9">{{ edition.edition_title }}</div>
@@ -99,7 +99,7 @@
 								<img class="mr-3 click rounded shadow-sm" src="assets/covers/books/medium/{{book.book_id}}.jpg" style="height: 126px;width:86px" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 								<div class="media-body align-self-center">
 									<h4 class="mt-0">
-										{{ book.title }}
+										<a [routerLink]="[book.book_id ? '/books/' : '/stories/',lib.urlType(book.type),lib.seoUrl(book.title)]" href="{{ '/#/books/'+lib.urlType(book.type)+'/'+lib.seoUrl(book.title) }}">{{ book.title }}</a>
 									</h4>
 									<div class="row">
 										<div class="col-4 col-md-4 col-lg-3 text-secondary">Публикуван</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(book.published,'first_long') }}</div>
@@ -121,8 +121,9 @@
 								<img class="mr-3 click rounded shadow-sm" src="{{screen.poster}}" style="height: 126px; width: 86px;" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 								<div class="media-body">
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
-										<h4 class="mt-0">{{ screen.title }}
-											<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
+										<h4 class="mt-0">
+											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">{{ screen.title }}</a>
+											<small class="text-secondary ml-2" *ngIf="screen.year">({{ screen.year }})</small>
 											<small class="text-secondary" *ngIf="screen.status"><span class="separator">|</span>{{ screen.status }}</small>
 										</h4>
 										<div class="mt-n2 mb-2">

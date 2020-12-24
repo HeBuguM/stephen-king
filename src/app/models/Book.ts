@@ -40,6 +40,8 @@ export class BookShort {
 	type: string;
 	title: string;
 	subtitle: string;
+	first_pub_in: string;
+	first_pub_date: string;
 	position: number;
 }
 

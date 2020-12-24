@@ -22,7 +22,7 @@
 						<span *ngIf="screen.episodes"><span class="text-secondary">Епизоди</span> <span class="ml-2">{{ screen.episodes }}</span></span>
 						<span class="text-secondary" *ngIf="screen.network">
 							<span class="separator mx-3">|</span>
-							<img class="filter-black-white" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 21px;max-width: 90px;">
+							<img class="filter-black-white opacity05" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 21px;max-width: 90px;">
 						</span>
 						<span class="text-secondary" *ngIf="screen.status"><span class="separator mx-3">|</span>{{ screen.status}}</span>
 					</div>
@@ -73,8 +73,34 @@
 				</div>
 			</div>
 	</div>
-	<div class="row">
-		<div class="col-12 mb-4">
+	<div class="row no-gutters">
+		<div class="col-12 mb-4 py-3 col-6 bg-white rounded shadow-sm border">
+			<ng-template ngFor let-work [ngForOf]="[].concat(screen.shorts).concat(screen.books)" let-i="index">
+				<div class="media d-inline-flex col-12 col-lg-6" style="font-size: 0.9em">
+					<ng-template #popContent>
+						<div class="cover-full-pop"><img src="assets/covers/books/large/{{work.book_id ? work.book_id : work.collection_id}}.jpg"></div>
+					</ng-template>
+					<img class="mr-3 click rounded shadow-sm" src="assets/covers/books/medium/{{work.book_id ? work.book_id : work.collection_id}}.jpg" style="height: 126px; width: 86px;" alt=" " placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+					<div class="media-body">
+						<div class="d-inline-block align-top">
+							<h4 class="mt-0"><a [routerLink]="[work.book_id ? '/books/' : '/stories/',lib.urlType(work.type),lib.seoUrl(work.title)]" href="{{ '/#/books/'+lib.urlType(work.type)+'/'+lib.seoUrl(work.title) }}">{{ work.title }}</a></h4>
+							<div class="text-secondary mt-n2 mb-1">{{ work.type }}</div>
+							<div class="text-secondary" *ngIf="work.published">
+								<div *ngIf="work.publisher">{{ work.publisher }} {{ lib.publishedDate(work.published,'first_short') }}</div>
+								<div *ngIf="work.collection_id">{{ work.collection_title }} (Сборник) {{ lib.publishedDate(work.collection_published,'first_short') }}</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-12" *ngIf="work.connection_type != 'Няма'"><i class="fa fa-link"></i> {{ work.connection_info }}</div>
+								<div class="col-12 text-secondary" *ngIf="work.connection_type == 'Няма'"><i class="fa fa-asterisk"></i> {{ work.connection_info }}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-template>
+		</div>
+	</div>
+	<div class="row no-gutters">
+		<div class="col-12 mb-4 shadow-sm">
 			<div class="card p-2" *ngIf="cast_crew">
 				<h3 class="font-weight-bold px-2">
 					Актьори
@@ -83,7 +109,7 @@
 					</small>
 				</h3>
 				<div class="card-body actors d-inline-flex flex-wrap p-0">
-					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" style="width: 300px;" *ngFor="let cast of cast_crew.cast | slice:0:cast_limit">
+					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" *ngFor="let cast of cast_crew.cast | slice:0:cast_limit">
 						<div class="profile mr-3">
 							<img *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}">
 							<i class="fa fa-user-circle" *ngIf="!cast.profile_path"></i>
@@ -99,8 +125,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-12 mb-4">
+	<div class="row no-gutters">
+		<div class="col-12 mb-4 shadow-sm">
 			<div class="card p-2" *ngIf="cast_crew?.crew">
 				<h3 class="font-weight-bold px-2">
 					Екип
@@ -109,7 +135,7 @@
 					</small>
 				</h3>
 				<div class="card-body actors d-inline-flex flex-wrap p-0">
-					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" style="width: 300px;" *ngFor="let cast of cast_crew.crew | slice:0:crew_limit">
+					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" *ngFor="let cast of cast_crew.crew | slice:0:crew_limit">
 						<div class="profile mr-3">
 							<img *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}">
 							<i class="fa fa-user-circle" *ngIf="!cast.profile_path"></i>

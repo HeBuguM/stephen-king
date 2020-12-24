@@ -82,7 +82,7 @@
 	<div class="onscreen-grid d-flex flex-wrap justify-content-between align-items-stretch mt-2 mx-n2" *ngIf="onscreen_layout  == 'grid'">
 		<div class="onscreen-card" *ngFor="let screen of filtered_screens">
 			<div class="onscreen-poster">
-				<img class="rounded shadow-sm" src="{{screen.poster}}" alt="">
+				<img class="rounded shadow-sm" src="{{screen.poster}}" alt=" ">
 			</div>
 			<div class="onscreen-title mt-2"><a class="stretched-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">{{ screen.title }}</a>&nbsp;<small class="text-secondary" *ngIf="screen.year">({{ screen.year.substring(0,4) }})</small></div>
 		</div>
@@ -101,7 +101,7 @@
 			</thead>
 			<tbody>
 				<tr *ngFor="let screen of filtered_screens">
-					<td><img class="rounded shadow-sm" src="{{screen.poster}}" alt="" style="height: 76px;width: 51px"></td>
+					<td><img class="rounded shadow-sm" src="{{screen.poster}}" alt=" " style="height: 76px;width: 51px"></td>
 					<td class="align-middle position-relative">
 						<div class="d-flex justify-content-between align-items-center">
 							<div>
@@ -110,7 +110,7 @@
 								<div class="font-smaller text-secondary" *ngIf="screen.status"><small>{{screen.status}}</small></div>
 							</div>
 							<div class="network-logo d-sm-flex d-none">
-								<img class="filter-black-white" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 21px;max-width: 90px;">
+								<img class="filter-black-white opacity05" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 21px;max-width: 90px;">
 							</div>
 						</div>
 					</td>

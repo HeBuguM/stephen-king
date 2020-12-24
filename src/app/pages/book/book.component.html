@@ -99,16 +99,17 @@
 											<div class="collapse" id="editionShorts{{edition.edition_id}}">
 												<table class="table table-bodered table-sm mt-2">
 													<tr *ngFor="let short of lib.combineShorts(edition.shorts,book.shorts)" [hidden]="short.edition_title == ''">
-														<td>{{ short.original_position != 0 ? short.original_position : ""}}</td>
-														<td class="text-secondary">
-															{{ short.original_title }}
-															<div class="text-secondary" *ngIf="short.original_subtitle != ''"> <i>{{ short.original_subtitle }}</i></div>
-														</td>
+														<td class="text-secondary"><small>{{ short.edition_position != 0 ? short.edition_position : ""}}</small></td>
 														<td>
 															{{ short.edition_title }}
-															<div class="text-secondary" *ngIf="short.edition_subtitle != ''"><i>{{ short.edition_subtitle }}</i></div>
+															<div class="text-secondary font-italic" *ngIf="short.edition_subtitle != ''"><i>{{ short.edition_subtitle }}</i></div>
 														</td>
-														<td><small class="text-secondary float-right" *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
+														<td class="text-secondary pl-4"><small>{{ short.original_position != 0 ? short.original_position : ""}}</small></td>
+														<td class="text-secondary">
+															<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.original_title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.original_title) }}">{{ short.original_title }}</a>
+															<div class="text-secondary font-italic" *ngIf="short.original_subtitle != ''"> <i>{{ short.original_subtitle }}</i></div>
+														</td>
+														<td class="align-middle text-secondary pl-4"><small *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
 													</tr>
 												</table>
 												<div class="mb-4" *ngIf="(book.shorts.length - edition.shorts.length) > 0">
@@ -116,7 +117,7 @@
 													<div class="collapse" id="editionShortsUnpublished{{edition.edition_id}}">
 														<table class="table table-bodered table-sm mt-2">
 															<tr *ngFor="let short of lib.combineShorts(edition.shorts,book.shorts)" [hidden]="short.edition_title != ''">
-																<td>{{ short.original_position != 0 ? short.original_position : ""}}
+																<td class="align-middle">{{ short.original_position != 0 ? short.original_position : ""}}
 																</td>
 																<td class="text-secondary">
 																	{{ short.original_title }}
@@ -126,7 +127,7 @@
 																	{{ short.edition_title }}
 																	<div class="text-secondary" *ngIf="short.edition_subtitle != ''"><i>{{ short.edition_subtitle }}</i></div>
 																</td>
-																<td><small class="text-secondary float-right" *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
+																<td class="align-middle"><small class="text-secondary" *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
 															</tr>
 														</table>
 													</div>
@@ -143,11 +144,25 @@
 					</div>
 					<div class="tab-pane fade p-2" id="shorts" role="tabpanel" aria-labelledby="shorts-tab">
 						<table class="table table-bodered table-sm">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Заглавие</th>
+									<th>Първа публикация</th>
+									<th>Форма</th>
+								</tr>
+							</thead>
 							<tr *ngFor="let short of book.shorts">
-								<td>{{ short.position != 0 ? short.position : ""}}</td>
+								<td class="text-secondary"><small>{{ short.position != 0 ? short.position : ""}}</small></td>
 								<td>
-									{{ short.title }} <small class="text-secondary float-right" *ngIf="short.type != 'short story'">{{ short.type }}</small>
-									<div class="text-secondary" *ngIf="short.subtitle != ''">{{ short.subtitle }}</div>
+									<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
+									<div class="text-secondary font-italic" *ngIf="short.subtitle">{{ short.subtitle }}</div>
+								</td>
+								<td class="align-middle">
+									<small class="text-secondary" *ngIf="short.first_pub_in">{{ short.first_pub_in }} ({{lib.publishedDate(short.first_pub_date,'first_short')}})</small>
+								</td>
+								<td class="align-middle">
+									<small class="text-secondary" *ngIf="short.type != 'short story'">{{ short.type }}</small>
 								</td>
 							</tr>
 						</table>
@@ -162,8 +177,9 @@
 								<img class="mr-3 click rounded shadow-sm" src="{{screen.poster}}" style="height: 126px; width: 86px;" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 								<div class="media-body">
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
-										<h4 class="mt-0">{{ screen.title }}
-											<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
+										<h4 class="mt-0">
+											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">{{ screen.title }}</a>
+											<small class="text-secondary ml-2" *ngIf="screen.year">({{ screen.year }})</small>
 											<small class="text-secondary" *ngIf="screen.status"><span class="separator">|</span>{{ screen.status }}</small>
 										</h4>
 										<div class="mt-n2 mb-2">

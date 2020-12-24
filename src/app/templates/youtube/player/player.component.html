@@ -10,6 +10,6 @@
 
 <div class="video_gallery" *ngIf="countVideos() > 1">
 	<div [ngClass]="{'video': true, 'd-inline-flex' : true, 'mr-2': true,'click': true, 'selected': video == this.selected_video}" *ngFor="let video of this.videos">
-		<img src="https://i.ytimg.com/vi/{{video}}/default.jpg" alt="" (click)="changeVideo(video)">
+		<img src="https://i.ytimg.com/vi/{{video}}/default.jpg" alt=" " (click)="changeVideo(video)">
 	</div>
 </div>

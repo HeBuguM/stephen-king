@@ -46,8 +46,9 @@ export class ShortConnection {
 	title: string;
 	subtitle: string;
 	type: string;
-	first_pub_date: string;
-	first_collected: number;
+	published: string;
+	publisher: string;
+	collection_id: number;
 	collection_title: string;
 	collection_published: string;
 	connection_type: string;
