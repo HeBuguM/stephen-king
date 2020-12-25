@@ -67,9 +67,9 @@ export class OnscreenComponent implements OnInit {
 
 	filterScreens() {
 		return this.filtered_screens = this.screens.filter(screen => !(
-			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && !this.isMovie(screen))
-			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && !this.isSeries(screen))
-			|| (this.filter_screens.type &&  this.filter_screens.type == 'episodes' && !this.isEpisode(screen))
+			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && !this.lib.isMovie(screen))
+			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && !this.lib.isSeries(screen))
+			|| (this.filter_screens.type &&  this.filter_screens.type == 'episodes' && !this.lib.isEpisode(screen))
 			|| (this.searchValue != '' && (JSON.stringify(screen).toLowerCase().indexOf(this.searchValue.trim().toLowerCase()) <= -1))
 			)
 		);
@@ -115,18 +115,6 @@ export class OnscreenComponent implements OnInit {
 
 	getFilter(key) {
 		return this.filter_screens !== null && this.filter_screens[key] !== null ? this.filter_screens[key] : false;
-	}
-
-	isMovie(screen) {
-		return screen.type == 'Филм' || screen.type == 'ТВ Филм';
-	}
-
-	isSeries(screen) {
-		return screen.type == 'Сериал' || screen.type == 'Мини-сериал';
-	}
-
-	isEpisode(screen) {
-		return screen.type == 'Епизод'
 	}
 
 	updateWatchedCounter() {

@@ -286,6 +286,33 @@ export class LibraryService {
 		localStorage.setItem("data_modified", new Date().getTime().toString());
 	}
 
+	// Onscreen
+
+	screenTitle(title) {
+		return title.replace(/\(.*\)/,'').trim();
+	}
+
+	getSeriesTitle(title) {
+		let match = title.match(/\((.*)\)/)
+		if(match && match[1] !== undefined){
+			return match[1].trim();
+		} else {
+			return '';
+		}
+	}
+
+	isMovie(screen) {
+		return screen.type == 'Филм' || screen.type == 'ТВ Филм';
+	}
+
+	isSeries(screen) {
+		return screen.type == 'Сериал' || screen.type == 'Мини-сериал';
+	}
+
+	isEpisode(screen) {
+		return screen.type == 'Епизод'
+	}
+
 	// Util
 
 	seoUrl(string) {

@@ -117,15 +117,10 @@
 													<div class="collapse" id="editionShortsUnpublished{{edition.edition_id}}">
 														<table class="table table-bodered table-sm mt-2">
 															<tr *ngFor="let short of lib.combineShorts(edition.shorts,book.shorts)" [hidden]="short.edition_title != ''">
-																<td class="align-middle">{{ short.original_position != 0 ? short.original_position : ""}}
-																</td>
+																<td class="text-secondary"><small>{{ short.original_position != 0 ? short.original_position : ""}}</small></td>
 																<td class="text-secondary">
-																	{{ short.original_title }}
+																	<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.original_title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.original_title) }}">{{ short.original_title }}</a>
 																	<div class="text-secondary" *ngIf="short.original_subtitle != ''"> <i>{{ short.original_subtitle }}</i></div>
-																</td>
-																<td>
-																	{{ short.edition_title }}
-																	<div class="text-secondary" *ngIf="short.edition_subtitle != ''"><i>{{ short.edition_subtitle }}</i></div>
 																</td>
 																<td class="align-middle"><small class="text-secondary" *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
 															</tr>
@@ -146,10 +141,10 @@
 						<table class="table table-bodered table-sm">
 							<thead>
 								<tr>
-									<th>#</th>
-									<th>Заглавие</th>
-									<th>Първа публикация</th>
-									<th>Форма</th>
+									<th class="border-top-0">#</th>
+									<th class="border-top-0">Заглавие</th>
+									<th class="border-top-0">Първа публикация</th>
+									<th class="border-top-0">Форма</th>
 								</tr>
 							</thead>
 							<tr *ngFor="let short of book.shorts">
@@ -178,21 +173,20 @@
 								<div class="media-body">
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
 										<h4 class="mt-0">
-											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">{{ screen.title }}</a>
-											<small class="text-secondary ml-2" *ngIf="screen.year">({{ screen.year }})</small>
-											<small class="text-secondary" *ngIf="screen.status"><span class="separator">|</span>{{ screen.status }}</small>
+											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+												{{ this.lib.screenTitle(screen.title) }}
+											</a>
+											<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
 										</h4>
 										<div class="mt-n2 mb-2">
-											<span class="text-secondary">{{ screen.type}}</span>
-											<span class="text-secondary" *ngIf="screen.rated"><span class="separator">|</span>{{ screen.rated }}</span>
-											<span class="text-secondary" *ngIf="screen.runtime"><span class="separator">|</span> <i class="fa fa-clock-o"></i> {{ screen.runtime}} м</span>
-											<span class="text-secondary" *ngIf="screen.network"><span class="separator">|</span>{{ screen.network}}</span>
-										</div>
-										<div class="row" *ngIf="screen.seasons > 0">
-											<div class="col-12">
-												<span class="text-secondary">Сезони</span> <span class="ml-2 mr-3">{{ screen.seasons }}</span>
-												<span class="text-secondary">Епизоди</span> <span class="ml-2">{{ screen.episodes }}</span>
-											</div>
+											<div class="text-secondary font-weight-bold">{{lib.getSeriesTitle(screen.title)}}</div>
+											<span *ngIf="screen.seasons"><span class="text-secondary">{{ lib.isEpisode(screen) ? 'Сезон' : 'Сезони' }}</span> <span class="ml-2 mr-3">{{ screen.seasons }}</span></span>
+											<span *ngIf="screen.episodes"><span class="text-secondary">{{ lib.isEpisode(screen) ? 'Епизод' : 'Епизоди' }}</span> <span class="ml-2">{{ screen.episodes }}</span></span>
+											<span class="text-secondary" *ngIf="screen.network">
+												<span class="separator mx-3">|</span>
+												<img class="filter-black-white opacity05" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 21px;max-width: 90px;">
+											</span>
+											<span class="text-secondary" *ngIf="screen.status"><span class="separator mx-3">|</span>{{ screen.status}}</span>
 										</div>
 										<div class="row pt-1" *ngFor="let connection of screen.connections">
 											<div class="col-12" *ngIf="connection.type != 'Няма'"><i class="fa fa-link"></i> {{ connection.info }}</div>
