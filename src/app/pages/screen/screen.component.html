@@ -93,7 +93,7 @@
 							<div class="text-secondary mt-n2 mb-1">{{ work.type }}</div>
 							<div class="text-secondary" *ngIf="work.published">
 								<div *ngIf="work.publisher">{{ work.publisher }} {{ lib.publishedDate(work.published,'first_short') }}</div>
-								<div *ngIf="work.collection_id">{{ work.collection_title }} (Сборник) {{ lib.publishedDate(work.collection_published,'first_short') }}</div>
+								<div *ngIf="work.collection_id"><a class="font-weight-bold inherit-color-link" [routerLink]="['/books/collection/',lib.seoUrl(work.collection_title)]" href="{{ '/#/books/collection/'+'/'+lib.seoUrl(work.collection_title) }}">{{ work.collection_title }}</a> (Сборник) {{ lib.publishedDate(work.collection_published,'first_short') }}</div>
 							</div>
 							<div class="row pt-2">
 								<div class="col-12" *ngIf="work.connection_type != 'Няма'"><i class="fa fa-link"></i> {{ work.connection_info }}</div>
