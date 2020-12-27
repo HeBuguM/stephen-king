@@ -4,7 +4,7 @@ import { IMDbService } from '../../services/imdb.service'
 import { TMDbService } from '../../services/tmdb.service'
 import { Title } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
@@ -86,6 +86,7 @@ export class AdminComponent implements OnInit {
 		published: [''],
 		publisher: [''],
 		pages: [0],
+		ISBNs: this.fb.array([]),
 		translation: [''],
 		note: [''],
 		goodreads: [0],
@@ -177,18 +178,37 @@ export class AdminComponent implements OnInit {
 		this.browser.setTitle(`Администрация - Стивън Кинг`)
 	}
 
+	createISBN(): FormGroup {
+		return this.fb.group({
+		  ISBN: '',
+		  info: ''
+		});
+	}
+	addISBN(Form, ISBN?): void {
+		const control = Form.get('ISBNs') as FormArray;
+		control.push(ISBN ? this.fb.group(ISBN) : this.createISBN());
+	}
+	removeISBN(i: number) {
+		const control = this.editionForm.get('ISBNs') as FormArray;
+		control.removeAt(i);
+	}
+
 	loadData(data = '') {
 		if (!this.books$ && (data == 'books' || !data)) {
 			this.afs.collection('books', ref => { return ref.orderBy('book_id') }).valueChanges().subscribe((data) => { this.books$ = data; });
+			this.changeSection('books');
 		}
 		if (!this.editions$ && (data == 'editions' || !data)) {
 			this.afs.collection('editions', ref => { return ref.orderBy('published') }).valueChanges().subscribe((data) => { this.editions$ = data; });
+			this.changeSection('editions');
 		}
 		if (!this.shorts$ && (data == 'shorts' || !data)) {
 			this.afs.collection('shorts', ref => { return ref.orderBy('first_pub_date') }).valueChanges().subscribe((data) => { this.shorts$ = data; });
+			this.changeSection('shorts');
 		}
 		if (!this.screens$ && (data == 'screens' || !data)) {
 			this.afs.collection('onscreen', ref => { return ref.orderBy('title') }).valueChanges().subscribe((data) => { this.screens$ = data; });
+			this.changeSection('screens');
 		}
 		if (!this.book_shorts$ && (data == 'book-shorts' || !data)) {
 			this.afs.collection('book-shorts', ref => { return ref.orderBy('position') }).valueChanges().subscribe((data) => { this.book_shorts$ = data; });
@@ -312,6 +332,7 @@ export class AdminComponent implements OnInit {
 	}
 
 	editEdition(data) {
+		this.editionForm.reset();
 		if(data === null) {
 			data = {
 				edition_id: this.editions$.length+1,
@@ -319,6 +340,7 @@ export class AdminComponent implements OnInit {
 				language: 'bg',
 				group_id: 0,
 				title: '',
+				ISBNs: [],
 				published: '',
 				publisher: '',
 				pages: 0,
@@ -329,6 +351,13 @@ export class AdminComponent implements OnInit {
 			}
 		}
 		this.editionForm.patchValue(data);
+		let controls = this.editionForm.get("ISBNs") as FormArray;
+		controls.clear();
+		if(data.ISBNs?.length > 0) {
+			for(let ISBN of data.ISBNs) {
+				this.addISBN(this.editionForm, ISBN);
+			}
+		}
 		this.showEditionsForm = true;
 	}
 
@@ -705,6 +734,7 @@ export class AdminComponent implements OnInit {
 
 		let last_books = '2020-07-01';
 		let last_shorts = '2020-07-01';
+		let last_screens = '2020-12-01';
 		this.books$.forEach(book => {
 			let lastmod = book.last_modified.toDate().toISOString().substring(0,10);
 			if(last_books < lastmod){
@@ -727,6 +757,17 @@ export class AdminComponent implements OnInit {
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
+		this.screens$.forEach(screen => {
+			let lastmod = screen.last_modified.toDate().toISOString().substring(0,10);
+			if(last_screens < lastmod){
+				last_screens = lastmod;
+			}
+			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
+	<url>\n\
+		<loc>https://stephen-king.info/#/'+this.lib.urlType(screen.type)+'/'+(screen.slug ? screen.slug : this.lib.seoUrl(screen.title))+'</loc>\n\
+		<lastmod>'+lastmod+'</lastmod>\n\
+	</url>');
+		});
 
 		this.exportXMLsitemap_main = '<?xml version="1.0" encoding="UTF-8"?>\n\
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
@@ -741,6 +782,10 @@ export class AdminComponent implements OnInit {
 	<url>\n\
 		<loc>https://stephen-king.info/#/stories</loc>\n\
 		<lastmod>'+last_shorts+'</lastmod>\n\
+	</url>\n\
+	<url>\n\
+		<loc>https://stephen-king.info/#/onscreen</loc>\n\
+		<lastmod>'+last_screens+'</lastmod>\n\
 	</url>';
 
 		this.exportXMLsitemap = this.exportXMLsitemap_main + this.exportXMLsitemap_additional + '\n\
@@ -800,8 +845,11 @@ export class AdminComponent implements OnInit {
 		// this.editions$.forEach(edition => {
 		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
 		// 	customRef.update({
-		// 		upcoming: 0
+		// 		ISBNs: []
 		// 	});
+		// 	if(edition.isbn !== undefined) {
+		// 		console.log(edition.title + ' has isbn value');
+		// 	}
 		// 	console.info(edition.title + ' updated');
 		// });
 
@@ -813,13 +861,13 @@ export class AdminComponent implements OnInit {
 		// 	console.info(short.title + ' updated');
 		// });
 
-		this.screens$.forEach(screen => {
-			const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
-			customRef.update({
-				slug: this.lib.seoUrl(screen.title)
-			});
-			console.info(screen.title + ' updated');
-		});
+		// this.screens$.forEach(screen => {
+		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
+		// 	customRef.update({
+		// 		slug: this.lib.seoUrl(screen.title)
+		// 	});
+		// 	console.info(screen.title + ' updated');
+		// });
 	}
 
 	getShort(short_id) {
