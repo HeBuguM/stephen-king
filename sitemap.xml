@@ -2,27 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://stephen-king.info/#/about</loc>
-		<lastmod>2020-10-17</lastmod>
+		<lastmod>2020-10-09</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books</loc>
-		<lastmod>2020-10-17</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories</loc>
-		<lastmod>2020-09-17</lastmod>
+		<lastmod>2020-12-25</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/onscreen</loc>
+		<lastmod>2020-12-23</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/carrie</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/salems-lot</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-12-01</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-shining</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/rage</loc>
@@ -30,11 +34,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/collection/night-shift</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-stand</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-long-walk</loc>
@@ -42,11 +46,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-dead-zone</loc>
-		<lastmod>2020-09-19</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/firestarter</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/roadwork</loc>
@@ -54,31 +58,31 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/cujo</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-running-man</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-gunslinger</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/collection/different-seasons</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/christine</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/cycle-of-the-werewolf</loc>
-		<lastmod>2020-10-12</lastmod>
+		<lastmod>2020-11-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/pet-sematary</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-talisman</loc>
@@ -86,7 +90,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/thinner</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/collection/skeleton-crew</loc>
@@ -94,7 +98,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/it</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-eyes-of-the-dragon</loc>
@@ -102,19 +106,19 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-drawing-of-the-three</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/misery</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-tommyknockers</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-dark-half</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/collection/four-past-midnight</loc>
@@ -122,19 +126,19 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-waste-lands</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/needful-things</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/geralds-game</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/dolores-claiborne</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/collection/nightmares-dreamscapes</loc>
@@ -150,11 +154,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-green-mile</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/desperation</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-regulators</loc>
@@ -162,15 +166,15 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/wizard-and-glass</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/bag-of-bones</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/screenplay/storm-of-the-century</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-girl-who-loved-tom-gordon</loc>
@@ -186,7 +190,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/dreamcatcher</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/black-house</loc>
@@ -202,27 +206,27 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/wolves-of-the-calla</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/song-of-susannah</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-dark-tower</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-colorado-kid</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/cell</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/liseys-story</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/blaze</loc>
@@ -238,7 +242,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/under-the-dome</loc>
-		<lastmod>2020-09-19</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/collection/full-dark-no-stars</loc>
@@ -246,11 +250,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/11-22-63</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-wind-through-the-keyhole</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/joyland</loc>
@@ -258,11 +262,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/doctor-sleep</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/mr-mercedes</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/revival</loc>
@@ -270,7 +274,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/finders-keepers</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/collection/the-bazaar-of-bad-dreams</loc>
@@ -278,7 +282,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/end-of-watch</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novella/gwendys-button-box</loc>
@@ -290,7 +294,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/the-outsider</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novella/elevation</loc>
@@ -322,7 +326,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/books/novel/later</loc>
-		<lastmod>2020-08-06</lastmod>
+		<lastmod>2020-10-18</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/land-of-1000000-years-ago</loc>
@@ -410,7 +414,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/strawberry-spring</loc>
-		<lastmod>2020-08-30</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/here-there-be-tygers</loc>
@@ -434,7 +438,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/night-surf</loc>
-		<lastmod>2020-08-30</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/poem/donovans-brain</loc>
@@ -450,7 +454,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/graveyard-shift</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-blue-air-compressor</loc>
@@ -478,7 +482,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/i-am-the-doorway</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/suffer-the-little-children</loc>
@@ -486,15 +490,15 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-fifth-quarter</loc>
-		<lastmod>2020-08-30</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/battleground</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-mangler</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/it-grows-on-you</loc>
@@ -502,23 +506,23 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-boogeyman</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/trucks</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/gray-matter</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/sometimes-they-come-back</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-lawnmower-man</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-revenge-of-lard-ass-hogan</loc>
@@ -526,31 +530,31 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/weeds</loc>
-		<lastmod>2020-08-27</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-ledge</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/i-know-what-you-need</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/children-of-the-corn</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/one-for-the-road</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-cat-from-hell</loc>
-		<lastmod>2020-08-26</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-man-who-loved-flowers</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-king-family-and-the-wicked-witch</loc>
@@ -558,7 +562,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/jerusalems-lot</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-night-of-the-tiger</loc>
@@ -566,15 +570,15 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-woman-in-the-room</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-last-rung-on-the-ladder</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/quitters-inc</loc>
-		<lastmod>2020-08-23</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/nona</loc>
@@ -590,15 +594,15 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-crate</loc>
-		<lastmod>2020-08-27</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/crouch-end</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-23</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-mist</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-way-station</loc>
@@ -642,7 +646,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-gunslinger-and-the-dark-man</loc>
-		<lastmod>2020-08-30</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-reach</loc>
@@ -662,27 +666,27 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/rita-hayworth-and-shawshank-redemption</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/apt-pupil</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-body</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-breathing-method</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-12-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-raft</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/word-processor-of-the-gods</loc>
-		<lastmod>2020-08-30</lastmod>
+		<lastmod>2020-12-25</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-return-of-timmy-baterman</loc>
@@ -698,7 +702,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/gramma</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-12-25</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/mrs-todds-shortcut</loc>
@@ -710,11 +714,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-revelations-of-becka-paulson</loc>
-		<lastmod>2020-08-30</lastmod>
+		<lastmod>2020-12-25</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/dolans-cadillac</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/poem/paranoid-a-chant</loc>
@@ -734,7 +738,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-end-of-the-whole-mess</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/popsy</loc>
@@ -746,7 +750,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-night-flier</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-reploids</loc>
@@ -782,11 +786,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-langoliers</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/secret-window-secret-garden</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-library-policeman</loc>
@@ -802,19 +806,19 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-moving-finger</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-12-25</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/chattery-teeth</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/you-know-they-got-a-hell-of-a-band</loc>
-		<lastmod>2020-08-30</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
-		<loc>https://stephen-king.info/#/stories/t/sorry-right-number</loc>
-		<lastmod>2020-08-25</lastmod>
+		<loc>https://stephen-king.info/#/stories/ТВ Пиеса/sorry-right-number</loc>
+		<lastmod>2020-12-25</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-ten-oclock-people</loc>
@@ -826,7 +830,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/umneys-last-case</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/parable/the-beggar-and-the-diamond</loc>
@@ -862,7 +866,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/autopsy-room-four</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/l-ts-theory-of-pets</loc>
@@ -870,7 +874,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/screenplay/general</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/everythings-eventual</loc>
@@ -878,7 +882,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/the-little-sisters-of-eluria</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/that-feeling-you-can-only-say-what-it-is-in-french</loc>
@@ -890,11 +894,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-road-virus-heads-north</loc>
-		<lastmod>2020-08-26</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/low-men-in-yellow-coats</loc>
-		<lastmod>2020-08-25</lastmod>
+		<lastmod>2020-11-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/hearts-in-atlantis</loc>
@@ -914,11 +918,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/1408</loc>
-		<lastmod>2020-08-26</lastmod>
+		<lastmod>2020-11-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/riding-the-bullet</loc>
-		<lastmod>2020-08-26</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-old-dudes-ticker</loc>
@@ -1034,11 +1038,11 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/1922</loc>
-		<lastmod>2020-08-26</lastmod>
+		<lastmod>2020-11-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/big-driver</loc>
-		<lastmod>2020-08-26</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/fair-extension</loc>
@@ -1046,7 +1050,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/a-good-marriage</loc>
-		<lastmod>2020-08-26</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/short-story/the-dune</loc>
@@ -1070,7 +1074,7 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/in-the-tall-grass</loc>
-		<lastmod>2020-09-18</lastmod>
+		<lastmod>2020-11-24</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/a-face-in-the-crowd</loc>
@@ -1154,10 +1158,442 @@
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/if-it-bleeds</loc>
-		<lastmod>2020-07-04</lastmod>
+		<lastmod>2020-11-22</lastmod>
 	</url>
 	<url>
 		<loc>https://stephen-king.info/#/stories/novella/rat</loc>
 		<lastmod>2020-07-04</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/stories/short-story/on-slide-inn-road</loc>
+		<lastmod>2020-10-24</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/112263</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/1408</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/1922</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/a-good-marriage</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/a-return-to-salems-lot</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/apt-pupil</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/bag-of-bones</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/big-driver</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/carrie-2002</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/carrie-1976</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/carrie-2013</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/castle-rock</loc>
+		<lastmod>2020-12-22</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/cats-eye</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/cell</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/chapelwaite</loc>
+		<lastmod>2020-12-01</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-1984</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-2009</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-2020</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-666-isaacs-return</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-ii-the-final-sacrifice</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-iii-urban-harvest</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-iv-the-gathering</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-v-fields-of-terror</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-genesis</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-revelation</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/children-of-the-corn-runaway</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/christine</loc>
+		<lastmod>2020-12-19</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/creepshow-1982</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/creepshow-2019</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/creepshow-2</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/cujo</loc>
+		<lastmod>2020-12-19</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/desperation</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/doctor-sleep</loc>
+		<lastmod>2020-12-19</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/dolans-cadillac</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/dolores-claiborne</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/dreamcatcher</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/firestarter</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/firestarter-2-rekindled</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/geralds-game</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/golden-years</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/gramma-personal-demons-cold-reading-the-twilight-zone</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/graveyard-shift</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/haven</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/hearts-in-atlantis</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/in-the-tall-grass</loc>
+		<lastmod>2020-12-19</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/it-1990</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/it-2017</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/it-chapter-two</loc>
+		<lastmod>2020-12-19</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/julie-ganapathy</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/kingdom-hospital</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/lawnmower-man-2-beyond-cyberspace</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/liseys-story</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/maximum-overdrive</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/mercy</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/misery</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/mr-mercedes</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/needful-things</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/nightmares-dreamscapes</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/no-smoking</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/pet-sematary-1989</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/pet-sematary-2019</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/pet-sematary-ii</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/quicksilver-highway</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/riding-the-bullet</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/rose-red</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/salems-lot-2004</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/salems-lot-1979</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/secret-window</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/silver-bullet</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/sleepwalkers</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/sometimes-they-come-back</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/sometimes-they-come-back-again</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/sometimes-they-come-back-for-more</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/sorry-right-number</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/stand-by-me</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/storm-of-the-century</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/tales-from-the-darkside-the-movie</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-dark-half</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-dark-tower</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-dead-zone-1983</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-dead-zone-2002</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-diary-of-ellen-rimbauer</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-green-mile</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-langoliers</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-lawnmower-man</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-mangler</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-mangler-2</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-mangler-reborn</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-mist-2007</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-mist-2017</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-moving-finger-monsters</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-night-flier</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-outsider</loc>
+		<lastmod>2020-12-19</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-rage-carrie-2</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-revelations-of-becka-paulson-the-outer-limits</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-running-man</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-shawshank-redemption</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-shining-1997</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/the-shining-1980</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-stand-2020</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-stand-1994</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-tommyknockers</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/the-word-processor-of-the-gods-tales-from-the-darkside</loc>
+		<lastmod>2020-12-23</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/thinner</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/movie/trucks</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/under-the-dome</loc>
+		<lastmod>2020-12-20</lastmod>
+	</url>
+	<url>
+		<loc>https://stephen-king.info/#/tv/woh</loc>
+		<lastmod>2020-12-23</lastmod>
 	</url>
 </urlset>
