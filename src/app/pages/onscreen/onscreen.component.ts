@@ -26,6 +26,7 @@ export class OnscreenComponent implements OnInit {
 
 	private filter_screens: any = {
 		watched: 'all',
+		read: 'all',
 		type: false,
 	};
 
@@ -63,6 +64,7 @@ export class OnscreenComponent implements OnInit {
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
+		this.modalService.dismissAll();
 	}
 
 	filterScreens() {
@@ -72,7 +74,13 @@ export class OnscreenComponent implements OnInit {
 			|| (this.filter_screens.type &&  this.filter_screens.type == 'episodes' && !this.lib.isEpisode(screen))
 			|| (this.searchValue != '' && (JSON.stringify(screen).toLowerCase().indexOf(this.searchValue.trim().toLowerCase()) <= -1))
 			)
-		);
+		).filter(screen => (
+			this.filter_screens.read == 'all'
+			|| (this.filter_screens.read != 'all' && (
+					(screen.shorts.length && screen.shorts.filter(short => (this.lib.isShortRead(short) == this.filter_screens.read)).length > 0)
+					|| (screen.books.length && screen.books.filter(book => (this.lib.isBookRead(book) == this.filter_screens.read)).length > 0))
+				)
+		));
 	}
 
 	openBookModal(content) {

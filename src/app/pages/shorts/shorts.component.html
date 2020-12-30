@@ -97,10 +97,10 @@
 				<tr *ngFor="let short of filtered_shorts" [ngClass]="shortClasses(short)">
 					<td class="text-center align-middle">
 						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isShortRead(short)" (click)="lib.shortReadToggle(short,true);updateReadCounter()" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i></button>
-						<button class="btn btn-sm btn-outline-success button-read-toggle" *ngIf="lib.isShortRead(short)" (click)="lib.shortReadToggle(short,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle" *ngIf="lib.isShortRead(short)" (click)="lib.shortReadToggle(short,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
 					</td>
 					<td class="align-middle px-0">
-						<span class="text-secondary d-none d-sm-inline">{{short.first_pub_date.split("-")[0] }}</span>
+						<small class="text-secondary d-none d-sm-inline">{{lib.publishedDate(short.first_pub_date,'first_short')}}</small>
 					</td>
 					<td class="align-middle">
 						<div class="media short">
@@ -116,7 +116,7 @@
 								<div class="cover bg-crow"></div>
 							</ng-template>
 							<div class="media-body">
-								<a class="short-title" [routerLink]="[lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
+								<a class="short-title inherit-color-link" [routerLink]="[lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
 								<small class="float-right text-secondary" *ngIf="short.type != 'Разказ'">{{ short.type }}</small>
 								<div class="text-secondary">{{ short.subtitle }}</div>
 								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && short.first_pub_in" >{{ short.first_pub_in }} ({{ lib.publishedDate(short.first_pub_date,'first_short') }})</small>

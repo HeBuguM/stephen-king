@@ -4,7 +4,11 @@ body {
 a:hover {
 	text-decoration: none;
 }
+.table-success td {
+	border-bottom: 1px solid #8fd19e !important;
+}
 .click {
+
     cursor: pointer !important;
 }
 .help {
@@ -275,7 +279,9 @@ img.filter-black-white {
 [data-theme="dark"] .table-success th,
 [data-theme="dark"] .table-success thead th {
 	border-top-color: #254f2e !important;
+	border-bottom-color: #254f2e !important;
 }
+
 [data-theme="dark"] .table-hover .table-success:hover,
 [data-theme="dark"] .table-hover .table-success:hover > td,
 [data-theme="dark"] .table-hover .table-success:hover > th {
@@ -316,6 +322,9 @@ img.filter-black-white {
 [data-theme="dark"] .border-top {
     border-top: 1px solid #2e3133 !important
 }
+[data-theme="dark"] .table thead th {
+	border-bottom: 2px solid #2e3133;
+}
 [data-theme="dark"] .border {
 	border: 1px solid #2e3133 !important;
 }
@@ -329,6 +338,10 @@ img.filter-black-white {
     color: #eee;
     background-color: #080808;
 	border-color: #2e3133 #2e3133 #080808;
+}
+[data-theme="dark"] .nav-tabs .nav-link:focus,
+[data-theme="dark"] .nav-tabs .nav-link:hover {
+	border-color: #2e3133;
 }
 [data-theme="dark"] .nav-tabs {
 	border-bottom: 1px solid #2e3133;

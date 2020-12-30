@@ -63,6 +63,7 @@ export class BooksComponent implements OnInit {
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
+		this.modalService.dismissAll();
 	}
 
 	filterBooks() {

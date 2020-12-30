@@ -117,7 +117,10 @@
 				<div class="card-body actors d-inline-flex flex-wrap p-0">
 					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" *ngFor="let cast of cast_crew.cast | slice:0:cast_limit">
 						<div class="profile mr-3">
-							<img *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}">
+							<ng-template #popContent>
+								<div class="cover-full-pop"><img src="{{'https://image.tmdb.org/t/p/w300'+cast.profile_path}}"></div>
+							</ng-template>
+							<img class="click profile-img" *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 							<i class="fa fa-user-circle" *ngIf="!cast.profile_path"></i>
 						</div>
 						<div class="media-body">
@@ -143,7 +146,10 @@
 				<div class="card-body actors d-inline-flex flex-wrap p-0">
 					<div class="cast-crew media col-12 col-md-6 col-lg-3 p-2" *ngFor="let cast of cast_crew.crew | slice:0:crew_limit">
 						<div class="profile mr-3">
-							<img *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}">
+							<ng-template #popContent>
+								<div class="cover-full-pop"><img src="{{'https://image.tmdb.org/t/p/w300'+cast.profile_path}}"></div>
+							</ng-template>
+							<img class="click profile-img" *ngIf="cast.profile_path" src="{{'https://image.tmdb.org/t/p/w235_and_h235_face'+cast.profile_path}}" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 							<i class="fa fa-user-circle" *ngIf="!cast.profile_path"></i>
 						</div>
 						<div class="media-body">
