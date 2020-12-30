@@ -48,13 +48,13 @@
 
 				<ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
 					<li class="nav-item" *ngIf="book.shorts.length > 0 || book.type == 'Сборник'">
-						<a class="nav-link inherit-color-link" id="shorts-tab" data-toggle="tab" href="#shorts" role="tab"	aria-controls="shorts" aria-selected="false"><i class="fa fa-list"></i> <span class="tab-title ml-2">Разкази</span> <span class="badge">{{ book.shorts.length }}</span></a>
+						<a class="nav-link inherit-color-link" id="shorts-tab" data-toggle="tab" href="#shorts" role="tab"	aria-controls="shorts" aria-selected="false"><i class="fa fa-list"></i> <span class="tab-title ml-2 d-none d-sm-inline-block">Разкази</span> <span class="badge">{{ book.shorts.length }}</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link inherit-color-link active" id="editions-tab" data-toggle="tab" href="#editions" role="tab" aria-controls="editions" aria-selected="true"><i class="fa fa-language"></i><span class="tab-title ml-2">Български издания</span></a>
+						<a class="nav-link inherit-color-link active" id="editions-tab" data-toggle="tab" href="#editions" role="tab" aria-controls="editions" aria-selected="true"><i class="fa fa-language"></i><span class="tab-title ml-2 d-none d-sm-inline-block">Български издания</span></a>
 					</li>
 					<li class="nav-item" *ngIf="book.onscreen.length > 0">
-						<a class="nav-link inherit-color-link" id="screens-tab" data-toggle="tab" href="#screens" role="tab"	aria-controls="screens" aria-selected="false"><i class="fa fa-film"></i> <span class="tab-title ml-2">Екранизации</span></a>
+						<a class="nav-link inherit-color-link" id="screens-tab" data-toggle="tab" href="#screens" role="tab"	aria-controls="screens" aria-selected="false"><i class="fa fa-film"></i> <span class="tab-title ml-2 d-none d-sm-inline-block">Екранизации</span></a>
 					</li>
 				</ul>
 				<div class="tab-content shadow-sm" id="myTabContent">
@@ -182,7 +182,7 @@
 											<div class="text-secondary font-weight-bold">{{lib.getSeriesTitle(screen.title)}}</div>
 											<span *ngIf="screen.seasons"><span class="text-secondary">{{ lib.isEpisode(screen) ? 'Сезон' : 'Сезони' }}</span> <span class="ml-2 mr-3">{{ screen.seasons }}</span></span>
 											<span *ngIf="screen.episodes"><span class="text-secondary">{{ lib.isEpisode(screen) ? 'Епизод' : 'Епизоди' }}</span> <span class="ml-2">{{ screen.episodes }}</span></span>
-											<span class="text-secondary" *ngIf="screen.network && lib.isSeries(screen)">
+											<span class="text-secondary d-none d-sm-inline-block" *ngIf="screen.network && lib.isSeries(screen)">
 												<span class="separator mx-3">|</span>
 												<img class="filter-black-white opacity05" *ngIf="screen.network" src="assets/img/networks/{{lib.seoUrl(screen.network)}}.png" style="max-height: 17px">
 											</span>

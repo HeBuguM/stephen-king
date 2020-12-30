@@ -388,3 +388,8 @@ img.filter-black-white {
 		top: 48px !important;
 	}
 }
+@media (max-width: 767px) {
+	.nav-link.active .tab-title {
+		display: inline-block !important;
+	}
+}
