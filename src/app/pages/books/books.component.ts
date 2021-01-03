@@ -74,7 +74,7 @@ export class BooksComponent implements OnInit {
 			|| (this.filter_books.series_name && book.series_name != this.filter_books.series_name)
 			|| (this.filter_books.type && book.type != this.filter_books.type)
 			|| (this.filter_books.bg_editions !== 'all' && !(this.filter_books.bg_editions ? book.editions.length > 0 : book.editions.length === 0))
-			|| (this.searchValue != '' && (JSON.stringify(book).toLowerCase().indexOf(this.searchValue.trim().toLowerCase()) <= -1))
+			|| (this.searchValue.trim() != '' && (JSON.stringify(book).toLowerCase().indexOf(this.searchValue.toLowerCase().trim()) <= -1))
 			)
 		);
 	}

@@ -72,7 +72,7 @@ export class ShortsComponent implements OnInit {
 			|| (this.filter_shorts.bg_editions !== 'all' && !(this.filter_shorts.bg_editions ? short.editions.length > 0 : short.editions.length === 0))
 			|| (this.filter_shorts.collected !== 'all' && !(this.filter_shorts.collected ? short.books.length > 0 : short.books.length === 0))
 			|| (this.filter_shorts.type && short.type != this.filter_shorts.type)
-			|| (this.searchValue != '' && (JSON.stringify(short).toLowerCase().indexOf(this.searchValue.toLowerCase()) <= -1))
+			|| (this.searchValue.trim() != '' && (JSON.stringify(short).toLowerCase().indexOf(this.searchValue.toLowerCase().trim()) <= -1))
 			)
 		);
 	}

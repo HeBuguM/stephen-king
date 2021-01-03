@@ -72,7 +72,7 @@ export class OnscreenComponent implements OnInit {
 			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && !this.lib.isMovie(screen))
 			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && !this.lib.isSeries(screen))
 			|| (this.filter_screens.type &&  this.filter_screens.type == 'episodes' && !this.lib.isEpisode(screen))
-			|| (this.searchValue != '' && (JSON.stringify(screen).toLowerCase().indexOf(this.searchValue.trim().toLowerCase()) <= -1))
+			|| (this.searchValue.trim() != '' && (JSON.stringify(screen).toLowerCase().indexOf(this.searchValue.toLowerCase().trim()) <= -1))
 			)
 		).filter(screen => (
 			this.filter_screens.read == 'all'

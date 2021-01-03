@@ -585,7 +585,8 @@ export class AdminComponent implements OnInit {
 					type: this.exportBooks[connection.book_id].type,
 					published: this.exportBooks[connection.book_id].published,
 					publisher: this.exportBooks[connection.book_id].publisher,
-					year: this.exportBooks[connection.book_id].year,
+					series_name: this.exportBooks[connection.book_id].series_name,
+					series_no: this.exportBooks[connection.book_id].series_no,
 					connection_type: connection.type,
 				    connection_info: connection.info
 				}

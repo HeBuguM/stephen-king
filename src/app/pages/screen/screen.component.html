@@ -10,9 +10,9 @@
 				<div class="pb-4">
 					<h2 class="font-weight-bold">{{ this.lib.screenTitle(screen.title) }} <small *ngIf="screen.year" class="text-secondary">({{ screen.year}})</small></h2>
 					<div class="mb-2">
-						<a *ngIf="screen.tmdb_id" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://www.themoviedb.org/{{ screen.tmdb_id }}" target="_blank"><img src="assets/img/themoviedb_32.png" alt="G" width="16" style="margin-top: -6px"></a>
-						<a *ngIf="screen.wikipedia != ''" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
-						<a *ngIf="screen.official_site != ''" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://stephenking.com/works/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
+						<a *ngIf="screen.tmdb_id" placement="top" ngbTooltip="The Movie Database" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://www.themoviedb.org/{{ screen.tmdb_id }}" target="_blank"><img src="assets/img/themoviedb_32.png" alt="G" width="16" style="margin-top: -6px"></a>
+						<a *ngIf="screen.wikipedia != ''" placement="top" ngbTooltip="Wikipedia" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
+						<a *ngIf="screen.official_site != ''" placement="top" ngbTooltip="StephenKing.com" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://stephenking.com/works/{{ screen.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
 						<span class="text-secondary">{{ screen.type }}</span>
 						<span class="text-secondary" *ngIf="screen.rated"><span class="separator">|</span>{{ screen.rated }}</span>
 						<span class="text-secondary" *ngIf="screen.runtime"><span class="separator">|</span> <i class="fa fa-clock-o"></i> {{ screen.runtime}}m</span>
@@ -74,10 +74,10 @@
 				</div>
 			</div>
 	</div>
-	<div class="row no-gutters">
-		<div class="col-12 mb-4 pt-3 col-6 bg-white rounded shadow-sm border">
-			<ng-template ngFor let-work [ngForOf]="[].concat(screen.shorts).concat(screen.books)" let-i="index">
-				<div class="media d-inline-flex col-12 col-lg-6 pb-3" style="font-size: 0.9em">
+	<div class="row no-gutters" *ngIf="screen.shorts.length || screen.books.length">
+		<div class="col-12 mb-4 pt-3 bg-white rounded shadow-sm border">
+			<ng-template ngFor let-work [ngForOf]="lib.sortObject([].concat(screen.shorts).concat(screen.books),'published')" let-i="index">
+				<div class="media d-inline-flex col-12 col-md-6 col-lg-6 pb-3" style="font-size: 0.9em">
 					<div *ngIf="work.book_id || work.collection_id">
 						<ng-template #popContent>
 							<div class="cover-full-pop"><img src="assets/covers/books/large/{{work.book_id ? work.book_id : work.collection_id}}.jpg"></div>
@@ -90,6 +90,7 @@
 					<div class="media-body">
 						<div class="d-inline-block align-top">
 							<h4 class="mt-0"><a [routerLink]="[work.book_id ? '/books/' : '/stories/',lib.urlType(work.type),lib.seoUrl(work.title)]" href="{{ '/#/books/'+lib.urlType(work.type)+'/'+lib.seoUrl(work.title) }}">{{ work.title }}</a></h4>
+							<div class="text-secondary mt-n2 mb-2" *ngIf="work.series_name"><small class="font-weight-bold">{{work.series_name + ' #'+ work.series_no}}</small></div>
 							<div class="text-secondary mt-n2 mb-1">{{ work.type }}</div>
 							<div class="text-secondary" *ngIf="work.published">
 								<div *ngIf="work.publisher">{{ work.publisher }} {{ lib.publishedDate(work.published,'first_short') }}</div>

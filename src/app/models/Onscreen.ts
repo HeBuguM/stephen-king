@@ -37,6 +37,9 @@ export class BookConnection {
 	type: string;
 	title: string;
 	published: string;
+	publisher: string;
+	series_name: string;
+	series_no: number;
 	connection_type: string;
 	connection_info: string
 }
