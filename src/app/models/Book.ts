@@ -15,7 +15,7 @@ export class Book {
 	wikipedia: string;
 	official_site: string;
 	goodreads: number;
-	editions: Array<BookEditions[]>;
+	editions: Array<BookEditions>;
 	shorts: Array<BookShort>;
 	onscreen: Array<BookScreens>;
 }
