@@ -32,12 +32,13 @@ export class BookComponent implements OnInit {
 				let bg_titles = [];
 				if(this.book.editions.length) {
 					this.book.editions.forEach(edition => {
-						bg_titles.push(edition.title);
+						console.log(edition.title.split(/–|\(|\, част/));
+						bg_titles.push(edition.title.split(/–|\(|\, част/)[0].trim());
 					});
 				}
 				this.seo.generateTags({
 					title: `${this.book.title} `+(bg_titles.length ? ' ('+ [...new Set(bg_titles)].join(' / ')+ ')' : '')+` | Стивън Кинг`,
-					description: `${this.book.type} | ` + this.book.synopsis,
+					description: `${this.book.type}` + (this.book.synopsis ? ` | `+ this.book.synopsis : ""),
 					image: `https://stephen-king.info/assets/covers/books/large/${this.book.book_id}.jpg`,
 					slug: this.slug
 				});
