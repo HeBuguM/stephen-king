@@ -89,12 +89,12 @@
 					</div>
 					<div class="media-body">
 						<div class="d-inline-block align-top">
-							<h4 class="mt-0"><a [routerLink]="[work.book_id ? '/books/' : '/stories/',lib.urlType(work.type),lib.seoUrl(work.title)]" href="{{ '/#/books/'+lib.urlType(work.type)+'/'+lib.seoUrl(work.title) }}">{{ work.title }}</a></h4>
+							<h4 class="mt-0"><a [routerLink]="[work.book_id ? '/books/' : '/stories/',lib.urlType(work.type),lib.seoUrl(work.title)]" href="{{ '/books/'+lib.urlType(work.type)+'/'+lib.seoUrl(work.title) }}">{{ work.title }}</a></h4>
 							<div class="text-secondary mt-n2 mb-2" *ngIf="work.series_name"><small class="font-weight-bold">{{work.series_name + ' #'+ work.series_no}}</small></div>
 							<div class="text-secondary mt-n2 mb-1">{{ work.type }}</div>
 							<div class="text-secondary" *ngIf="work.published">
 								<div *ngIf="work.publisher">{{ work.publisher }} {{ lib.publishedDate(work.published,'first_short') }}</div>
-								<div *ngIf="work.collection_id"><a class="font-weight-bold inherit-color-link" [routerLink]="['/books/collection/',lib.seoUrl(work.collection_title)]" href="{{ '/#/books/collection/'+'/'+lib.seoUrl(work.collection_title) }}">{{ work.collection_title }}</a> (Сборник) {{ lib.publishedDate(work.collection_published,'first_short') }}</div>
+								<div *ngIf="work.collection_id"><a class="font-weight-bold inherit-color-link" [routerLink]="['/books/collection/',lib.seoUrl(work.collection_title)]" href="{{ '/books/collection/'+'/'+lib.seoUrl(work.collection_title) }}">{{ work.collection_title }}</a> (Сборник) {{ lib.publishedDate(work.collection_published,'first_short') }}</div>
 							</div>
 							<div class="row pt-2">
 								<div class="col-12" *ngIf="work.connection_type != 'Няма'"><i class="fa fa-link"></i> {{ work.connection_info }}</div>

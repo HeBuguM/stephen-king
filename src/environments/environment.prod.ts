@@ -9,7 +9,7 @@ export const environment = {
 		messagingSenderId: "565526373313",
 		appId: "1:565526373313:web:4705dc6d41da71d9488540"
 	},
-	useHash: true,
+	useHash: false,
 	appBaseHref: '/',
 	libraryData: 'files' // files || firestore
 };

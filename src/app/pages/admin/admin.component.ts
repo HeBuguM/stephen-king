@@ -743,7 +743,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://stephen-king.info/#/books/'+this.lib.urlType(book.type)+'/'+this.lib.seoUrl(book.title)+'</loc>\n\
+		<loc>https://stephen-king.info/books/'+this.lib.urlType(book.type)+'/'+this.lib.seoUrl(book.title)+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -754,7 +754,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://stephen-king.info/#/stories/'+this.lib.urlType(short.type)+'/'+this.lib.seoUrl(short.title)+'</loc>\n\
+		<loc>https://stephen-king.info/stories/'+this.lib.urlType(short.type)+'/'+this.lib.seoUrl(short.title)+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -765,7 +765,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://stephen-king.info/#/'+this.lib.urlType(screen.type)+'/'+(screen.slug ? screen.slug : this.lib.seoUrl(screen.title))+'</loc>\n\
+		<loc>https://stephen-king.info/'+this.lib.urlType(screen.type)+'/'+(screen.slug ? screen.slug : this.lib.seoUrl(screen.title))+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -773,19 +773,19 @@ export class AdminComponent implements OnInit {
 		this.exportXMLsitemap_main = '<?xml version="1.0" encoding="UTF-8"?>\n\
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
 	<url>\n\
-		<loc>https://stephen-king.info/#/about</loc>\n\
+		<loc>https://stephen-king.info/about</loc>\n\
 		<lastmod>2020-10-09</lastmod>\n\
 	</url>\n\
 	<url>\n\
-		<loc>https://stephen-king.info/#/books</loc>\n\
+		<loc>https://stephen-king.info/books</loc>\n\
 		<lastmod>'+last_books+'</lastmod>\n\
 	</url>\n\
 	<url>\n\
-		<loc>https://stephen-king.info/#/stories</loc>\n\
+		<loc>https://stephen-king.info/stories</loc>\n\
 		<lastmod>'+last_shorts+'</lastmod>\n\
 	</url>\n\
 	<url>\n\
-		<loc>https://stephen-king.info/#/onscreen</loc>\n\
+		<loc>https://stephen-king.info/onscreen</loc>\n\
 		<lastmod>'+last_screens+'</lastmod>\n\
 	</url>';
 

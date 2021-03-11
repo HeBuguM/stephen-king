@@ -106,7 +106,7 @@
 														</td>
 														<td class="text-secondary pl-4"><small>{{ short.original_position != 0 ? short.original_position : ""}}</small></td>
 														<td class="text-secondary">
-															<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.original_title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.original_title) }}">{{ short.original_title }}</a>
+															<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.original_title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.original_title) }}">{{ short.original_title }}</a>
 															<div class="text-secondary font-italic" *ngIf="short.original_subtitle != ''"> <i>{{ short.original_subtitle }}</i></div>
 														</td>
 														<td class="align-middle text-secondary pl-4"><small *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
@@ -119,7 +119,7 @@
 															<tr *ngFor="let short of lib.combineShorts(edition.shorts,book.shorts)" [hidden]="short.edition_title != ''">
 																<td class="text-secondary"><small>{{ short.original_position != 0 ? short.original_position : ""}}</small></td>
 																<td class="text-secondary">
-																	<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.original_title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.original_title) }}">{{ short.original_title }}</a>
+																	<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.original_title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.original_title) }}">{{ short.original_title }}</a>
 																	<div class="text-secondary" *ngIf="short.original_subtitle != ''"> <i>{{ short.original_subtitle }}</i></div>
 																</td>
 																<td class="align-middle"><small class="text-secondary" *ngIf="short.type != 'short story'">{{ short.type }}</small></td>
@@ -150,7 +150,7 @@
 							<tr *ngFor="let short of book.shorts">
 								<td class="text-secondary"><small>{{ short.position != 0 ? short.position : ""}}</small></td>
 								<td>
-									<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/#/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
+									<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
 									<div class="text-secondary font-italic" *ngIf="short.subtitle">{{ short.subtitle }}</div>
 								</td>
 								<td class="align-middle">
@@ -173,7 +173,7 @@
 								<div class="media-body">
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
 										<h4 class="mt-0">
-											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/#/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 												{{ this.lib.screenTitle(screen.title) }}
 											</a>
 											<small class="text-secondary" *ngIf="screen.year">({{ screen.year }})</small>
