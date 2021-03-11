@@ -31,9 +31,15 @@ export class ShortComponent implements OnInit {
 		if (this.short$ == null) {
 			this.lib.getShorts().subscribe(shorts => {
 				this.short = Object.values(shorts).filter(short => this.lib.seoUrl(short.title) == this.slug)[0];
+				let bg_titles = [];
+				if(this.short.editions.length) {
+					this.short.editions.forEach(edition => {
+						bg_titles.push(edition.title);
+					});
+				}
 				this.seo.generateTags({
-					title: `${this.short.title} | Стивън Кинг`,
-					description: this.short.synopsis,
+					title: `${this.short.title} ` +(bg_titles.length ? ' ('+ [...new Set(bg_titles)].join(' / ')+ ')' : '')+` | Стивън Кинг`,
+					description: `${this.short.type}` + (this.short.synopsis ? this.short.synopsis : ((this.short.first_collected ? ` | ${this.short.collection_title} (Сборник)` : '')+(this.short.first_pub_in ? ` | Първа публикация: ${this.short.first_pub_in}` : ''))),
 					image: this.short.first_collected ? `https://stephen-king.info/assets/covers/shorts/large/${this.short.short_id}.jpg` : ``,
 					slug: this.slug
 				});

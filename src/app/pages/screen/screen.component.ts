@@ -40,14 +40,23 @@ export class ScreenComponent implements OnInit {
 					this.screen = Object.values(onscreens).filter(screen => this.lib.seoUrl(screen.title) == this.slug)[0];
 				}
 				let connections = [];
-				if(this.screen.books) {
+				if(this.screen.books.length) {
 					this.screen.books.forEach(connection => {
-
+						if(connection.connection_info != '') {
+							connections.push(connection.connection_info);
+						}
+					});
+				}
+				if(this.screen.shorts.length) {
+					this.screen.shorts.forEach(connection => {
+						if(connection.connection_info != '') {
+							connections.push(connection.connection_info);
+						}
 					});
 				}
 				this.seo.generateTags({
-					title: `${this.screen.title} | Стивън Кинг`,
-					description: connections.join(' | '),
+					title: `${this.screen.title} (${this.screen.type}) | Стивън Кинг`,
+					description: [...new Set(connections)].join(' | '),
 					image: this.screen.poster ? `${this.screen.onscreen_id}` : ``,
 					slug: this.slug
 				});

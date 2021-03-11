@@ -773,6 +773,10 @@ export class AdminComponent implements OnInit {
 		this.exportXMLsitemap_main = '<?xml version="1.0" encoding="UTF-8"?>\n\
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n\
 	<url>\n\
+		<loc>https://stephen-king.info</loc>\n\
+		<lastmod>2021-03-11</lastmod>\n\
+	</url>\n\
+	<url>\n\
 		<loc>https://stephen-king.info/about</loc>\n\
 		<lastmod>2020-10-09</lastmod>\n\
 	</url>\n\

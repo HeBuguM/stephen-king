@@ -29,9 +29,15 @@ export class BookComponent implements OnInit {
 		if (this.book$ == null) {
 			this.lib.getBooks().subscribe(books => {
 				this.book = Object.values(books).filter(book => this.lib.seoUrl(book.title) == this.slug)[0];
+				let bg_titles = [];
+				if(this.book.editions.length) {
+					this.book.editions.forEach(edition => {
+						bg_titles.push(edition.title);
+					});
+				}
 				this.seo.generateTags({
-					title: `${this.book.title} | Стивън Кинг`,
-					description: this.book.synopsis,
+					title: `${this.book.title} `+(bg_titles.length ? ' ('+ [...new Set(bg_titles)].join(' / ')+ ')' : '')+` | Стивън Кинг`,
+					description: `${this.book.type} | ` + this.book.synopsis,
 					image: `https://stephen-king.info/assets/covers/books/large/${this.book.book_id}.jpg`,
 					slug: this.slug
 				});
