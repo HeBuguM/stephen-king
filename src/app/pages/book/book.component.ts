@@ -32,7 +32,6 @@ export class BookComponent implements OnInit {
 				let bg_titles = [];
 				if(this.book.editions.length) {
 					this.book.editions.forEach(edition => {
-						console.log(edition.title.split(/–|\(|\, част/));
 						bg_titles.push(edition.title.split(/–|\(|\, част/)[0].trim());
 					});
 				}

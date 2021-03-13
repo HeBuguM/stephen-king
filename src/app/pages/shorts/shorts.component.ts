@@ -96,7 +96,6 @@ export class ShortsComponent implements OnInit {
 	changeFilter(key, value) {
 		this.filter_shorts[key] = value;
 		sessionStorage.setItem('filter_shorts', JSON.stringify(this.filter_shorts));
-		console.log(this.filter_shorts);
 		this.filterShorts();
 		this.changeSorting(this.sorting_shorts)
 	}
