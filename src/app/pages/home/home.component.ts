@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 	this.seo.generateTags({
 		title: 'Стивън Кинг',
-		description: 'Информация за произведенията на Краля и публикуваните такива в България.',
+		description: 'Информация за произведенията на Краля на ужаса и публикуваните такива в България.',
 		image: 'https://stephen-king.info/assets/img/shorts_books.jpg',
 		slug: ''
 	});
