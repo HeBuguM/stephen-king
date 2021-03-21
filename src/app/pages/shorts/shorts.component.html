@@ -26,7 +26,7 @@
 				<label for="sorting" aria-label="Сортиране"><i class="fa fa-sort-amount-asc ml-2"></i></label>
 			</div>
 			<div class="ml-auto">
-				<button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
+				<button [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fa fa-filter"></i> {{filtered_shorts.length}}
 				</button>
 				<div class="btn-group ml-2">
@@ -94,7 +94,7 @@
 
 		<table class="table table-sm table-hover">
 			<tbody>
-				<tr *ngFor="let short of filtered_shorts" [ngClass]="shortClasses(short)">
+				<tr *ngFor="let short of filtered_shorts" [ngClass]="shortClasses(short)" (click)="expandId != short.short_id ? expandId = short.short_id : false">
 					<td class="text-center align-middle">
 						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isShortRead(short)" (click)="lib.shortReadToggle(short,true);updateReadCounter()" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i></button>
 						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle" *ngIf="lib.isShortRead(short)" (click)="lib.shortReadToggle(short,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
@@ -116,7 +116,10 @@
 								<div class="cover bg-crow"></div>
 							</ng-template>
 							<div class="media-body">
-								<a class="short-title inherit-color-link" [routerLink]="[lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
+								<a class="short-title inherit-color-link" [routerLink]="[lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">
+									{{ short.title }}
+									<small class="text-secondary" *ngIf="lib.isUpcoming(short.upcoming,short.first_pub_date)">(предстоящо)</small>
+								</a>
 								<small class="float-right text-secondary" *ngIf="short.type != 'Разказ'">{{ short.type }}</small>
 								<div class="text-secondary">{{ short.subtitle }}</div>
 								<small class="d-flex text-secondary" *ngIf="isExpanded(short) && short.first_pub_in" >{{ short.first_pub_in }} ({{ lib.publishedDate(short.first_pub_date,'first_short') }})</small>
@@ -142,9 +145,8 @@
 						</ng-template>
 					</td>
 					<td class="text-center px-0 align-middle">
-						<div class="btn-group infoLink d-none d-md-inline-flex">
+						<div class="btn-group infoLink">
 							<button class="btn btn-sm btn-outline-secondary" (click)="previewShort = short; openShortModal(shortDetails)" aria-label="Preview"><i class="fa fa-search"></i></button>
-							<button class="btn btn-sm btn-outline-secondary" (click)="expandId = (isExpanded(short) ? 0 : short.short_id)" aria-label="Expand"><i class="fa fa-expand"></i></button>
 						</div>
 						<div class="btn-group-vertical infoLink d-inline-flex d-md-none">
 							<button class="btn btn-sm btn-outline-secondary" (click)="previewShort = short; openShortModal(shortDetails)" aria-label="Preview"><i class="fa fa-search"></i></button>

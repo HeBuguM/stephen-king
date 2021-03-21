@@ -315,6 +315,16 @@ export class LibraryService {
 
 	// Util
 
+	isUpcoming(flag,date = '') {
+		if(date.length == 10) {
+			let upcoming_date = new Date(date);
+			let current_date = new Date();
+			return upcoming_date > current_date ? true : false
+		} else {
+			return flag == 1 ? true : false
+		}
+	}
+
 	seoUrl(string) {
 		let seo_url = string.trim().toLowerCase().replace(/[&\\#,+()$~%\.\'":*?<>{}]/g,'').replace(/[^a-zA-Z0-9]/g,"-").replace(/-{2,}/g,"-");
 		return seo_url;

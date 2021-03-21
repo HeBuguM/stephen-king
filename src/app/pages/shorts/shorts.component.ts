@@ -77,6 +77,14 @@ export class ShortsComponent implements OnInit {
 		);
 	}
 
+	hasfilter() {
+		return this.filter_shorts.read != 'all'
+		|| this.filter_shorts.read_collection != false
+		|| this.filter_shorts.collected != 'all'
+		|| this.filter_shorts.type != ''
+		|| this.filter_shorts.bg_editions != 'all' ? true : false;
+	}
+
 	public updateSearch(searchTextValue: string) {
 		this.searchValue = searchTextValue;
 		this.filterShorts();
@@ -108,7 +116,8 @@ export class ShortsComponent implements OnInit {
 		let classes = {
 			short: true,
 			'table-success': this.lib.isShortRead(short),
-			'expanded': short.short_id == this.expandId
+			'expanded': short.short_id == this.expandId,
+			'expandable': short.short_id != this.expandId
 		}
 		return classes;
 	}

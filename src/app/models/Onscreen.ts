@@ -30,6 +30,7 @@ export class Onscreen {
 	official_site: string;
 	books: Array<BookConnection>
 	shorts: Array<any>
+	upcoming: number;
 }
 
 export class BookConnection {

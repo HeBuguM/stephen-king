@@ -33,6 +33,7 @@
 						{{ lib.publishedDate(short.first_pub_date,'first_long') }}
 						<span *ngIf="short.first_pub_in">&bull; {{ short.first_pub_in }}</span>
 						<span *ngIf="!short.first_pub_in && short.first_collected" class="text-secondary">&bull; (В сборника)</span>
+						<span class="text-secondary ml-1" *ngIf="lib.isUpcoming(short.upcoming,short.first_pub_date)">(предстоящо издание)</span>
 					</div>
 				</div>
 				<div class="row py-1 mx-0 border-top no-gutters">
@@ -78,7 +79,7 @@
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Включено в</div><div class="col-8 col-md-8 col-lg-9">{{ edition.edition_title }}</div>
 										</div>
 										<div class="row">
-											<div class="col-4 col-md-4 col-lg-3 text-secondary">Издание</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(edition.published,'first_long') }} <span *ngIf="edition.publisher">&bull; {{ edition.publisher }}</span></div>
+											<div class="col-4 col-md-4 col-lg-3 text-secondary">Издание</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(edition.published,'first_long') }} <span *ngIf="edition.publisher">&bull; {{ edition.publisher }}</span> <span class="text-secondary ml-1" *ngIf="lib.isUpcoming(edition.upcoming,edition.published)">(предстоящо издание)</span></div>
 										</div>
 										<div class="row" *ngIf="edition.translation">
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Превод</div><div class="col-8 col-md-8 col-lg-9">{{ edition.translation }}</div>

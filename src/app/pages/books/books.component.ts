@@ -79,6 +79,15 @@ export class BooksComponent implements OnInit {
 		);
 	}
 
+	hasfilter() {
+		return this.filter_books.read != 'all'
+		|| this.filter_books.pseudonym != false
+		|| this.filter_books.co_written != false
+		|| this.filter_books.series_name != false
+		|| this.filter_books.type != ''
+		|| this.filter_books.bg_editions != 'all' ? true : false;
+	}
+
 	openBookModal(content) {
 		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true }).result.then(
 		() => {},
@@ -116,7 +125,8 @@ export class BooksComponent implements OnInit {
 		let classes = {
 			book: true,
 			'table-success': this.lib.isBookRead(book),
-			'expanded': book.book_id == this.expandId
+			'expanded': book.book_id == this.expandId,
+			'expandable': book.book_id != this.expandId
 		}
 		return classes;
 	}

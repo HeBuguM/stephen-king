@@ -24,7 +24,7 @@
 			<label for="sorting" aria-label="Сортиране"><i class="fa fa-sort-amount-asc ml-2"></i></label>
 		</div>
 		<div class="ml-auto">
-			<button class="btn btn-outline-secondary mr-2" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
+			<button [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fa fa-filter"></i> {{filtered_screens.length}}
 			</button>
 			<div class="btn-group ml-2">
@@ -38,11 +38,11 @@
 					<div class="row">
 						<div class="col-6 col-md-4 col-lg-2">
 							<label class="pt-2"><i class="fa fa-filter"></i> Филтър</label>
-							<div class="custom-control custom-checkbox">
+							<div class="custom-control custom-checkbox d-none">
 								<input type="checkbox" id="filterSeen" class="custom-control-input" (change)="changeFilter('seen',$event.target.checked ? true : 'all')" [checked]="getFilter('seen') === true">
 								<label class="custom-control-label click" for="filterSeen">Гледани</label>
 							</div>
-							<div class="custom-control custom-checkbox">
+							<div class="custom-control custom-checkbox d-none">
 								<input type="checkbox" id="filterUnseen" class="custom-control-input" (change)="changeFilter('seen',$event.target.checked ? false : 'all')" [checked]="getFilter('seen') === false">
 								<label class="custom-control-label click" for="filterUnseen">Негледани</label>
 							</div>
@@ -88,6 +88,7 @@
 				<div class="text-secondary"><small class="font-weight-bold">{{lib.getSeriesTitle(screen.title)}}</small></div>
 				<a class="stretched-link inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 					{{ this.lib.screenTitle(screen.title) }}
+					<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящо)</small>
 				</a>
 				<small class="text-secondary" *ngIf="screen.year">({{ screen.year.substring(0,4) }})</small>
 			</div>
@@ -113,8 +114,9 @@
 							<div>
 								<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 									{{ this.lib.screenTitle(screen.title) }}
+									<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>
 								</a>
-								<small class="text-secondary" *ngIf="screen.year">({{ screen.year.substring(0,4) }})</small>
+								<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'">({{ screen.year.substring(0,4) }})</small>
 								<div class="text-secondary"><small class="font-weight-bold">{{lib.getSeriesTitle(screen.title)}}</small></div>
 								<div class="text-secondary" *ngIf="screen.type != 'Филм' && screen.type != 'Епизод'"><small>{{ screen.type }}</small></div>
 								<div class="text-secondary" *ngIf="screen.type == 'Епизод'">

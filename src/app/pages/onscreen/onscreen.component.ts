@@ -83,6 +83,11 @@ export class OnscreenComponent implements OnInit {
 		));
 	}
 
+	hasfilter() {
+		return this.filter_screens.read != 'all'
+		|| this.filter_screens.type != false ? true : false;
+	}
+
 	openBookModal(content) {
 		this.modalService.open(content, { size: 'xl', centered: true, scrollable: true }).result.then(
 		() => {},

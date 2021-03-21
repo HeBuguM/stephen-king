@@ -116,7 +116,9 @@ tr:hover td .infoLink {
 	max-height: 72px;
 	top: 0px;
 }
-
+tr.expandable {
+	cursor: pointer;
+}
 .cover-full-pop {
 	display: flex;
 	width: 220px;

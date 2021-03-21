@@ -16,6 +16,7 @@ export class Short {
     books: Array<ShortBooks>;
 	editions:Array<ShortEditions>;
 	onscreen: Array<ShortScreens>;
+	upcoming: number;
 }
 
 export class ShortBooks {
