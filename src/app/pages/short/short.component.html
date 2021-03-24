@@ -68,11 +68,12 @@
 									<ng-template #popContent>
 										<div class="cover-full-pop"><img src="assets/covers/editions/large/{{edition.edition_id}}.jpg"></div>
 									</ng-template>
-									<img class="mr-3 click rounded shadow-sm" src="assets/covers/editions/medium/{{edition.edition_id}}.jpg" style="height: 126px;width:86px" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+									<img class="mr-3 click rounded shadow-sm" src="assets/covers/editions/medium/{{edition.edition_id}}.jpg" [width]="86" [height]="edition.narrators ? 86 : 126" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 									<div class="media-body">
 										<a class="btn btn-sm btn-outline-secondary float-right" *ngIf="edition.goodreads > 0" href="https://www.goodreads.com/book/show/{{ edition.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -4px"></a>
 										<h4 class="mt-0">
 											{{ edition.title }}
+											<i class="fa fa-headphones ml-1" *ngIf="edition.narrators" placement="top" ngbTooltip="Аудиокнига"></i>
 											<h5 class="text-secondary mt-0 mb-0 font-italic">{{ edition.subtitle }}</h5>
 										</h4>
 										<div class="row">
@@ -80,6 +81,9 @@
 										</div>
 										<div class="row">
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Издание</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(edition.published,'first_long') }} <span *ngIf="edition.publisher">&bull; {{ edition.publisher }}</span> <span class="text-secondary ml-1" *ngIf="lib.isUpcoming(edition.upcoming,edition.published)">(предстоящо издание)</span></div>
+										</div>
+										<div class="row" *ngIf="edition.narrators">
+											<div class="col-4 col-md-4 col-lg-3 text-secondary">Разказвач</div><div class="col-8 col-md-8 col-lg-9">{{ edition.narrators }}</div>
 										</div>
 										<div class="row" *ngIf="edition.translators">
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Превод</div><div class="col-8 col-md-8 col-lg-9">{{ edition.translators }}</div>

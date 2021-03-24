@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
+// import * as firebase from 'firebase/app';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
@@ -88,6 +89,7 @@ export class AdminComponent implements OnInit {
 		pages: [0],
 		ISBNs: this.fb.array([]),
 		translators: [''],
+		narrators: [''],
 		note: [''],
 		goodreads: [0],
 		upcoming: [0]
@@ -345,6 +347,7 @@ export class AdminComponent implements OnInit {
 				publisher: '',
 				pages: 0,
 				translators: '',
+				narrators: '',
 				note: '',
 				goodreads: 0,
 				upcoming: 0
@@ -531,7 +534,8 @@ export class AdminComponent implements OnInit {
 				edition_title: this.exportEditions[edition_short.edition_id].title,
 				published: this.exportEditions[edition_short.edition_id].published,
 				publisher: this.exportEditions[edition_short.edition_id].publisher,
-				translators: this.exportEditions[edition_short.edition_id].translators
+				translators: this.exportEditions[edition_short.edition_id].translators,
+				narrators: this.exportEditions[edition_short.edition_id].narrators
 			}
 			this.exportShorts[edition_short.short_id]['editions'].push(ShortEdition);
 		}
@@ -850,11 +854,8 @@ export class AdminComponent implements OnInit {
 		// this.editions$.forEach(edition => {
 		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
 		// 	customRef.update({
-		// 		ISBNs: []
+		// 		translation: firebase.firestore.FieldValue.delete()
 		// 	});
-		// 	if(edition.isbn !== undefined) {
-		// 		console.log(edition.title + ' has isbn value');
-		// 	}
 		// 	console.info(edition.title + ' updated');
 		// });
 

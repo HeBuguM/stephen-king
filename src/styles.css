@@ -116,6 +116,13 @@ tr:hover td .infoLink {
 	max-height: 72px;
 	top: 0px;
 }
+.expanded .cover.audiobook {
+	height: 50px !important;
+}
+.expanded .cover.audiobook img {
+	max-height: 50px !important;
+	top: 0px;
+}
 tr.expandable {
 	cursor: pointer;
 }
