@@ -87,7 +87,7 @@ export class AdminComponent implements OnInit {
 		publisher: [''],
 		pages: [0],
 		ISBNs: this.fb.array([]),
-		translation: [''],
+		translators: [''],
 		note: [''],
 		goodreads: [0],
 		upcoming: [0]
@@ -344,7 +344,7 @@ export class AdminComponent implements OnInit {
 				published: '',
 				publisher: '',
 				pages: 0,
-				translation: '',
+				translators: '',
 				note: '',
 				goodreads: 0,
 				upcoming: 0
@@ -531,7 +531,7 @@ export class AdminComponent implements OnInit {
 				edition_title: this.exportEditions[edition_short.edition_id].title,
 				published: this.exportEditions[edition_short.edition_id].published,
 				publisher: this.exportEditions[edition_short.edition_id].publisher,
-				translation: this.exportEditions[edition_short.edition_id].translation
+				translators: this.exportEditions[edition_short.edition_id].translators
 			}
 			this.exportShorts[edition_short.short_id]['editions'].push(ShortEdition);
 		}

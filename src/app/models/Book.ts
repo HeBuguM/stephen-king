@@ -30,7 +30,8 @@ export class BookEditions {
 	published: string; // YYYY-MM-DD | YYYY-MM | YYYY
 	publisher: string;
 	pages: number;
-	translation: string; // Translator Names (comma separated)
+	translators: string; // Translator Names (comma separated)
+	narrators: string;
 	note: string;
 	goodreads: number;
 	shorts: Array<EditionShort>
