@@ -119,7 +119,7 @@
 								<div class="cover bg-crow"></div>
 							</ng-template>
 							<div class="media-body">
-								<a class="short-title inherit-color-link" [routerLink]="[lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">
+								<a class="short-title inherit-color-link" [routerLink]="['/stories/',lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">
 									{{ short.title }}
 									<small class="text-secondary" *ngIf="lib.isUpcoming(short.upcoming,short.first_pub_date)">(предстоящо)</small>
 								</a>
