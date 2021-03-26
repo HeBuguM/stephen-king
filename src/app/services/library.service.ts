@@ -338,6 +338,10 @@ export class LibraryService {
 		}
 	}
 
+	urlTypeRevert (type) {
+		return Object.keys(this.url_types).find(key => this.url_types[key] === type);
+	}
+
 	groupBy(OurArray, property) {
 		return OurArray.reduce(function (accumulator, object) {
 			const key = object[property];

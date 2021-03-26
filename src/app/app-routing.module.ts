@@ -21,8 +21,10 @@ import { SettingsComponent } from './pages/settings/settings.component';
 const routes: Routes = [
   { 'path': '', component: HomeComponent },
   { 'path': 'books', component: BooksComponent},
+  { 'path': 'books/:type', component: BooksComponent},
   { 'path': 'books/:type/:slug', component: BookComponent},
   { 'path': 'stories', component: ShortsComponent},
+  { 'path': 'stories/:type', component: ShortsComponent},
   { 'path': 'stories/:type/:slug', component: ShortComponent},
   { 'path': 'onscreen', component: OnscreenComponent},
   { 'path': 'movie/:slug', component: ScreenComponent },

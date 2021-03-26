@@ -1,5 +1,35 @@
 <main>
 	<div class="container-xl mt-4" *ngIf="book">
+		<div class="row mt-n2 mb-3">
+			<div class="col-12" style="font-size: 13px !important;">
+				<ol class="m-0 p-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+					<li class="d-inline" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<i class="fa fa-home mr-1"></i>
+						<a class="inherit-color-link" itemprop="item" routerLink="/" href="/"><span itemprop="name">Начало</span></a>
+						  <meta itemprop="position" content="1" />
+					</li>
+					<li class="d-inline" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<i class="fa fa-angle-right mx-2 text-secondary"></i>
+						<a class="inherit-color-link" itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="/books" routerLink="/books" href="/books">
+							<span itemprop="name">Книги</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+					<li class="d-inline" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<i class="fa fa-angle-right mx-2 text-secondary"></i>
+						<a class="inherit-color-link" itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="book_type" [routerLink]="['/books/'+lib.urlType(book.type)]" href="{{ '/books/'+lib.urlType(book.type) }}">
+							<span itemprop="name">{{ book.type}}</span>
+						</a>
+						<meta itemprop="position" content="3" />
+					</li>
+					<li class="d-inline text-secondary" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<i class="fa fa-angle-right mx-2 text-secondary"></i>
+						<span itemprop="name">{{ book.title}}</span>
+						<meta itemprop="position" content="4" />
+					</li>
+				</ol>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-4 col-lg-3 mb-4">
 				<div class="card shadow-sm text-center col-8 col-md-12 mx-auto px-0 ">

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { ActivatedRoute } from '@angular/router';
 import { LibraryService } from '../../services/library.service'
 import { Short } from '../../models/Short'
 import { Subscription } from 'rxjs';
@@ -23,6 +24,7 @@ export class ShortsComponent implements OnInit {
 	previewShort;
 	searchValue: string = '';
 	loadingState = true;
+	filterShortType: string = '';
 
 	private filter_shorts: any = {
 		read: 'all',
@@ -33,7 +35,7 @@ export class ShortsComponent implements OnInit {
 	};
 	private sorting_shorts: string = 'first_pub_date';
 
-	constructor(public lib: LibraryService, private seo: SeoService,private modalService: NgbModal) { }
+	constructor(private route: ActivatedRoute,public lib: LibraryService, private seo: SeoService,private modalService: NgbModal) { }
 
 	ngOnInit() {
 		this.seo.generateTags({
@@ -42,12 +44,18 @@ export class ShortsComponent implements OnInit {
 			image: 'https://stephen-king.info/assets/img/home_shorts.jpg',
 			slug: 'shorts'
 		});
-
-		if (sessionStorage.getItem('filter_shorts') !== null) {
-			this.filter_shorts = JSON.parse(sessionStorage.getItem('filter_shorts'));
-		}
-		if (sessionStorage.getItem('sorting_shorts') !== null) {
-			this.sorting_shorts = sessionStorage.getItem('sorting_shorts');
+		this.route.paramMap.subscribe(params => {
+			this.filterShortType = this.lib.urlTypeRevert(params.get('type'));
+		});
+		if(this.filterShortType) {
+			this.filter_shorts.type = this.filterShortType;
+		} else {
+			if (sessionStorage.getItem('filter_shorts') !== null) {
+				this.filter_shorts = JSON.parse(sessionStorage.getItem('filter_shorts'));
+			}
+			if (sessionStorage.getItem('sorting_shorts') !== null) {
+				this.sorting_shorts = sessionStorage.getItem('sorting_shorts');
+			}
 		}
 		let shorts$ = this.lib.getShorts();
 		this.subscription = shorts$.subscribe(shorts => {
@@ -81,7 +89,7 @@ export class ShortsComponent implements OnInit {
 		return this.filter_shorts.read != 'all'
 		|| this.filter_shorts.read_collection != false
 		|| this.filter_shorts.collected != 'all'
-		|| this.filter_shorts.type != ''
+		|| this.filter_shorts.type
 		|| this.filter_shorts.bg_editions != 'all' ? true : false;
 	}
 

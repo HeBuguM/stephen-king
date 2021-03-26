@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LibraryService } from '../../services/library.service'
 import { Book } from '../../models/Book'
 
@@ -23,6 +24,7 @@ export class BooksComponent implements OnInit {
 	loadingState = true;
 	subscription: Subscription;
 	searchValue: string = '';
+	filterBookType: string = '';
 
 	private filter_books: any = {
 		read: 'all',
@@ -35,7 +37,7 @@ export class BooksComponent implements OnInit {
 
 	public sorting_books: string = 'published';
 
-	constructor(public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
+	constructor(private route: ActivatedRoute,public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
 	ngOnInit() {
 		this.seo.generateTags({
@@ -44,11 +46,18 @@ export class BooksComponent implements OnInit {
 			image: 'https://stephen-king.info/assets/img/home_books.jpg',
 			slug: 'books'
 		});
-		if (sessionStorage.getItem('filter_books') !== null) {
-			this.filter_books = JSON.parse(sessionStorage.getItem('filter_books'));
-		}
-		if (sessionStorage.getItem('sorting_books') !== null) {
-			this.sorting_books = sessionStorage.getItem('sorting_books');
+		this.route.paramMap.subscribe(params => {
+			this.filterBookType = this.lib.urlTypeRevert(params.get('type'));
+		});
+		if(this.filterBookType) {
+			this.filter_books.type = this.filterBookType;
+		} else {
+			if (sessionStorage.getItem('filter_books') !== null) {
+				this.filter_books = JSON.parse(sessionStorage.getItem('filter_books'));
+			}
+			if (sessionStorage.getItem('sorting_books') !== null) {
+				this.sorting_books = sessionStorage.getItem('sorting_books');
+			}
 		}
 		let books$ = this.lib.getBooks();
 		this.subscription = books$.subscribe(books => {
@@ -84,7 +93,7 @@ export class BooksComponent implements OnInit {
 		|| this.filter_books.pseudonym != false
 		|| this.filter_books.co_written != false
 		|| this.filter_books.series_name != false
-		|| this.filter_books.type != ''
+		|| this.filter_books.type
 		|| this.filter_books.bg_editions != 'all' ? true : false;
 	}
 
