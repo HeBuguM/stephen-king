@@ -85,6 +85,19 @@ export class ShortsComponent implements OnInit {
 		);
 	}
 
+	resetFilter() {
+		this.filter_shorts = {
+			read: 'all',
+			bg_editions: 'all',
+			collected: 'all',
+			read_collection: false,
+			type: false
+		}
+		this.filterShorts();
+		this.filterShortType = '';
+		window.history.replaceState('', '', '/stories');
+	}
+
 	hasfilter() {
 		return this.filter_shorts.read != 'all'
 		|| this.filter_shorts.read_collection != false

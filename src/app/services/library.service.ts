@@ -38,9 +38,9 @@ export class LibraryService {
 		'Притча': 'parable',
 		'Филм': 'movie',
 		'ТВ Филм': 'movie',
-		'Сериал': 'tv',
-		'Мини-сериал': 'tv',
-		'Епизод': 'tv'
+		'Сериал': 'tv-series',
+		'Мини-сериал': 'tv-series',
+		'Епизод': 'tv-episode'
 	}
 
 	constructor(private http: HttpClient, private afs: AngularFirestore) { }

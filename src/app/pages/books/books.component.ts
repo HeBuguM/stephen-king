@@ -88,6 +88,20 @@ export class BooksComponent implements OnInit {
 		);
 	}
 
+	resetFilter() {
+		this.filter_books = {
+			read: 'all',
+			pseudonym: false,
+			co_written: false,
+			series_name: false,
+			type: false,
+			bg_editions: 'all'
+		};
+		this.filterBooks();
+		this.filterBookType = '';
+		window.history.replaceState('', '', '/books');
+	}
+
 	hasfilter() {
 		return this.filter_books.read != 'all'
 		|| this.filter_books.pseudonym != false

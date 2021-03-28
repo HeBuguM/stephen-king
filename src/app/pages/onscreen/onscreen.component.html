@@ -24,8 +24,11 @@
 			<label for="sorting" aria-label="Сортиране"><i class="fa fa-sort-amount-asc ml-2"></i></label>
 		</div>
 		<div class="ml-auto">
-			<button [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
+			<button *ngIf="!filterOnscreenType" [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fa fa-filter"></i> {{filtered_screens.length}}
+			</button>
+			<button *ngIf="filterOnscreenType" class="btn btn-primary" (click)="resetFilter()" placement="top" ngbTooltip="Премахни филтъра">
+				<i class="fa fa-filter"></i> {{ filterOnscreenType }}
 			</button>
 			<div class="btn-group ml-2">
 				<button class="btn" [ngClass]="{'btn-secondary': onscreen_layout == 'list', 'btn-outline-secondary': onscreen_layout != 'list'}" aria-label="List View" (click)="changeLayout('list')"><i class="fa fa-th-list"></i></button>

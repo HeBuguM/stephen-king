@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LibraryService } from '../../services/library.service'
 import { Onscreen } from '../../models/Onscreen'
 
@@ -23,6 +24,7 @@ export class OnscreenComponent implements OnInit {
 	loadingState = true;
 	subscription: Subscription;
 	searchValue: string = '';
+	filterOnscreenType: string = '';
 
 	private filter_screens: any = {
 		watched: 'all',
@@ -33,7 +35,7 @@ export class OnscreenComponent implements OnInit {
 	public sorting_screens: string = 'year';
 	public onscreen_layout: string = 'grid';
 
-	constructor(public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
+	constructor(private route: ActivatedRoute,public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
 	ngOnInit() {
 		this.seo.generateTags({
@@ -42,11 +44,18 @@ export class OnscreenComponent implements OnInit {
 			image: 'https://stephen-king.info/assets/img/home_screens.jpg',
 			slug: 'screens'
 		});
-		if (sessionStorage.getItem('filter_screens') !== null) {
-			this.filter_screens = JSON.parse(sessionStorage.getItem('filter_screens'));
-		}
-		if (sessionStorage.getItem('sorting_screens') !== null) {
-			this.sorting_screens = sessionStorage.getItem('sorting_screens');
+		this.route.paramMap.subscribe(params => {
+			this.filterOnscreenType = this.lib.urlTypeRevert(params.get('type'));
+		});
+		if(this.filterOnscreenType) {
+			this.filter_screens.type = this.filterOnscreenType;
+		} else {
+			if (sessionStorage.getItem('filter_screens') !== null) {
+				this.filter_screens = JSON.parse(sessionStorage.getItem('filter_screens'));
+			}
+			if (sessionStorage.getItem('sorting_screens') !== null) {
+				this.sorting_screens = sessionStorage.getItem('sorting_screens');
+			}
 		}
 		if (localStorage.getItem('onscreen_layout') !== null) {
 			this.onscreen_layout = localStorage.getItem('onscreen_layout');
@@ -67,11 +76,22 @@ export class OnscreenComponent implements OnInit {
 		this.modalService.dismissAll();
 	}
 
+	resetFilter() {
+		this.filter_screens = {
+			watched: 'all',
+			read: 'all',
+			type: false,
+		}
+		this.filterScreens();
+		this.filterOnscreenType = '';
+		window.history.replaceState('', '', '/onscreen');
+	}
+
 	filterScreens() {
 		return this.filtered_screens = this.screens.filter(screen => !(
-			(this.filter_screens.type &&  this.filter_screens.type == 'movies' && !this.lib.isMovie(screen))
-			|| (this.filter_screens.type &&  this.filter_screens.type == 'series' && !this.lib.isSeries(screen))
-			|| (this.filter_screens.type &&  this.filter_screens.type == 'episodes' && !this.lib.isEpisode(screen))
+			(this.filter_screens.type &&  this.filter_screens.type.match(/movie|Филм/) && !this.lib.isMovie(screen))
+			|| (this.filter_screens.type && this.filter_screens.type.match(/series|Сериал/) && !this.lib.isSeries(screen))
+			|| (this.filter_screens.type &&  this.filter_screens.type.match(/episodes|Епизод/) && !this.lib.isEpisode(screen))
 			|| (this.searchValue.trim() != '' && (JSON.stringify(screen).toLowerCase().indexOf(this.searchValue.toLowerCase().trim()) <= -1))
 			)
 		).filter(screen => (

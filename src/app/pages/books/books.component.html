@@ -28,9 +28,9 @@
 				<button *ngIf="!filterBookType" [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fa fa-filter"></i> {{filtered_books.length}}
 				</button>
-				<a *ngIf="filterBookType" class="btn btn-primary" routerLink="/books" href="/books" placement="top" ngbTooltip="Премахни филтъра">
+				<button *ngIf="filterBookType" class="btn btn-primary" (click)="resetFilter()" placement="top" ngbTooltip="Премахни филтъра">
 					<i class="fa fa-filter"></i> {{ filterBookType }}
-				</a>
+				</button>
 				<div class="btn-group ml-2">
 					<button class="btn btn-secondary disabled" disabled><i class="fa fa-th-list"></i></button>
 					<button class="btn btn-outline-secondary disabled" aria-label="Grid View" disabled><i class="fa fa-th"></i></button>
