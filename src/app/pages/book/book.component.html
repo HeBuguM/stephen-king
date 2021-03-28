@@ -119,19 +119,18 @@
 										<div class="row" *ngIf="edition.narrators">
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Разказвач</div><div class="col-8 col-md-8 col-lg-9">{{ edition.narrators }}</div>
 										</div>
-										<div class="row" *ngIf="edition.translators">
-											<div class="col-4 col-md-4 col-lg-3 text-secondary">Превод</div><div class="col-8 col-md-8 col-lg-9">{{ edition.translators }}
-												<ng-template [ngIf]="edition.shorts.length > 0">
-													<button class="btn btn-sm btn-outline-secondary float-right py-0 px-1" type="button" data-toggle="collapse" [attr.data-target]="'#editionShorts'+ edition.edition_id" attr.aria-controls="editionShorts{{edition.edition_id}}" aria-expanded="false" aria-label="Toggle navigation">
-														<i class="fa fa-list"></i> Съдържание <span class="badge">{{ edition.shorts.length }}</span>
-													</button>
-												</ng-template>
+										<div class="row" *ngIf="edition.translators || edition.shorts.length">
+											<div class="col-4 col-md-4 col-lg-3 text-secondary"><span *ngIf="edition.translators">Превод</span></div>
+											<div class="col-8 col-md-8 col-lg-9">{{ edition.translators }}
+												<button *ngIf="edition.shorts.length" class="btn btn-sm btn-outline-secondary float-right py-0 px-1" type="button" data-toggle="collapse" [attr.data-target]="'#editionShorts'+ edition.edition_id" attr.aria-controls="editionShorts{{edition.edition_id}}" aria-expanded="false" aria-label="Toggle navigation">
+													<i class="fa fa-list"></i> Съдържание <span class="badge">{{ edition.shorts.length }}</span>
+												</button>
 											</div>
 										</div>
 										<div class="row" *ngIf="edition.note">
 											<div class="col-4 col-md-4 col-lg-3 text-secondary">Бележки</div><div class="col-8 col-md-8 col-lg-9">{{ edition.note }}</div>
 										</div>
-										<div class="row" *ngIf="edition.shorts.length > 0">
+										<div class="row px-3" *ngIf="edition.shorts.length">
 											<div class="collapse" id="editionShorts{{edition.edition_id}}">
 												<table class="table table-bodered table-sm mt-2">
 													<tr *ngFor="let short of lib.combineShorts(edition.shorts,book.shorts)" [hidden]="short.edition_title == ''">
