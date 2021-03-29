@@ -93,7 +93,7 @@
 					{{ this.lib.screenTitle(screen.title) }}
 					<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящо)</small>
 				</a>
-				<small class="text-secondary" *ngIf="screen.year">({{ screen.year.substring(0,4) }})</small>
+				<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'">({{ screen.year.substring(0,4) }})</small>
 			</div>
 		</div>
 	</div>
