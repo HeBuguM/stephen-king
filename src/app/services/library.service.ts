@@ -17,10 +17,11 @@ export class LibraryService {
 	private onscreenUrl: string = environment.appBaseHref + 'assets/data/onscreen.json';
 
 	public book_series = [
-		{ 'en': 'Bill Hodges', 'bg': 'Бил Ходжис' },
-		{ 'en': 'The Shining', 'bg': 'Сиянието' },
-		{ 'en': 'The Talisman', 'bg': 'Талисманът' },
-		{ 'en': 'The Dark Tower', 'bg': 'Тъмната Кула' }
+		{'en': 'Bill Hodges','bg': 'Бил Ходжис'},
+		{'en': 'The Shining','bg': 'Сиянието'},
+		{'en': 'The Talisman','bg': 'Талисманът'},
+		{'en': 'The Dark Tower','bg': 'Тъмната Кула'},
+		{'en': 'The Button Box','bg': 'Кутията на Гуенди'}
 	];
 	public book_types = ['Роман', 'Новела', 'Сборник', 'Сценарий', 'Нехудожествена'];
 	public short_types = ['Разказ', 'Новела','Поема','Есе','Пиеса','Сценарий','Притча'];
