@@ -832,6 +832,46 @@ export class AdminComponent implements OnInit {
 		a.click();
 	}
 
+	exportTable(type) {
+		var a = document.createElement('a');
+		if(type === 'books') {
+			var file = new Blob([JSON.stringify(this.books$)], {type: 'application/json'});
+		}
+		if(type === 'shorts') {
+			var file = new Blob([JSON.stringify(this.shorts$)], {type: 'application/json'});
+		}
+		if(type === 'editions') {
+			var file = new Blob([JSON.stringify(this.editions$)], {type: 'application/json'});
+		}
+		if(type === 'onscreen') {
+			var file = new Blob([JSON.stringify(this.screens$)], {type: 'application/json'});
+		}
+		if(type === 'book-shorts') {
+			var file = new Blob([JSON.stringify(this.book_shorts$)], {type: 'application/json'});
+		}
+		if(type === 'edition-shorts') {
+			var file = new Blob([JSON.stringify(this.edition_shorts$)], {type: 'application/json'});
+		}
+		if(type === 'onscreen-connections') {
+			var file = new Blob([JSON.stringify(this.screen_connections$)], {type: 'application/json'});
+		}
+		if(type === 'database') {
+			let database = {
+				'books': this.books$,
+				'shorts': this.shorts$,
+				'editions': this.editions$,
+				'onscreen': this.screens$,
+				'book-shorts': this.book_shorts$,
+				'edition-shorts': this.edition_shorts$,
+				'onscreen-connections': this.screen_connections$
+			}
+			var file =  new Blob([JSON.stringify(database)], {type: 'application/json'});
+		}
+		a.href = URL.createObjectURL(file);
+		a.download = type + '.json';
+		a.click();
+	}
+
 	downloadXML(type) {
 		var a = document.createElement('a');
 		if(type === 'sitemap') {

@@ -1,54 +1,57 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-2 bg-light-gray border-right">
-			<table class="table sticky-top top56">
+			<table class="table sticky-top table-sm top56">
 				<thead>
 					<tr>
 						<th><i class="fa fa-database mr-2"></i> База данни</th>
-						<th><i class="fa fa-refresh text-secondary click" (click)="loadData()" *ngIf="!books$ || !editions$ || !shorts$ || !book_shorts$ || !edition_shorts$"></i></th>
+						<th>
+							<i class="fa fa-refresh text-secondary click" (click)="loadData()" *ngIf="!books$ || !editions$ || !shorts$ || !book_shorts$ || !edition_shorts$ || !screen_connections$"></i>
+							<i class="fa fa-download click text-secondary" (click)="exportTable('database')" *ngIf="books$ && editions$ && shorts$ && book_shorts$ && edition_shorts$ && screen_connections$"></i>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td><i class="fa fa-book mr-2"></i> Книги</td>
 						<td>
-							<span class="text-secondary" *ngIf="books$ ; else loadBooks">{{ books$.length }}</span><ng-template #loadBooks><i class="fa fa-refresh text-secondary click" (click)="loadData('books')"></i></ng-template>
+							<span class="text-secondary" *ngIf="books$ ; else loadBooks">{{ books$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('books')"></i></span><ng-template #loadBooks><i class="fa fa-refresh text-secondary click" (click)="loadData('books')"></i></ng-template>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-language mr-2"></i> Издания</td>
 						<td>
-							<span class="text-secondary" *ngIf="editions$ ; else loadEditions">{{ editions$.length }}</span><ng-template #loadEditions><i class="fa fa-refresh text-secondary click" (click)="loadData('editions')"></i></ng-template>
+							<span class="text-secondary" *ngIf="editions$ ; else loadEditions">{{ editions$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('editions')"></i></span><ng-template #loadEditions><i class="fa fa-refresh text-secondary click" (click)="loadData('editions')"></i></ng-template>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-file-o mr-2"></i> Разкази</td>
 						<td>
-							<span class="text-secondary" *ngIf="shorts$ ; else loadShorts">{{ shorts$.length }}</span><ng-template #loadShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('shorts')"></i></ng-template>
+							<span class="text-secondary" *ngIf="shorts$ ; else loadShorts">{{ shorts$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('shorts')"></i></span><ng-template #loadShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('shorts')"></i></ng-template>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-film mr-2"></i> Екранизации</td>
 						<td>
-							<span class="text-secondary" *ngIf="screens$ ; else loadScreens">{{ screens$.length }}</span><ng-template #loadScreens><i class="fa fa-refresh text-secondary click" (click)="loadData('screens')"></i></ng-template>
+							<span class="text-secondary" *ngIf="screens$ ; else loadScreens">{{ screens$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('onscreen')"></i></span><ng-template #loadScreens><i class="fa fa-refresh text-secondary click" (click)="loadData('screens')"></i></ng-template>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-link"></i><i class="fa fa-book mr-2"></i> Книги - Разкази</td>
 						<td>
-							<span class="text-secondary" *ngIf="book_shorts$  ; else loadBookShorts">{{ book_shorts$.length }}</span><ng-template #loadBookShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('book-shorts')"></i></ng-template>
+							<span class="text-secondary" *ngIf="book_shorts$  ; else loadBookShorts">{{ book_shorts$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('book-shorts')"></i></span><ng-template #loadBookShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('book-shorts')"></i></ng-template>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-link"></i><i class="fa fa-language mr-2"></i> Издания - Разкази</td>
 						<td>
-							<span class="text-secondary" *ngIf="edition_shorts$  ; else loadEditionShorts">{{ edition_shorts$.length }}</span><ng-template #loadEditionShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('edition-shorts')"></i></ng-template>
+							<span class="text-secondary" *ngIf="edition_shorts$  ; else loadEditionShorts">{{ edition_shorts$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('edition-shorts')"></i></span><ng-template #loadEditionShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('edition-shorts')"></i></ng-template>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-link"></i><i class="fa fa-film mr-2"></i> Връзки екранизации</td>
 						<td>
-							<span class="text-secondary" *ngIf="screen_connections$  ; else loadScreenConnections">{{ screen_connections$.length }}</span><ng-template #loadScreenConnections><i class="fa fa-refresh text-secondary click" (click)="loadData('screen-connections')"></i></ng-template>
+							<span class="text-secondary" *ngIf="screen_connections$  ; else loadScreenConnections">{{ screen_connections$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('onscreen-connections')"></i></span><ng-template #loadScreenConnections><i class="fa fa-refresh text-secondary click" (click)="loadData('screen-connections')"></i></ng-template>
 						</td>
 					</tr>
 				</tbody>
