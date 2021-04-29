@@ -38,7 +38,12 @@
 			</div>
 			<div class="col-md-8 col-lg-9 mb-4">
 				<div class="pb-4">
-					<h2 class="font-weight-bold">{{ this.lib.screenTitle(screen.title) }} <small *ngIf="screen.year" class="text-secondary">({{ screen.year < '9000' ? screen.year : "предстоящ" }})</small></h2>
+					<h2 class="font-weight-bold">{{ this.lib.screenTitle(screen.title) }}
+						<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'" >
+							({{ screen.year }})
+						</small>
+						<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>
+					</h2>
 					<div class="mb-2">
 						<a *ngIf="screen.tmdb_id" placement="top" ngbTooltip="The Movie Database" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://www.themoviedb.org/{{ screen.tmdb_id }}" target="_blank"><img src="assets/img/themoviedb_32.png" alt="G" width="16" style="margin-top: -6px"></a>
 						<a *ngIf="screen.wikipedia != ''" placement="top" ngbTooltip="Wikipedia" class="btn btn-outline-secondary float-right mx-1 mt-n1" href="https://en.wikipedia.org/wiki/{{ screen.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
