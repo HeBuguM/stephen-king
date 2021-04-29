@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
-// import * as firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
@@ -129,8 +129,6 @@ export class AdminComponent implements OnInit {
 		episodes: [0],
 		genres: [''],
 		poster: [''],
-		directors: [''],
-		writers: [''],
 		rotten_tomatoes: [0],
 		metascore: [0],
 		production: [''],
@@ -209,7 +207,7 @@ export class AdminComponent implements OnInit {
 			this.changeSection('shorts');
 		}
 		if (!this.screens$ && (data == 'screens' || !data)) {
-			this.afs.collection('onscreen', ref => { return ref.orderBy('title') }).valueChanges().subscribe((data) => { this.screens$ = data; });
+			this.afs.collection('onscreen', ref => { return ref.orderBy('year') }).valueChanges().subscribe((data) => { this.screens$ = data; });
 			this.changeSection('screens');
 		}
 		if (!this.book_shorts$ && (data == 'book-shorts' || !data)) {
@@ -312,8 +310,6 @@ export class AdminComponent implements OnInit {
 				episodes: 0,
 				genres: '',
 				poster: '',
-				directors: '',
-				writers: '',
 				imdb_rating: 0,
 				imdb_votes: 0,
 				rotten_tomatoes: 0,
@@ -893,12 +889,13 @@ export class AdminComponent implements OnInit {
 		// 	console.info(book.title + ' updated');
 		// });
 
-		// this.editions$.forEach(edition => {
-		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`editions/${edition.edition_id}`);
+		// this.screens$.forEach(screen => {
+		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
 		// 	customRef.update({
-		// 		translation: firebase.firestore.FieldValue.delete()
+		// 		writers: firebase.firestore.FieldValue.delete(),
+		// 		directors: firebase.firestore.FieldValue.delete()
 		// 	});
-		// 	console.info(edition.title + ' updated');
+		// 	console.info(screen.title + ' updated');
 		// });
 
 		// this.shorts$.forEach(short => {
@@ -1023,13 +1020,11 @@ export class AdminComponent implements OnInit {
 				seasons: data.totalSeasons ? Number(data.totalSeasons) : Form.value.seasons,
 				genres: data.Genre ? data.Genre : Form.value.genres,
 				poster: data.Poster && data.Poster != 'N/A' ? data.Poster : Form.value.poster,
-				directors: !Form.value.directors ? data.Director?.replace("N/A","") : Form.value.directors, // .replace(/ \(.*?\)/g,"")
-				writers: !Form.value.writers ? data.Writer?.replace("N/A","") : Form.value.writers, // .replace(/ \(.*?\)/g,"")
 				imdb_rating: imdb_rating ? imdb_rating : Form.value.imdb_rating,
 				imdb_votes: data.imdbVotes && data.imdbVotes != 'N/A' ? Number(data.imdbVotes.replace(/,/g,"")) : 0,
 				rotten_tomatoes: rotten_tomatoes ? rotten_tomatoes : Form.value.rotten_tomatoes,
 				metascore: metascore ? metascore : Form.value.metascore,
-				production: !Form.value.production && data.Production ? data.Production : Form.value.production,
+				production: !Form.value.production && data.Production && data.Production != 'N/A' ? data.Production : Form.value.production,
 				language: data.Language ? data.Language : Form.value.language,
 				country: data.Country ? data.Country : Form.value.country,
 			}
