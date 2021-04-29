@@ -562,6 +562,7 @@ export class AdminComponent implements OnInit {
 				title: this.exportScreens[connection.onscreen_id].title,
 				slug: this.exportScreens[connection.onscreen_id].slug,
 				year: this.exportScreens[connection.onscreen_id].year,
+				released: this.exportScreens[connection.onscreen_id].released,
 				status: this.exportScreens[connection.onscreen_id].status,
 				poster: this.exportScreens[connection.onscreen_id].poster,
 				type: this.exportScreens[connection.onscreen_id].type,
@@ -574,6 +575,7 @@ export class AdminComponent implements OnInit {
 				imdb_rating: this.exportScreens[connection.onscreen_id].imdb_rating,
 				imdb_votes: this.exportScreens[connection.onscreen_id].imdb_votes,
 				trailer: this.exportScreens[connection.onscreen_id].trailer,
+				upcoming: this.exportScreens[connection.onscreen_id].upcoming,
 				connections: {}
 			};
 			const Connection = {
