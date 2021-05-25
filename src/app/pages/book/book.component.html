@@ -204,7 +204,8 @@
 								<ng-template #popContent>
 									<div class="cover-full-pop"><img src="{{screen.poster}}"></div>
 								</ng-template>
-								<img class="mr-3 click rounded shadow-sm" src="{{screen.poster}}" style="height: 126px; width: 86px;" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
+								<img class="mr-3 click rounded shadow-sm" src="{{screen.poster}}" style="height: 126px; width: 86px;" alt="Постер" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent" *ngIf="screen.poster">
+								<img class="mr-3 rounded shadow-sm bg-crow border" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;height: 126px; width: 86px;" alt="Постер">
 								<div class="media-body">
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
 										<h4 class="mt-0">

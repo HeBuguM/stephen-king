@@ -33,7 +33,8 @@
 		<div class="row">
 			<div class="col-md-4 col-lg-3 mb-4">
 				<div class="card shadow-sm text-center col-8 col-md-12 mx-auto px-0 ">
-					<img src="{{screen.poster}}" class="card-img-top rounded" alt="Корица">
+					<img src="{{screen.poster}}" class="card-img-top rounded" alt="Постер" *ngIf="screen.poster">
+					<img class="card-img-top bg-crow rounded border" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;min-height: 375px;" alt="Постер">
 				</div>
 			</div>
 			<div class="col-md-8 col-lg-9 mb-4">
