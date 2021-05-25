@@ -123,11 +123,11 @@
 							<div>
 								<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 									{{ this.lib.screenTitle(screen.title) }}
-									<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>
 								</a>
 								<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'">
 									({{ screen.year.substring(0,4) }})
 								</small>
+								<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>
 								<div class="text-secondary"><small class="font-weight-bold">{{lib.getSeriesTitle(screen.title)}}</small></div>
 								<div class="text-secondary" *ngIf="screen.type != 'Филм' && screen.type != 'Епизод'"><small>{{ screen.type }}</small></div>
 								<div class="text-secondary" *ngIf="screen.type == 'Епизод'">
