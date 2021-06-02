@@ -2,9 +2,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { ActivatedRoute } from '@angular/router';
 import { LibraryService } from '../../services/library.service'
 import { Short } from '../../models/Short'
+
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { SeoService } from 'src/app/services/seo.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
 	selector: 'app-shorts',
@@ -15,16 +16,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ShortsComponent implements OnInit {
 	shorts: Array<Short>;
 	filtered_shorts: Array<Short>;
-	expandId: number = 0;
-	public shortsTotalCount: number;
-	public shortsReadCount: number;
-	public shortsPublishedBGCount;
-
-	subscription: Subscription;
+	shortsTotalCount: number = 0;
+	shortsReadCount: number = 0;
+	shortsPublishedBGCount;
 	previewShort;
+	expandId: number = 0;
+	subscription: Subscription;
 	searchValue: string = '';
 	loadingState = true;
 	filterShortType: string = '';
+	shorts_sort_by: string = localStorage.getItem('shorts_sort_by') !== null ? localStorage.getItem('shorts_sort_by') : 'first_pub_date';
+	shorts_sort_order: string = localStorage.getItem('shorts_sort_order') !== null ? localStorage.getItem('shorts_sort_order') : 'asc';
 
 	private filter_shorts: any = {
 		read: 'all',
@@ -33,7 +35,6 @@ export class ShortsComponent implements OnInit {
 		read_collection: false,
 		type: false
 	};
-	private sorting_shorts: string = 'first_pub_date';
 
 	constructor(private route: ActivatedRoute,public lib: LibraryService, private seo: SeoService,private modalService: NgbModal) { }
 
@@ -53,16 +54,13 @@ export class ShortsComponent implements OnInit {
 			if (sessionStorage.getItem('filter_shorts') !== null) {
 				this.filter_shorts = JSON.parse(sessionStorage.getItem('filter_shorts'));
 			}
-			if (sessionStorage.getItem('sorting_shorts') !== null) {
-				this.sorting_shorts = sessionStorage.getItem('sorting_shorts');
-			}
 		}
 		let shorts$ = this.lib.getShorts();
 		this.subscription = shorts$.subscribe(shorts => {
 			this.shorts = Object.values(shorts);
 			this.shortsTotalCount = this.shorts.length;
 			this.filterShorts();
-			this.changeSorting(this.sorting_shorts)
+			this.changeSorting()
 			this.loadingState = false;
 		});
 		this.shortsReadCount = this.lib.shortsReadCount();
@@ -109,24 +107,24 @@ export class ShortsComponent implements OnInit {
 	public updateSearch(searchTextValue: string) {
 		this.searchValue = searchTextValue;
 		this.filterShorts();
-		this.changeSorting(this.sorting_shorts)
+		this.changeSorting();
 	}
 
-	changeSorting(key) {
-		this.sorting_shorts = key;
-		this.filtered_shorts = this.lib.sortObject(this.filtered_shorts, key);
-		sessionStorage.setItem('sorting_shorts', this.sorting_shorts)
+	changeSorting() {
+		this.filtered_shorts = this.lib.sortObject(this.filtered_shorts, this.shorts_sort_by, this.shorts_sort_order);
+		localStorage.setItem('shorts_sort_by', this.shorts_sort_by);
+		localStorage.setItem('shorts_sort_order', this.shorts_sort_order);
 	}
 
 	getSorting() {
-		return this.sorting_shorts;
+		return this.shorts_sort_by;
 	}
 
 	changeFilter(key, value) {
 		this.filter_shorts[key] = value;
 		sessionStorage.setItem('filter_shorts', JSON.stringify(this.filter_shorts));
 		this.filterShorts();
-		this.changeSorting(this.sorting_shorts)
+		this.changeSorting();
 	}
 
 	getFilter(key) {

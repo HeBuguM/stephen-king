@@ -35,8 +35,9 @@
 				<div class="card shadow-sm text-center col-8 col-md-12 mx-auto px-0 ">
 					<img src="assets/covers/books/large/{{book.book_id}}.jpg" class="card-img-top" alt="Корица">
 					<div class="card-body">
-						<button class="btn btn-outline-secondary" *ngIf="!lib.isBookRead(book)" (click)="lib.bookReadToggle(book,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Непрочетенo</button>
-						<button class="btn btn-success" *ngIf="lib.isBookRead(book)" (click)="lib.bookReadToggle(book,false)" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i> Прочетенo</button>
+						<button class="btn btn-outline-secondary" *ngIf="lib.isUpcoming(book.upcoming,book.published)" aria-label="Предстоящо издаване" disabled><i class="fa fa-fw fa-spinner"></i> Предстоящо</button>
+						<button class="btn btn-outline-secondary" *ngIf="!lib.isBookRead(book) && !lib.isUpcoming(book.upcoming,book.published)" (click)="lib.bookReadToggle(book,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Непрочетенo</button>
+						<button class="btn btn-success" *ngIf="lib.isBookRead(book) && !lib.isUpcoming(book.upcoming,book.published)" (click)="lib.bookReadToggle(book,false)" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i> Прочетенo</button>
 					</div>
 				</div>
 			</div>

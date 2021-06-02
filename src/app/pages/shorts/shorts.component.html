@@ -17,13 +17,14 @@
 
 		<div class="row no-gutters mb-3">
 			<div class="form-inline col-6">
-				<select id="sorting" class="form-control" style="max-width: 120px;" (change)="changeSorting($event.target.value)" [value]="getSorting()">
-					<option value="first_pub_date">Издаване</option>
-					<option value="title">Заглавие</option>
-					<option value="collection_title">Сборник</option>
-					<option value="collection_published">Събрано в сборник</option>
+				<select id="sorting" class="form-control" style="max-width: 120px;" [value]="getSorting()">
+					<option value="first_pub_date" (click)="shorts_sort_by = $event.target.value;shorts_sort_order = 'asc';changeSorting()">Издаване</option>
+					<option value="title" (click)="shorts_sort_by = $event.target.value;shorts_sort_order = 'asc';changeSorting()">Заглавие</option>
+					<option value="collection_title" (click)="shorts_sort_by = $event.target.value;shorts_sort_order = 'asc';changeSorting()">Сборник</option>
+					<option value="collection_published" (click)="shorts_sort_by = $event.target.value;shorts_sort_order = 'asc';changeSorting()">Събрано в сборник</option>
 				</select>
-				<label for="sorting" aria-label="Сортиране"><i class="fa fa-sort-amount-asc ml-2"></i></label>
+				<label class="click" for="sorting" aria-label="Сортиране" *ngIf="shorts_sort_order == 'asc'" (click)="shorts_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc ml-2"></i></label>
+				<label class="click" for="sorting" aria-label="Сортиране" *ngIf="shorts_sort_order == 'desc'" (click)="shorts_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc ml-2"></i></label>
 			</div>
 			<div class="ml-auto">
 				<button *ngIf="!filterShortType" [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,8 +100,9 @@
 			<tbody>
 				<tr *ngFor="let short of filtered_shorts" [ngClass]="shortClasses(short)" (click)="expandId != short.short_id ? expandId = short.short_id : false">
 					<td class="text-center align-middle">
-						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isShortRead(short)" (click)="lib.shortReadToggle(short,true);updateReadCounter()" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i></button>
-						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle" *ngIf="lib.isShortRead(short)" (click)="lib.shortReadToggle(short,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="lib.isUpcoming(short.upcoming,short.first_pub_date)" aria-label="Неиздадена" disabled><i class="fa fa-fw fa-spinner"></i></button>
+						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isShortRead(short) && !lib.isUpcoming(short.upcoming,short.first_pub_date)" (click)="lib.shortReadToggle(short,true);updateReadCounter()" aria-label="Отбележи като прочетено"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle" *ngIf="lib.isShortRead(short) && !lib.isUpcoming(short.upcoming,short.first_pub_date)" (click)="lib.shortReadToggle(short,false);updateReadCounter()" aria-label="Отбележи като непрочетено"><i class="fa fa-fw fa-check"></i></button>
 					</td>
 					<td class="align-middle px-0">
 						<small class="text-secondary d-none d-sm-inline">{{lib.publishedDate(short.first_pub_date,'first_short')}}</small>

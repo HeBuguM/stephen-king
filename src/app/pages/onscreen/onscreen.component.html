@@ -17,11 +17,12 @@
 
 	<div class="row no-gutters mb-3">
 		<div class="form-inline col-6">
-			<select id="sorting" class="form-control" style="max-width: 120px;" (change)="changeSorting($event.target.value)" [value]="getSorting()">
-				<option value='year'>Година</option>
-				<option value='title'>Заглавие</option>
+			<select id="sorting" class="form-control" style="max-width: 120px;" [value]="getSorting()">
+				<option value='year' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'asc';changeSorting()">Година</option>
+				<option value='title' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'asc';changeSorting()">Заглавие</option>
 			</select>
-			<label for="sorting" aria-label="Сортиране"><i class="fa fa-sort-amount-asc ml-2"></i></label>
+			<label class="click" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'asc'" (click)="screens_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc ml-2"></i></label>
+			<label class="click" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'desc'" (click)="screens_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc ml-2"></i></label>
 		</div>
 		<div class="ml-auto">
 			<button *ngIf="!filterOnscreenType" [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">

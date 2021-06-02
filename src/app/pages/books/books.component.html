@@ -17,12 +17,13 @@
 
 		<div class="row no-gutters mb-3">
 			<div class="form-inline col-6">
-				<select id="sorting" class="form-control" style="max-width: 120px;" (change)="changeSorting($event.target.value)" [value]="getSorting()">
-					<option value='published'>Издаване</option>
-					<option value='title'>Заглавие</option>
-					<option value='pages'>Страници</option>
+				<select id="sorting" class="form-control" style="max-width: 120px;" [value]="getSorting()">
+					<option value='published' (click)="books_sort_by = $event.target.value;books_sort_order = 'asc';changeSorting()">Издаване</option>
+					<option value='title' (click)="books_sort_by = $event.target.value;books_sort_order = 'asc';changeSorting()">Заглавие</option>
+					<option value='pages' (click)="books_sort_by = $event.target.value;books_sort_order = 'asc';changeSorting()">Страници</option>
 				</select>
-				<label for="sorting" aria-label="Сортиране"><i class="fa fa-sort-amount-asc ml-2"></i></label>
+				<label class="click" for="sorting" aria-label="Сортиране" *ngIf="books_sort_order == 'asc'" (click)="books_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc ml-2"></i></label>
+				<label class="click" for="sorting" aria-label="Сортиране" *ngIf="books_sort_order == 'desc'" (click)="books_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc ml-2"></i></label>
 			</div>
 			<div class="ml-auto">
 				<button *ngIf="!filterBookType" [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,12 +103,13 @@
 			<tbody>
 				<tr *ngFor="let book of filtered_books" [ngClass]="bookClasses(book)" (click)="expandId != book.book_id ? expandId = book.book_id : false">
 					<td class="text-center align-middle">
-						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isBookRead(book)" (click)="lib.bookReadToggle(book,true);updateReadCounter()" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i></button>
-						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle" *ngIf="lib.isBookRead(book)" (click)="lib.bookReadToggle(book,false);updateReadCounter()" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="lib.isUpcoming(book.upcoming,book.published)" aria-label="Неиздадена" disabled><i class="fa fa-fw fa-spinner"></i></button>
+						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isBookRead(book) && !lib.isUpcoming(book.upcoming,book.published)" (click)="lib.bookReadToggle(book,true);updateReadCounter();" aria-label="Отбележи като прочетена"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle"  *ngIf="lib.isBookRead(book) && !lib.isUpcoming(book.upcoming,book.published)" (click)="lib.bookReadToggle(book,false);updateReadCounter()" aria-label="Отбележи като непрочетена"><i class="fa fa-fw fa-check"></i></button>
 					</td>
 					<td class="text-center align-middle px-0">
-						<small class="text-secondary d-none d-sm-inline" *ngIf="sorting_books == 'published'">{{ lib.publishedDate(book.published) }}</small>
-						<small class="text-secondary d-none d-sm-inline" *ngIf="sorting_books == 'pages'">{{ book.pages}}</small>
+						<small class="text-secondary d-none d-sm-inline" *ngIf="books_sort_by == 'published'">{{ lib.publishedDate(book.published) }}</small>
+						<small class="text-secondary d-none d-sm-inline" *ngIf="books_sort_by == 'pages'">{{ book.pages}}</small>
 					</td>
 					<td class="align-middle">
 						<div class="media book">

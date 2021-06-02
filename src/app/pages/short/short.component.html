@@ -36,8 +36,9 @@
 					<img class="card-img-top" *ngIf="short.first_collected" src="assets/covers/books/large/{{short.first_collected}}.jpg" alt="Корица">
 					<img class="card-img-top bg-crow" *ngIf="!short.first_collected" src="assets/img/px.png" style="background-size: 75%" alt="Корица">
 					<div class="card-body">
-						<button class="btn btn-outline-secondary" *ngIf="!lib.isShortRead(short)" (click)="lib.shortReadToggle(short,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Непрочетено</button>
-						<button class="btn btn-success" *ngIf="lib.isShortRead(short)" (click)="lib.shortReadToggle(short,false)" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i> Прочетено</button>
+						<button class="btn btn-outline-secondary" *ngIf="lib.isUpcoming(short.upcoming,short.first_pub_date)" (click)="lib.shortReadToggle(short,true);" aria-label="Предстоящо издаване" disabled><i class="fa fa-fw fa-spinner"></i> Предстоящо</button>
+						<button class="btn btn-outline-secondary" *ngIf="!lib.isShortRead(short) && !lib.isUpcoming(short.upcoming,short.first_pub_date)" (click)="lib.shortReadToggle(short,true);" aria-label="Отбележи като прочетено"><i class="fa fa-fw fa-check"></i> Непрочетено</button>
+						<button class="btn btn-success" *ngIf="lib.isShortRead(short) && !lib.isUpcoming(short.upcoming,short.first_pub_date)" (click)="lib.shortReadToggle(short,false)" aria-label="Отбележи като непрочетено"><i class="fa fa-fw fa-check"></i> Прочетено</button>
 					</div>
 				</div>
 			</div>

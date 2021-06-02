@@ -25,15 +25,15 @@ export class OnscreenComponent implements OnInit {
 	subscription: Subscription;
 	searchValue: string = '';
 	filterOnscreenType: string = '';
+	screens_sort_by: string = localStorage.getItem('screens_sort_by') !== null ? localStorage.getItem('screens_sort_by') : 'year';
+	screens_sort_order: string = localStorage.getItem('screens_sort_order') !== null ? localStorage.getItem('screens_sort_order') : 'asc';
+	onscreen_layout: string = localStorage.getItem('onscreen_layout') !== null ? localStorage.getItem('onscreen_layout') : 'grid';
 
 	private filter_screens: any = {
 		watched: 'all',
 		read: 'all',
 		type: false,
 	};
-
-	public sorting_screens: string = 'year';
-	public onscreen_layout: string = 'grid';
 
 	constructor(private route: ActivatedRoute,public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
@@ -53,19 +53,13 @@ export class OnscreenComponent implements OnInit {
 			if (sessionStorage.getItem('filter_screens') !== null) {
 				this.filter_screens = JSON.parse(sessionStorage.getItem('filter_screens'));
 			}
-			if (sessionStorage.getItem('sorting_screens') !== null) {
-				this.sorting_screens = sessionStorage.getItem('sorting_screens');
-			}
-		}
-		if (localStorage.getItem('onscreen_layout') !== null) {
-			this.onscreen_layout = localStorage.getItem('onscreen_layout');
 		}
 		let screens$ = this.lib.getOnscreens();
 		this.subscription = screens$.subscribe(screens => {
 			this.screens = Object.values(screens);
 			this.screensTotalCount = this.screens.length;
 			this.filterScreens();
-			this.changeSorting(this.sorting_screens)
+			this.changeSorting();
 			this.loadingState = false
 		});
 		this.updateWatchedCounter();
@@ -117,7 +111,7 @@ export class OnscreenComponent implements OnInit {
 	public updateSearch(searchTextValue: string) {
 		this.searchValue = searchTextValue;
 		this.filterScreens();
-		this.changeSorting(this.sorting_screens)
+		this.changeSorting();
 	}
 
 	changeLayout(layout) {
@@ -129,21 +123,21 @@ export class OnscreenComponent implements OnInit {
 		return this.onscreen_layout;
 	}
 
-	changeSorting(key) {
-		this.sorting_screens = key;
-		this.filtered_screens = this.lib.sortObject(this.filtered_screens, key);
-		sessionStorage.setItem('sorting_screens', this.sorting_screens)
+	changeSorting() {
+		this.filtered_screens = this.lib.sortObject(this.filtered_screens, this.screens_sort_by, this.screens_sort_order);
+		localStorage.setItem('screens_sort_by', this.screens_sort_by);
+		localStorage.setItem('screens_sort_order', this.screens_sort_order);
 	}
 
 	getSorting() {
-		return this.sorting_screens;
+		return this.screens_sort_by;
 	}
 
 	changeFilter(key, value) {
 		this.filter_screens[key] = value;
 		sessionStorage.setItem('filter_screens', JSON.stringify(this.filter_screens));
 		this.filterScreens();
-		this.changeSorting(this.sorting_screens)
+		this.changeSorting()
 	}
 
 	getFilter(key) {

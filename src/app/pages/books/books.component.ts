@@ -14,17 +14,19 @@ import { SeoService } from 'src/app/services/seo.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class BooksComponent implements OnInit {
-	books: Array<Book> = [];
+	books: Array<Book>;
 	filtered_books: Array<Book>;
 	booksTotalCount: number = 0;
 	booksReadCount: number = 0;
 	booksFilterdCount: number;
 	previewBook;
 	expandId: number = 0;
-	loadingState = true;
 	subscription: Subscription;
 	searchValue: string = '';
+	loadingState = true;
 	filterBookType: string = '';
+	books_sort_by: string = localStorage.getItem('books_sort_by') !== null ? localStorage.getItem('books_sort_by') : 'published';
+	books_sort_order: string = localStorage.getItem('books_sort_order') !== null ? localStorage.getItem('books_sort_order') : 'asc';
 
 	private filter_books: any = {
 		read: 'all',
@@ -35,7 +37,6 @@ export class BooksComponent implements OnInit {
 		bg_editions: 'all'
 	};
 
-	public sorting_books: string = 'published';
 
 	constructor(private route: ActivatedRoute,public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
@@ -55,16 +56,13 @@ export class BooksComponent implements OnInit {
 			if (sessionStorage.getItem('filter_books') !== null) {
 				this.filter_books = JSON.parse(sessionStorage.getItem('filter_books'));
 			}
-			if (sessionStorage.getItem('sorting_books') !== null) {
-				this.sorting_books = sessionStorage.getItem('sorting_books');
-			}
 		}
 		let books$ = this.lib.getBooks();
 		this.subscription = books$.subscribe(books => {
 			this.books = Object.values(books);
 			this.booksTotalCount = this.books.length;
 			this.filterBooks();
-			this.changeSorting(this.sorting_books)
+			this.changeSorting()
 			this.loadingState = false
 		});
 		this.updateReadCounter();
@@ -120,24 +118,24 @@ export class BooksComponent implements OnInit {
 	public updateSearch(searchTextValue: string) {
 		this.searchValue = searchTextValue;
 		this.filterBooks();
-		this.changeSorting(this.sorting_books)
+		this.changeSorting()
 	}
 
-	changeSorting(key) {
-		this.sorting_books = key;
-		this.filtered_books = this.lib.sortObject(this.filtered_books, key);
-		sessionStorage.setItem('sorting_books', this.sorting_books)
+	changeSorting() {
+		this.filtered_books = this.lib.sortObject(this.filtered_books, this.books_sort_by, this.books_sort_order);
+		localStorage.setItem('books_sort_by', this.books_sort_by);
+		localStorage.setItem('books_sort_order', this.books_sort_order);
 	}
 
 	getSorting() {
-		return this.sorting_books;
+		return this.books_sort_by;
 	}
 
 	changeFilter(key, value) {
 		this.filter_books[key] = value;
 		sessionStorage.setItem('filter_books', JSON.stringify(this.filter_books));
 		this.filterBooks();
-		this.changeSorting(this.sorting_books)
+		this.changeSorting()
 	}
 
 	getFilter(key) {
