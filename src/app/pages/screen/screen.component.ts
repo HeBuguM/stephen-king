@@ -55,7 +55,7 @@ export class ScreenComponent implements OnInit {
 					});
 				}
 				this.seo.generateTags({
-					title: `${this.screen.title} `+(this.screen.year && this.screen.year < '9000' ? '('+this.screen.year +') ' : '')+`| ${this.screen.type} | Стивън Кинг`,
+					title: `${this.screen.title} `+(this.screen.year ? '('+this.screen.year +') ' : '')+`| ${this.screen.type} | Стивън Кинг`,
 					description: [...new Set(connections)].join(' | '),
 					image: this.screen.poster ? `${this.screen.onscreen_id}` : ``,
 					slug: this.slug

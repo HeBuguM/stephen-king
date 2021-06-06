@@ -207,7 +207,7 @@ export class AdminComponent implements OnInit {
 			this.changeSection('shorts');
 		}
 		if (!this.screens$ && (data == 'screens' || !data)) {
-			this.afs.collection('onscreen', ref => { return ref.orderBy('year') }).valueChanges().subscribe((data) => { this.screens$ = data; });
+			this.afs.collection('onscreen', ref => { return ref.orderBy('released') }).valueChanges().subscribe((data) => { this.screens$ = data; });
 			this.changeSection('screens');
 		}
 		if (!this.book_shorts$ && (data == 'book-shorts' || !data)) {
@@ -686,7 +686,7 @@ export class AdminComponent implements OnInit {
 			if (!book['onscreen']) {
 				book['onscreen'] = []
 			} else {
-				book['onscreen'] = this.lib.sortObject(book['onscreen'], 'year');
+				book['onscreen'] = this.lib.sortObject(book['onscreen'], 'released');
 				let converted = [];
 				for(let scr of book['onscreen']) {
 					scr.connections = Object.values(scr.connections)

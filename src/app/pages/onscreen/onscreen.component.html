@@ -18,7 +18,7 @@
 	<div class="row no-gutters mb-3">
 		<div class="form-inline col-6">
 			<select id="sorting" class="form-control" style="max-width: 120px;" [value]="getSorting()">
-				<option value='year' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'asc';changeSorting()">Година</option>
+				<option value='released' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'asc';changeSorting()">Премиера</option>
 				<option value='title' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'asc';changeSorting()">Заглавие</option>
 			</select>
 			<label class="click" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'asc'" (click)="screens_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc ml-2"></i></label>
@@ -94,7 +94,7 @@
 				<a class="stretched-link inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 					{{ this.lib.screenTitle(screen.title) }}
 				</a>
-				<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'">
+				<small class="text-secondary" *ngIf="screen.year">
 					({{ screen.year.substring(0,4) }})
 				</small>
 				<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>
@@ -125,7 +125,7 @@
 								<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 									{{ this.lib.screenTitle(screen.title) }}
 								</a>
-								<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'">
+								<small class="text-secondary" *ngIf="screen.year">
 									({{ screen.year.substring(0,4) }})
 								</small>
 								<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>

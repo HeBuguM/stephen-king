@@ -163,7 +163,7 @@
 											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 												{{ this.lib.screenTitle(screen.title) }}
 											</a>
-											<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'" >
+											<small class="text-secondary" *ngIf="screen.year" >
 												({{ screen.year }})
 											</small>
 											<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>

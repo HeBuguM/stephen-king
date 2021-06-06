@@ -40,7 +40,7 @@
 			<div class="col-md-8 col-lg-9 mb-4">
 				<div class="pb-4">
 					<h2 class="font-weight-bold">{{ this.lib.screenTitle(screen.title) }}
-						<small class="text-secondary" *ngIf="screen.year && screen.year < '9000'" >
+						<small class="text-secondary" *ngIf="screen.year" >
 							({{ screen.year }})
 						</small>
 						<small class="text-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)">(предстоящ)</small>

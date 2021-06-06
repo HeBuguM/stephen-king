@@ -25,7 +25,7 @@ export class OnscreenComponent implements OnInit {
 	subscription: Subscription;
 	searchValue: string = '';
 	filterOnscreenType: string = '';
-	screens_sort_by: string = localStorage.getItem('screens_sort_by') !== null ? localStorage.getItem('screens_sort_by') : 'year';
+	screens_sort_by: string = localStorage.getItem('screens_sort_by') !== null ? localStorage.getItem('screens_sort_by') : 'released';
 	screens_sort_order: string = localStorage.getItem('screens_sort_order') !== null ? localStorage.getItem('screens_sort_order') : 'asc';
 	onscreen_layout: string = localStorage.getItem('onscreen_layout') !== null ? localStorage.getItem('onscreen_layout') : 'grid';
 
