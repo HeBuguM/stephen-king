@@ -180,6 +180,44 @@ export class LibraryService {
 		return booksRead;
 	}
 
+	screenWatchedToggle(screen, new_state) {
+		let onscreenWatched = localStorage.getItem("onscreen_watched") !== null ? JSON.parse(localStorage.getItem("onscreen_watched")) : {};
+		if(new_state == true) {
+			onscreenWatched[screen.onscreen_id] = new_state;
+		} else {
+			delete onscreenWatched[screen.onscreen_id];
+		}
+		if (localStorage.getItem("data_id") === null) {
+			localStorage.setItem('data_id', new Date().getTime().toString());
+		}
+		localStorage.setItem("onscreen_watched", JSON.stringify(onscreenWatched));
+		localStorage.setItem("data_modified", new Date().getTime().toString());
+	}
+
+	isScreenWatched(screen) {
+		if (localStorage.getItem("onscreen_watched") !== null) {
+			let readBooks = JSON.parse(localStorage.getItem("onscreen_watched"));
+			if (readBooks[screen.onscreen_id] === true) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+
+	screensWatchedCount() {
+		let watchedScreens = 0;
+		if (localStorage.getItem("onscreen_watched") !== null) {
+			const onscreenWatched = JSON.parse(localStorage.getItem("onscreen_watched"));
+			watchedScreens = Object.values(onscreenWatched).length
+		} else {
+			watchedScreens = 0;
+		}
+		return watchedScreens;
+	}
+
 	// Editions
 
 	public selectBookEditionToggle(edition, new_state) {

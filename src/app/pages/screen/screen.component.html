@@ -63,9 +63,9 @@
 						</span>
 						<span class="text-secondary" *ngIf="screen.status"><span class="separator mx-3">|</span>{{ screen.status}}</span>
 					</div>
-					<div class="row mt-4">
+					<div class="row mt-3">
 						<div class="col-7 col-md-6">
-							<div class="col-12 py-4">
+							<div class="col-12 py-3">
 								<div class="d-flex align-items-center" *ngIf="screen.imdb_id">
 									<div class="d-inline-block " style="line-height: 11px;text-align: right;" *ngIf="screen.imdb_rating > 0">
 										<span class="font-weight-bold" style="font-size: 1.8em;">{{screen.imdb_rating}}</span><small class="text-secondary">/10</small>
@@ -75,7 +75,7 @@
 									<a class="ml-3" href="https://www.imdb.com/title/{{ screen.imdb_id }}" target="_blank"><img class="rounded-sm" src="assets/img/imdb.png" alt="IMDb"></a>
 								</div>
 							</div>
-							<div class="col-12 py-4">
+							<div class="col-12 py-3">
 								<div class="tomatometer d-flex align-items-center">
 									<!-- <img src="assets/img/tomatometer_certified_fresh.png" alt="Certified" width="36" *ngIf="screen.metascore >= 70"> -->
 									<!-- <img src="assets/img/tomatometer_fresh.png" alt="Fresh" width="36" *ngIf="screen.metascore >= 60 && screen.metascore">
@@ -84,7 +84,7 @@
 									<span class="ml-3"><img src="assets/img/rotten_tomatoes_logo.png" alt="Rotten Tomatoes" height="36"></span>
 								</div>
 							</div>
-							<div class="col-12 py-4">
+							<div class="col-12 py-3">
 								<div class="metascore d-flex align-items-center">
 									<span *ngIf="screen.metascore > 60" class="rounded font-weight-bold" style="padding: 6px 9px; width: 36px; color: #fff;background-color: #6c3;">
 										{{screen.metascore}}
@@ -98,6 +98,11 @@
 									<span class="font-weight-bold" style="font-size: 1.8em; line-height: 36px;" *ngIf="!screen.metascore">—</span>
 									<span class="ml-3 font-weight-bold"><img class="mr-1" src="assets/img/metacritics.png" alt="Metacritics" height="36"> Metacritic</span>
 								</div>
+							</div>
+							<div class="col-12 py-3">
+								<button class="btn btn-outline-secondary" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)" aria-label="Предстоящо издаване" disabled><i class="fa fa-fw fa-spinner"></i> Предстоящо</button>
+								<button class="btn btn-outline-secondary" *ngIf="!lib.isScreenWatched(screen) && !lib.isUpcoming(screen.upcoming,screen.released)" (click)="lib.screenWatchedToggle(screen,true);" aria-label="Mark as read"><i class="fa fa-fw fa-check"></i> Негледано</button>
+								<button class="btn btn-success" *ngIf="lib.isScreenWatched(screen) && !lib.isUpcoming(screen.upcoming,screen.released)" (click)="lib.screenWatchedToggle(screen,false)" aria-label="Marks as unread"><i class="fa fa-fw fa-check"></i> Гледано</button>
 							</div>
 						</div>
 						<div class="col-5 col-md-6 d-flex align-items-center justify-content-center">

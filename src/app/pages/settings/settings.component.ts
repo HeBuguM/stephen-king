@@ -28,8 +28,8 @@ export class SettingsComponent implements OnInit {
 			data_sync: localStorage.getItem("data_sync"),
 			read_books: JSON.parse(localStorage.getItem("read_books")),
 			read_shorts: JSON.parse(localStorage.getItem("read_shorts")),
-			selected_editions: JSON.parse(localStorage.getItem("selected_editions")
-			)
+			selected_editions: JSON.parse(localStorage.getItem("selected_editions")),
+			onscreen_watched: JSON.parse(localStorage.getItem("onscreen_watched"))
 		};
 		return data;
 	}
@@ -58,6 +58,7 @@ export class SettingsComponent implements OnInit {
 				&& typeof json_data.read_books !== 'undefined'
 				&& typeof json_data.read_shorts !== 'undefined'
 				&& typeof json_data.selected_editions !== 'undefined'
+				&& typeof json_data.onscreen_watched !== 'undefined'
 			) {
 				localStorage.setItem("data_id", json_data.data_id.toString());
 				if(json_data.data_modified !== null) {
@@ -74,6 +75,9 @@ export class SettingsComponent implements OnInit {
 				}
 				if(json_data.selected_editions) {
 					localStorage.setItem("selected_editions", JSON.stringify(json_data.selected_editions));
+				}
+				if(json_data.onscreen_watched) {
+					localStorage.setItem("onscreen_watched", JSON.stringify(json_data.onscreen_watched));
 				}
 				alert("Данните са заредени успешно!")
 			}

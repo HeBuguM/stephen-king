@@ -90,7 +90,8 @@ export class AuthService {
 			data_sync: data_sync,
 			read_books: JSON.parse(localStorage.getItem("read_books")),
 			read_shorts: JSON.parse(localStorage.getItem("read_shorts")),
-			selected_editions: JSON.parse(localStorage.getItem("selected_editions"))
+			selected_editions: JSON.parse(localStorage.getItem("selected_editions")),
+			onscreen_watched: JSON.parse(localStorage.getItem("onscreen_watched"))
 		};
 		userRef.update(data);
 		localStorage.setItem("data_sync", data_sync);
@@ -106,6 +107,7 @@ export class AuthService {
 				&& typeof user_data.read_books !== 'undefined'
 				&& typeof user_data.read_shorts !== 'undefined'
 				&& typeof user_data.selected_editions !== 'undefined'
+				&& typeof user_data.onscreen_watched !== 'undefined'
 			) {
 				localStorage.clear();
 				if(user_data.data_id !== null) {
@@ -126,6 +128,9 @@ export class AuthService {
 				if(user_data.selected_editions) {
 					localStorage.setItem("selected_editions", JSON.stringify(user_data.selected_editions));
 				}
+				if(user_data.onscreen_watched) {
+					localStorage.setItem("onscreen_watched", JSON.stringify(user_data.onscreen_watched));
+				}
 				alert("Данните са заредени успешно!")
 			}
 		} catch (e) {
@@ -142,6 +147,9 @@ export class AuthService {
 	}
 	public selectedEditionsCount() {
 		return typeof this.user.selected_editions !== 'undefined' && this.user.selected_editions !== null ? Object.values(this.user.selected_editions).length : 0;
+	}
+	public watchedScreensCount() {
+		return typeof this.user.onscreen_watched !== 'undefined' && this.user.onscreen_watched !== null ? Object.values(this.user.onscreen_watched).length : 0;
 	}
 
     isEditor(user: User) {

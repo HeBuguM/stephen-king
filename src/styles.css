@@ -218,6 +218,32 @@ img.filter-black-white {
 .opacity0 {
 	opacity: 0;
 }
+.onscreen-card {
+	position: relative;
+	width: 180px;
+	margin: 0 .5rem;
+	margin-bottom: 2rem;
+}
+.onscreen-poster img {
+	width: 180px;
+	height: 265px;
+}
+.onscreen-poster.watched img {
+	outline: 3px solid #28a745;
+}
+.onscreen-title {
+	line-height: 1.2;
+}
+.onscreen-overlay {
+	opacity: 0.2;
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 900;
+}
+.onscreen-poster:hover .onscreen-overlay {
+	opacity: 0.9;
+}
 
 /* DARK THEME */
 

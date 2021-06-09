@@ -20,6 +20,8 @@
 			<select id="sorting" class="form-control" style="max-width: 120px;" [value]="getSorting()">
 				<option value='released' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'asc';changeSorting()">Премиера</option>
 				<option value='title' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'asc';changeSorting()">Заглавие</option>
+				<option value='imdb_rating' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'desc';changeSorting()">Оценка</option>
+				<option value='imdb_votes' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'desc';changeSorting()">Гласове</option>
 			</select>
 			<label class="click" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'asc'" (click)="screens_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc ml-2"></i></label>
 			<label class="click" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'desc'" (click)="screens_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc ml-2"></i></label>
@@ -85,13 +87,19 @@
 	<!-- GRID -->
 	<div class="onscreen-grid d-flex flex-wrap justify-content-between align-items-stretch mt-2 mx-n2" *ngIf="onscreen_layout  == 'grid'">
 		<div class="onscreen-card" *ngFor="let screen of filtered_screens">
-			<div class="onscreen-poster">
-				<img class="rounded shadow-sm" src="{{screen.poster}}" alt="Постер" *ngIf="screen.poster">
-				<img class="bg-crow rounded border shadow-sm" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;" alt="Постер">
+			<div [ngClass]="{'onscreen-poster': true, 'watched': lib.isScreenWatched(screen),'position-relative': true}">
+				<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+					<img class="rounded shadow-sm" src="{{screen.poster}}" alt="Постер" *ngIf="screen.poster">
+					<img class="bg-crow rounded border shadow-sm" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;" alt="Постер">
+				</a>
+				<div class="onscreen-overlay">
+					<button class="btn btn-sm btn-secondary button-read-toggle" *ngIf="!lib.isScreenWatched(screen) && !lib.isUpcoming(screen.upcoming,screen.released)" (click)="lib.screenWatchedToggle(screen,true);updateWatchedCounter()" aria-label="Отбележи като гледано"><i class="fa fa-fw fa-check"></i></button>
+					<button class="btn btn-sm btn-success button-read-toggle"  *ngIf="lib.isScreenWatched(screen) && !lib.isUpcoming(screen.upcoming,screen.released)" (click)="lib.screenWatchedToggle(screen,false);updateWatchedCounter()" aria-label="Отбележи като негледано"><i class="fa fa-fw fa-check"></i></button>
+				</div>
 			</div>
 			<div class="onscreen-title mt-2">
 				<div class="text-secondary"><small class="font-weight-bold">{{lib.getSeriesTitle(screen.title)}}</small></div>
-				<a class="stretched-link inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+				<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 					{{ this.lib.screenTitle(screen.title) }}
 				</a>
 				<small class="text-secondary" *ngIf="screen.year">
@@ -114,13 +122,18 @@
 				<th class="text-center"><img src="assets/img/rottentomatoes.png" height="24"></th>
 			</thead>
 			<tbody>
-				<tr *ngFor="let screen of filtered_screens">
+				<tr *ngFor="let screen of filtered_screens" [ngClass]="{'table-success': lib.isScreenWatched(screen)}">
+					<td class="text-center align-middle">
+						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="lib.isUpcoming(screen.upcoming,screen.released)" aria-label="Неизлъчен" disabled><i class="fa fa-fw fa-spinner"></i></button>
+						<button class="btn btn-sm btn-outline-secondary infoLink button-read-toggle" *ngIf="!lib.isScreenWatched(screen) && !lib.isUpcoming(screen.upcoming,screen.released)" (click)="lib.screenWatchedToggle(screen,true);updateWatchedCounter()" aria-label="Отбележи като гледано"><i class="fa fa-fw fa-check"></i></button>
+						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle"  *ngIf="lib.isScreenWatched(screen) && !lib.isUpcoming(screen.upcoming,screen.released)" (click)="lib.screenWatchedToggle(screen,false);updateWatchedCounter()" aria-label="Отбележи като негледано"><i class="fa fa-fw fa-check"></i></button>
+					</td>
 					<td>
 						<img class="rounded shadow-sm" src="{{screen.poster}}" alt=" " style="height: 76px;width: 51px" *ngIf="screen.poster">
 						<img class="bg-crow rounded border shadow-sm" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;height: 76px;width: 51px;" alt="Постер">
 					</td>
-					<td class="align-middle position-relative">
-						<div class="d-flex justify-content-between align-items-center">
+					<td class="align-middle">
+						<div class="d-flex justify-content-between align-items-center position-relative">
 							<div>
 								<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
 									{{ this.lib.screenTitle(screen.title) }}
@@ -143,7 +156,10 @@
 						</div>
 					</td>
 					<td class="align-middle text-center d-sm-table-cell d-none"><small class="d-inline-block border border-secondary text-secondary px-1" *ngIf="screen.rated">{{ screen.rated }}</small></td>
-					<td class="align-middle text-center"><span *ngIf="screen.imdb_rating"><i class="fa fa-star mr-1" style="color: #f5c518"></i>{{ screen.imdb_rating }}<small class="text-secondary">/10</small></span></td>
+					<td class="align-middle text-center">
+						<span *ngIf="screen.imdb_rating"><i class="fa fa-star mr-1" style="color: #f5c518"></i>{{ screen.imdb_rating }}<small class="text-secondary">/10</small></span>
+						<div *ngIf="screen.imdb_votes && screens_sort_by == 'imdb_votes'"><small class="text-secondary">{{screen.imdb_votes.toLocaleString()}}</small></div>
+					</td>
 					<td class="align-middle text-center">
 						<span *ngIf="screen.metascore > 60" class="rounded" style="padding: 4px 6px; color: #fff;background-color: #6c3;">
 							{{screen.metascore}}

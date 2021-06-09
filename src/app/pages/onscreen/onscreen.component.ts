@@ -145,7 +145,7 @@ export class OnscreenComponent implements OnInit {
 	}
 
 	updateWatchedCounter() {
-		// this.screensWatchedCount = this.lib.screensWatchedCount();
+		this.screensWatchedCount = this.lib.screensWatchedCount();
 	}
 
 }
