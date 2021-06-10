@@ -23,8 +23,8 @@
 				<option value='imdb_rating' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'desc';changeSorting()">Оценка</option>
 				<option value='imdb_votes' (click)="screens_sort_by = $event.target.value;screens_sort_order = 'desc';changeSorting()">Гласове</option>
 			</select>
-			<label class="click" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'asc'" (click)="screens_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc ml-2"></i></label>
-			<label class="click" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'desc'" (click)="screens_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc ml-2"></i></label>
+			<label class="click p-2" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'asc'" (click)="screens_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc"></i></label>
+			<label class="click p-2" for="sorting" aria-label="Сортиране" *ngIf="screens_sort_order == 'desc'" (click)="screens_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc"></i></label>
 		</div>
 		<div class="ml-auto">
 			<button *ngIf="!filterOnscreenType" [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,14 +113,6 @@
 	<!-- LIST -->
 	<div class="onscreen-list mt-2" *ngIf="onscreen_layout  == 'list'">
 		<table class="table table-sm table-hover">
-			<thead>
-				<th></th>
-				<th>Заглавие</th>
-				<th class="text-center d-sm-table-cell d-none"><i class="fa fa-certificate"></i></th>
-				<th class="text-center"><img class="rounded" src="assets/img/imdb.png" height="24"></th>
-				<th class="text-center"><img src="assets/img/metacritics.png" height="24"></th>
-				<th class="text-center"><img src="assets/img/rottentomatoes.png" height="24"></th>
-			</thead>
 			<tbody>
 				<tr *ngFor="let screen of filtered_screens" [ngClass]="{'table-success': lib.isScreenWatched(screen)}">
 					<td class="text-center align-middle">

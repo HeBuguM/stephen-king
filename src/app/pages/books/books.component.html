@@ -22,8 +22,8 @@
 					<option value='title' (click)="books_sort_by = $event.target.value;books_sort_order = 'asc';changeSorting()">Заглавие</option>
 					<option value='pages' (click)="books_sort_by = $event.target.value;books_sort_order = 'asc';changeSorting()">Страници</option>
 				</select>
-				<label class="click" for="sorting" aria-label="Сортиране" *ngIf="books_sort_order == 'asc'" (click)="books_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc ml-2"></i></label>
-				<label class="click" for="sorting" aria-label="Сортиране" *ngIf="books_sort_order == 'desc'" (click)="books_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc ml-2"></i></label>
+				<label class="click p-2" for="sorting" aria-label="Сортиране" *ngIf="books_sort_order == 'asc'" (click)="books_sort_order = 'desc';changeSorting()"><i class="fa fa-sort-amount-asc"></i></label>
+				<label class="click p-2" for="sorting" aria-label="Сортиране" *ngIf="books_sort_order == 'desc'" (click)="books_sort_order = 'asc';changeSorting()"><i class="fa fa-sort-amount-desc"></i></label>
 			</div>
 			<div class="ml-auto">
 				<button *ngIf="!filterBookType" [ngClass]="{'btn': true,'btn-primary': hasfilter(), 'btn-outline-secondary': !hasfilter()}" type="button" data-toggle="collapse" data-target="#Filter" aria-controls="Filter" aria-expanded="false" aria-label="Toggle navigation">
