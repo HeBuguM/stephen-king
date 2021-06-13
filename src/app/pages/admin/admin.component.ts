@@ -17,6 +17,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 })
 export class AdminComponent implements OnInit {
 	youtubeId:string = '';
+	progress_info: string = '';
 
 	// Pages
 	showBooks = true;
@@ -981,6 +982,45 @@ export class AdminComponent implements OnInit {
 		} else {
 			return false;
 		}
+	}
+
+	async updateIMDb() {
+		let current = 0;
+		let total = this.screens$.length;
+		for(let screen of this.screens$) {
+			current++;
+			if(screen.imdb_id) {
+				let data:any = await this.imdb.getTitleData(screen.imdb_id);
+				let imdb_votes = data.imdbVotes && data.imdbVotes != 'N/A' ? Number(data.imdbVotes.replace(/,/g,"")) : 0;
+				let rotten_tomatoes = 0;
+				let metascore = 0;
+				let imdb_rating = 0;
+				data.Ratings?.forEach(rate => {
+					if(rate.Source == 'Rotten Tomatoes') {
+						rotten_tomatoes = Number(rate.Value.replace("%","").replace("N/A",""))
+					}
+					if(rate.Source == 'Metacritic') {
+						metascore = Number(rate.Value.replace("/100","").replace("N/A",""))
+					}
+					if(rate.Source == 'Internet Movie Database') {
+						imdb_rating = Number(rate.Value.replace("/10","").replace("N/A",""))
+					}
+				});
+
+				const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
+				customRef.update({
+					imdb_rating: imdb_rating,
+					imdb_votes: imdb_votes,
+					rotten_tomatoes: rotten_tomatoes,
+					metascore: metascore
+				});
+
+				this.progress_info = current + '/' + total;
+				console.info(screen.title + ' updated!');
+				await new Promise(r => setTimeout(r, 500));
+			}
+		}
+		this.progress_info = '';
 	}
 
 	async parseIMDb(Form) {

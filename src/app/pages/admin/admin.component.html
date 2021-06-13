@@ -89,7 +89,9 @@
 						<a class="nav-link click" [ngClass]="{'active': showData}" (click)="changeSection('data')">Данни</a>
 					</li>
 				</ul>
-				<button class="btn btn-warning" (click)="updateCustom()" [hidden]="true">Обнови (custom)</button>
+				<button class="btn btn-warning ml-2" (click)="updateCustom()" [hidden]="true">Обнови (custom)</button>
+				<button class="btn btn-warning ml-2" *ngIf="screens$" (click)="updateIMDb()">Обнови IMDb</button>
+				<button class="btn btn-outline-secondary ml-2" disabled *ngIf="progress_info">{{progress_info}}</button>
 			</div>
 			<!-- ТАБЛИЦА КНИГИ -->
 			<table class="table table-sm table-striped table-hover" *ngIf="showBooks && books$">
