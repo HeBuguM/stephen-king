@@ -995,6 +995,7 @@ export class AdminComponent implements OnInit {
 				let rotten_tomatoes = 0;
 				let metascore = 0;
 				let imdb_rating = 0;
+				let new_votes = imdb_votes - screen.imdb_votes;
 				data.Ratings?.forEach(rate => {
 					if(rate.Source == 'Rotten Tomatoes') {
 						rotten_tomatoes = Number(rate.Value.replace("%","").replace("N/A",""))
@@ -1016,8 +1017,8 @@ export class AdminComponent implements OnInit {
 				});
 
 				this.progress_info = current + '/' + total;
-				console.info(screen.title + ' updated!');
-				await new Promise(r => setTimeout(r, 500));
+				console.info(screen.title + ' | ('+new_votes+')');
+				await new Promise(r => setTimeout(r, 300));
 			}
 		}
 		this.progress_info = '';
