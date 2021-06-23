@@ -6,7 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Onscreen } from '../../models/Onscreen';
 import { SeoService } from 'src/app/services/seo.service';
 import { TMDbService } from 'src/app/services/tmdb.service';
-import { Subscription } from 'rxjs';
+import { range, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-screen',
@@ -17,12 +17,17 @@ import { Subscription } from 'rxjs';
 export class ScreenComponent implements OnInit {
 	@Input() slug: string;
 	@Input() screen$: Onscreen;
-	cast_crew;
-	subscriptionCastCrew: Subscription;
 	screen: Onscreen;
 	youtubeId:string = '';
+
+	cast_crew;
+	subscriptionCastCrew: Subscription;
 	cast_limit: number = 8;
 	crew_limit: number = 4;
+
+	subscriptionSeason: Subscription;
+	season;
+	selected_season: number = 1;
 
 	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService, private modalService: NgbModal, private TMDb: TMDbService) { }
 
@@ -61,18 +66,19 @@ export class ScreenComponent implements OnInit {
 					slug: this.slug
 				});
 				this.getCastAndCrew();
+				this.getSeason();
+
 			})
 		} else {
 			this.screen = this.screen$;
 			this.getCastAndCrew();
+			this.getSeason();
 		}
-
 	}
 
 	ngOnDestroy(): void {
-		if(this.subscriptionCastCrew) {
-			this.subscriptionCastCrew.unsubscribe();
-		}
+		if(this.subscriptionCastCrew) {this.subscriptionCastCrew.unsubscribe();	}
+		if(this.subscriptionSeason) {this.subscriptionSeason.unsubscribe();	}
 	}
 
 	getCastAndCrew() {
@@ -91,6 +97,21 @@ export class ScreenComponent implements OnInit {
 				});
 			}
 		}
+	}
+
+	getSeason() {
+		if(this.screen.tmdb_id) {
+			if(this.screen.tmdb_id.indexOf("tv") > -1)  {
+				let season$ = this.TMDb.requestData(this.screen.tmdb_id+'/season/'+this.selected_season);
+				this.subscriptionSeason = season$.subscribe(season => {
+					this.season = season;
+				});
+			}
+		}
+	}
+
+	seasonsRange() {
+		return new Array(this.screen.seasons);
 	}
 
 	showAllCast() {
