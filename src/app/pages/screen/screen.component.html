@@ -159,16 +159,15 @@
 						</div>
 					</div>
 				</h3>
-				<div class="card-body">
-					<table class="table table-sm">
-						<tbody>
-							<tr *ngFor="let episode of season.episodes">
-								<td class="px-3 text-center">{{episode.episode_number}}</td>
-								<td class="w-75">{{episode.name}}</td>
-								<td class="px-3 text-right"><small class="text-secondary">{{lib.publishedDate(episode.air_date, 'long')}}</small></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="card-body d-inline-flex flex-wrap p-0">
+					<div class="media col-12 col-md-6 p-2" *ngFor="let episode of season.episodes">
+						<img *ngIf="episode.still_path" loading="lazy" class="rounded shadow-sm float-left mr-3" style="height: 60px" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2/{{episode.still_path}}" alt="{{episode.name}}">
+						<div class="" *ngIf="!episode.still_path" style="width: 107.25px; height: 60px;" class="bg-crow float-left mr-3"></div>
+						<div class="media-body">
+							<div class="my-1"><small class="text-secondary">{{episode.episode_number}}</small><span class="separator">|</span>{{episode.name}}</div>
+							<div><small class="text-secondary"><i>{{lib.publishedDate(episode.air_date, 'long')}}</i></small></div>
+						</div>
+					  </div>
 				</div>
 			</div>
 		</div>
