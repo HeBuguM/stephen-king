@@ -26,6 +26,7 @@ import { ShortComponent } from './pages/short/short.component';
 import { OnscreenComponent } from './pages/onscreen/onscreen.component';
 import { PlayerComponent } from './templates/youtube/player/player.component';
 import { ScreenComponent } from './pages/screen/screen.component';
+import { AdminOldComponent } from './pages/admin-old/admin-old.component';
 
 @NgModule({
   declarations: [
