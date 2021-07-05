@@ -2,12 +2,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { LibraryService } from '../../services/library.service'
 import { IMDbService } from '../../services/imdb.service'
 import { TMDbService } from '../../services/tmdb.service'
+import { MySQLService } from '../../services/mysql.service'
 import { Title } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-
-import * as firebase from 'firebase/app';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
 	selector: 'app-admin',
@@ -24,7 +22,7 @@ export class AdminComponent implements OnInit {
 	showEditions = false;
 	showShorts = false;
 	showScreens = false;
-	showData = false;
+	showSitemap = false;
 
 	// Forms
 	showBooksForm = false;
@@ -33,6 +31,7 @@ export class AdminComponent implements OnInit {
 	showScreensForm = false;
 	showBooksShortsForm = false;
 	showEditionsShortsForm = false;
+	showEditionsISBNsForm = false;
 	showScreenConnectionForm = false;
 
 	books$;
@@ -41,7 +40,8 @@ export class AdminComponent implements OnInit {
 	screens$;
 	book_shorts$;
 	edition_shorts$;
-	screen_connections$;
+	edition_isbns$;
+	onscreen_connections$;
 
 	exportBooks = {};
 	exportEditions = [];
@@ -88,7 +88,6 @@ export class AdminComponent implements OnInit {
 		published: [''],
 		publisher: [''],
 		pages: [0],
-		ISBNs: this.fb.array([]),
 		translators: [''],
 		narrators: [''],
 		note: [''],
@@ -113,7 +112,7 @@ export class AdminComponent implements OnInit {
 	});
 
 	screenForm = this.fb.group({
-		onscreen_id: ['', Validators.required],
+		onscreen_id: [0, Validators.required],
 		title: ['', Validators.required],
 		slug: ['', Validators.required],
 		type: [''],
@@ -144,12 +143,14 @@ export class AdminComponent implements OnInit {
 	});
 
 	bookShortForm = this.fb.group({
+		id: [0, Validators.required],
 		book_id: ['', Validators.required],
 		short_id: ['', Validators.required],
 		position: [0]
 	});
 
 	editionShortForm = this.fb.group({
+		id: [0, Validators.required],
 		edition_id: ['', Validators.required],
 		short_id: ['', Validators.required],
 		title: ['', Validators.required],
@@ -157,7 +158,15 @@ export class AdminComponent implements OnInit {
 		position: [0]
 	});
 
+	editionISBNForm = this.fb.group({
+		id: [0, Validators.required],
+		edition_id: ['', Validators.required],
+		isbn: ['', Validators.required],
+		info: ['']
+	});
+
 	screenConnectionForm = this.fb.group({
+		id: [0, Validators.required],
 		onscreen_id: ['', Validators.required],
 		book_id: [''],
 		short_id: [''],
@@ -167,7 +176,7 @@ export class AdminComponent implements OnInit {
 
 	constructor(
 		public lib: LibraryService,
-		private afs: AngularFirestore,
+		private mysql: MySQLService,
 		private browser: Title,
 		public imdb: IMDbService,
 		public tmdb: TMDbService,
@@ -176,49 +185,34 @@ export class AdminComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.browser.setTitle(`Администрация - Стивън Кинг`)
-	}
-
-	createISBN(): FormGroup {
-		return this.fb.group({
-		  ISBN: '',
-		  info: ''
-		});
-	}
-	addISBN(Form, ISBN?): void {
-		const control = Form.get('ISBNs') as FormArray;
-		control.push(ISBN ? this.fb.group(ISBN) : this.createISBN());
-	}
-	removeISBN(i: number) {
-		const control = this.editionForm.get('ISBNs') as FormArray;
-		control.removeAt(i);
+		this.browser.setTitle(`Администрация - Стивън Кинг`);
+		// this.loadData();
 	}
 
 	loadData(data = '') {
-		if (!this.books$ && (data == 'books' || !data)) {
-			this.afs.collection('books', ref => { return ref.orderBy('book_id') }).valueChanges().subscribe((data) => { this.books$ = data; });
-			this.changeSection('books');
+		if (data == 'books' || !data) {
+			this.mysql.get('books',{'order': 'book_id'}).subscribe((data) => { this.books$ = data; });
 		}
-		if (!this.editions$ && (data == 'editions' || !data)) {
-			this.afs.collection('editions', ref => { return ref.orderBy('published') }).valueChanges().subscribe((data) => { this.editions$ = data; });
-			this.changeSection('editions');
+		if (data == 'editions' || !data) {
+			this.mysql.get('editions',{'order': 'published'}).subscribe((data) => { this.editions$ = data; });
 		}
-		if (!this.shorts$ && (data == 'shorts' || !data)) {
-			this.afs.collection('shorts', ref => { return ref.orderBy('first_pub_date') }).valueChanges().subscribe((data) => { this.shorts$ = data; });
-			this.changeSection('shorts');
+		if (data == 'shorts' || !data) {
+			this.mysql.get('shorts',{'order': 'first_pub_date'}).subscribe((data) => { this.shorts$ = data; });
 		}
-		if (!this.screens$ && (data == 'screens' || !data)) {
-			this.afs.collection('onscreen', ref => { return ref.orderBy('released') }).valueChanges().subscribe((data) => { this.screens$ = data; });
-			this.changeSection('screens');
+		if (data == 'screens' || !data) {
+			this.mysql.get('onscreen',{'order': 'released'}).subscribe((data) => { this.screens$ = data; });
 		}
-		if (!this.book_shorts$ && (data == 'book-shorts' || !data)) {
-			this.afs.collection('book-shorts', ref => { return ref.orderBy('position') }).valueChanges().subscribe((data) => { this.book_shorts$ = data; });
+		if (data == 'book_shorts' || !data) {
+			this.mysql.get('book_shorts',{'order': 'position'}).subscribe((data) => { this.book_shorts$ = data; });
 		}
-		if (!this.edition_shorts$ && (data == 'edition-shorts' || !data)) {
-			this.afs.collection('edition-shorts', ref => { return ref.orderBy('position') }).valueChanges().subscribe((data) => { this.edition_shorts$ = data; });
+		if (data == 'edition_shorts' || !data) {
+			this.mysql.get('edition_shorts',{'order': 'position'}).subscribe((data) => { this.edition_shorts$ = data; });
 		}
-		if (!this.screen_connections$ && (data == 'screen-connections' || !data)) {
-			this.afs.collection('onscreen-connections', ref => { return ref.orderBy('info') }).valueChanges().subscribe((data) => { this.screen_connections$ = data; });
+		if (data == 'onscreen_connections' || !data) {
+			this.mysql.get('onscreen_connections',{'order': 'info'}).subscribe((data) => { this.onscreen_connections$ = data; });
+		}
+		if (data == 'edition_isbns' || !data) {
+			this.mysql.get('edition_isbns').subscribe((data) => { this.edition_isbns$ = data; });
 		}
 	}
 
@@ -227,7 +221,7 @@ export class AdminComponent implements OnInit {
 		this.showEditions = section == 'editions' ? true : false;
 		this.showShorts = section == 'shorts' ? true : false;
 		this.showScreens = section == 'screens' ? true : false;
-		this.showData = section == 'data' ? true : false;
+		this.showSitemap = section == 'sitemap' ? true : false;
 	}
 
 	openModal(content) {
@@ -241,6 +235,7 @@ export class AdminComponent implements OnInit {
 				this.showBooksShortsForm = false;
 				this.showEditionsShortsForm = false;
 				this.showScreenConnectionForm = false;
+				this.showEditionsISBNsForm = false;
 			}
 		);
 	}
@@ -250,7 +245,7 @@ export class AdminComponent implements OnInit {
 			this.bookForm.patchValue(data);
 		} else {
 			this.bookForm.patchValue({
-				book_id: this.books$.length+1,
+				book_id: 0,
 				type: '',
 				title: '',
 				published: '',
@@ -275,7 +270,7 @@ export class AdminComponent implements OnInit {
 	editShort(data) {
 		if(data === null) {
 			data = {
-				short_id: this.shorts$.length+1,
+				short_id: 0,
 				type: '',
 				title: '',
 				subtitle: '',
@@ -297,7 +292,7 @@ export class AdminComponent implements OnInit {
 	editScreen(data) {
 		if(data === null) {
 			data = {
-				onscreen_id: this.screens$?.length+1,
+				onscreen_id: 0,
 				title: '',
 				slug:'',
 				type: '',
@@ -331,15 +326,14 @@ export class AdminComponent implements OnInit {
 	}
 
 	editEdition(data) {
-		this.editionForm.reset();
+		// this.editionForm.reset();
 		if(data === null) {
 			data = {
-				edition_id: this.editions$.length+1,
+				edition_id: 0,
 				book_id: 0,
 				language: 'bg',
 				group_id: 0,
 				title: '',
-				ISBNs: [],
 				published: '',
 				publisher: '',
 				pages: 0,
@@ -351,22 +345,16 @@ export class AdminComponent implements OnInit {
 			}
 		}
 		this.editionForm.patchValue(data);
-		let controls = this.editionForm.get("ISBNs") as FormArray;
-		controls.clear();
-		if(data.ISBNs?.length > 0) {
-			for(let ISBN of data.ISBNs) {
-				this.addISBN(this.editionForm, ISBN);
-			}
-		}
 		this.showEditionsForm = true;
 	}
 
 	editBookShort(data) {
 		if(data === null) {
 			data = {
-				book_id: 0,
-				short_id: 0,
-				position: 0
+				id: 0,
+				book_id: '',
+				short_id: '',
+				position: ''
 			}
 		}
 		this.bookShortForm.patchValue(data);
@@ -376,8 +364,9 @@ export class AdminComponent implements OnInit {
 	editEditionShort(data) {
 		if(data === null) {
 			data = {
-				edition_id: 0,
-				short_id: 0,
+				id: 0,
+				edition_id: '',
+				short_id: '',
 				title: '',
 				subtitle: '',
 				position: 0
@@ -387,9 +376,23 @@ export class AdminComponent implements OnInit {
 		this.showEditionsShortsForm = true;
 	}
 
+	editEditionISBN(data) {
+		if(data === null) {
+			data = {
+				id: 0,
+				edition_id: '',
+				isbn: '',
+				info: ''
+			}
+		}
+		this.editionISBNForm.patchValue(data);
+		this.showEditionsISBNsForm = true;
+	}
+
 	editScreenConnection(data) {
 		if(data === null) {
 			data = {
+				id: 0,
 				onscreen_id: '',
 				book_id: '',
 				short_id: '',
@@ -402,345 +405,51 @@ export class AdminComponent implements OnInit {
 	}
 
 	onBookFormSubmit() {
-		this.afs.doc(`books/${this.bookForm.value.book_id}`).set({...this.bookForm.value,last_modified: new Date()}, { merge: true });
+		this.mysql.edit("books",this.bookForm.value).subscribe((data) => { if(data.success == true) { this.loadData('books') } else { alert(data.error) } });
 		this.modalService.dismissAll();
 	}
 
 	onEditionFormSubmit() {
-		this.afs.doc(`editions/${this.editionForm.value.edition_id}`).set({...this.editionForm.value,last_modified: new Date()}, { merge: true });
+		this.mysql.edit("editions",this.editionForm.value).subscribe((data) => { if(data.success == true) { this.loadData('editions') } else { alert(data.error) } });
 		this.modalService.dismissAll();
 	}
 
 	onShortFormSubmit() {
-		this.afs.doc(`shorts/${this.shortForm.value.short_id}`).set({...this.shortForm.value,last_modified: new Date()}, { merge: true });
+		this.mysql.edit("shorts",this.shortForm.value).subscribe((data) => { if(data.success == true) { this.loadData('shorts') } else { alert(data.error) } });
 		this.modalService.dismissAll();
 	}
 
 	onScreenFormSubmit() {
-		this.afs.doc(`onscreen/${this.screenForm.value.onscreen_id}`).set({...this.screenForm.value,last_modified: new Date()}, { merge: true });
+		this.mysql.edit("onscreen",this.screenForm.value).subscribe((data) => { if(data.success == true) { this.loadData('screens') } else { alert(data.error) } });
 		this.modalService.dismissAll();
 	}
 
 	onBookShortFormSubmit() {
-		this.afs.doc(`book-shorts/${this.bookShortForm.value.book_id}-${this.bookShortForm.value.short_id}`).set(this.bookShortForm.value, { merge: true });
-		this.afs.doc(`books/${this.bookShortForm.value.book_id}`).set({last_modified: new Date()}, { merge: true });
-		this.afs.doc(`shorts/${this.bookShortForm.value.short_id}`).set({last_modified: new Date()}, { merge: true });
+		this.mysql.edit("book_shorts",this.bookShortForm.value).subscribe((data) => { if(data.success == true) { this.loadData('book_shorts') } else { alert(data.error) } });
 		this.modalService.dismissAll();
 	}
 
 	onEditionShortFormSubmit() {
-		this.afs.doc(`edition-shorts/${this.editionShortForm.value.edition_id}-${this.editionShortForm.value.short_id}`).set(this.editionShortForm.value, { merge: true });
-		this.afs.doc(`editions/${this.editionShortForm.value.edition_id}`).set({last_modified: new Date()}, { merge: true });
-		this.afs.doc(`shorts/${this.editionShortForm.value.short_id}`).set({last_modified: new Date()}, { merge: true });
+		this.mysql.edit("edition_shorts",this.editionShortForm.value).subscribe((data) => { if(data.success == true) { this.loadData('edition_shorts') } else { alert(data.error) } });
+		this.modalService.dismissAll();
+	}
+
+	onEditionISBNFormSubmit() {
+		this.mysql.edit("edition_isbns",this.editionISBNForm.value).subscribe((data) => { if(data.success == true) { this.loadData('edition_isbns') } else { alert(data.error) } });
 		this.modalService.dismissAll();
 	}
 
 	onScreenConnectionFormSubmit() {
-		if(this.screenConnectionForm.value.book_id > 0) {
-			this.afs.doc(`onscreen-connections/${this.screenConnectionForm.value.onscreen_id}-book-${this.screenConnectionForm.value.book_id}`).set(this.screenConnectionForm.value, { merge: true });
-			this.afs.doc(`books/${this.screenConnectionForm.value.book_id}`).set({last_modified: new Date()}, { merge: true });
-		}
-		if(this.screenConnectionForm.value.short_id > 0) {
-			this.afs.doc(`onscreen-connections/${this.screenConnectionForm.value.onscreen_id}-short-${this.screenConnectionForm.value.short_id}`).set(this.screenConnectionForm.value, { merge: true });
-			this.afs.doc(`shorts/${this.screenConnectionForm.value.short_id}`).set({last_modified: new Date()}, { merge: true });
-		}
+		this.mysql.edit("onscreen_connections",this.screenConnectionForm.value).subscribe((data) => { if(data.success == true) { this.loadData('onscreen_connections') } else { alert(data.error) } });
 		this.modalService.dismissAll();
 	}
 
-	exportFirestoreBooks() {
-		// Building Books Array
-		for (let book of this.books$) {
-			this.exportBooks[book.book_id] = book;
-		}
-
-		// Building Shorts Array
-		for (let short of this.shorts$) {
-			const Short = {
-				...short,
-				...{
-					collection_title: (short.first_collected > 0 ? this.exportBooks[short.first_collected].title : ""),
-					collection_published: (short.first_collected > 0 ? this.exportBooks[short.first_collected].published : "")
-				}
-			}
-			this.exportShorts[short.short_id] = Short;
-		}
-
-		// Building Screens Array
-		for (let screen of this.screens$) {
-			this.exportScreens[screen.onscreen_id] = {...screen,books:[], shorts:[]};
-		}
-
-		// Building Editions Array
-		for (let edition of this.editions$) {
-			this.exportEditions[edition.edition_id] = edition;
-		}
-
-		// Adding Book-Shorts connections
-		for (let book_short of this.book_shorts$) {
-			// Shorts to books
-			if (this.exportBooks[book_short.book_id]['shorts'] === undefined) {
-				this.exportBooks[book_short.book_id]['shorts'] = [];
-			}
-			const BookShort = {
-				short_id: Number(book_short.short_id),
-				type: this.exportShorts[book_short.short_id].type,
-				title: this.exportShorts[book_short.short_id].title,
-				subtitle: this.exportShorts[book_short.short_id].subtitle,
-				first_pub_in: this.exportShorts[book_short.short_id].first_pub_in,
-				first_pub_date: this.exportShorts[book_short.short_id].first_pub_date,
-				first_collected: this.exportShorts[book_short.short_id].first_collected,
-				position: book_short.position
-			};
-			this.exportBooks[book_short.book_id]['shorts'].push(BookShort);
-			// Books to shorts
-			if (this.exportShorts[book_short.short_id]['books'] === undefined) {
-				this.exportShorts[book_short.short_id]['books'] = [];
-			}
-			const ShortBook = {
-				book_id: Number(book_short.book_id),
-				title: this.exportBooks[book_short.book_id].title,
-				published: this.exportBooks[book_short.book_id].published,
-				publisher: this.exportBooks[book_short.book_id].publisher
-			}
-			this.exportShorts[book_short.short_id]['books'].push(ShortBook);
-		}
-
-		// Build Edition-Shorts Connections
-		for (let edition_short of this.edition_shorts$) {
-			if (this.exportEditionShorts[edition_short.edition_id] === undefined) {
-				this.exportEditionShorts[edition_short.edition_id] = [];
-			}
-			const EditionShort = {
-				short_id: Number(edition_short.short_id),
-				title: edition_short.title,
-				subtitle: edition_short.subtitle,
-				position: edition_short.position
-			};
-			this.exportEditionShorts[edition_short.edition_id].push(EditionShort);
-			// Shorts to editions
-			if (this.exportShorts[edition_short.short_id]['editions'] === undefined) {
-				this.exportShorts[edition_short.short_id]['editions'] = [];
-			}
-			if (this.exportEditions[edition_short.edition_id] === undefined) {
-				console.log(edition_short);
-			}
-			const ShortEdition = {
-				edition_id: Number(edition_short.edition_id),
-				title: edition_short.title,
-				subtitle: edition_short.subtitle,
-				edition_title: this.exportEditions[edition_short.edition_id].title,
-				published: this.exportEditions[edition_short.edition_id].published,
-				publisher: this.exportEditions[edition_short.edition_id].publisher,
-				translators: this.exportEditions[edition_short.edition_id].translators,
-				narrators: this.exportEditions[edition_short.edition_id].narrators
-			}
-			this.exportShorts[edition_short.short_id]['editions'].push(ShortEdition);
-		}
-
-		// Add Editions
-		for (let edition of this.editions$) {
-			if (this.exportBooks[edition.book_id] !== undefined) {
-				if (this.exportBooks[edition.book_id]['editions'] === undefined) {
-					this.exportBooks[edition.book_id]['editions'] = [];
-				}
-				if (this.exportEditionShorts[edition.edition_id] !== undefined) {
-					edition['shorts'] = this.exportEditionShorts[edition.edition_id];
-				} else {
-					edition['shorts'] = [];
-				}
-				this.exportBooks[edition.book_id]['editions'].push(edition);
-			}
-		}
-
-		// Add Screen Connections
-		for (let connection of this.screen_connections$) {
-			const Screen = {
-				onscreen_id: Number(connection.onscreen_id),
-				title: this.exportScreens[connection.onscreen_id].title,
-				slug: this.exportScreens[connection.onscreen_id].slug,
-				year: this.exportScreens[connection.onscreen_id].year,
-				released: this.exportScreens[connection.onscreen_id].released,
-				status: this.exportScreens[connection.onscreen_id].status,
-				poster: this.exportScreens[connection.onscreen_id].poster,
-				type: this.exportScreens[connection.onscreen_id].type,
-				network: this.exportScreens[connection.onscreen_id].network,
-				rated: this.exportScreens[connection.onscreen_id].rated,
-				runtime: this.exportScreens[connection.onscreen_id].runtime,
-				seasons: this.exportScreens[connection.onscreen_id].seasons,
-				episodes: this.exportScreens[connection.onscreen_id].episodes,
-				imdb_id: this.exportScreens[connection.onscreen_id].imdb_id,
-				imdb_rating: this.exportScreens[connection.onscreen_id].imdb_rating,
-				imdb_votes: this.exportScreens[connection.onscreen_id].imdb_votes,
-				trailer: this.exportScreens[connection.onscreen_id].trailer,
-				upcoming: this.exportScreens[connection.onscreen_id].upcoming,
-				connections: {}
-			};
-			const Connection = {
-				type: connection.type,
-				info: connection.info
-			}
-			const unique_id = connection.onscreen_id + '-' + (connection.book_id > 0 ? connection.book_id : 0) + '-' + (connection.short_id > 0 ? connection.short_id : 0);
-			if(connection.book_id > 0) {
-				// To Screen
-				const BookConnection = {
-					book_id: connection.book_id,
-					title: this.exportBooks[connection.book_id].title,
-					type: this.exportBooks[connection.book_id].type,
-					published: this.exportBooks[connection.book_id].published,
-					publisher: this.exportBooks[connection.book_id].publisher,
-					series_name: this.exportBooks[connection.book_id].series_name,
-					series_no: this.exportBooks[connection.book_id].series_no,
-					connection_type: connection.type,
-				    connection_info: connection.info
-				}
-				this.exportScreens[connection.onscreen_id]['books'].push(BookConnection);
-
-				// To Book
-				if (this.exportBooks[connection.book_id] !== undefined) {
-					if (this.exportBooks[connection.book_id]['onscreen'] === undefined) {
-						this.exportBooks[connection.book_id]['onscreen'] = [];
-					}
-					if(this.exportBooks[connection.book_id]['onscreen'][connection.onscreen_id] === undefined){
-						this.exportBooks[connection.book_id]['onscreen'][connection.onscreen_id] = Screen;
-					}
-					this.exportBooks[connection.book_id]['onscreen'][connection.onscreen_id].connections[unique_id] = Connection;
-				}
-			}
-			if(connection.short_id > 0) {
-				// To Screen
-				const ShortConnection = {
-					short_id: connection.short_id,
-					title: this.exportShorts[connection.short_id].title,
-					subtitle: this.exportShorts[connection.short_id].subtitle,
-					type: this.exportShorts[connection.short_id].type,
-					published: this.exportShorts[connection.short_id].first_pub_date,
-					publisher: this.exportShorts[connection.short_id].first_pub_in,
-					collection_id: this.exportShorts[connection.short_id].first_collected,
-					collection_title: this.exportShorts[connection.short_id].collection_title,
-					collection_published: this.exportShorts[connection.short_id].collection_published,
-					connection_type: connection.type,
-				    connection_info: connection.info
-				}
-				this.exportScreens[connection.onscreen_id]['shorts'].push(ShortConnection);
-
-				// To Short
-				if (this.exportShorts[connection.short_id] !== undefined) {
-					if (this.exportShorts[connection.short_id]['onscreen'] === undefined) {
-						this.exportShorts[connection.short_id]['onscreen'] = [];
-					}
-					if(this.exportShorts[connection.short_id]['onscreen'][connection.onscreen_id] === undefined){
-						this.exportShorts[connection.short_id]['onscreen'][connection.onscreen_id] = Screen;
-					}
-					this.exportShorts[connection.short_id]['onscreen'][connection.onscreen_id].connections[unique_id] = Connection;
-				}
-			}
-		}
-
-		// Add Short Story Collection connections
-		for (let connection_coll of this.screen_connections$) {
-			const Screen = {
-				onscreen_id: Number(connection_coll.onscreen_id),
-				title: this.exportScreens[connection_coll.onscreen_id].title,
-				slug: this.exportScreens[connection_coll.onscreen_id].slug,
-				year: this.exportScreens[connection_coll.onscreen_id].year,
-				poster: this.exportScreens[connection_coll.onscreen_id].poster,
-				type: this.exportScreens[connection_coll.onscreen_id].type,
-				network: this.exportScreens[connection_coll.onscreen_id].network,
-				rated: this.exportScreens[connection_coll.onscreen_id].rated,
-				runtime: this.exportScreens[connection_coll.onscreen_id].runtime,
-				seasons: this.exportScreens[connection_coll.onscreen_id].seasons,
-				episodes: this.exportScreens[connection_coll.onscreen_id].episodes,
-				imdb_id: this.exportScreens[connection_coll.onscreen_id].imdb_id,
-				imdb_rating: this.exportScreens[connection_coll.onscreen_id].imdb_rating,
-				imdb_votes: this.exportScreens[connection_coll.onscreen_id].imdb_votes,
-				trailer: this.exportScreens[connection_coll.onscreen_id].trailer,
-				connections: {}
-			};
-			const Connection = {
-				type: connection_coll.type,
-				info: connection_coll.info
-			}
-			const unique_id = connection_coll.onscreen_id + '-' + (connection_coll.book_id > 0 ? connection_coll.book_id : 0) + '-' + (connection_coll.short_id > 0 ? connection_coll.short_id : 0);
-			if(connection_coll.short_id > 0) {
-				if(this.exportShorts[connection_coll.short_id]['books'] !== undefined) {
-					for (let collection of this.exportShorts[connection_coll.short_id]['books']) {
-						if (this.exportBooks[collection.book_id]['onscreen'] === undefined) {
-							this.exportBooks[collection.book_id]['onscreen'] = [];
-						}
-						if(this.exportBooks[collection.book_id]['onscreen'][connection_coll.onscreen_id] === undefined){
-							this.exportBooks[collection.book_id]['onscreen'][connection_coll.onscreen_id] = Screen;
-						}
-						this.exportBooks[collection.book_id]['onscreen'][connection_coll.onscreen_id].connections[unique_id] = Connection;
-					}
-				}
-			}
-		}
-
-		// Build Final Array (Books)
-		for (let book of Object.values(this.exportBooks)) {
-			if (!book['editions']) {
-				book['editions'] = [];
-			}
-			if (!book['shorts']) {
-				book['shorts'] = []
-			}
-			if (!book['onscreen']) {
-				book['onscreen'] = []
-			} else {
-				book['onscreen'] = this.lib.sortObject(book['onscreen'], 'released');
-				let converted = [];
-				for(let scr of book['onscreen']) {
-					scr.connections = Object.values(scr.connections)
-					converted.push(scr);
-				}
-				book['onscreen'] = converted;
-			}
-			this.finalBooks.push(book);
-		}
-		this.exportJSONbooks = JSON.stringify(this.lib.sortObject(this.finalBooks, 'published'));
-
-		// Build Final Array (Shorts)
-		for (let short of Object.values(this.exportShorts)) {
-			if (!short['books']) {
-				short['books'] = [];
-			}
-			if (!short['editions']) {
-				short['editions'] = []
-			} else {
-				short['editions'] = this.lib.sortObject(short['editions'], 'published')
-			}
-			if (!short['onscreen']) {
-				short['onscreen'] = [];
-			} else {
-				short['onscreen'] = this.lib.sortObject(short['onscreen'], 'year');
-				let converted = [];
-				for(let scr of short['onscreen']) {
-					scr.connections = Object.values(scr.connections)
-					converted.push(scr);
-				}
-				short['onscreen'] = converted;
-			}
-			this.finalShorts.push(short);
-		}
-		this.exportJSONshorts = JSON.stringify(this.lib.sortObject(this.finalShorts, 'first_pub_date'));
-
-		// Build Final Array (Screens)
-		for (let screen of Object.values(this.exportScreens)) {
-			if (!screen['books']) {
-				screen['books'] = [];
-			}
-			if (!screen['shorts']) {
-				screen['shorts'] = []
-			}
-			this.finalScreens.push(screen);
-		}
-		this.exportJSONscreens = JSON.stringify(this.lib.sortObject(this.finalScreens, 'year'));
-
+	exportSitemap() {
 		let last_books = '2020-07-01';
 		let last_shorts = '2020-07-01';
 		let last_screens = '2020-12-01';
 		this.books$.forEach(book => {
-			let lastmod = book.last_modified.toDate().toISOString().substring(0,10);
+			let lastmod = book.last_modified.substring(0,10);
 			if(last_books < lastmod){
 				last_books = lastmod;
 			}
@@ -751,7 +460,7 @@ export class AdminComponent implements OnInit {
 	</url>');
 		});
 		this.shorts$.forEach(short => {
-			let lastmod = short.last_modified.toDate().toISOString().substring(0,10);
+			let lastmod = short.last_modified.substring(0,10);
 			if(last_shorts < lastmod){
 				last_shorts = lastmod;
 			}
@@ -762,7 +471,7 @@ export class AdminComponent implements OnInit {
 	</url>');
 		});
 		this.screens$.forEach(screen => {
-			let lastmod = screen.last_modified.toDate().toISOString().substring(0,10);
+			let lastmod = screen.last_modified.substring(0,10);
 			if(last_screens < lastmod){
 				last_screens = lastmod;
 			}
@@ -800,74 +509,21 @@ export class AdminComponent implements OnInit {
 </urlset>';
 	}
 
-	updateFirestoreData(type) {
-		if(type === 'books') {
-			this.afs.doc(`data/books`).set({...this.finalBooks});
-			alert('Live Data updated ['+type+']')
-		}
-		if(type === 'shorts') {
-			this.afs.doc(`data/shorts`).set({...this.finalShorts});
-			alert('Live Data updated ['+type+']')
-		}
-		if(type === 'onscreen') {
-			this.afs.doc(`data/onscreen`).set({...this.finalScreens});
-			alert('Live Data updated ['+type+']')
-		}
-	}
-
-	downloadJSON(type) {
+	exportDatabase() {
 		var a = document.createElement('a');
-		if(type === 'books') {
-			var file = new Blob([this.exportJSONbooks], {type: 'application/json'});
+		let database = {
+			'books': this.books$,
+			'shorts': this.shorts$,
+			'editions': this.editions$,
+			'onscreen': this.screens$,
+			'book-shorts': this.book_shorts$,
+			'edition-shorts': this.edition_shorts$,
+			'edition-isbns': this.edition_isbns$,
+			'onscreen-connections': this.onscreen_connections$
 		}
-		if(type === 'shorts') {
-			var file = new Blob([this.exportJSONshorts], {type: 'application/json'});
-		}
-		if(type === 'onscreen') {
-			var file = new Blob([this.exportJSONscreens], {type: 'application/json'});
-		}
+		var file =  new Blob([JSON.stringify(database)], {type: 'application/json'});
 		a.href = URL.createObjectURL(file);
-		a.download = type + '.json';
-		a.click();
-	}
-
-	exportTable(type) {
-		var a = document.createElement('a');
-		if(type === 'books') {
-			var file = new Blob([JSON.stringify(this.books$)], {type: 'application/json'});
-		}
-		if(type === 'shorts') {
-			var file = new Blob([JSON.stringify(this.shorts$)], {type: 'application/json'});
-		}
-		if(type === 'editions') {
-			var file = new Blob([JSON.stringify(this.editions$)], {type: 'application/json'});
-		}
-		if(type === 'onscreen') {
-			var file = new Blob([JSON.stringify(this.screens$)], {type: 'application/json'});
-		}
-		if(type === 'book-shorts') {
-			var file = new Blob([JSON.stringify(this.book_shorts$)], {type: 'application/json'});
-		}
-		if(type === 'edition-shorts') {
-			var file = new Blob([JSON.stringify(this.edition_shorts$)], {type: 'application/json'});
-		}
-		if(type === 'onscreen-connections') {
-			var file = new Blob([JSON.stringify(this.screen_connections$)], {type: 'application/json'});
-		}
-		if(type === 'database') {
-			let database = {
-				'books': this.books$,
-				'shorts': this.shorts$,
-				'editions': this.editions$,
-				'onscreen': this.screens$,
-				'book-shorts': this.book_shorts$,
-				'edition-shorts': this.edition_shorts$,
-				'onscreen-connections': this.screen_connections$
-			}
-			var file =  new Blob([JSON.stringify(database)], {type: 'application/json'});
-		}
-		a.href = URL.createObjectURL(file);
-		a.download = type + '.json';
+		a.download = 'database.json';
 		a.click();
 	}
 
@@ -882,38 +538,7 @@ export class AdminComponent implements OnInit {
 	}
 
 	updateCustom() {
-		// this.books$.forEach(book => {
-		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`books/${book.book_id}`);
-		// 	customRef.update({
-		// 		upcoming: 0
-		// 	});
-		// 	console.info(book.title + ' updated');
-		// });
 
-		// this.screens$.forEach(screen => {
-		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
-		// 	customRef.update({
-		// 		writers: firebase.firestore.FieldValue.delete(),
-		// 		directors: firebase.firestore.FieldValue.delete()
-		// 	});
-		// 	console.info(screen.title + ' updated');
-		// });
-
-		// this.shorts$.forEach(short => {
-		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`shorts/${short.short_id}`);
-		// 	customRef.update({
-		// 		upcoming: 0
-		// 	});
-		// 	console.info(short.title + ' updated');
-		// });
-
-		// this.screens$.forEach(screen => {
-		// 	const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
-		// 	customRef.update({
-		// 		slug: this.lib.seoUrl(screen.title)
-		// 	});
-		// 	console.info(screen.title + ' updated');
-		// });
 	}
 
 	getShort(short_id) {
@@ -935,6 +560,14 @@ export class AdminComponent implements OnInit {
 	getEdition(edition_id) {
 		if (this.editions$) {
 			return this.editions$.filter(b => b.edition_id == edition_id)[0];
+		} else {
+			return [];
+		}
+	}
+
+	getEditionISBNs(edition_id) {
+		if (this.edition_isbns$) {
+			return this.edition_isbns$.filter(b => b.edition_id == edition_id);
 		} else {
 			return [];
 		}
@@ -975,9 +608,9 @@ export class AdminComponent implements OnInit {
 	}
 
 	getScreenConnections(ref) {
-		if (this.screen_connections$) {
+		if (this.onscreen_connections$) {
 			if (ref.onscreen_id) {
-				return this.screen_connections$.filter(s => s.onscreen_id == ref.onscreen_id)
+				return this.onscreen_connections$.filter(s => s.onscreen_id == ref.onscreen_id)
 			}
 		} else {
 			return false;
@@ -1007,17 +640,17 @@ export class AdminComponent implements OnInit {
 						imdb_rating = Number(rate.Value.replace("/10","").replace("N/A",""))
 					}
 				});
-
-				const customRef: AngularFirestoreDocument<any> = this.afs.doc(`onscreen/${screen.onscreen_id}`);
-				customRef.update({
+				let body = {
+					onscreen_id: screen.onscreen_id,
 					imdb_rating: imdb_rating,
 					imdb_votes: imdb_votes,
 					rotten_tomatoes: rotten_tomatoes,
 					metascore: metascore
+				};
+				this.mysql.edit("onscreen", body).subscribe((data) => {
+					this.progress_info = current + '/' + total;
+					console.info(screen.title + ' | ('+new_votes+')');
 				});
-
-				this.progress_info = current + '/' + total;
-				console.info(screen.title + ' | ('+new_votes+')');
 				await new Promise(r => setTimeout(r, 300));
 			}
 		}

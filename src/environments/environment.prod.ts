@@ -11,5 +11,5 @@ export const environment = {
 	},
 	useHash: false,
 	appBaseHref: '/',
-	libraryData: 'files' // files || firestore
+	dataBaseHref: 'https://sk.adventurersbg.info/'
 };

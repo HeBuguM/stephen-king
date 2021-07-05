@@ -6,8 +6,8 @@
 					<tr>
 						<th><i class="fa fa-database mr-2"></i> База данни</th>
 						<th>
-							<i class="fa fa-refresh text-secondary click" (click)="loadData()" *ngIf="!books$ || !editions$ || !shorts$ || !book_shorts$ || !edition_shorts$ || !screen_connections$"></i>
-							<i class="fa fa-download click text-secondary" (click)="exportTable('database')" *ngIf="books$ && editions$ && shorts$ && book_shorts$ && edition_shorts$ && screen_connections$"></i>
+							<i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData()"></i>
+							<i class="fa fa-download click text-secondary" (click)="exportDatabase()" *ngIf="books$ && editions$ && shorts$ && book_shorts$ && edition_shorts$ && edition_isbns$ && onscreen_connections$"></i>
 						</th>
 					</tr>
 				</thead>
@@ -15,43 +15,49 @@
 					<tr>
 						<td><i class="fa fa-book mr-2"></i> Книги</td>
 						<td>
-							<span class="text-secondary" *ngIf="books$ ; else loadBooks">{{ books$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('books')"></i></span><ng-template #loadBooks><i class="fa fa-refresh text-secondary click" (click)="loadData('books')"></i></ng-template>
+							<span class="text-secondary" *ngIf="books$">{{ books$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('books')"></i>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-language mr-2"></i> Издания</td>
 						<td>
-							<span class="text-secondary" *ngIf="editions$ ; else loadEditions">{{ editions$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('editions')"></i></span><ng-template #loadEditions><i class="fa fa-refresh text-secondary click" (click)="loadData('editions')"></i></ng-template>
+							<span class="text-secondary" *ngIf="editions$">{{ editions$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('editions')"></i>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-file-o mr-2"></i> Разкази</td>
 						<td>
-							<span class="text-secondary" *ngIf="shorts$ ; else loadShorts">{{ shorts$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('shorts')"></i></span><ng-template #loadShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('shorts')"></i></ng-template>
+							<span class="text-secondary" *ngIf="shorts$">{{ shorts$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('shorts')"></i>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-film mr-2"></i> Екранизации</td>
 						<td>
-							<span class="text-secondary" *ngIf="screens$ ; else loadScreens">{{ screens$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('onscreen')"></i></span><ng-template #loadScreens><i class="fa fa-refresh text-secondary click" (click)="loadData('screens')"></i></ng-template>
+							<span class="text-secondary" *ngIf="screens$">{{ screens$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('screens')"></i>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-link"></i><i class="fa fa-book mr-2"></i> Книги - Разкази</td>
 						<td>
-							<span class="text-secondary" *ngIf="book_shorts$  ; else loadBookShorts">{{ book_shorts$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('book-shorts')"></i></span><ng-template #loadBookShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('book-shorts')"></i></ng-template>
+							<span class="text-secondary" *ngIf="book_shorts$">{{ book_shorts$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('book_shorts')"></i>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-link"></i><i class="fa fa-language mr-2"></i> Издания - Разкази</td>
 						<td>
-							<span class="text-secondary" *ngIf="edition_shorts$  ; else loadEditionShorts">{{ edition_shorts$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('edition-shorts')"></i></span><ng-template #loadEditionShorts><i class="fa fa-refresh text-secondary click" (click)="loadData('edition-shorts')"></i></ng-template>
+							<span class="text-secondary" *ngIf="edition_shorts$">{{ edition_shorts$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('edition_shorts')"></i>
 						</td>
 					</tr>
 					<tr>
 						<td><i class="fa fa-link"></i><i class="fa fa-film mr-2"></i> Връзки екранизации</td>
 						<td>
-							<span class="text-secondary" *ngIf="screen_connections$  ; else loadScreenConnections">{{ screen_connections$.length }} <i class="fa fa-download click text-secondary" (click)="exportTable('onscreen-connections')"></i></span><ng-template #loadScreenConnections><i class="fa fa-refresh text-secondary click" (click)="loadData('screen-connections')"></i></ng-template>
+							<span class="text-secondary" *ngIf="onscreen_connections$">{{ onscreen_connections$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('onscreen_connections')"></i>
+						</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-language mr-2"></i><i class="fa fa-barcode mr-2"></i> Издания - ISBNs</td>
+						<td>
+							<span class="text-secondary" *ngIf="edition_isbns$">{{ edition_isbns$.length }}</span> <i class="fa fa-refresh text-secondary click float-right mt-1" (click)="loadData('edition_isbns')"></i>
 						</td>
 					</tr>
 				</tbody>
@@ -83,10 +89,11 @@
 							<a class="dropdown-item click" *ngIf="books$ && shorts$" (click)="editBookShort(null);openModal(modalForms)">Книга-Разказ</a>
 							<a class="dropdown-item click" *ngIf="editions$ && shorts$" (click)="editEditionShort(null);openModal(modalForms)">Издание-Разказ</a>
 							<a class="dropdown-item click" *ngIf="books$ && shorts$ && screens$" (click)="editScreenConnection(null);openModal(modalForms)">Екранизация-Връзка</a>
+							<a class="dropdown-item click" *ngIf="editions$ && edition_isbns$" (click)="editEditionISBN(null);openModal(modalForms)">Издание-ISBN</a>
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link click" [ngClass]="{'active': showData}" (click)="changeSection('data')">Данни</a>
+						<a class="nav-link click" [ngClass]="{'active': showSitemap}" (click)="changeSection('sitemap')"><i class="fa fa-sitemap"></i></a>
 					</li>
 				</ul>
 				<button class="btn btn-warning ml-2" (click)="updateCustom()" [hidden]="true">Обнови (custom)</button>
@@ -247,6 +254,27 @@
 									</table>
 								</div>
 							</div>
+							<div *ngIf="getEditionISBNs(edition.edition_id) as isbns">
+								<small *ngIf="isbns.length > 0 ;else noISBNs">
+									<a data-toggle="collapse" href="#editionISBNs{{edition.edition_id}}" aria-expanded="false" attr.aria-controls="editionISBNs{{edition.edition_id}}" *ngIf="isbns.length > 0">
+										ISBNs ({{ isbns.length }})
+									</a>
+								</small>
+								<div class="collapse" id="editionISBNs{{edition.edition_id}}" *ngIf="isbns.length > 0">
+									<table class="table table-sm mt-2">
+										<tr *ngFor="let isbn of isbns">
+											<td>{{ isbn.isbn }}</td>
+											<td class="text-secondary">
+												<i class="fa fa-wrench click float-right ml-2" (click)="editEditionISBN(isbn);openModal(modalForms)"></i> {{ isbn.info }}
+											</td>
+										</tr>
+									</table>
+									<small class="text-secondary click" (click)="editEditionISBN({edition_id: edition.edition_id, id: 0,isbn: '',info: ''});openModal(modalForms)"><i class="fa fa-plus"></i> Добави ISBN</small>
+								</div>
+								<ng-template #noISBNs>
+									<small class="text-secondary click" (click)="editEditionISBN({edition_id: edition.edition_id, id: 0,isbn: '',info: ''});openModal(modalForms)"><i class="fa fa-plus"></i> Добави ISBN</small>
+								</ng-template>
+							</div>
 						</td>
 						<td style="text-align: center;vertical-align: middle;">
 							<span class="text-secondary">{{ edition.published }}</span>
@@ -321,10 +349,9 @@
 										<tr *ngFor="let edition of shorts">
 											<td>{{ edition.position }}</td>
 											<td class="text-secondary">
-												<i class="fa fa-wrench click float-right ml-2" (click)="editEditionShort(edition);openModal(modalForms)"></i>
 												{{ getEdition(edition.edition_id).title }}
 											</td>
-											<td>{{ edition.title }}</td>
+											<td><i class="fa fa-wrench click float-right ml-2" (click)="editEditionShort(edition);openModal(modalForms)"></i> {{ edition.title }}</td>
 										</tr>
 									</table>
 								</div>
@@ -390,10 +417,10 @@
 											</td>
 										</tr>
 									</table>
-									<small class="text-secondary click" (click)="editScreenConnection({onscreen_id: screen.onscreen_id,book_id: '',short_id: '', type: 'Базиран',info: 'Базиран на романа'});openModal(modalForms)"><i class="fa fa-plus"></i> Добави връзка</small>
+									<small class="text-secondary click" (click)="editScreenConnection({id: 0,onscreen_id: screen.onscreen_id,book_id: '',short_id: '', type: 'Базиран',info: 'Базиран на романа'});openModal(modalForms)"><i class="fa fa-plus"></i> Добави връзка</small>
 								</div>
 								<ng-template #noConnections>
-									<small class="text-secondary click" (click)="editScreenConnection({onscreen_id: screen.onscreen_id,book_id: '',short_id: '', type: 'Базиран',info: 'Базиран на романа'});openModal(modalForms)"><i class="fa fa-plus"></i> Добави връзка</small>
+									<small class="text-secondary click" (click)="editScreenConnection({id: 0,onscreen_id: screen.onscreen_id,book_id: '',short_id: '', type: 'Базиран',info: 'Базиран на романа'});openModal(modalForms)"><i class="fa fa-plus"></i> Добави връзка</small>
 								</ng-template>
 							</div>
 						</td>
@@ -437,28 +464,12 @@
 				</tbody>
 			</table>
 
-			<div *ngIf="showData">
-				<button class="btn btn-primary inline-block" (click)="exportFirestoreBooks()">Export</button>
+			<div *ngIf="showSitemap">
 				<div class="text-secondary mt-2">
-					Книги
-					<button class="btn btn-primary btn-sm" (click)="downloadJSON('books')" *ngIf="exportJSONbooks"><i class="fa fa-save"></i> Свали файл</button>
-					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('books')" *ngIf="exportJSONbooks"><i class="fa fa-upload"></i> Обнови Firestore</button>
+					<button class="btn btn-primary btn-sm" (click)="exportSitemap()" *ngIf="!exportXMLsitemap"><i class="fa fa-cogs"></i></button>
+					<button class="btn btn-primary btn-sm" (click)="downloadXML('sitemap')" *ngIf="exportXMLsitemap"><i class="fa fa-save"></i></button>
 				</div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="4">{{ exportJSONbooks }}</textarea>
-				<div class="text-secondary mt-2">
-					Разкази
-					<button class="btn btn-primary btn-sm" (click)="downloadJSON('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-save"></i> Свали файл</button>
-					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('shorts')" *ngIf="exportJSONshorts"><i class="fa fa-upload"></i> Обнови Firestore</button>
-				</div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="4">{{ exportJSONshorts }}</textarea>
-				<div class="text-secondary mt-2">
-					Екранизации
-					<button class="btn btn-primary btn-sm" (click)="downloadJSON('onscreen')" *ngIf="exportJSONscreens"><i class="fa fa-save"></i> Свали файл</button>
-					<button class="btn btn-primary btn-sm ml-2" (click)="updateFirestoreData('onscreen')" *ngIf="exportJSONscreens"><i class="fa fa-upload"></i> Обнови Firestore</button>
-				</div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="4">{{ exportJSONscreens }}</textarea>
-				<div class="text-secondary mt-2">Sitemap <button class="btn btn-primary btn-sm" (click)="downloadXML('sitemap')" *ngIf="exportXMLsitemap"><i class="fa fa-save"></i></button></div>
-				<textarea class="form-control mt-3" spellcheck="false" rows="6">{{ exportXMLsitemap }}</textarea>
+				<textarea class="form-control mt-3" spellcheck="false" rows="24">{{ exportXMLsitemap }}</textarea>
 			</div>
 		</div>
 	</div>
@@ -583,11 +594,11 @@
 				<label class="col-2 col-form-label">Предстоящо</label>
 				<div class="col-10 mt-2">
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" value="1">
 						<label class="form-check-label" for="Yes">Да</label>
 					  </div>
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" value="0">
 						<label class="form-check-label" for="No">Не</label>
 					  </div>
 				</div>
@@ -638,24 +649,6 @@
 				</div>
 			</div>
 			<div class="form-group mb-1 row">
-				<label class="col-2 col-form-label">ISBNs <span class="btn btn-outline-secondary px-1 py-0 float-right" (click)="addISBN(editionForm)"><i class="fa fa-plus"></i></span></label>
-				<div class="col-10">
-					<div formArrayName="ISBNs" *ngFor="let time of editionForm.get('ISBNs')['controls']; let i = index;">
-						<div class="row" [formGroupName]="i">
-							<div class="col-4">
-								<input class="form-control" placeholder="ISBN" formControlName="ISBN">
-							</div>
-							<div class="col-7">
-								<input class="form-control" placeholder="Пояснение (ISBN-10, ISBN-13, Корица)" formControlName="info">
-							</div>
-							<div class="col-1 px-0">
-								<span class="btn btn-outline-secondary" (click)="removeISBN(i)"><i class="fa fa-minus"></i></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Превод</label>
 				<div class="col-10">
 					<input formControlName="translators" class="form-control">
@@ -689,11 +682,11 @@
 				<label class="col-2 col-form-label">Предстоящо</label>
 				<div class="col-10 mt-2">
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" value="1">
 						<label class="form-check-label" for="Yes">Да</label>
 					  </div>
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" value="0">
 						<label class="form-check-label" for="No">Не</label>
 					  </div>
 				</div>
@@ -798,11 +791,11 @@
 				<label class="col-2 col-form-label">Предстоящо</label>
 				<div class="col-10 mt-2">
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" value="1">
 						<label class="form-check-label" for="Yes">Да</label>
 					  </div>
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" value="0">
 						<label class="form-check-label" for="No">Не</label>
 					  </div>
 				</div>
@@ -858,7 +851,7 @@
 					<span class="btn btn-primary" (click)="seoTransform(screenForm)"><i class="fa fa-random"></i></span>
 				</div>
 				<div class="col-4 pl-0">
-					<input id="textinput" formControlName="slug" class="form-control" type="text">
+					<input id="textinput" formControlName="slug" class="form-control" type="text" required>
 				</div>
 			</div>
 			<div class="form-group mb-1 row">
@@ -998,11 +991,11 @@
 				<label class="col-2 col-form-label">Предстоящо</label>
 				<div class="col-10 mt-2">
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" [value]="1">
+						<input class="form-check-input" type="radio" id="Yes" formControlName="upcoming" value="1">
 						<label class="form-check-label" for="Yes">Да</label>
 					  </div>
 					  <div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" [value]="0">
+						<input class="form-check-input" type="radio" id="No" formControlName="upcoming" value="0">
 						<label class="form-check-label" for="No">Не</label>
 					  </div>
 				</div>
@@ -1018,6 +1011,7 @@
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Книга</label>
 				<div class="col-10">
+					<input class="form-control" type="hidden" formControlName="id">
 					<select formControlName="book_id" class="form-control">
 						<option value="">Избери книга</option>
 						<optgroup label="Книги" *ngIf="books$">
@@ -1055,9 +1049,10 @@
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Издание</label>
 				<div class="col-10">
+					<input class="form-control" type="hidden" formControlName="id">
 					<select formControlName="edition_id" class="form-control">
 						<option value="">Избери издание</option>
-						<optgroup label="Книги" *ngIf="books$">
+						<optgroup label="Издания" *ngIf="editions$">
 							<option *ngFor="let edition of lib.sortObject(editions$,'title')" value="{{ edition.edition_id }}">
 								{{ edition.title + ' ('+ edition.published.split("-")[0] + ')' }}
 							</option>
@@ -1095,6 +1090,40 @@
 		</form>
 
 <!-- #####
+	Форма Издания-ISBNs
+	#####
+-->
+		<form [formGroup]="editionISBNForm" (ngSubmit)="onEditionISBNFormSubmit()" class="mt-3" *ngIf="showEditionsISBNsForm">
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Издание</label>
+				<div class="col-10">
+					<input class="form-control" type="hidden" formControlName="id">
+					<select formControlName="edition_id" class="form-control">
+						<option value="">Избери издание</option>
+						<optgroup label="Издания" *ngIf="editions$">
+							<option *ngFor="let edition of lib.sortObject(editions$,'title')" value="{{ edition.edition_id }}">
+								{{ edition.title + ' ('+ edition.published.split("-")[0] + ')' }}
+							</option>
+						</optgroup>
+					</select>
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">ISBN</label>
+				<div class="col-10">
+					<input class="form-control" placeholder="ISBN" formControlName="isbn">
+				</div>
+			</div>
+			<div class="form-group mb-1 row">
+				<label class="col-2 col-form-label">Инфо</label>
+				<div class="col-10">
+					<input class="form-control" placeholder="Пояснение (ISBN-10, ISBN-13, Корица)" formControlName="info">
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary float-right" [disabled]="!editionISBNForm.valid"><i class="fa fa-save"></i> Запази</button>
+		</form>
+
+<!-- #####
 	Форма Екранизации-Връзки
 	#####
 -->
@@ -1102,6 +1131,7 @@
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Екранизация</label>
 				<div class="col-10">
+					<input class="form-control" type="hidden" formControlName="id">
 					<select formControlName="onscreen_id" class="form-control">
 						<option value="">Избери екранизация</option>
 						<optgroup label="Екранизация" *ngIf="screens$">

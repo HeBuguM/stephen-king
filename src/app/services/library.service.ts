@@ -12,9 +12,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 	providedIn: 'root'
 })
 export class LibraryService {
-	private booksUrl: string = environment.appBaseHref + 'assets/data/books.json';
-	private shortsUrl: string = environment.appBaseHref + 'assets/data/shorts.json';
-	private onscreenUrl: string = environment.appBaseHref + 'assets/data/onscreen.json';
+	private booksUrl: string = environment.dataBaseHref + 'books.php';
+	private shortsUrl: string = environment.dataBaseHref + 'shorts.php';
+	private onscreenUrl: string = environment.dataBaseHref + 'onscreen.php';
 
 	public book_series = [
 		{'en': 'Bill Hodges','bg': 'Бил Ходжис'},
@@ -97,30 +97,16 @@ export class LibraryService {
 	}
 
 	getBooks(): Observable<Book[]> {
-		if(environment.libraryData == 'files') {
-			return this.http.get<Book[]>(this.booksUrl);
-		}
-		if(environment.libraryData == 'firestore') {
-			return this.afs.doc<Book[]>(`data/books`).valueChanges();
-		}
+		return this.http.get<Book[]>(this.booksUrl);
 	}
 
 	getShorts(): Observable<Short[]> {
-		if(environment.libraryData == 'files') {
-			return this.http.get<Short[]>(this.shortsUrl);
-		}
-		if(environment.libraryData == 'firestore') {
-			return this.afs.doc<Short[]>(`data/shorts`).valueChanges();
-		}
+		return this.http.get<Short[]>(this.shortsUrl);
+
 	}
 
 	getOnscreens(): Observable<Onscreen[]> {
-		if(environment.libraryData == 'files') {
-			return this.http.get<Onscreen[]>(this.onscreenUrl);
-		}
-		if(environment.libraryData == 'firestore') {
-			return this.afs.doc<Array<Onscreen>>(`data/onscreen`).valueChanges();
-		}
+		return this.http.get<Onscreen[]>(this.onscreenUrl);
 	}
 
 	combineShorts(edition_shorts, book_shorts) {

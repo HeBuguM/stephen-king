@@ -13,9 +13,9 @@ export const environment = {
 		messagingSenderId: "565526373313",
 		appId: "1:565526373313:web:4705dc6d41da71d9488540"
 	},
-	appBaseHref: '/',
 	useHash: false,
-	libraryData: 'files' // files || firestore
+	appBaseHref: '/',
+	dataBaseHref: 'https://sk.adventurersbg.info/'
 };
 
 /*
