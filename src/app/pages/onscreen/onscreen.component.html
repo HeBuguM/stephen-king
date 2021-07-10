@@ -88,7 +88,7 @@
 	<div class="onscreen-grid d-flex flex-wrap justify-content-between align-items-stretch mt-2 mx-n2" *ngIf="onscreen_layout  == 'grid'">
 		<div class="onscreen-card" *ngFor="let screen of filtered_screens">
 			<div [ngClass]="{'onscreen-poster': true, 'watched': lib.isScreenWatched(screen),'position-relative': true}">
-				<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+				<a [routerLink]="['/',lib.urlType(screen.type),screen.slug]" href="{{ '/'+lib.urlType(screen.type)+'/'+ screen.slug }}">
 					<img class="rounded shadow-sm" src="{{screen.poster}}" alt="Постер" *ngIf="screen.poster">
 					<img class="bg-crow rounded border shadow-sm" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;" alt="Постер">
 				</a>
@@ -99,7 +99,7 @@
 			</div>
 			<div class="onscreen-title mt-2">
 				<div class="text-secondary"><small class="font-weight-bold">{{lib.getSeriesTitle(screen.title)}}</small></div>
-				<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+				<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug]" href="{{ '/'+lib.urlType(screen.type)+'/'+screen.slug }}">
 					{{ this.lib.screenTitle(screen.title) }}
 				</a>
 				<small class="text-secondary" *ngIf="screen.year">
@@ -127,7 +127,7 @@
 					<td class="align-middle">
 						<div class="d-flex justify-content-between align-items-center position-relative">
 							<div>
-								<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+								<a class="inherit-color-link" [routerLink]="['/',lib.urlType(screen.type),screen.slug]" href="{{ '/'+lib.urlType(screen.type)+'/'+ screen.slug }}">
 									{{ this.lib.screenTitle(screen.title) }}
 								</a>
 								<small class="text-secondary" *ngIf="screen.year">

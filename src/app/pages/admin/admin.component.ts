@@ -455,7 +455,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://stephen-king.info/books/'+this.lib.urlType(book.type)+'/'+this.lib.seoUrl(book.title)+'</loc>\n\
+		<loc>https://stephen-king.info/books/'+this.lib.urlType(book.type)+'/'+book.slug+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -466,7 +466,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://stephen-king.info/stories/'+this.lib.urlType(short.type)+'/'+this.lib.seoUrl(short.title)+'</loc>\n\
+		<loc>https://stephen-king.info/stories/'+this.lib.urlType(short.type)+'/'+short.slug+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});
@@ -477,7 +477,7 @@ export class AdminComponent implements OnInit {
 			}
 			this.exportXMLsitemap_additional = this.exportXMLsitemap_additional + ('\n\
 	<url>\n\
-		<loc>https://stephen-king.info/'+this.lib.urlType(screen.type)+'/'+(screen.slug ? screen.slug : this.lib.seoUrl(screen.title))+'</loc>\n\
+		<loc>https://stephen-king.info/'+this.lib.urlType(screen.type)+'/'+screen.slug+'</loc>\n\
 		<lastmod>'+lastmod+'</lastmod>\n\
 	</url>');
 		});

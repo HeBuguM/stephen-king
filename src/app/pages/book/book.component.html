@@ -188,7 +188,7 @@
 							<tr *ngFor="let short of book.shorts">
 								<td class="text-secondary"><small>{{ short.position != 0 ? short.position : ""}}</small></td>
 								<td>
-									<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),lib.seoUrl(short.title)]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+lib.seoUrl(short.title) }}">{{ short.title }}</a>
+									<a class="short-title" [routerLink]="['/stories',lib.urlType(short.type),short.title]" href="{{ '/stories/'+lib.urlType(short.type)+'/'+short.slug}}">{{ short.title }}</a>
 									<div class="text-secondary font-italic" *ngIf="short.subtitle">{{ short.subtitle }}</div>
 								</td>
 								<td class="align-middle">
@@ -212,7 +212,7 @@
 								<div class="media-body">
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
 										<h4 class="mt-0">
-											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug]" href="{{'/'+lib.urlType(screen.type)+'/'+screen.slug}}">
 												{{ this.lib.screenTitle(screen.title) }}
 											</a>
 											<small class="text-secondary" *ngIf="screen.year" >

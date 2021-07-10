@@ -138,7 +138,7 @@
 								<img class="mr-3 click rounded shadow-sm" src="assets/covers/books/medium/{{book.book_id}}.jpg" style="height: 126px;width:86px" alt="Корица" placement="right auto" [autoClose]="'outside'" [ngbPopover]="popContent">
 								<div class="media-body align-self-center">
 									<h4 class="mt-0">
-										<a [routerLink]="['/books/collection/',lib.seoUrl(book.title)]" href="{{ '/books/collection/'+'/'+lib.seoUrl(book.title) }}">{{ book.title }}</a>
+										<a [routerLink]="['/books/collection/',book.slug]" href="{{ '/books/collection/'+'/'+book.slug }}">{{ book.title }}</a>
 									</h4>
 									<div class="row">
 										<div class="col-4 col-md-4 col-lg-3 text-secondary">Публикуван</div><div class="col-8 col-md-8 col-lg-9">{{ lib.publishedDate(book.published,'first_long') }}</div>
@@ -162,7 +162,7 @@
 								<div class="media-body">
 									<div class="d-inline-block align-top" style="width: calc(100% - 120px);">
 										<h4 class="mt-0">
-											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug ? screen.slug : lib.seoUrl(screen.title)]" href="{{ '/'+lib.urlType(screen.type)+'/'+ (screen.slug ? screen.slug : lib.seoUrl(screen.title)) }}">
+											<a [routerLink]="['/',lib.urlType(screen.type),screen.slug]" href="{{'/'+lib.urlType(screen.type)+'/'+screen.slug}}">
 												{{ this.lib.screenTitle(screen.title) }}
 											</a>
 											<small class="text-secondary" *ngIf="screen.year" >

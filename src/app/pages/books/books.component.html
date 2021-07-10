@@ -120,7 +120,7 @@
 								<img src="assets/covers/books/small/{{book.book_id}}.jpg" loading="lazy" alt="">
 							</div>
 							<div class="media-body">
-								<a class="book-title inherit-color-link" [routerLink]="['/books/',lib.urlType(book.type),lib.seoUrl(book.title)]" href="{{ '/books/'+lib.urlType(book.type)+'/'+lib.seoUrl(book.title) }}">
+								<a class="book-title inherit-color-link" [routerLink]="['/books/',lib.urlType(book.type),book.slug]" href="{{ '/books/'+lib.urlType(book.type)+'/'+book.slug }}">
 									{{ book.title }}
 									<small class="text-secondary" *ngIf="lib.isUpcoming(book.upcoming,book.published)">(предстоящо)</small>
 								</a>
