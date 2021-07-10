@@ -96,17 +96,17 @@ export class LibraryService {
 		return return_date;
 	}
 
-	getBooks(): Observable<Book[]> {
-		return this.http.get<Book[]>(this.booksUrl);
+	getBooks(slug = ''): Observable<Book[]> {
+		return this.http.get<Book[]>(this.booksUrl+(slug ? '?slug='+slug : ''));
 	}
 
-	getShorts(): Observable<Short[]> {
-		return this.http.get<Short[]>(this.shortsUrl);
+	getShorts(slug = ''): Observable<Short[]> {
+		return this.http.get<Short[]>(this.shortsUrl+(slug ? '?slug='+slug : ''));
 
 	}
 
-	getOnscreens(): Observable<Onscreen[]> {
-		return this.http.get<Onscreen[]>(this.onscreenUrl);
+	getOnscreens(slug = ''): Observable<Onscreen[]> {
+		return this.http.get<Onscreen[]>(this.onscreenUrl+(slug ? '?slug='+slug : ''));
 	}
 
 	combineShorts(edition_shorts, book_shorts) {

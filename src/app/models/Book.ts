@@ -2,29 +2,30 @@ export class Book {
 	book_id: number; // book_id elsewhere
 	type: string;
 	title: string;
+	slug: string;
 	published: string;
 	publisher: string;
 	pages: number;
-	synopsis: string;
-	note: string;
-	alterations: string;
+	synopsis?: string;
+	note?: string;
+	alterations?: string;
 	series_name: string;
 	series_no: number;
 	pseudonym: string;
 	co_writers: string;
-	wikipedia: string;
-	official_site: string;
-	goodreads: number;
+	wikipedia?: string;
+	official_site?: string;
+	goodreads?: number;
 	editions: Array<BookEditions>;
-	shorts: Array<BookShort>;
-	onscreen: Array<BookScreens>;
+	shorts?: Array<BookShort>;
+	onscreen?: Array<BookScreens>;
 	upcoming: number;
 }
 
 export class BookEditions {
 	edition_id: number;
 	book_id: number;
-	language: 'bg' | 'en'; // Only 'bg' so far
+	language?: 'bg' | 'en'; // Only 'bg' so far
 	group_id: number;
 	title: string;
 	published: string; // YYYY-MM-DD | YYYY-MM | YYYY
@@ -32,9 +33,9 @@ export class BookEditions {
 	pages: number;
 	translators: string; // Translator Names (comma separated)
 	narrators: string;
-	note: string;
+	note?: string;
 	goodreads: number;
-	shorts: Array<EditionShort>
+	shorts?: Array<EditionShort>
 }
 
 export class BookShort {

@@ -1,4 +1,6 @@
 <main>
+	<app-loading-spinner *ngIf="loadingState"></app-loading-spinner>
+	<ng-template [ngIf]="!loadingState">
 	<div class="container-xl mt-4" *ngIf="screen">
 		<div class="row mt-n2 mb-3">
 			<div class="col-12" style="font-size: 13px !important;">
@@ -231,6 +233,7 @@
 		</div>
 	</div>
 </div>
+	</ng-template>
 </main>
 
 <ng-template #playerModal let-modal>

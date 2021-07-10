@@ -14,9 +14,10 @@ import { SeoService } from 'src/app/services/seo.service';
 })
 export class BookComponent implements OnInit {
 	@Input() slug: string;
-	@Input() book$: Book;
 	book: Book;
 	youtubeId:string = '';
+	changeSeoTags: boolean = false;
+	loadingState = true;
 
 	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
@@ -25,10 +26,12 @@ export class BookComponent implements OnInit {
 			this.route.paramMap.subscribe(params => {
 				this.slug = params.get('slug');
 			});
+			this.changeSeoTags = true;
 		}
-		if (this.book$ == null) {
-			this.lib.getBooks().subscribe(books => {
-				this.book = Object.values(books).filter(book => this.lib.seoUrl(book.title) == this.slug)[0];
+		this.lib.getBooks(this.slug).subscribe(books => {
+			this.book = Object.values(books)[0];
+			this.loadingState = false;
+			if(this.changeSeoTags == true) {
 				let bg_titles = [];
 				if(this.book.editions.length) {
 					this.book.editions.forEach(edition => {
@@ -41,10 +44,8 @@ export class BookComponent implements OnInit {
 					image: `https://stephen-king.info/assets/covers/books/large/${this.book.book_id}.jpg`,
 					slug: this.slug
 				});
-			})
-		} else {
-			this.book = this.book$;
-		}
+			}
+		});
 	}
 
 	openPlayerModal(content) {

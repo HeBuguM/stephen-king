@@ -5,31 +5,28 @@ export class Onscreen {
 	type: string;
 	status: string;
 	imdb_id: string;
-	tmdb_id: string;
+	tmdb_id?: string;
 	year: string;
 	released: string;
 	rated: string;
-	runtime: number;
-	seasons: number;
-	episodes: number;
-	genres: string;
+	runtime?: number;
+	seasons?: number;
+	episodes?: number;
 	poster: string;
-	directors: string;
-	writers: string;
-	production: string;
+	production?: string;
 	network: string;
 	imdb_rating: number;
-	imdb_votes: number;
+	imdb_votes?: number;
 	rotten_tomatoes: number;
 	metascore: number;
-	language: string;
-	country: string;
-	budget: number
-	trailer: string;
-	wikipedia: string;
-	official_site: string;
-	books: Array<BookConnection>
-	shorts: Array<any>
+	language?: string;
+	country?: string;
+	budget?: number
+	trailer?: string;
+	wikipedia?: string;
+	official_site?: string;
+	books?: Array<BookConnection>
+	shorts?: Array<any>
 	upcoming: number;
 }
 

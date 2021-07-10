@@ -3,19 +3,20 @@ export class Short {
     type:string;
     title:string;
     subtitle: string;
+	slug: string;
     first_pub_date: string; // YYYY-MM-DD | YYYY-MM | YYYY
 	first_pub_in: string;
-	synopsis: string;
-	note:string;
-	wikipedia:string;
-    official_site: string;
-    goodreads:number;
+	synopsis?: string;
+	note?:string;
+	wikipedia?:string;
+    official_site?: string;
+    goodreads?:number;
     first_collected: number;
     collection_title: string;
-    collection_published: string;
-    books: Array<ShortBooks>;
-	editions:Array<ShortEditions>;
-	onscreen: Array<ShortScreens>;
+    collection_published?: string;
+    books?: Array<ShortBooks>;
+	editions?:Array<ShortEditions>;
+	onscreen?: Array<ShortScreens>;
 	upcoming: number;
 }
 
@@ -32,7 +33,9 @@ export class ShortEditions {
 	subtitle: string;
     edition_title: string;
 	published: string; // YYYY-MM-DD | YYYY-MM | YYYY,
-	publisher: string;
+	publisher?: string;
+	translators?: string;
+	narrators?: string;
 }
 
 export class ShortScreens {

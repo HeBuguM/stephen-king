@@ -14,23 +14,24 @@ import { SeoService } from 'src/app/services/seo.service';
 })
 export class ShortComponent implements OnInit {
 	@Input() slug: string;
-	@Input() short$: Short;
 	short: Short;
 	youtubeId:string = '';
+	changeSeoTags: boolean = false;
+	loadingState = true;
 
 	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService, private modalService: NgbModal) { }
 
 	ngOnInit() {
-
 		if (this.slug == null) {
 			this.route.paramMap.subscribe(params => {
-				// this.type = params.get('type');
 				this.slug = params.get('slug');
 			});
+			this.changeSeoTags = true;
 		}
-		if (this.short$ == null) {
-			this.lib.getShorts().subscribe(shorts => {
-				this.short = Object.values(shorts).filter(short => this.lib.seoUrl(short.title) == this.slug)[0];
+		this.lib.getShorts(this.slug).subscribe(shorts => {
+			this.short = Object.values(shorts)[0];
+			this.loadingState = false;
+			if(this.changeSeoTags == true) {
 				let bg_titles = [];
 				if(this.short.editions.length) {
 					this.short.editions.forEach(edition => {
@@ -43,11 +44,8 @@ export class ShortComponent implements OnInit {
 					image: this.short.first_collected ? `https://stephen-king.info/assets/covers/shorts/large/${this.short.short_id}.jpg` : ``,
 					slug: this.slug
 				});
-			})
-		} else {
-			this.short = this.short$;
-		}
-
+			}
+		})
 	}
 
 	openPlayerModal(content) {

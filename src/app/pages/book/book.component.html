@@ -1,4 +1,6 @@
 <main>
+	<app-loading-spinner *ngIf="loadingState"></app-loading-spinner>
+	<ng-template [ngIf]="!loadingState">
 	<div class="container-xl mt-4" *ngIf="book">
 		<div class="row mt-n2 mb-3">
 			<div class="col-12" style="font-size: 13px !important;">
@@ -43,9 +45,9 @@
 			</div>
 			<div class="col-md-8 col-lg-9 mb-4">
 				<div class="pb-4">
-					<a *ngIf="book.goodreads > 0" placement="top" ngbTooltip="Goodreads" class="btn btn-outline-secondary float-right m-1" href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -6px"></a>
-					<a *ngIf="book.wikipedia != ''" placement="top" ngbTooltip="Wikipedia" class="btn btn-outline-secondary float-right m-1" href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
-					<a *ngIf="book.official_site != ''" placement="top" ngbTooltip="StephenKing.com" class="btn btn-outline-secondary float-right m-1" href="https://stephenking.com/works/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
+					<a *ngIf="book.goodreads" placement="top" ngbTooltip="Goodreads" class="btn btn-outline-secondary float-right m-1" href="https://www.goodreads.com/book/show/{{ book.goodreads }}" target="_blank"><img src="assets/img/goodreads_small.png" alt="G" style="margin-top: -6px"></a>
+					<a *ngIf="book.wikipedia" placement="top" ngbTooltip="Wikipedia" class="btn btn-outline-secondary float-right m-1" href="https://en.wikipedia.org/wiki/{{ book.wikipedia }}" target="_blank"><img src="assets/img/wikipedia_small.png" alt="W" style="margin-top: -6px"></a>
+					<a *ngIf="book.official_site" placement="top" ngbTooltip="StephenKing.com" class="btn btn-outline-secondary float-right m-1" href="https://stephenking.com/works/{{ book.official_site }}" target="_blank"><img src="assets/img/sk_official_32.png" width="16" alt="SK" style="margin-top: -6px"></a>
 					<h1>{{ book.title }}</h1>
 					<p *ngIf="book.series_name" class="text-secondary">({{ book.series_name}} #{{ book.series_no}})</p>
 					<p>
@@ -254,6 +256,7 @@
 			</div>
 		</div>
 	</div>
+	</ng-template>
 </main>
 
 <ng-template #playerModal let-modal>

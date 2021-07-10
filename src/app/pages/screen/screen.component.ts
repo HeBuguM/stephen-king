@@ -16,9 +16,9 @@ import { range, Subscription } from 'rxjs';
 })
 export class ScreenComponent implements OnInit {
 	@Input() slug: string;
-	@Input() screen$: Onscreen;
 	screen: Onscreen;
 	youtubeId:string = '';
+	loadingState = true;
 
 	cast_crew;
 	subscriptionCastCrew: Subscription;
@@ -32,48 +32,38 @@ export class ScreenComponent implements OnInit {
 	constructor(private route: ActivatedRoute, public lib: LibraryService, private seo: SeoService, private modalService: NgbModal, private TMDb: TMDbService) { }
 
 	ngOnInit() {
-
 		if (this.slug == null) {
 			this.route.paramMap.subscribe(params => {
 				this.slug = params.get('slug');
 			});
 		}
-		if (this.screen$ == null) {
-			this.lib.getOnscreens().subscribe(onscreens => {
-				this.screen = Object.values(onscreens).filter(screen => screen.slug == this.slug)[0];
-				if(!this.screen) {
-					this.screen = Object.values(onscreens).filter(screen => this.lib.seoUrl(screen.title) == this.slug)[0];
-				}
-				let connections = [];
-				if(this.screen.books.length) {
-					this.screen.books.forEach(connection => {
-						if(connection.connection_info != '') {
-							connections.push(connection.connection_info);
-						}
-					});
-				}
-				if(this.screen.shorts.length) {
-					this.screen.shorts.forEach(connection => {
-						if(connection.connection_info != '') {
-							connections.push(connection.connection_info);
-						}
-					});
-				}
-				this.seo.generateTags({
-					title: `${this.screen.title} `+(this.screen.year ? '('+this.screen.year +') ' : '')+`| ${this.screen.type} | Стивън Кинг`,
-					description: [...new Set(connections)].join(' | '),
-					image: this.screen.poster ? `${this.screen.onscreen_id}` : ``,
-					slug: this.slug
+		this.lib.getOnscreens(this.slug).subscribe(onscreens => {
+			this.screen = Object.values(onscreens)[0];
+			this.loadingState = false;
+			let connections = [];
+			if(this.screen.books.length) {
+				this.screen.books.forEach(connection => {
+					if(connection.connection_info != '') {
+						connections.push(connection.connection_info);
+					}
 				});
-				this.getCastAndCrew();
-				this.getSeason();
-
-			})
-		} else {
-			this.screen = this.screen$;
+			}
+			if(this.screen.shorts.length) {
+				this.screen.shorts.forEach(connection => {
+					if(connection.connection_info != '') {
+						connections.push(connection.connection_info);
+					}
+				});
+			}
+			this.seo.generateTags({
+				title: `${this.screen.title} `+(this.screen.year ? '('+this.screen.year +') ' : '')+`| ${this.screen.type} | Стивън Кинг`,
+				description: [...new Set(connections)].join(' | '),
+				image: this.screen.poster ? `${this.screen.onscreen_id}` : ``,
+				slug: this.slug
+			});
 			this.getCastAndCrew();
 			this.getSeason();
-		}
+		})
 	}
 
 	ngOnDestroy(): void {
