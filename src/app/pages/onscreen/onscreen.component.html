@@ -89,7 +89,7 @@
 		<div class="onscreen-card" *ngFor="let screen of filtered_screens">
 			<div [ngClass]="{'onscreen-poster': true, 'watched': lib.isScreenWatched(screen),'position-relative': true}">
 				<a [routerLink]="['/',lib.urlType(screen.type),screen.slug]" href="{{ '/'+lib.urlType(screen.type)+'/'+ screen.slug }}">
-					<img class="rounded shadow-sm" src="{{screen.poster}}" alt="Постер" *ngIf="screen.poster">
+					<img class="rounded shadow-sm" src="{{lib.assetImageURL('covers/onscreen/medium',screen.poster)}}" alt="Постер" *ngIf="screen.poster">
 					<img class="bg-crow rounded border shadow-sm" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;" alt="Постер">
 				</a>
 				<div class="onscreen-overlay">
@@ -121,7 +121,7 @@
 						<button class="btn btn-sm btn-outline-success infoLink button-read-toggle"  *ngIf="lib.isScreenWatched(screen) && !lib.isUpcoming(screen.upcoming,screen.released)" (click)="lib.screenWatchedToggle(screen,false);updateWatchedCounter()" aria-label="Отбележи като негледано"><i class="fa fa-fw fa-check"></i></button>
 					</td>
 					<td>
-						<img class="rounded shadow-sm" src="{{screen.poster}}" alt=" " style="height: 76px;width: 51px" *ngIf="screen.poster">
+						<img class="rounded shadow-sm" src="{{lib.assetImageURL('covers/onscreen/small',screen.poster)}}" alt=" " style="height: 76px;width: 51px" *ngIf="screen.poster">
 						<img class="bg-crow rounded border shadow-sm" *ngIf="!screen.poster" src="assets/img/px.png" style="background-size: 75%;height: 76px;width: 51px;" alt="Постер">
 					</td>
 					<td class="align-middle">

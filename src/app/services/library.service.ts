@@ -109,6 +109,13 @@ export class LibraryService {
 		return this.http.get<Onscreen[]>(this.onscreenUrl+(slug ? '?slug='+slug : ''));
 	}
 
+	assetImageURL(dir,value) {
+		if (value.match(/(http:\/\/|https:\/\/)/)) {
+			return value;
+		}
+		return '/assets/'+dir+'/'+value;
+	}
+
 	combineShorts(edition_shorts, book_shorts) {
 		let combined_shorts = [];
 		for (let book_short of book_shorts) {
