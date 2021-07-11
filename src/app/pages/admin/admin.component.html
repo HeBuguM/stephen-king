@@ -502,8 +502,14 @@
 			</div>
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Заглавие</label>
-				<div class="col-10">
-					<input id="textinput" formControlName="title" class="form-control">
+				<div class="col-5 pr-0">
+					<input id="textinput" formControlName="title" class="form-control" type="text">
+				</div>
+				<div class="col-1">
+					<span class="btn btn-primary" (click)="seoTransform(bookForm)"><i class="fa fa-random"></i></span>
+				</div>
+				<div class="col-4 pl-0">
+					<input id="textinput" formControlName="slug" class="form-control" type="text" required>
 				</div>
 			</div>
 			<div class="form-group mb-1 row">
@@ -632,8 +638,14 @@
 			</div>
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Заглавие</label>
-				<div class="col-10">
-					<input formControlName="title" class="form-control">
+				<div class="col-5 pr-0">
+					<input id="textinput" formControlName="title" class="form-control" type="text">
+				</div>
+				<div class="col-1">
+					<span class="btn btn-primary" (click)="seoTransform(editionForm)"><i class="fa fa-random"></i></span>
+				</div>
+				<div class="col-4 pl-0">
+					<input id="textinput" formControlName="slug" class="form-control" type="text" required>
 				</div>
 			</div>
 			<div class="form-group mb-1 row">
@@ -713,8 +725,14 @@
 			</div>
 			<div class="form-group mb-1 row">
 				<label class="col-2 col-form-label">Заглавие</label>
-				<div class="col-10">
-					<input formControlName="title" class="form-control">
+				<div class="col-5 pr-0">
+					<input id="textinput" formControlName="title" class="form-control" type="text">
+				</div>
+				<div class="col-1">
+					<span class="btn btn-primary" (click)="seoTransform(shortForm)"><i class="fa fa-random"></i></span>
+				</div>
+				<div class="col-4 pl-0">
+					<input id="textinput" formControlName="slug" class="form-control" type="text" required>
 				</div>
 			</div>
 			<div class="form-group mb-1 row">

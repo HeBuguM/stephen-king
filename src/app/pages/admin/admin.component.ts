@@ -63,6 +63,7 @@ export class AdminComponent implements OnInit {
 		book_id: [0, Validators.required],
 		type: ['', Validators.required],
 		title: ['', Validators.required],
+		slug: ['', Validators.required],
 		published: [''],
 		publisher: [''],
 		pages: [0],
@@ -85,6 +86,7 @@ export class AdminComponent implements OnInit {
 		language: ['bg'],
 		group_id: [0],
 		title: ['', Validators.required],
+		slug: ['', Validators.required],
 		published: [''],
 		publisher: [''],
 		pages: [0],
@@ -100,6 +102,7 @@ export class AdminComponent implements OnInit {
 		type: [''],
 		title: ['', Validators.required],
 		subtitle: [''],
+		slug: ['', Validators.required],
 		first_pub_date: [''],
 		first_pub_in: [''],
 		first_collected: ['', Validators.required],
@@ -248,6 +251,7 @@ export class AdminComponent implements OnInit {
 				book_id: 0,
 				type: '',
 				title: '',
+				slug: '',
 				published: '',
 				publisher: '',
 				pages: 0,
@@ -274,6 +278,7 @@ export class AdminComponent implements OnInit {
 				type: '',
 				title: '',
 				subtitle: '',
+				slug: '',
 				first_pub_date: '',
 				first_pub_in: '',
 				first_collected: 0,
@@ -331,9 +336,9 @@ export class AdminComponent implements OnInit {
 			data = {
 				edition_id: 0,
 				book_id: 0,
-				language: 'bg',
 				group_id: 0,
 				title: '',
+				slug: '',
 				published: '',
 				publisher: '',
 				pages: 0,
@@ -341,6 +346,7 @@ export class AdminComponent implements OnInit {
 				narrators: '',
 				note: '',
 				goodreads: 0,
+				language: 'bg',
 				upcoming: 0
 			}
 		}

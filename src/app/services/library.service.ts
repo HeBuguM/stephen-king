@@ -358,7 +358,7 @@ export class LibraryService {
 	}
 
 	seoUrl(string) {
-		let seo_url = string.trim().toLowerCase().replace(/[&\\#,+()$~%\.\'":*?<>{}]/g,'').replace(/[^a-zA-Z0-9]/g,"-").replace(/-{2,}/g,"-");
+		let seo_url = string.trim().toLowerCase().replace(/[&\\#,+()$~%\.\'":*?<>{}]/g,'').replace(/[^a-zA-Z0-9а-яА-Я]/g,"-").replace(/-{2,}/g,"-");
 		return seo_url;
 	}
 
